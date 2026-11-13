@@ -863,11 +863,11 @@ are the bad type \((k,t_1t_2)>1\). If \(p\mid t_2\), the second progression
 majorant is symmetric, and the same statement then applies. We therefore
 remove these tuples before the Chinese remainder step.
 The cost in the square is
-\(\ll MT_{\mathrm{int}}L^C[T_{\mathrm{int}}/(zK)+1]\). After the factor \(KM\) of the
+\(\ll MHL^C[H/(zK)+1]\). After the factor \(KM\) of the
 first Cauchy step this is
-\(\ll NL^C(z^{-1/2}+(K/T_{\mathrm{int}})^{1/2})\).
+\(\ll NL^C(z^{-1/2}+(K/H)^{1/2})\).
 That is \(O_A(NL^{-A})\), since
-\(z=N^{1/(\log\log N)^3}\) and \(K/T_{\mathrm{int}}\le N^{-\sigma_{\mathrm p}/2}\).
+\(z=N^{1/(\log\log N)^3}\) and \(K/H\le N^{-\sigma_{\mathrm p}/2}\).
 The zero-mode identity holds for all tuples, including those with gcd
 failures. After the second Cauchy step, Paper~I, Theorem~2.8 bounds the nonzero
 frequencies. It is applied with \(r_{\mathrm{int}}=tt'\), the product of two
@@ -1093,7 +1093,8 @@ restricted arrays, \(b=N\bmod r\) and \(a=N\bmod rs\). Both classes are
 reduced since \((rs,N)=1\), and \(a\equiv b\pmod r\). Thus
 \[
  \Bigl|\sum_{r,s}F(r,s)\mathcal D_{\mathrm{cell}}(rs,N)\Bigr|
- \le\sum_r\max_{(b,r)=1}\sum_s
+ \le\sum_{r\sim Q_1}\max_{(b,r)=1}
+   \sum_{\substack{s\sim Q_2\\\mu(rs)^2=1,\ (rs,N)=1}}
    \max_{\substack{a\bmod rs\\a\equiv b\ (r)\\(a,rs)=1}}
    |\mathcal D_{\mathrm{cell}}(rs,a)|
  \ll_{T_{\mathrm{save}}} NL^{-T_{\mathrm{save}}}.

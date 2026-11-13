@@ -27,17 +27,31 @@ remainder weights*, Zenodo, 2026. DOI: 10.5281/zenodo.23615525.
 [Z2] R. Zhang, *Theorem (1 + 1.8) on the Goldbach conjecture*, Zenodo, 2026.
 DOI: 10.5281/zenodo.23649264.
 
+## Revision
+
+Version 2 (November 13, 2026; release `v2`) makes one mathematical display correction and three
+wording/notation corrections. None changes a constant, a hypothesis or Theorem 1. See `ERRATUM.md`.
+
+- Proof of Lemma 6.10 (page 45): the modulus sums in the display applying Lemma 6.9 now carry
+  `r ~ Q_1`, `s ~ Q_2`, `mu(rs)^2 = 1` and `(rs,N) = 1`, exactly as in (6.48).
+- Proof of Lemma 6.8: the bad-tuple cost is written with the parent length `H` instead of `T_int`.
+- Section 5: the sentence on the fixed deduction `g_tau` is clarified.
+- Section 9: the optional sharper comparison is described as historical and non-certified.
+
+Version 1 (November 12, 2026; release `v1`, 105 pages) remains available unchanged.
+
 ## Contents
 
-- `main.pdf` (105 pages)
+- `main.pdf` (version 2, 106 pages)
 - `source/` - LaTeX source: `main.tex`, `paperiii-notation.tex`, `references.tex` and `chapters/`
+- `ERRATUM.md` - erratum to version 1
 - `LICENSE.md`, `LICENSES/`
 - `SHA256SUMS`
 
-The release `v1` carries the PDF, the LaTeX source package `paper-iii-source-v1.tar.gz`, and the
+The release `v2` (current) carries the PDF, the LaTeX source package `paper-iii-source-v2.tar.gz`, and the
 numerical-certificate supplement `paper-iii-public-certificates-v1.tar.gz` (scripts, exact inputs,
 compact outputs and verification records) at the address printed in the paper's Data availability
-statement:
+statement (the certificate archive is unchanged and is also attached to release `v1`):
 
 https://github.com/ryzfsu/goldbach-1plus1.75-theorem/releases/download/v1/paper-iii-public-certificates-v1.tar.gz
 
