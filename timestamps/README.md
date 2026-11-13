@@ -9,7 +9,7 @@ Each proof commits to the SHA-256 of the file below.
 | `paper-iii-source-v1.tar.gz` | `6e4eca2ff7fa83ed65cf21ba4f9d20ba8bedaabf7425f3db7bf99b56986e3082` |
 | `paper-iii-public-certificates-v1.tar.gz` | `bd45baa10b3084df9a8fc626196dc31e20317db49a6929f1d347d316280d9162` |
 
-Proofs for the new assets of release `v2` (pending confirmation; the certificate archive is unchanged and its proof is listed above):
+Proofs for the new assets of release `v2` (anchored in Bitcoin block 975641, 2026-11-13 07:25:27 UTC; the certificate archive is unchanged and its proof is listed above):
 
 | file | SHA-256 |
 |---|---|
