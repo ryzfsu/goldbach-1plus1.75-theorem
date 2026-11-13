@@ -1,0 +1,1505 @@
+\section{The retained side}\label{sec:retained-side}
+
+Keep every original source of Paper~II, including the complete sum $S_2$.
+Fix $0<\sigma\le10^{-10}$ satisfying Paper~II, (1.27). Put
+\begin{equation}\label{eq:retB-parameters}
+ L=\log N,\qquad \tau=\sigma^9,\qquad \rho=1+\tau,
+ \qquad h=h_G=\frac9{5000},\qquad \eta_L=\frac1{10000}.
+\end{equation}
+The choice of $\sigma$ precedes the limit.
+Use $W$ from \eqref{eq:not-normalization}.
+Write $R_{\mathrm{fix}}$ for \eqref{eq:source-fixed-sum}.
+
+The comparison required in this section is
+\begin{equation}\label{eq:retB-goal}
+\begin{aligned}
+ \frac{R_{\mathrm{fix}}+S_2}{W}
+ &\ge D_{\mathrm{II}}+g_6+\overline J_6+2\overline H
+       +\frac{5719}{10^6}+M_{5,\mathrm{internal}}-E'(N;\sigma),\\
+ E'(N;\sigma)
+ &=E_{\mathrm{van}}(N;\sigma)
+   +\sum_{j\in\mathcal H}\bigl(|\Lambda^0_{j,N}|+|\Lambda_{j,N}|\bigr)
+   +|\Lambda_{G,N}|,\qquad
+ \mathcal H=\{4,5,7,10\}.
+\end{aligned}
+\end{equation}
+In $\mathcal H$, indices $5$ and $10$ denote the lower $S_5$
+and retained $S_{10}$ parts.
+Every displayed error is nonnegative.
+The notation agrees with \eqref{eq:intro-retained-error}:
+\begin{equation}\label{eq:retB-Lambda-alias}
+ \Lambda_{j,N}=\Lambda_N(\Delta_j),\qquad
+ \Lambda_{G,N}=\Lambda_N(\Delta_{G1}).
+\end{equation}
+The required limit is $E'(N;\sigma)\to0$.
+Proposition~\ref{prop:retB-comparison} proves \eqref{eq:retB-goal}.
+Its inputs are listed in Remark~\ref{rem:retB-inputs}. The six-endpoint
+lemma is optional: without it, the
+same proof gives \eqref{eq:retB-goal} with $g_6$ replaced by $0$.
+We display the unchanged comparisons first.
+Then we specify the five incremental and four saved-array conversion terms.
+
+\subsection{The original signed chains}
+
+Let $\mathcal I=\mathcal I_{\mathrm{row}}\sqcup\{\mathrm{T5}\}$ index the
+signed chains of $R_{\mathrm{fix}}+S_2$. Here $\mathcal I_{\mathrm{row}}$ is the
+set of Paper~II's nineteen row chains. The chain $\mathrm{T5}$ is Paper~II's outer
+chain for the upper part of $S_5$
+\cite[(2.28), (5.10), (6.1) and \S6.1, condition~1]{PaperII}.
+For $j\in\mathcal I$, let $Q_{j,k}$ include its normalized coefficient.
+Paper~II uses ten stages
+\cite[(6.4)--(6.4d)]{PaperII}:
+\begin{equation}\label{eq:retB-telescope}
+ Q_{j,0}=Q_{j,10}
+       +\sum_{k=1}^{10}(Q_{j,k-1}-Q_{j,k}).
+\end{equation}
+The initial expression is the actual arithmetic source.
+The last expression is a directed rational endpoint.
+For $j=\mathrm{T5}$ the stages are those of Lemma~\ref{lem:retB-S5top}:
+$Q_{\mathrm{T5},k}$ is defined there for $k\le3$, and
+$Q_{\mathrm{T5},k}=Q_{\mathrm{T5},3}$ for $3\le k\le10$.
+For the three joint groups, use
+\begin{equation}\label{eq:retB-joint}
+\begin{aligned}
+ \mathcal O&\in\{S_1,S_2\text{-}T_8/4,G_1\},\qquad
+ Q_{\mathcal O,9}=\sum_{j\in\mathcal O}Q_{j,9},\\
+ \sum_{j\in\mathcal O}Q_{j,0}
+ &=E_{\mathcal O}+(Q_{\mathcal O,9}-E_{\mathcal O})
+    +\sum_{j\in\mathcal O}\sum_{k=1}^{9}
+             (Q_{j,k-1}-Q_{j,k}),\\
+ Q_{\mathcal O,9}-E_{\mathcal O}&\ge0.
+\end{aligned}
+\end{equation}
+The joint signs are kept before rounding.
+The $G_1$ weights are $(2,1,1)$.
+
+\paragraph{Signed sources and parent assignment.}
+Here ``parent'' records the assignment of an arithmetic occurrence and its
+source-restoration share. It does not assert that each Buchstab child
+is numerically bounded by the unsplit parent. Let $T_{j,r}$ be the
+nonnegative plain-source terms of Paper~II, (2.19) and (3.2). Let
+$\Delta_j^{\rm src}$ be its signed source correction. Then
+\[
+ 3S_1=3(T_{1,0}-T_{1,1}+T_{1,2}-T_{1,3})
+                  +3\Delta_1^{\rm src},\qquad
+ S_2=T_{2,0}-T_{2,1}+T_{2,2}-T_{2,3}+\Delta_2^{\rm src}.
+\]
+For every third-depth S1 occurrence, $E_3\le p_3$ gives
+$-3S_{\rm pl}(b,p_3)\ge-3S_{\rm pl}(b,E_3)$. For S2 we make this
+replacement only on Paper~II's selected whole-$K$ blocks $\mathcal F$,
+including $PF$ and $\mathcal F\cap R1$. There
+$-S_{\rm pl}(b,p_3)\ge-S_{\rm pl}(b,E_3)$. On the strict complement
+$\mathcal B$ keep the actual $p_3$ and Paper~II's strict-BV comparison.
+The last child of S2 keeps its negative sign on all three pieces
+$PF$, $\mathcal F\cap R1$, and $\mathcal B$. The strict BV piece stays in S2.
+
+For the fixed-cutoff rows use their literal divisor domains. Their
+signed sources are $-2S_3$, $-S_4$, $-S_{5,\rm low}$, $-S_7$,
+$+S_8$, and $+S_9$, respectively. On each source cell, an upper sieve
+bound $S\le U$ gives $cS\ge cU$ when $c<0$. A lower sieve bound
+$L\le S$ gives $cS\ge cL$ when $c>0$. These comparisons keep the source
+corrections and the row's allocated errors.
+Paper~II, (2.28), gives the exact assignment identity
+\[
+ -S_5=-S_{5,\rm low}-S_{5,\rm top},\quad
+ S_{5,\rm low}=\sum_{1/4\le\log_Np<t_*}S(p,N^\alpha),\quad
+ S_{5,\rm top}=\sum_{t_*\le\log_Np<\tau_S}S(p,N^\alpha).
+\]
+The endpoint $t_*$ belongs to the upper/BV part. The split
+precedes the structured sieve or Heath--Brown expansion and keeps
+parent labels. S5-low and T5 both have parent S5. S5-low gets no
+restoration address of its own.
+For S10 the source partition
+$S_{10}=S_{10,\rm Ret}+S_{10,\rm Drop}$ is exact, with
+$S_{10,\rm Ret},S_{10,\rm Drop}\ge0$. Hence $+S_{10}\ge+S_{10,\rm Ret}$
+before its lower sieve bound.
+
+The joint source keeps the representation weights $(2,1,1)$.
+Paper~II, (4.14), gives, with its stated exceptional-source and
+small-prime allowance $E_G\ge0$,
+\[
+ G_1\le2S(\mathcal B_{11},N^{1/2})+
+          S(\mathcal B_{12},N^{1/2})+
+          S(\mathcal B_{13},N^{1/2})+E_G.
+\]
+Make its cut-measure replacement with the original signed correction
+before applying (4.18). The four signed descendants of $-G_1$ then
+have coefficients $(-1,+1,-1,+1)$ on the single weighted source.
+Their last positive term is bounded from below by its retained cells.
+The change from actual $a_3$ to label base $E$ keeps the signed peel
+correction of Paper~II, (4.45)--(4.57). The four rows share one
+joint source parent and one restoration allocation.
+Thus S1, S2, S4, S5, S7, S10 and G1 are the seven parents of the
+sixteen listed retained rows. S3, S8 and S9 keep their original
+single-comparison parents, and T5 remains the upper part of S5.
+These are sign-correct source reductions for the complete parent
+chains. They do not discharge the distinct S6, bad-source or
+switched-source comparisons in Section~\ref{sec:source-decomposition}.
+
+The nineteen original row chains of $\mathcal I_{\mathrm{row}}$
+are the sixteen rows of Appendix~\ref{subsec:app-retB-rows} and
+Paper~II's original $S_3,S_8,S_9$ comparisons. The strict BV piece of $S_2$ lies inside
+the joint $S_2$ group. The source $-S_5$ of $R_{\mathrm{fix}}$ is split at
+$N^{t_*}$, $t_*=7109/28000$, before any sieve step. Its lower part is the row
+$S_5$-low of $\mathcal I_{\mathrm{row}}$. Its upper part is the chain
+$\mathrm{T5}$. The chains of $S_6$ and $S_{\mathrm{sw}}$ are excluded.
+Thus the endpoint sum over $\mathcal I$ is
+\begin{equation}\label{eq:retB-base-endpoints}
+ \sum_{j\in\mathcal I} Q_{j,10}
+ =B_{\mathrm{print}}-\delta_{G1}+\overline J_6+2\overline H,
+ \qquad \delta_{G1}=4.98\cdot10^{-54}.
+\end{equation}
+This follows from Paper~II's printed thirteen-term sum
+\cite[\S6.4, immediately before (6.6)]{PaperII}.
+Its joint endpoint is $Q_{G1,10}=L_{G1}-\delta_{G1}$;
+the printed sum uses $L_{G1}$. The term $-\overline J_5$ of
+\eqref{eq:retB-Bprint} is $Q_{\mathrm{T5},10}$, by
+Lemma~\ref{lem:retB-S5top}. Apart from $-\overline J_6-2\overline H$,
+every other term of \eqref{eq:retB-Bprint} is an endpoint. It ends a
+chain of $\mathcal I_{\mathrm{row}}$ or a joint group.
+This is a finite coefficient identity.
+The printed sum is
+\begin{equation}\label{eq:retB-Bprint}
+\begin{aligned}
+ B_{\mathrm{print}}={}&\underline D_1+\underline d_2-\frac{U_{3,A}}2
+ -\frac{U_4+U_{5,\mathrm{low}}+U_7}{4}\\
+ &+\frac{L_{8,A}+L_{9,A}+L_{10}}4+L_{G1}
+ -\overline J_5-\overline J_6-2\overline H\\
+ >&1.83403742109641331345957914542194044932304169727869681073064.
+\end{aligned}
+\end{equation}
+The letters denote the rational endpoints printed in Paper~II,
+Appendix~A.2--A.6 and (A.7), (A.10), (A.13)--(A.14).
+The constant $\overline J_6$ keeps its rational definition:
+\begin{equation}\label{eq:retB-J6-endpoint}
+ \overline J_6=1.3148581959157321533513247276782285310758770468886237619585.
+\end{equation}
+
+The upper part of $S_5$ has the following outer chain. Put
+$t_*=7109/28000$, $\tau_S=57/224$, and let
+\begin{equation}\label{eq:retB-J5-endpoint}
+ \overline J_5=\frac14\bigl(c_5+8.84\cdot10^{-57}\bigr),\qquad
+ c_5=0.03658166423843258896399704402764682632822246022922592990,
+\end{equation}
+which is Paper~II's directed upper endpoint for
+$J_5(0)=\int_{t_*}^{\tau_S}\frac{dt}{t(1/2-t)}$
+\cite[(5.16), (5.20), (A.14)--(A.14a)]{PaperII}.
+
+\begin{lemma}[The outer chain of the upper part of $S_5$]\label{lem:retB-S5top}
+Define
+\[
+\begin{aligned}
+ Q_{\mathrm{T5},0}&=-\frac1W\sum_{t_*\le\log_Np_1<\tau_S}S(p_1,N^\alpha),&
+ Q_{\mathrm{T5},1}&=-\frac{T_5}W,\\
+ Q_{\mathrm{T5},2}&=-J_5(0),&
+ Q_{\mathrm{T5},3}&=-\overline J_5,
+\end{aligned}
+\]
+where the first sum is the second term of Paper~II, (2.28), and $T_5$ is
+Paper~II, (5.10). Then
+\[
+ Q_{\mathrm{T5},0}-Q_{\mathrm{T5},1}\ge-E_{\mathrm{T5},1}(N),\qquad
+ Q_{\mathrm{T5},1}-Q_{\mathrm{T5},2}\ge-E_{\mathrm{T5},2}(N),\qquad
+ Q_{\mathrm{T5},2}-Q_{\mathrm{T5},3}\ge0,
+\]
+with $E_{\mathrm{T5},1},E_{\mathrm{T5},2}\ge0$ tending to $0$ at fixed
+$\sigma$. Both are entries of $E_{\mathrm{van}}$. In particular
+$Q_{\mathrm{T5},0}\ge-\overline J_5-E_{\mathrm{T5},1}(N)-E_{\mathrm{T5},2}(N)$.
+\end{lemma}
+
+\begin{proof}
+Paper~II splits $-S_5$ at $N^{t_*}$ before the structured sieve or HB.
+The endpoint $t_*$ belongs to the upper part \cite[(2.28) and the three
+lines after it]{PaperII}. The coefficient is $-1$.
+
+Stage one. For a prefix $p_1\in\mathcal P_N$, dropping the condition
+$(m,Nb)=1$ gives $S(p_1,N^\alpha)\le S_{p_1}(N^\alpha)$ in the notation of
+Paper~II, (5.9) \cite[the sentence after (5.9)]{PaperII}. Prefixes
+$p_1\mid N$ are removed at their first failure. This is the error-table
+entry ``Exceptional source factors'', of size
+$O_\sigma(L^3/N+N^{-\alpha/2+o(1)})$ \cite[\S6.3]{PaperII}. A prime equal
+to $N^{t_*}$ or $N^{\tau_S}$ divides $N$ \cite[after (5.20)]{PaperII}. With
+the coefficient $-1$ this gives the first inequality.
+
+Stage two. Paper~II applies the upper sieve (5.4) to each $\mathcal A_b$,
+$b=p_1$. Its parameters are $X_{\mathcal A}=\operatorname{Li}(X)/\varphi(b)$, level
+$Q=N^{1/2}L^{-B}$ ($\kappa=0$), $D_b=Q/b$ and $z_b=N^\alpha$
+\cite[(5.12)]{PaperII}. For $t=\log_Np_1\in[t_*,\tau_S)$ one has
+$a_0(t)=1/2-t\ge55/224$, $t_*-\alpha=5368241/32172000>0$, and
+\[
+ \frac{a_0}{\alpha}\in\Bigl[\frac{12639}{4480},\frac{7917759}{2800000}\Bigr]
+ \subset(2,3)
+\]
+\cite[table after (5.12), row T5]{PaperII}. Hence eventually
+$s_b=(a_0-\delta_N)/\alpha\in(2,3)$, where $F(s)=2e^\gamma/s$
+\cite[between (5.4) and (5.5)]{PaperII}. By (5.14) the remainders are $o(U_C)$. The main
+terms are (5.15), and (5.16) gives
+$T_5\le4(1-\varepsilon)U_CJ_5(0)+o(U_C)$ with the vanishing logarithmic
+loss (5.21) \cite[(5.14)--(5.16), (5.21) and the sentence ``S5 keeps its
+vanishing logarithmic loss'']{PaperII}. Since $W=4(1-\varepsilon)U_C$, this
+is the second inequality. Its error is the error-table entry ``S5 BV
+remainder'' plus the prime-measure and Euler conversion of that row
+\cite[\S6.3]{PaperII}.
+
+Stage three. By Paper~II, (A.14)--(A.14a), $4J_5(0)$ lies in the ball of
+centre $c_5$ and radius $8.84\cdot10^{-57}$, so $J_5(0)\le\overline J_5$.
+Paper~II also gives the independent rational enclosure
+$P_5<4J_5(0)<P_5+R_5$ inside the same ball \cite[after (A.14a)]{PaperII}.
+
+The chain uses $\kappa=0$, so the increment $J_5(\kappa)-J_5(0)$ does not
+occur. Paper~II's allowance $E_{5,\kappa}=4\cdot10^{-8}$ is a summand of
+$g_{\mathrm{BV}}=0.00000575$ in \eqref{eq:retB-fixed-cost} and stays there
+once. Paper~II, Appendix~A, records the hypothetical increment and its
+once-booked decomposition. They are in the paragraph opening
+\emph{For comparison, if S5-top used $\kappa=10^{-6}$} and in the
+BV-allowance line right after it
+\cite[Appendix~A, comparison paragraph and following decomposition]{PaperII}.
+Equation (A.14a) gives only the nominal value at $\kappa=0$.
+\end{proof}
+
+The chain $\mathrm{T5}$ does not meet the changes of this section. Its
+three stages use no sieve level $\ell_c$ and no saved profile. They use no
+Class II, packing or Class I term. Paper~II's prepared Class II, packing and Class I
+contributions of this row are zero \cite[\S2.4, paragraph ``S5-top and S6
+use BV separately'']{PaperII}. The lift below changes the kernels on $I_4$,
+$I_5=[1/4,t_*)$, $I_7$ and $\mathcal D_{10}$ only. The interval $I_5$ is disjoint
+from $[t_*,\tau_S)$. The joint shift changes the $G_1$ cone only. Hence
+Lemma~\ref{lem:retB-S5top} holds unchanged after both changes.
+
+Keep the whole fixed deduction of Paper~II:
+\begin{equation}\label{eq:retB-fixed-cost}
+\begin{aligned}
+ F_{\mathrm{net}}={}&0.000006484294227956901+0.00000575
+                   +0.00002853328\\
+                  &+4.98\cdot10^{-54}+2\cdot10^{-24}+10^{-390}\\
+ &<0.000040767574227956903.
+\end{aligned}
+\end{equation}
+These are Paper~II's six deductions \cite[(6.6)]{PaperII}.
+The first remains paid although its source is excluded.
+The joint $G_1$ reconciliation also remains paid.
+Every adverse row difference has an absolute bound.
+Keep their whole vanishing envelope, $E_{\mathrm{van}}$.
+The row estimates required here are
+\begin{equation}\label{eq:retB-base-errors}
+ \sum_{j\in\mathcal I}\sum_{k=1}^{10}
+       (Q_{j,k-1}-Q_{j,k})
+ \ge-\bigl(F_{\mathrm{net}}-\delta_{G1}\bigr)
+       -E_{\mathrm{van}}(N;\sigma),
+ \qquad E_{\mathrm{van}}(N;\sigma)\longrightarrow0.
+\end{equation}
+The $\delta_{G1}$ part is already in the endpoint sum, so the remaining
+chain deduction is $F_{\mathrm{net}}-\delta_{G1}$. Their total is exactly
+$F_{\mathrm{net}}$.
+The fixed AA37 share is paid under the admissible condition
+$0<\sigma\le4g_{\mathrm{AA}}/(C_EW_*)$ of Paper~II, (1.27)
+\cite{PaperII}. See Paper~II, \S6.5. This condition is part of the
+fixed-parameter choice made before the limit.
+The analytic inputs are Paper~II, (6.4b)--(6.5),
+and its direct and $G_1$ estimates
+\cite[(4.66)--(4.69), (6.4b)--(6.5)]{PaperII}.
+Their logarithmic parameters are
+\begin{equation}\label{eq:retB-precision}
+ K_0=8042,\qquad A'=8047,\qquad A_{\mathrm{work}}=8051,
+ \qquad K_0+2-A'=-3.
+\end{equation}
+These are Paper~II, (4.66), for the original coefficient families.
+This section leaves them unchanged.
+
+\begin{lemma}[Inherited chain errors]\label{lem:retB-base-errors}
+The bound \eqref{eq:retB-base-errors} holds, and $E_{\mathrm{van}}(N;\sigma)\to0$
+as $N\to\infty$ at fixed $\sigma$. Each row or separately listed stage
+difference used below has an allocated nonnegative share in Paper~II's
+error table. Denote it by $\mathcal E_j$. Paper~II, \S6, charges these shares once.
+An entry may be grouped across rows, so the lemma claims nothing for
+arbitrary subfamilies and does not claim pairwise disjoint entries. The only
+omission bounds used are those for the whole chains or stage differences
+named in the proof below.
+\end{lemma}
+
+\begin{proof}
+The signed-assembly theorem of Paper~II proves
+$D_{\mathrm{src}}\ge B_{\mathrm{main}}-F_{\mathrm{pers}}-E_{\mathrm{van}}$
+with $E_{\mathrm{van}}\to0$ for the source (6.1)
+\cite[\S6.1, (6.1)--(6.2), (6.4)--(6.4d)]{PaperII}. Its proof bounds every
+adverse stage difference by an allocated share of Paper~II's error table,
+\S6.3. Each entry is a nonnegative bound or a proved zero; some entries are
+grouped across rows. Paper~II assigns each tuple to its first failed
+condition and charges each difference or part once below
+\cite[\S6.3]{PaperII}. The fixed entries are the six deductions of
+\eqref{eq:retB-fixed-cost}, that is $F_{\mathrm{pers}}=F_{\mathrm{net}}$
+\cite[(6.6)]{PaperII}. The others tend to zero at fixed $\sigma$, and their
+sum is $E_{\mathrm{van}}$. The rows of $\mathcal I$ are rows of (6.1).
+The $S_6$ level increment is still deducted when that chain is omitted.
+The $\delta_{G1}$ part is already
+in \eqref{eq:retB-base-endpoints}. This gives \eqref{eq:retB-base-errors}.
+For $\mathrm{T5}$ the differences and entries are those of
+Lemma~\ref{lem:retB-S5top}.
+Separately listed entries cover the omissions used in this chapter.
+The whole $S_6$ and $S_{\mathrm{sw}}$ chains use the S6 BV remainder,
+S6 level increment and $E_{S_{\mathrm{sw}}}$ entries. The whole $G_1$
+chain uses the \S4.6 table and (4.85) of Paper~II
+\cite[\S4.6, (4.85)]{PaperII}. The stage-nine strip for the retained
+part of $S_{10}$ uses the S10 selector entry. These bounds apply
+to the named whole chains or stage difference after allocating their shares.
+No arbitrary omitted subfamily is asserted. For the direct rows, the stage-nine entry
+``Profile comparison'' is zero adverse. The stage-ten entry ``Directed
+enclosure'' is zero additional \cite[\S6.3]{PaperII}. For the retained part
+of $S_{10}$, the strip between the retained cells and $\mathcal D_{10}$ is the
+entry ``S10 selector'', $7.160\tau$. The term $g_\tau=2\cdot10^{-24}$ replaces it
+\cite[\S6.3, rows ``S10 selector'' and $g_\tau$]{PaperII}.
+
+The entries rest on the following inputs, all used by Paper~II on these
+same sources.
+The linear-sieve main terms and remainders are Paper~I, Theorem~2.6,
+(2.30)--(2.33b). This is the structured form of Iwaniec's Theorem~4
+\cite[Theorem~4, p.~311]{Iwaniec1980Remainder}, applied with $D=L_c$,
+$\epsilon_s=\sigma$ and $\delta_s=\tau$ \cite[\S6.2]{PaperII}.
+Before the exterior sign, applied once, each block remainder splits as
+\[
+ \frac{C_c}{M_c}\langle\gamma_c,\Delta_P\rangle+NC_{\mathrm{sf},c}
+ -\langle\Xi_{U,c},\Delta_P\rangle+\langle\Xi_{A,c},\Delta_0-\Delta_P\rangle,
+\]
+with $\Xi_{A,c}=O_c\mathbf 1_{q\ \mathrm{not\ squarefree}}$
+\cite[(6.4a)--(6.4b), (4.23)]{PaperII}.
+The term $NC_{\mathrm{sf}}$ vanishes on the direct rows, where
+$\Delta_0=\Delta_P$. On $G_1$ it is $O_\sigma(N^{-\alpha}L^5)$ by Paper~II,
+(4.64)--(4.65). The terms $\Xi_U$ and $\Xi_A$ are bounded jointly, once, by
+$232\Lambda_\sigma C_{\mathrm{ret},\sigma} N^{-\ell_0\sigma^2}(1+L)^4$, with
+$\ell_0=264897/2060000$ \cite[(B.1)--(B.7)]{PaperII}.
+Here $C_{\mathrm{ret},\sigma}$ is the retained-side combinatorial constant;
+it depends on the fixed $\sigma$ and not on $N$.
+The persistent part $C_E\sigma W_{\mathrm{AA}}/4$ of Paper~II, (B.8), lies in
+$g_{\mathrm{AA}}$; only its secondary part belongs to $E_{\mathrm{van}}$.
+The Class II estimate (6.5) of Paper~II applies Paper~I, Theorem~3.2, (3.13),
+with the precisions \eqref{eq:retB-precision}. The spectral input of that
+theorem is Paper~I, Theorem~2.8; see Fact~\ref{fact:spectral-implication}.
+In the large-norm case of Paper~I, (3.48), its mean-square input is
+Lemma~\ref{hyp:ra-ms-transfer}(ii), in place of \cite[Theorem~0(a)]{BFI86}.
+Lemma~\ref{hyp:ra-ms-transfer}(ii) applies under the Paper~I
+hypotheses and selected parameter box stated there.
+It uses neither the optional six-endpoint lemma nor any broader BFI86 scope.
+Its premises are checked for these sources as follows. In Paper~I, conditions (3.1), (3.2), (3.6), (3.8) with
+the length condition, and (3.11) display its hypotheses (H1)--(H5). Paper~II verifies them for these same sources, coefficients,
+boxes and scales \cite[\S6.2, hypothesis table, row ``C1--C5, LEN'']{PaperII}.
+Paper~I proves condition (3.25) for every selected factor of this form.
+The proof uses the prime Siegel--Walfisz theorem (2.21) \cite[(3.25) and its
+proof]{PaperI}. Conditions (3.26)--(3.27) are the definition of $\lambda_r$
+and the Cauchy--Schwarz step of that proof. They hold under (H1)--(H5), with
+$|\lambda_r|\le\tau(r)$ from the roughness in (H2) \cite[(3.26)--(3.27)]{PaperI}.
+Stages one to eight are unchanged, so these are Paper~II's own checks. The prime-measure and Euler
+conversions are the prime number theorem, Mertens' theorem and Paper~II,
+(4.76)--(4.78).
+The profile lift and the shifted joint profile below act at stages nine
+and ten only. They change no source, cell, level, mask, box, norm or
+precision at stages one to eight. Hence $E_{\mathrm{van}}$ is Paper~II's own
+envelope for these rows.
+\end{proof}
+
+Paper~II's rational floor satisfies
+\begin{equation}\label{eq:retB-paperII-floor}
+ B_{\mathrm{print}}-F_{\mathrm{net}}
+ >D_{\mathrm{II}}
+ =\frac{45849916338009170593}{25000000000000000000};
+\end{equation}
+see \cite[(6.3a), (6.6)]{PaperII}.
+The selected S2 endpoint used in this floor is $d_{T8}$.
+Paper~II's tail reserve is
+\begin{equation}\label{eq:retB-T8-reserve}
+ \delta_{T8}=\frac1{20000},\qquad
+ d_{T8}=\frac{P_--(2/e^\gamma)V_{\mathrm{full}}
+                 -(2/e^\gamma)J_++C_-}{4}-\delta_{T8}.
+\end{equation}
+Thus $\delta_{T8}$ is deducted once inside $d_{T8}$, as in
+Paper~II, (A.7)--(A.8). It is not a second deduction from
+$D_{\mathrm{II}}$. The separate fixed term $275009680\tau$ remains
+outside $d_{T8}$ in the S2 estimate \cite[(3.22)--(3.23), (A.7)]{PaperII}.
+Combining the preceding estimates gives
+\begin{equation}\label{eq:retB-base}
+ \frac{R_{\mathrm{fix}}+S_2}{W}
+ \ge D_{\mathrm{II}}+\overline J_6+2\overline H
+                         -E_{\mathrm{van}}(N;\sigma).
+\end{equation}
+This deduction uses the individual signed chains.
+Its analytic input is \eqref{eq:retB-base-errors}.
+
+\subsection{Six improved endpoints}
+
+Let
+\begin{equation}\label{eq:retB-six-index}
+ \mathcal J=\{1,2,4,5,7,10\}.
+\end{equation}
+For $j\in\mathcal J$, let $P_j$ be its Paper~II profile integral.
+The indices $5$ and $10$ keep the preceding conventions.
+Let $O_j$ and $N_j$ be directed lower endpoints.
+The required numerical comparisons are
+\begin{equation}\label{eq:retB-six-comparison}
+ P_j\ge N_j\ge O_j,\qquad
+ P_j-O_j=(N_j-O_j)+(P_j-N_j).
+\end{equation}
+The old and improved directed endpoints are the following exact terminating
+decimals. They are given in the normalized D
+contributions used by the signed sum. For S4, S5-low and S7 the sign $-1/4$ is included; for S10
+the sign $+1/4$ is included.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lp{0.68\linewidth}@{}}
+\hline
+Endpoint source & Directed contribution in D units\\
+\hline
+S1, \cite[(A.4), (A.5a)]{PaperII} & $O_1=9.67653874894124412908238749318694090949698021569432709634$\\
+ & $N_1=9.676557035420731097796376157212899872020518126053458552042$\\
+S2, \cite[(A.8), (A.8a)]{PaperII} & $O_2=1.6195813569890835255913340433210572922007671408165$\\
+ & $N_2=1.62063469556829$\\
+S4, \cite[Appendix~A.2--A.6]{PaperII} & $O_4=-0.8342438370724665$\\
+ & $N_4=-0.8341817006889064605174981431060625$\\
+S5-low, \cite[Appendix~A.2--A.6]{PaperII} & $O_5=-0.05972210829776175$\\
+ & $N_5=-0.05971885506770766576732140865035175$\\
+S7, \cite[Appendix~A.2--A.6]{PaperII} & $O_7=-0.574850630119163$\\
+ & $N_7=-0.574815106890481420929612425345365$\\
+S10-Ret, \cite[Appendix~A.2--A.6]{PaperII} & $O_{10}=0.214711863944485$\\
+ & $N_{10}=0.21559427153309934685978873940373255$\\
+\hline
+\end{tabular}
+\end{center}
+The rational endpoint differences sum to
+\begin{equation}\label{eq:retB-six-gain}
+\begin{aligned}
+ g_6&=\sum_{j\in\mathcal J}(N_j-O_j)\\
+ &=0.002054945489603492768011383006854970322770769542631455702.
+\end{aligned}
+\end{equation}
+Exact rational addition of the six entries above gives the displayed
+sum, and each entry satisfies $N_j\ge O_j$.
+The values $O_j$ are Paper~II's directed endpoints, and $P_j\ge O_j$ is
+proved there \cite[(A.4), (A.5a), (A.8), (A.8a), Appendix~A.2--A.6]{PaperII}.
+The values $N_j$ are lower bounds read from Paper~II's printed independent
+enclosures. The following optional lemma states them.
+\begin{lemma}[Six directed endpoints from Paper II; optional]
+\label{lem:retB-six-endpoints}
+For each $j\in\mathcal J=\{1,2,4,5,7,10\}$, the Paper~II profile integral
+$P_j$, with its signed normalized coefficient, satisfies $P_j\ge N_j$,
+with $N_j$ as tabulated above.
+\end{lemma}
+\begin{proof}
+For $j=1$, Paper~II, (A.5a), gives the printed $3/4$ ball; its lower endpoint
+is $N_1$. For $j=2$, Paper~II, (A.8a), gives the printed interval whose
+lower endpoint is $N_2$. Paper~II states that this interval covers the continuous functional and the infinite
+tail. The $d_{T8}$ deduction in (6.6a) is released once in $N_2-O_2$.
+The term $F_{\mathrm{net}}$ in (6.6b) contains no $\delta_{T8}$
+\cite[(6.6a)--(6.6b)]{PaperII}. For $j=4,5,7$, the Appendix~A.3 balls
+include the adverse $\tau=10^{-90}$ shifts. Since the profile function is
+nonincreasing, the shifted raw integrals are at least the $\tau$-free ones.
+Their upper endpoints with the negative coefficient therefore give
+$P_j\ge N_j$. For $j=10$, the Appendix~A.3 $S_{10}$-Ret ball encloses the
+$\tau$-free actual-coordinate profile on $\mathcal D_{10}$. Its lower
+endpoint gives $P_{10}\ge N_{10}$. The separate $D_*\tau$ strip is paid in
+the $S_{10}$ selector estimate. These are the printed enclosures in Paper~II,
+(A.5a), (A.8a), and Appendix~A.3. Its numerical-certificate section records
+the adverse-shift and actual-coordinate conventions
+\cite[(A.5a), (A.8a), Appendix~A.3]{PaperII}. The remaining directed
+endpoints $O_j$ are unchanged.
+\end{proof}
+With $O_j$ in place of $N_j$, \eqref{eq:retB-six-comparison} is
+Paper~II's own endpoint comparison and $g_6$ is replaced by $0$.
+Only the endpoint changes in \eqref{eq:retB-telescope}.
+All earlier signed differences remain unchanged.
+Thus \eqref{eq:retB-six-comparison} adds $g_6$ once.
+The $S_5$ upper part remains separate.
+The joint $G_1$ endpoint is absent from $\mathcal J$.
+
+\subsection{Four stronger profile comparisons}
+
+Use the sieve functions of Paper~I
+\cite[(2.23), immediately before Theorem~2.6]{PaperI}. Put
+\begin{equation}\label{eq:retB-hat-functions}
+ \widehat F=\frac{F}{2e^\gamma},\qquad
+ \widehat f=\frac{f}{2e^\gamma},\qquad
+ K=\frac{57}{64}-u.
+\end{equation}
+Define
+\begin{equation}\label{eq:retB-H6-domains}
+\begin{aligned}
+ s(x)&=\frac{K-5x/2}{\alpha},\qquad
+ q(x,y)=\frac{K-5x/2-y}{\alpha},\\
+ B_0(x)&=\min\{\beta,\max\{\alpha,K-11\alpha/5-5x/2\}\}.
+\end{aligned}
+\end{equation}
+The domains are
+\begin{equation}\label{eq:retB-H6-domain-sets}
+\begin{gathered}
+ I_4=[\mu_*,1/4),\quad I_5=[1/4,7109/28000),\quad
+ I_7=[\mu_*,\lambda),\\
+ \mathcal D_{10}=\{(x,y):\mu_*\le x<\lambda,\ \alpha\le y<B_0(x)\}.
+\end{gathered}
+\end{equation}
+These are Paper~II's domains
+\cite[(2.27), (2.29), (2.31), (2.38)--(2.40)]{PaperII}.
+Set
+\begin{equation}\label{eq:retB-H6-gains}
+\begin{aligned}
+ \Delta_j&=\int_{I_j}
+  \frac{\widehat F(s(x))-\widehat F(s(x)+h/\alpha)}{\alpha x}\,dx
+                      &&(j=4,5,7),\\
+ \Delta_{10}&=\iint_{\mathcal D_{10}}
+  \frac{\widehat f(q(x,y)+h/\alpha)-\widehat f(q(x,y))}
+       {\alpha xy}\,dx\,dy.
+\end{aligned}
+\end{equation}
+The three upper rows carry a negative sign.
+The lower $S_{10}$ row carries a positive sign.
+Their original coefficients are included in these gains,
+so there is no further factor $1/4$.
+
+Paper~II's actual levels give
+\begin{equation}\label{eq:retB-H6-margins}
+\begin{aligned}
+ \ell_c&\ge\alpha s(x)+h+\frac1{10000}-3\tau
+                   &&(j=4,5,7),\\
+ \ell_c&\ge\alpha q(x,y)+h+\frac1{10000}
+                         -\left(\frac{5\lambda}{2}+\beta\right)\tau
+                   &&(j=10).
+\end{aligned}
+\end{equation}
+See \cite[\S2.4, proof of (2.26)--(2.31);
+\S2.5, proof of (2.40)]{PaperII}.
+The exact split behind the displayed reserve is
+\begin{equation}\label{eq:retB-level-buffer}
+ u-\eta_L=\frac{19}{10000}
+ =\frac9{5000}+\frac1{10000}=h_G+\frac1{10000}.
+\end{equation}
+After the $h_G$ lift, Paper~II's S4, S5-low (including its B branch)
+and S7 comparisons leave $1/10000-3\tau$. Its S10-Ret comparison leaves
+$1/10000-\tau(5\lambda/2+\beta)$.
+Both are positive for $\tau\le10^{-90}$.
+The G1-3 shift leaves
+$g_s=1/10000-(225/256)\tau>2\mu_*\tau$ and the $\mu_*$ crossing
+leaves $1/10000-(75/256)\tau>0$, by \cite[(4.72)]{PaperII}.
+These are pointwise profile-numerator inequalities. They do not change
+the actual level $\ell_c$, the level $D_c$, or the masks, boxes,
+Class-II and AA37 inputs. The other level conditions of Paper~II
+remain pointwise and unmodified. They include the G1 guard, S1--S3,
+S2/S3/S8/S9, and the whole-K margin. See Paper~II, (2.21), (2.40),
+(4.72), and (4.19).
+Decreasing $F$ gives the first three comparisons.
+Increasing $f$ gives the fourth comparison.
+These operations leave the actual levels unchanged.
+The H6 lift and the M5 shift act only at stages 9--10, after Class II
+at stage 7. They change no Class-II, AA37, box, mask or precision input:
+$\ell_c=\Theta_c-\eta_L-\sum_i t_i$ contains no saved profile, and
+\eqref{eq:retB-precision} remains unchanged.
+
+Proposition~\ref{prop:app-h6-four-profiles} gives finite integral
+enclosures. With the directed calculation of the computational appendix,
+they prove the following. Its exact rational interval is
+\par\noindent
+$[0.005720047094327988714222991186379229149381887590042773120871489672965022499
+\mathbin{\pm}7.09\cdot10^{-76}]$.
+This is a ball for the sum of the four rowwise lower bounds, not for
+$\sum_j\Delta_j$.
+We use the terminating credit $572004/10^8$. It lies below
+that exact lower endpoint and leaves the existing $10^{-20}$ allowance intact.
+This allowance is conservative; it is not an additional gain in the final constant.
+\begin{equation}\label{eq:retB-H6-finite}
+ \frac{572004}{10^8}
+ <\Delta_4+\Delta_5+\Delta_7+\Delta_{10}
+ <\frac{606486}{10^8},\qquad
+ \frac{572004}{10^8}-10^{-20}>\frac{5719}{10^6}.
+\end{equation}
+The unchanged $S_{10}$ strip also satisfies
+\begin{equation}\label{eq:retB-S10-strip}
+ \frac{10987/10000}{4\alpha^2}
+ \left(\frac{5\lambda}{2}+\beta\right)
+ \frac{\lambda-\mu_*}{\mu_*}
+ =\frac{21137254516197687}{4120000000000000}
+ <5.137<7.160.
+\end{equation}
+The lifted $S_{10}$ argument satisfies
+$q+h/\alpha\le11519839/3200000+h/\alpha<4$.
+Thus $f\le f(4)=2e^\gamma\log3/4$ throughout the strip,
+as used in this density bound.
+These are finite bounds, including their stated domains.
+The retained cells also leave a reserve. Put
+\begin{equation}\label{eq:retB-S10-surplus}
+\begin{gathered}
+ R_{10}=\Bigl[\frac15,\frac{21}{100}\Bigr]\times\Bigl[\frac9{100},\frac1{10}\Bigr],
+ \qquad \delta_{10}=\frac1{20000\alpha},\\
+ c_{10}=\frac1\alpha\cdot\frac{7\delta_{10}}{480}\cdot\frac1{210}
+ =\frac{146689}{320000000000},\qquad
+ c_{10}-\frac{21137254516197687}{4120000000000000}\,\tau>10^{-7}.
+\end{gathered}
+\end{equation}
+Lemma~\ref{lem:retB-lifted-direct} uses \eqref{eq:retB-S10-strip} and
+\eqref{eq:retB-S10-surplus}, so its comparison over the whole of
+$\mathcal D_{10}$ needs no deduction. Paper~II's $S_{10}$ selector entry
+$7.160\tau$ is replaced in Paper~II by $g_\tau=2\cdot10^{-24}$, a summand of
+\eqref{eq:retB-fixed-cost}. It stays there once and is not used again.
+
+We next define the finite profile arrays.
+Let $X_0=[u,1]$. On this compact interval, use the zero extension of the
+profile outside its displayed domain, and put
+\begin{equation}\label{eq:retB-measure}
+ m_N=\sum_{\substack{p\in\mathbb P,\ p>2,\ p\nmid N\\N^u\le p\le N}}
+       \frac{\delta_{\log_Np}}{p-1},\qquad m(dt)=\frac{dt}{t}.
+\end{equation}
+The symbol $\delta_x$ denotes unit mass at $x$.
+Define
+\begin{equation}\label{eq:retB-Euler}
+ V_N(z)=\prod_{\substack{p<z,\ p\in\mathbb P\\p\nmid N}}
+           \left(1-\frac1{p-1}\right),
+\end{equation}
+and
+\begin{equation}\label{eq:retB-direct-normalization}
+\begin{aligned}
+ X_D&=\sum_{v\in\mathbb P}
+        \mathbf1_{N/L^{30}<v<(1-\varepsilon)N},\\
+ r_{D,N}&=\frac{2e^\gamma\alpha X_DV_N(N^\alpha)}{W}.
+\end{aligned}
+\end{equation}
+For $j=4,5,7$, set
+\begin{equation}\label{eq:retB-direct-base-kernels}
+\begin{aligned}
+ k_j^0(x)&=-\frac{\mathbf1_{I_j}(x)}{\alpha}\widehat F(s(x)),\\
+ k_j^h(x)&=-\frac{\mathbf1_{I_j}(x)}{\alpha}
+                       \widehat F(s(x)+h/\alpha).
+\end{aligned}
+\end{equation}
+For $j=10$, set
+\begin{equation}\label{eq:retB-pair-base-kernels}
+\begin{aligned}
+ k_{10}^0(x,y)&=\frac{\mathbf1_{\mathcal D_{10}}}{\alpha}\widehat f(q(x,y)),\\
+ k_{10}^h(x,y)&=\frac{\mathbf1_{\mathcal D_{10}}}{\alpha}
+                            \widehat f(q(x,y)+h/\alpha).
+\end{aligned}
+\end{equation}
+Put $e_j=1$ for $j=4,5,7$, and $e_{10}=2$.
+The original and lifted arrays are
+\begin{equation}\label{eq:retB-direct-arrays}
+\begin{aligned}
+ P_j&=\int k_j^0\,d(m^{e_j}),&
+ S_{j,N}^0&=r_{D,N}\int k_j^0\,d(m_N^{e_j}),\\
+ S_{j,N}^h&=r_{D,N}\int k_j^h\,d(m_N^{e_j}),&
+ B_{j,N}&=S_{j,N}^h-S_{j,N}^0.
+\end{aligned}
+\end{equation}
+The powers denote product measures.
+These formulas use $P_j$ from \eqref{eq:retB-six-comparison}.
+Write $d_j=k_j^h-k_j^0$. For $j=4,5,7$, and then $j=10$,
+\begin{equation}\label{eq:retB-direct-kernels}
+\begin{aligned}
+ d_j(x)&=\frac{\mathbf1_{I_j}(x)}{\alpha}
+  [\widehat F(s(x))-\widehat F(s(x)+h/\alpha)],\\
+ d_{10}(x,y)&=\frac{\mathbf1_{\mathcal D_{10}}}{\alpha}
+  [\widehat f(q(x,y)+h/\alpha)-\widehat f(q(x,y))].
+\end{aligned}
+\end{equation}
+Thus $\Delta_j=\int d_j\,d(m^{e_j})$.
+Define the two conversion errors:
+\begin{equation}\label{eq:retB-direct-Lambda}
+ \Lambda^0_{j,N}=S^0_{j,N}-P_j,\qquad
+ \Lambda_{j,N}=B_{j,N}-\Delta_j\qquad(j\in\mathcal H).
+\end{equation}
+
+\begin{lemma}[Finite profile shift]\label{lem:retB-finite-profile}
+For the arrays above,
+\begin{equation}\label{eq:retB-H6-use}
+ S_{j,N}^h=P_j+\Lambda^0_{j,N}+\Delta_j+\Lambda_{j,N}
+ \ge P_j+\Delta_j-|\Lambda^0_{j,N}|-|\Lambda_{j,N}|.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Substitute the two definitions in \eqref{eq:retB-direct-Lambda}.
+\end{proof}
+Both absolute conversion terms appear as separate summands of $E'$.
+We do not assume that Paper~II's original envelope contains the
+saved-array error. Its stage 8 converts the actual-level array before
+stage 9 domination \cite[\S6.1, stage table]{PaperII}.
+The arithmetic application uses the preceding level domination.
+
+\paragraph{Restoration.}
+The four rows of $\mathcal H$ are Paper~II's rows $S_4$, the lower part
+of $S_5$, $S_7$ and the retained part of $S_{10}$. Their stage-two
+source-restoration shares are assigned once to the source parents $S_4$,
+$S_5$, $S_7$ and $S_{10}$. The literal $S_5$ split at $7109/28000$
+is made before the structured sieve or Heath--Brown expansion, as above.
+Both parts retain the parent $S_5$ for this restoration accounting
+\cite[(2.28), \S6.1, stage table and the list of S10, S5 and S4/S7 endpoints]{PaperII}.
+There is no separate restoration for the lower part of $S_5$. The upper part
+of $S_5$ is the outer chain $\mathrm{T5}$ of Lemma~\ref{lem:retB-S5top},
+which the lift does not change. Each tuple of an actual source is assigned
+to one entry by Paper~II's first-failure rule \cite[(6.4d) and the two
+sentences after it]{PaperII}. This section changes no source and no stage
+from one to eight, so the assignment is Paper~II's. Appendix~\ref{subsec:app-retB-rows} lists the finite
+correspondence between these rows and Paper~II's error entries. It is an index of that
+assignment, and each entry occurs once.
+
+\begin{lemma}[Lifted direct comparison]\label{lem:retB-lifted-direct}
+Let $j\in\mathcal H$, and let $Q_{j,8}$ be Paper~II's stage-eight quantity
+for this row. It is the continuum mass of the actual-level main term after the
+prime-measure and Euler conversion. There each actual cell carries its
+actual relative level $\ell_c$. Put $Q^h_{j,9}=P_j+\Delta_j=\int
+k_j^h\,d(m^{e_j})$. Then $Q_{j,8}\ge Q^h_{j,9}$.
+\end{lemma}
+
+\begin{proof}
+Stages one to eight are Paper~II's. Paper~II passes from $Q_{j,8}$ to
+$Q_{j,9}=P_j$ by pointwise domination of the actual-level integrand by the
+specified profile. The cells and the continuum measure are the same
+\cite[\S6.1, stage table; \S2.4, after (2.31); \S2.5, after (2.40)]{PaperII}.
+We repeat that domination with the lifted profile.
+For each B-labelled parent contributing to $S_4$, $S_7$ or $S_5$-low,
+we first rederive the buffer used below. Write
+\[
+ m(t)=\min\left\{\frac{1+t}{2},\frac{57}{64}-\frac{3\rho t}{2}\right\},
+ \qquad t_{\rm dd}=\frac{25}{32(1+3\rho)}.
+\]
+Paper~II gives $\Theta_c\ge m(t_1)$. The branch comparison is the exact
+identity
+\[
+ \frac{1+t_1}{2}
+ -\left(\frac{57}{64}-\frac{3\rho t_1}{2}\right)
+ =\frac{1+3\rho}{2}(t_1-t_{\rm dd}).
+\]
+Thus the decreasing branch is active exactly when $t_1>t_{\rm dd}$.
+Equality is assigned to A, where both bounds agree. This active branch test
+is applied to every B-labelled parent. The branch is never inferred from the
+largest completed coordinate alone. Paper~II keeps the inherited label through
+clipping. In S4 and S7 the B parents are separate intersections of their
+respective row domains with $t_1>t_{\rm dd}$. No common parent interval is
+asserted. S5-low has $1/4\le r<t_*=7109/28000$ and
+$t_1\le r<\rho t_1$, so $t_1>1/(4\rho)>t_{\rm dd}$ because $\rho<8$.
+It is therefore entirely B. Let a parent in S4 or S7 be A-labelled.
+Then $t_1\le t_{\rm dd}$, and Paper~II's first branch in (2.17f)
+\cite[(2.17f)]{PaperII} gives
+$\Theta_c\ge(1+t_1)/2$. Take an actual exponent $r\in[t_1,\rho t_1)$.
+The S4 and S7 row domains are clipped by $r\ge\mu_*$
+\cite[\S2.1, fixed-cutoff rows]{PaperII}, and the retained bin gives
+$r\ge t_1$.
+The residual is therefore
+\[
+ 2(t_1-\mu_*)+\frac52(r-t_1)
+ =2(r-\mu_*)+\frac12(r-t_1)\ge0.
+\]
+\[
+ \ell_c-\left({57\over64}-u-{5r\over2}\right)
+ \ge u-\eta_L-{25\over64}+2t_1+{5\over2}(r-t_1)
+ = {19\over10000}+2(t_1-\mu_*)+{5\over2}(r-t_1)
+ \ge {19\over10000}.
+\]
+Here $\mu_*=25/128$ is the retained cutoff parameter; the symbol $\mu(n)$
+elsewhere denotes the Möbius function.
+Thus the A pieces also have the required $19/10000-3\tau$ buffer. This is a row-local calculation.
+It does not merge the distinct S4 and S7 parent domains. For any B parent,
+Paper~II's floor gives
+\begin{equation}\label{eq:retB-B-branch-buffer}
+ \Theta_c\ge {57\over64}-{3\over2}\rho t_1,\qquad
+ \ell_c-\left({57\over64}-u-{5r\over2}\right)
+ \ge (u-\eta_L)+{5\over2}(r-t_1)-{3\over2}\tau t_1
+ \ge {19\over10000}-3\tau .
+\end{equation}
+The first bound is Paper~II's linear branch of the full-anatomy floor
+\cite[(2.17d)--(2.17f)]{PaperII}. Using
+$\ell_c=\Theta_c-\eta_L-t_1$, $r\ge t_1$, $u-\eta_L=19/10000$, and
+$t_1<t_*<1$ proves the second line by direct subtraction. The B pieces of
+S4 and S7 use the same row-local calculation. Their parent intervals
+stay distinct.
+
+For $j=4,5,7$ the row coefficient is negative. At a point $x$ of an actual
+cell, the actual sieve argument is $\ell_c/\alpha$ and, by
+\eqref{eq:retB-H6-margins},
+\[
+ \frac{\ell_c}\alpha\ge s(x)+\frac h\alpha+\frac{10^{-4}-3\tau}\alpha
+ >s(x)+\frac h\alpha .
+\]
+These are Paper~II's margins $19/10000-3\tau$ for $S_4$, $S_7$ and the
+$B$ branch of the lower part of $S_5$. Here $h$ has moved into the profile
+\cite[\S2.4, display before ``The S4/S7 A/B levels give the same buffer'']{PaperII}.
+Since $F$ is decreasing, $-\widehat F(\ell_c/\alpha)\ge-\widehat F(s(x)+h/\alpha)$.
+For $j=10$ the coefficient is positive, and on the retained cells
+\[
+ \frac{\ell_c}\alpha\ge q(x,y)+\frac h\alpha
+ +\frac{10^{-4}-(5\lambda/2+\beta)\tau}\alpha>q(x,y)+\frac h\alpha,
+\]
+which is Paper~II's
+$\alpha(s_{\mathrm{live}}-s_{\mathrm{saved}})\ge(u-\eta_L)-\tau((5/2)\lambda+\beta)$
+with $h$ moved into the profile \cite[\S2.5, proof after (2.40)]{PaperII}.
+Since $f$ is nondecreasing,
+$\widehat f(\ell_c/\alpha)\ge\widehat f(q(x,y)+h/\alpha)$.
+Paper~II uses the same monotonicity of $F$ and $f$ for these
+comparisons \cite[\S2.4]{PaperII}.
+For $j=4,5,7$ the cells cover $I_j$, and integrating the pointwise
+inequality against $m$ gives $Q_{j,8}\ge\int k_j^h\,dm=P_j+\Delta_j$.
+
+For $j=10$ the retained cells need not cover $\mathcal D_{10}$. Let
+$R_\tau\subset\mathcal D_{10}$ be their union, put
+$a_{10}=5\lambda/2+\beta$, and write $T_h(E)=\int_Ek_{10}^h\,d(m^2)$. Then
+\[
+ Q_{10,8}=\frac1\alpha\sum_{c\ \mathrm{retained}}\int_c
+ \widehat f(\ell_c/\alpha)\,d(m^2).
+\]
+\emph{Strip.} Let $(x,y)\in\mathcal D_{10}\setminus R_\tau$ lie in a cell
+with labels $t_1\le x$, $t_2\le y$. The cell is dropped, so
+$y\ge t_2>\operatorname{sel}(t_1)\ge B_0(t_1)-a_{10}\tau\ge B_0(x)-a_{10}\tau$.
+This uses the two deficit bounds of Paper~II, \S2.5, and the fact that $B_0$ is
+nonincreasing \cite[\S2.5, proof of (2.40)]{PaperII}. Also $y<B_0(x)$. On
+$\mathcal D_{10}$ one has $11/5\le q$ and $q+h/\alpha<4$, so
+$\widehat f(q+h/\alpha)\le\widehat f(4)=\log3/4$. With $y\ge\alpha$ and
+$\int_{\mu_*}^\lambda dx/x\le(\lambda-\mu_*)/\mu_*$, this gives
+$T_h(\mathcal D_{10}\setminus R_\tau)\le D_*\tau$, where $D_*$ is the
+constant in \eqref{eq:retB-S10-strip}.
+
+\emph{Reserve.} On a retained cell the margin in
+\eqref{eq:retB-H6-margins} satisfies $10^{-4}-a_{10}\tau>1/20000$, so
+$\ell_c/\alpha\ge q+h/\alpha+\delta_{10}$. Here
+$2<q+h/\alpha<q+h/\alpha+\delta_{10}<4$. For \(2<s<4\),
+$\widehat f(s)=\log(s-1)/s$ and
+\[
+ \widehat f'(s)=\frac{s/(s-1)-\log(s-1)}{s^2}
+ >\frac{4/3-11/10}{16}=\frac7{480},
+\]
+since $\log3<11/10$. As $f$ is nondecreasing,
+$\widehat f(\ell_c/\alpha)-\widehat f(q+h/\alpha)\ge7\delta_{10}/480$ at
+every point of $R_\tau$.
+
+\emph{A fixed retained rectangle.} Let $(x,y)\in R_{10}$, in a cell with
+labels $t_1\in(x/\rho,x]$, $t_2\in(y/\rho,y]$. Then $\mu_*<t_1<\lambda$ and
+$\alpha<t_2<\beta$. On $[\mu_*,21/100]$ we have $B_0=\beta$, because
+$57/64-u-11\alpha/5-(5/2)(21/100)>\beta$. Hence
+$\operatorname{sel}(t_1)\ge\beta-a_{10}\tau>1/10\ge t_2$, and the cell is
+retained: $R_{10}\subset R_\tau$. Also
+$m^2(R_{10})=\log\frac{21}{20}\log\frac{10}9\ge\frac1{21}\cdot\frac1{10}
+=\frac1{210}$.
+
+Combining the three steps with the pointwise inequality above,
+\[
+ Q_{10,8}\ge T_h(R_\tau)+c_{10}
+ \ge T_h(\mathcal D_{10})-D_*\tau+c_{10}>T_h(\mathcal D_{10})
+ =P_{10}+\Delta_{10},
+\]
+by \eqref{eq:retB-S10-surplus}. No deduction is made. The reserve is the
+part of Paper~II's level margin left after the lift $h$. It exists on cells
+of $S_{10}$ only and is used only here.
+\end{proof}
+
+The finite arrays $S^0_{j,N},S^h_{j,N}$ are not used in this inequality.
+The errors $|\Lambda^0_{j,N}|$ and $|\Lambda_{j,N}|$ are nonnegative and are
+kept in $E'$ so that $E'$ agrees with \eqref{eq:intro-retained-error}.
+They tend to zero by Lemma~\ref{lem:retB-conversion}.
+
+\subsection{The internal joint shift}
+
+The joint occurrence is $2S_{11}+S_{12}+S_{13}$.
+Its six-branch function is Paper~II, (4.70)
+\cite[(4.70)--(4.72)]{PaperII}:
+\begin{equation}\label{eq:retB-theta}
+\begin{aligned}
+ v_1(t)&=\min\left\{\frac{1+t}{2},\frac{32-34t}{39},
+                              \frac{57}{64}-\frac{3t}{2}\right\},\\
+ v(t)&=v_1(t)-u,\qquad \psi(x,y)=x\mathbf1_{x\ge y},\\
+ \Theta_*(a,b,c)&=\max\{v(a),v(b),v(a+b),v(a+b+c),\\
+ &\hspace{34mm}\psi(v(a+c),a+2b+c),
+                  \psi(v(b+c),2a+b+c)\}.
+\end{aligned}
+\end{equation}
+Subtract $u$ before testing each guard.
+Set
+\begin{equation}\label{eq:retB-G-cone}
+ \mathcal C=\{(t_1,t_2,t_3):u\le t_3<t_2<t_1<\mu_*\},
+ \qquad
+ a_3(\mathbf t)=\frac{\Theta_*(\mathbf t)-t_1-t_2-t_3}{t_3}.
+\end{equation}
+Shift the output of $\Theta_*$ by $h$.
+Keep its guards and actual source unchanged:
+\begin{equation}\label{eq:retB-G-shift}
+\begin{aligned}
+ a_3^s(\mathbf t)&=a_3(\mathbf t)+\frac h{t_3},\\
+ J&=\iiint_{\mathcal C}\frac{1-f(a_3(\mathbf t))}
+                      {t_1t_2t_3^2}\,d\mathbf t,\\
+ J_s&=\iiint_{\mathcal C}\frac{1-f(a_3^s(\mathbf t))}
+                      {t_1t_2t_3^2}\,d\mathbf t.
+\end{aligned}
+\end{equation}
+Use $f(s)=0$ for $s<2$.
+Keep its true values at every larger argument.
+The new margins are
+\begin{equation}\label{eq:retB-G-margins}
+ g_s=\frac1{10000}-\frac{225}{256}\tau>2\mu_*\tau,
+ \qquad
+ g_{s,\mu_*}=\frac1{10000}-\frac{75}{256}\tau>0.
+\end{equation}
+The second margin concerns a parent interval crossing $\mu_*$.
+Both follow by subtracting $h$ in Paper~II, (4.72); see
+Lemma~\ref{lem:retB-shifted-retention}.
+They hold throughout $0<\tau\le10^{-90}$.
+If $f(a_3^s)>0$, the retained-cell condition follows:
+\begin{equation}\label{eq:retB-G-retention}
+ \ell_c\ge\Theta_*+h-t_1-t_2-t_3+g_s
+       >2t_3+2\mu_*\tau\ge2\rho t_3.
+\end{equation}
+Thus the canonical restriction still loses zero.
+At fixed numerator, use the increase of $sf(s)$.
+This is the same comparison as Paper~II, (4.72).
+
+\begin{lemma}[Shifted retention]\label{lem:retB-shifted-retention}
+The margins \eqref{eq:retB-G-margins} hold for $0<\tau\le10^{-90}$.
+On the original joint source, every positive shifted lower contribution
+lies in an original retained whole cell of Paper~II, (4.19). On such a
+cell the actual lower main term dominates the shifted canonical one.
+\end{lemma}
+
+\begin{proof}
+Use an original G1-3 cell with inherited labels
+$t_1\ge t_2\ge t_3>0$, and order its distinct actual prefix primes as
+$a_1>a_2>a_3$. Put $x_i=\log_Na_i$. Unequal parent bins enforce the
+actual order, while within an equal-label group we order the primes.
+Hence $t_i\le x_i<\rho t_i$, including clipped bins.
+No strict inequality between the labels is required.
+
+Let $\Theta_c$ be the original full-anatomy infimum and
+$\ell_c=\Theta_c-\eta_L-\sum_it_i$. Put
+$B_s(x)=\Theta_*(x)+h-\sum_ix_i$.
+The function $v_1$ is $3/2$-Lipschitz. On the closed ordered parent
+a coordinate changes by at most $\mu_*\tau$. A sum of at most
+three coordinates changes by at most $3\mu_*\tau$.
+If a saved guarded branch is active at $x$, its buffered guard has
+nonnegative gap, including equality. Removing its buffer adds $u$.
+Throughout the parent its unbuffered gap is therefore at least
+$u-(9/2)\mu_*\tau-4\mu_*\tau>0$.
+Thus it stays available in the full anatomy. Take an unguarded or
+active guarded saved branch. The corresponding full branch is at least
+its value at $x$ plus $u-(9/2)\mu_*\tau$. Taking their maximum and then
+the parent infimum preserves this lower bound. Ties between maximizing
+branches cause no loss. Therefore
+\[
+ \ell_c\ge B_s(x)+g_s+\sum_i(x_i-t_i),\qquad
+ g_s=u-\eta_L-h-(9/2)\mu_*\tau
+     =10^{-4}-(225/256)\tau.
+\]
+For a parent crossing $\mu_*$, the largest exponent is within
+$\mu_*\tau$ of $\mu_*$, and $v_1(\mu_*)=153/256$.
+Every saved branch is at most $153/256-u$, so the crossing comparison
+gives instead $10^{-4}-(75/256)\tau\ge g_s$.
+Clipping only shrinks the infimum domain. These arguments also apply
+when two or all three labels coincide.
+For $0<\tau\le10^{-90}$ we have $g_s>2\mu_*\tau>0$.
+
+If $f(B_s(x)/x_3)>0$, then $B_s(x)>2x_3$ and hence
+\[
+ \ell_c>2x_3+2\mu_*\tau
+       \ge2t_3+2\tau t_3=2\rho t_3.
+\]
+Thus the whole original cell is retained by Paper~II, (4.19).
+On positive support $\ell_c>B_s(x)>0$ and $0<t_3\le x_3$ imply
+\[
+ \frac{\ell_c}{t_3}\ge\frac{B_s(x)}{x_3},\qquad
+ f(\ell_c/t_3)\ge f(B_s(x)/x_3),\qquad
+ \frac{f(\ell_c/t_3)}{t_3}
+      \ge\frac{f(B_s(x)/x_3)}{x_3}.
+\]
+These use only nonnegativity and monotonicity of $f$. Equal labels
+invalidate none of the weak inequalities.
+Also $E=N^{t_3}\le a_3$, so $V_N(E)\ge V_N(a_3)$.
+At zero shifted contribution the required comparison follows from
+nonnegativity without any assertion that $B_s(x)>0$.
+
+Keep the original orbit normalization. If the equal-label groups are
+$G_h$, put $M_c=\prod_h|G_h|!\in\{1,2,6\}$.
+For a full labelled realization $\mathbf a$, write
+$\mathbf a^\downarrow$ for its decreasing rearrangement within the
+equal-label groups. The shifted comparison above is evaluated at
+$\mathbf x^\downarrow$ and is invariant under these group permutations.
+For every nonnegative, invariant main-mass weight $w_c$, therefore,
+\[
+ \frac1{M_c}\sum_{\rm full}K_P(\mathbf a)w_c(\mathbf a)
+       V_N(E)f(\ell_c/t_3)
+ \ge
+ \frac1{M_c}\sum_{\rm full}K_P(\mathbf a)w_c(\mathbf a)
+       V_N(a_3^\downarrow)
+       f(B_s(\mathbf x^\downarrow)/x_3^\downarrow).
+\]
+Each distinct ordered triple has exactly $M_c$ labelled realizations.
+The prefix mask $K_P$ and its correction are kept exactly as in
+Paper~II, (4.22)--(4.23). No repeated-prefix realization is reclassified.
+The tail mask and all remainder coefficients are likewise unchanged.
+This proves the finite lower-main-term comparison with the cell mass
+divided by $M_c$. The corresponding continuum comparison uses the
+preceding inequality with the $1/t_3$ and $1/x_3$ factors.
+Equal-label bins are kept. Their strictly ordered actual
+triples lie in the original cone. The orbit identity converts
+the full-block sum to that ordered sum exactly.
+Only actual coordinate diagonals have zero continuum measure.
+The proof imposes no $N\to\infty$ disappearance of equal-bin regions.
+\end{proof}
+
+Put $H_{\log}=\log(\mu_*/u)$.
+Paper~II's remaining terms satisfy
+\begin{equation}\label{eq:retB-G-residual}
+\begin{aligned}
+ 0\le R_G\le R_{\mathrm{up}}
+ ={}&500(F(30)-1)+500H_{\log}(1-f(30))\\
+    &+250H_{\log}^2(F(30)-1).
+\end{aligned}
+\end{equation}
+Its constant terms cancel exactly
+\cite[(4.73)--(4.75)]{PaperII}:
+\begin{equation}\label{eq:retB-G-cancellation}
+ 500\left(1-H_{\log}+\frac{H_{\log}^2}{2}\right)
+ -\iiint_{\mathcal C}\frac{d\mathbf t}{t_1t_2t_3^2}
+ =\frac1\mu_*.
+\end{equation}
+The shifted upper comparison is therefore
+\begin{equation}\label{eq:retB-G-profile}
+ G_1^s=\frac1\mu_*+R_G+J_s,
+ \qquad
+ \Phi_{G_1}^s=-K_GG_1^s,
+ \qquad
+ K_G=\frac{2I_{11}+I_{12}+I_{13}}{2e^\gamma}.
+\end{equation}
+The source-mass integrals are \cite[(4.77)]{PaperII}
+\begin{equation}\label{eq:retB-G-masses}
+\begin{aligned}
+ I_{11}={}&\int_\lambda^{1/3}
+          \frac{\log((1-2t)/t)}{t(1-t)}\,dt\\
+ &+\int_\lambda^{1/4}\frac{dt}{t}
+        \int_t^{(1-t)/3}
+          \frac{\log((1-t-2v)/v)}{v(1-t-v)}\,dv,\\
+ I_{12}={}&\int_\alpha^{1/3}
+          \frac{\log(2-3t)}{t(1-t)}\,dt,\\
+ I_{13}={}&\int_\beta^\lambda
+          \frac{\log((1-t-\lambda)/\lambda)}{t(1-t)}\,dt.
+\end{aligned}
+\end{equation}
+We have $I_{11},I_{12},I_{13}\ge0$ and $I_{12}>0$.
+Thus $K_G>0$.
+The finite shifted enclosure gives
+\begin{equation}\label{eq:retB-G-finite}
+ 0\le G_1^s\le\frac{6073714261}{10^9}
+ \quad\text{(shifted mesh $n_{\mathrm{mesh}}=512$)}.
+\end{equation}
+Paper~II's mass enclosure gives $0\le K_G\le K_{\mathrm{hi}}$
+\cite[(A.10d)]{PaperII}. The exact constants are
+\begin{equation}\label{eq:retB-exact-Khi}
+ K_{\mathrm{hi}}=
+ \frac{3989480791070578466390443009830933753748442947478110112223}{10^{58}}.
+\end{equation}
+Paper~II, (4.84), gives
+\begin{equation}\label{eq:retB-exact-LG1}
+ L_{G1}=-
+ \frac{243950428265194656254206921939947762868871361874409552095097}
+ {100433627766186892221372630771322662657637687111424552206336}.
+\end{equation}
+Define
+\begin{equation}\label{eq:retB-M5}
+ M_{5,\mathrm{internal}}
+   =-K_{\mathrm{hi}}\frac{6073714261}{10^9}-L_{G1}.
+\end{equation}
+Their exact substitution gives
+\begin{equation}\label{eq:retB-M5-value}
+\begin{gathered}
+ 0.0058749499450263575220<M_{5,\mathrm{internal}},\\
+ M_{5,\mathrm{internal}}<0.0058749499450263575221.
+\end{gathered}
+\end{equation}
+The finite enclosure and identity are proved.
+They concern the shifted profile integral.
+The required actual-source inequality is
+\begin{equation}\label{eq:retB-G-use}
+ -\frac{2S_{11}+S_{12}+S_{13}}{W}
+ \ge L_{G1}+M_{5,\mathrm{internal}}
+       -E^D_{G1}-|\Lambda_{G,N}|.
+\end{equation}
+
+\begin{proof}[Proof of \eqref{eq:retB-G-use}]
+Paper~II proves
+\[
+ \frac{2S_{11}+S_{12}+S_{13}}W\le K_GG_1+E^D_{G1},\qquad
+ G_1=\frac1{\mu_*}+R_G+J,
+\]
+from (4.73)--(4.77) \cite[(4.75), (4.78)]{PaperII}. Run the same argument
+with $J$ replaced by $J_s$. The first three residual rows and the bound
+$R_G\le R_{\mathrm{up}}$ do not change, and neither does the cancellation
+\eqref{eq:retB-G-cancellation}. In the fourth row,
+Lemma~\ref{lem:retB-shifted-retention} replaces Paper~II's comparison after
+(4.72). The canonical restriction loses zero, and the actual lower main term
+dominates the shifted one. The source and its weights $(2,1,1)$ do not
+change, and neither do the peel (4.45)--(4.57) and the mass conversion
+(4.76)--(4.78). Hence
+\[
+ \frac{2S_{11}+S_{12}+S_{13}}W\le K_GG_1^s+E^D_{G1}
+\]
+with the same $E^D_{G1}$. By Proposition~\ref{prop:app-m5-cap},
+$0\le G_1^s\le6073714261/10^9$, which is \eqref{eq:retB-G-finite}, with the
+residual bound supplied by \eqref{eq:retB-G-residual}. By
+Paper~II, (A.10d), $0\le K_G\le K_{\mathrm{hi}}$. Both factors are
+nonnegative, so by \eqref{eq:retB-M5}
+\[
+ -K_GG_1^s\ge-K_{\mathrm{hi}}\frac{6073714261}{10^9}=L_{G1}+M_{5,\mathrm{internal}}.
+\]
+This gives \eqref{eq:retB-G-use} even without $|\Lambda_{G,N}|$. That term
+is nonnegative and is kept so that the error agrees with
+\eqref{eq:intro-retained-error}.
+\end{proof}
+The existing $E^D_{G1}$ is a disjoint component of the original
+$F_{\mathrm{net}}+E_{\mathrm{van}}$ allowance.
+Its fixed peel $145664566.4567\tau$ is covered by $g_\tau$,
+and its fixed $C_E\sigma$ share by $g_{\mathrm{AA}}$.
+Its vanishing part belongs to $E_{\mathrm{van}}$.
+When replacing the joint chain, carry these same components once.
+The reconciliation in \eqref{eq:retB-fixed-cost} remains paid.
+These components are the $G_1$ comparator term $NC_{\mathrm{sf}}$ of
+Paper~II, (4.64)--(4.65), and the $G_1$ share of the joint bound. That
+bound treats $\Xi_U$ and $\Xi_A$ in Paper~II, (B.1)--(B.7). Both are
+attached to the original source measure and not to the profile. Hence the
+shift neither creates nor removes them.
+
+\subsection{Conversion of the finite arrays}
+
+We give the remaining definitions before stating the lemma.
+All representation variables in the following table are prime.
+Their product is $e$, with $\varepsilon N<e<N$.
+Let $R_{11,3}(e)$ and $R_{11,4}(e)$ count the first two forms.
+Let $R_{12}(e)$ and $R_{13}(e)$ count the last two forms.
+Put $R_{11}=R_{11,3}+R_{11,4}$.
+These are Paper~II's representation weights
+\cite[(4.4), source table preceding (4.4)]{PaperII}.
+
+\begin{table}[ht]
+\caption{The internal representation counts}\label{tab:retB-representations}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}llp{.64\linewidth}@{}}
+\hline
+Count & Product & Restrictions\\
+\hline
+$R_{11,3}$ & $p_1p_2p_3$ &
+$N^\lambda\le p_1<N^{1/3}$, $p_1<p_2$, $p_1p_2^2<N$, $p_3\ge p_2$.\\
+$R_{11,4}$ & $p_1p_2p_3p_4$ &
+The same conditions on $p_1,p_2$; $p_2\le p_3\le p_4$.\\
+$R_{12}$ & $p_1p_2p_3$ &
+$N^\alpha\le p_1<N^{1/3}\le p_2$, $p_1p_2^2<N$, $p_3\ge p_2$.\\
+$R_{13}$ & $p_1p_2p_3$ &
+$N^\beta\le p_1<N^\lambda\le p_2$, $p_1p_2^2<N$, $p_1p_2p_3^2\ge N$.\\
+\hline
+\end{tabular}
+\end{table}
+For the last form the endpoint orders are distinct.
+Every permitted representation keeps its multiplicity.
+Define the upper cut and masses by
+\begin{equation}\label{eq:retB-source-normalizations}
+\begin{aligned}
+ N_{\mathrm{cut}}&=N(1-L^{-333}),\\
+ X_j^{\mathrm{cut}}&=\sum_eR_j(e)
+           \mathbf1_{\varepsilon N<e\le N_{\mathrm{cut}}}
+                &&(j=11,12,13),\\
+ X_G&=2X_{11}^{\mathrm{cut}}+X_{12}^{\mathrm{cut}}+X_{13}^{\mathrm{cut}},\\
+ r_{G,N}(t)&=\frac{tX_GV_N(N^t)}{WK_G}.
+\end{aligned}
+\end{equation}
+The cut precedes the sieve decomposition
+\cite[(4.16)--(4.17)]{PaperII}.
+The source-mass input used below is
+\begin{equation}\label{eq:retB-source-mass-limits}
+\begin{aligned}
+ X_D&=\left(1-\varepsilon+o(1)\right)\frac NL,\\
+ X_G&=\left((1-\varepsilon)(2I_{11}+I_{12}+I_{13})+o(1)\right)
+                                                   \frac NL.
+\end{aligned}
+\end{equation}
+
+\begin{lemma}[Source masses]\label{lem:retB-source-mass}
+The formulas \eqref{eq:retB-source-mass-limits} hold.
+\end{lemma}
+\begin{proof}
+The sum $X_D$ counts the primes in $(N/L^{30},(1-\varepsilon)N)$, so the
+prime number theorem gives $X_D=(1-\varepsilon+o(1))N/L$.
+For the representation weights of Table~\ref{tab:retB-representations},
+Paper~II proves $X_j=((1-\varepsilon)I_j+o(1))N/L$ for the uncut masses,
+$j=11,12,13$ \cite[(4.76)--(4.77)]{PaperII}. The cut strip
+$N_{\mathrm{cut}}<e<N$ carries joint mass at most $100(NL^{-333}+1)$
+\cite[(4.16)--(4.17)]{PaperII}, which is $o(N/L)$. Summing with the
+weights $(2,1,1)$ gives the formula for $X_G$.
+\end{proof}
+
+On $X_0^3$, define the zero-extended kernel
+\begin{equation}\label{eq:retB-G-gain-kernel}
+ d_G(\mathbf t)=\mathbf1_{\mathcal C}(\mathbf t)
+       K_G\frac{f(a_3^s(\mathbf t))-f(a_3(\mathbf t))}{t_3}.
+\end{equation}
+Its arrays and integral are
+\begin{equation}\label{eq:retB-G-array}
+\begin{aligned}
+ B_{G,N}&=\iiint r_{G,N}(t_3)d_G(\mathbf t)\,d(m_N^3)(\mathbf t),\\
+ \Delta_G&=\iiint d_G\,d(m^3)=K_G(J-J_s),\\
+ \Lambda_{G,N}&=B_{G,N}-\Delta_G.
+\end{aligned}
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:retB-G-prime-sum}
+\begin{aligned}
+ B_{G,N}&=\frac{X_G}{W}
+ \sum_{\substack{p_3<p_2<p_1,\ p_i\in\mathbb P,\ p_i\nmid N\\
+           u\le\log_Np_3<\log_Np_2<\log_Np_1<\mu_*}}
+ \frac{V_N(p_3)[f(a_3^s(\mathbf t))-f(a_3(\mathbf t))]}
+      {(p_1-1)(p_2-1)(p_3-1)},\\
+ &\hspace{38mm}t_i=\log_Np_i.
+\end{aligned}
+\end{equation}
+These definitions specify all five additional conversion errors.
+
+\begin{lemma}[Conversion of the five profile differences]
+\label{lem:retB-conversion}
+Fix $0<\sigma\le10^{-10}$. For $m_N,m$ in \eqref{eq:retB-measure}, the finite
+arrays \eqref{eq:retB-direct-arrays} and \eqref{eq:retB-G-array} satisfy
+\begin{equation}\label{eq:retB-conversion-limit}
+ \Lambda_{j,N}\longrightarrow0\quad(j\in\mathcal H),\qquad
+ \Lambda_{G,N}\longrightarrow0,
+\end{equation}
+and $\Lambda^0_{j,N}\to0$ for $j\in\mathcal H$.
+Every limit ranges over even $N$ tending to infinity; the thresholds depend
+on $\sigma$.
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: convergence of the harmonic measures.}
+Let $u\le a<b\le1$.
+Mertens' theorem and partial summation give
+\begin{equation}\label{eq:retB-weak}
+ m_N([a,b))=\log\frac ba+o(1).
+\end{equation}
+Replacing $1/(p-1)$ by $1/p$ costs $O(N^{-u})$.
+There are at most $L/\log2$ prime divisors of $N$.
+Each omitted divisor above $N^u$ has mass $O(N^{-u})$.
+Their total cost is $O(N^{-u}L)$.
+The largest endpoint atom is $O(N^{-u})$.
+The total masses therefore satisfy
+\begin{equation}\label{eq:retB-total-mass}
+ c_N:=m_N(X_0)\longrightarrow c_0:=m(X_0)=\log(1/u)>0.
+\end{equation}
+Let $g$ be continuous on $X_0$. Choose a finite interval partition and a
+step function on it, uniformly within a prescribed error of $g$.
+The integrals of the step function converge by \eqref{eq:retB-weak}. The
+integral errors are at most the uniform error times $c_N+c_0$, which is
+bounded by \eqref{eq:retB-total-mass}. Hence $m_N\Rightarrow m$
+\cite[Theorem~2.2 and Example~2.3]{Billingsley1999}.
+For $k=2,3$, rectangle masses are products of interval masses. The same
+argument with rectangular step functions gives
+\begin{equation}\label{eq:retB-product-weak}
+ m_N^k\Rightarrow m^k\qquad(k=1,2,3).
+\end{equation}
+For a coordinate diagonal $D_{ij}=\{t_i=t_j\}$,
+\begin{equation}\label{eq:retB-diagonal-mass}
+ m_N^k(D_{ij})\le
+  \left(\max_{p\ge N^u}\frac1{p-1}\right)c_N^{k-1}
+ =O(N^{-u})\qquad(k\ge2).
+\end{equation}
+Thus strict prime order costs nothing in the limit, and no orbit factor
+enters.
+
+\emph{Step 2: the source and Euler normalizations.}
+For $p>2$,
+\begin{equation}\label{eq:retB-Euler-factorization}
+ 1-\frac1{p-1}=
+ \left(1-\frac1p\right)\left(1-\frac1{(p-1)^2}\right).
+\end{equation}
+Mertens' product formula and the convergent second product yield
+\begin{equation}\label{eq:retB-Euler-limit}
+ V_N(N^t)=\frac{2e^{-\gamma}C(N)}{tL}(1+o(1)),
+ \qquad u/\rho\le t\le1,
+\end{equation}
+uniformly in $t$.
+The prime $2$ is omitted because $N$ is even.
+The missing divisors $p\mid N$ above $N^t$ contribute
+$\prod(1+1/(p-2))=1+O(N^{-u/\rho}L)$. The ordinary product error is
+uniform for $N^t\ge N^{u/\rho}$.
+By Lemma~\ref{lem:retB-source-mass} and \eqref{eq:not-normalization},
+\begin{equation}\label{eq:retB-density-limits}
+ r_{D,N}\longrightarrow1,\qquad
+ \sup_{u\le t\le\mu_*}|r_{G,N}(t)-1|\longrightarrow0.
+\end{equation}
+For example, $WK_G=2e^{-\gamma}(1-\varepsilon)
+(2I_{11}+I_{12}+I_{13})C(N)N/L^2$.
+This is exactly the main factor in $tX_GV_N(N^t)$.
+Thus both the truncation factor and the representation multiplicities
+cancel once.
+
+\emph{Step 3: restriction and bounded kernels.}
+Write $\widehat m_N=m_N/c_N$ and $\widehat m=m/c_0$.
+These are probability measures, and their products converge weakly.
+Let $D$ have $m^k(\partial D)=0$, and let $g\mathbf1_D$ be bounded and
+$m^k$-almost everywhere continuous. Apply the mapping form of the portmanteau
+theorem \cite[Theorems~2.1 and~2.7]{Billingsley1999} to
+$g\mathbf1_D$ and the probability measures. Then multiply by
+$c_N^k\to c_0^k$. This gives
+\begin{equation}\label{eq:retB-portmanteau}
+ \int_Dg\,d(m_N^k)\longrightarrow\int_Dg\,d(m^k).
+\end{equation}
+The intervals $I_j$ have finitely many boundary points.
+The boundary of $\mathcal D_{10}$ is piecewise affine, since $B_0$ is
+continuous and piecewise affine. Both have zero $m^{e_j}$-measure.
+On $I_j$ $(j=4,5,7)$ the argument $s(x)$ lies in a compact subinterval of
+$(1,\infty)$, where $F$ is continuous. On $\mathcal D_{10}$,
+$y<K-11\alpha/5-5x/2$ gives $q(x,y)>11/5$, and $q+h/\alpha<4$; there $f$ is
+continuous. Hence $k_j^0,k_j^h$ and $d_j$ are bounded and continuous off a
+null set, so \eqref{eq:retB-portmanteau} applies to them.
+With \eqref{eq:retB-density-limits}, it gives
+\begin{equation}\label{eq:retB-direct-convergence}
+ S_{j,N}^0\longrightarrow P_j,\qquad
+ B_{j,N}\longrightarrow\Delta_j\qquad(j\in\mathcal H).
+\end{equation}
+
+\emph{Step 4: the ordered three-dimensional kernel.}
+The cone $\mathcal C$ has affine boundary faces, so its boundary is
+$m^3$-null.
+The function $\Theta_*$ is piecewise affine.
+Its possible jumps lie on finitely many guard hyperplanes, and its branch
+switches add finitely many affine faces.
+On every remaining open piece, $a_3$ and $a_3^s$ are continuous.
+The denominator satisfies $t_3\ge u>0$, so the arguments of $f$ remain in a
+fixed compact interval. On it $f$, extended by zero below $2$, is
+continuous. Since $0\le f\le1$, $|d_G|\le K_G/u$.
+Thus $d_G$ is bounded and $m^3$-almost everywhere continuous.
+Apply \eqref{eq:retB-portmanteau} to the zero extension on $X_0^3$:
+\begin{equation}\label{eq:retB-G-portmanteau}
+ \iiint d_G\,d(m_N^3)\longrightarrow
+ \iiint d_G\,d(m^3)=\Delta_G.
+\end{equation}
+The normalization costs at most
+\begin{equation}\label{eq:retB-G-normalization-error}
+ \left|B_{G,N}-\iiint d_G\,d(m_N^3)\right|
+ \le\sup_{[u,\mu_*]}|r_{G,N}-1|\,\|d_G\|_\infty c_N^3
+ \longrightarrow0.
+\end{equation}
+The cone's coordinate-order inequalities are strict, so $B_{G,N}$ counts
+strictly ordered triples, as in \eqref{eq:retB-G-prime-sum}.
+Hence $B_{G,N}\to\Delta_G$, and with Step~3 all limits in
+\eqref{eq:retB-conversion-limit} and $\Lambda^0_{j,N}\to0$ follow.
+\end{proof}
+
+\paragraph{Whole cells, retained cells and the label cutoff.}
+For the four direct rows, the arithmetic identification is
+Lemma~\ref{lem:retB-lifted-direct}. For the joint row it is the proof of
+\eqref{eq:retB-G-use}. Both are made at stage eight on Paper~II's actual
+cells, with their inherited signed coefficients. Hence no further whole-cell
+kernel is needed. For the retained part of $S_{10}$, the actual whole cells
+cover $\mathcal D_{10}$ up to a strip. Lemma~\ref{lem:retB-lifted-direct}
+absorbs this strip by the retained reserve \eqref{eq:retB-S10-surplus}. For
+$G_1$, the retained cells are those of Paper~II, (4.19). By
+Lemma~\ref{lem:retB-shifted-retention}, the shifted profile has
+no positive support outside them. The arrays \eqref{eq:retB-direct-arrays}
+and \eqref{eq:retB-G-array} enter only through the nonnegative errors in
+$E'$, which vanish by Lemma~\ref{lem:retB-conversion}.
+
+The array \eqref{eq:retB-G-prime-sum} carries $V_N(p_3)$ at the actual
+coordinate. The arithmetic lower main term carries $V_N(E)$,
+$E=N^{t_3}$, at the inherited label. Since $E\le a_3$, $V_N(E)\ge V_N(a_3)$.
+In the lower part of the joint upper bound this replacement is
+favourable. We nevertheless bound it absolutely and include it once in
+Paper~II's peel allowance (4.57). No fixed cost is added.
+By \eqref{eq:retB-Euler-limit}, uniformly for actual label/coordinate pairs in the same cell with $u/\rho\le t_3\le x_3\le1$ and $x_3<\rho t_3$,
+\[
+ \frac{V_N(N^{t_3})}{V_N(N^{x_3})}=\frac{x_3}{t_3}(1+o(1))\le\rho(1+o(1)).
+\]
+For a weight $0\le w\le1$ on the strictly ordered cone, the replacement
+therefore costs at most
+\begin{equation}\label{eq:retB-label-cost}
+\begin{gathered}
+ C_{\mathrm{cut},N}\le(\tau+o_\sigma(1))T_N,\qquad
+ T_N=\frac{X_G}W\sum_{\mathcal C}
+       \frac{V_N(p_3)}{(p_1-1)(p_2-1)(p_3-1)}\longrightarrow K_GI_0,\\
+ I_0=\iiint_{\mathcal C}\frac{d\mathbf t}{t_1t_2t_3^2}
+    =500\Bigl(1-H_{\log}+\frac{H_{\log}^2}2\Bigr)-\frac1{\mu_*},
+\end{gathered}
+\end{equation}
+where the sum runs over the primes of \eqref{eq:retB-G-prime-sum}. The limit
+follows from Steps~2--4 of the proof of Lemma~\ref{lem:retB-conversion}
+applied to the bounded kernel $\mathbf 1_{\mathcal C}K_G/t_3$. We evaluate $I_0$
+by \eqref{eq:retB-G-cancellation}. Since $1<H_{\log}<459/100$ and
+the quadratic increases for $H_{\log}>1$,
+\[
+ I_0<\frac{693381}{200},\qquad
+ K_GI_0\le K_{\mathrm{hi}}\frac{693381}{200}<1400.
+\]
+At fixed $\tau$, eventually $o_\sigma(1)\le\tau$ and $T_N\le1400$, so
+$C_{\mathrm{cut},N}\le2800\tau<4000\tau$. We include $4000\tau$ once.
+Paper~II's peel bound before its final rounding is
+\[
+ P_{\mathrm{peel}}\tau=\frac{3\cdot502002\,(459/100)^3}{1-\varepsilon}\tau
+ =\frac{8090814677193}{55550}\tau
+\]
+\cite[(4.47), (4.56)]{PaperII}, and its printed allowance is
+$P_{\mathrm{cap}}\tau=(485500000000/3333)\tau$ \cite[(4.57)]{PaperII}.
+The per-layer coefficient 502002 in Paper~II, (4.53), includes the
+Selberg remainder. The printed allowance (4.57) uses that coefficient;
+we therefore use its slack with the Selberg remainder already included.
+Exact subtraction gives
+\begin{equation}\label{eq:retB-peel-room}
+ P_{\mathrm{cap}}-P_{\mathrm{peel}}=\frac{2555968421}{166650},\qquad
+ P_{\mathrm{cap}}-P_{\mathrm{peel}}-4000=\frac{1889368421}{166650}>0.
+\end{equation}
+Hence the peel and the label replacement together stay below
+$P_{\mathrm{cap}}\tau<145664566.4567\tau$, the entry already contained in
+$g_\tau$. The fixed deduction $F_{\mathrm{net}}$ is unchanged.
+
+\subsection{The resulting lower comparison}
+
+\begin{remark}[Inputs]\label{rem:retB-inputs}
+The proof of Proposition~\ref{prop:retB-comparison} uses the cited
+statements of Paper~I and Paper~II. They are applied to Paper~II's unchanged sources.
+It uses Paper~I, Theorem~2.8, through
+Fact~\ref{fact:spectral-implication}, and the prime Siegel--Walfisz theorem,
+Paper~I, (2.21). It uses Lemma~\ref{hyp:ra-ms-transfer}(ii) at
+Paper~I, (3.48), and
+the finite enclosures of Propositions~\ref{prop:app-h6-four-profiles}
+and~\ref{prop:app-m5-cap}. The optional endpoint improvement also uses
+Lemma~\ref{lem:retB-six-endpoints}. The table of
+Appendix~\ref{subsec:app-retB-rows} is an index, not an input.
+\end{remark}
+
+\begin{proposition}[Retained comparison]\label{prop:retB-comparison}
+Fix $0<\sigma\le10^{-10}$ satisfying Paper~II, (1.27) and assume
+Lemma~\ref{lem:retB-six-endpoints}.
+Then \eqref{eq:retB-goal} holds, and $E'(N;\sigma)\to0$ as $N\to\infty$.
+Without that lemma, \eqref{eq:retB-goal} holds with $g_6$ replaced by $0$;
+the same limit for $E'(N;\sigma)$ holds.
+\end{proposition}
+
+\begin{proof}
+Write each chain of $\mathcal I$, including $\mathrm{T5}$, by
+\eqref{eq:retB-telescope} and each joint group by \eqref{eq:retB-joint}. Lemma~\ref{lem:retB-base-errors} covers the
+differences at stages one to eight and the remaining Paper~II differences at
+stages nine and ten. Their sum is at least $-(F_{\mathrm{net}}-\delta_{G1})-E_{\mathrm{van}}$.
+For $j\in\mathcal H$, replace the stage-nine object by $Q^h_{j,9}=P_j+\Delta_j$.
+Then Lemma~\ref{lem:retB-lifted-direct} gives $Q_{j,8}-Q^h_{j,9}\ge0$.
+For $j\in\mathcal J$, Lemma~\ref{lem:retB-six-endpoints} gives the
+stage-ten difference $P_j-N_j\ge0$, so the endpoint rises by $N_j-O_j$.
+Only the endpoint changes, so $g_6$ enters once.
+By Proposition~\ref{prop:app-h6-four-profiles},
+$\sum_{j\in\mathcal H}\Delta_j>572004/10^8>5719/10^6$, which is
+\eqref{eq:retB-H6-finite}.
+For the joint occurrence, \eqref{eq:retB-G-use} replaces Paper~II's $G_1$
+bound. Its $E^D_{G1}$ is the $G_1$ part of $F_{\mathrm{net}}+E_{\mathrm{van}}$
+and is counted once.
+These modifications concern disjoint profile terms, so their gains enter once.
+The endpoint sum \eqref{eq:retB-base-endpoints} and the floor
+\eqref{eq:retB-paperII-floor} give $D_{\mathrm{II}}+\overline J_6+2\overline H$.
+Hence
+\begin{equation}\label{eq:retB-sum}
+\begin{aligned}
+ \frac{R_{\mathrm{fix}}+S_2}{W}
+ \ge{}&D_{\mathrm{II}}+g_6+\overline J_6+2\overline H
+      +\frac{5719}{10^6}+M_{5,\mathrm{internal}}\\
+ &-E_{\mathrm{van}}(N;\sigma)
+      -\sum_{j\in\mathcal H}
+          \bigl(|\Lambda^0_{j,N}|+|\Lambda_{j,N}|\bigr)-|\Lambda_{G,N}|.
+\end{aligned}
+\end{equation}
+The nine conversion errors are nonnegative, so \eqref{eq:retB-sum} is weaker
+than the same bound without them. This is \eqref{eq:retB-goal}.
+By Lemmas~\ref{lem:retB-base-errors} and~\ref{lem:retB-conversion},
+$E'(N;\sigma)\to0$; the threshold depends on the fixed $\sigma$.
+No fixed increment is added. The only new fixed cost is the label
+replacement, and by \eqref{eq:retB-peel-room} it lies inside Paper~II, (4.57).
+Without Lemma~\ref{lem:retB-six-endpoints}, take $N_j=O_j$; then the
+same argument gives \eqref{eq:retB-sum} with $g_6$ replaced by $0$.
+\end{proof}

@@ -1,0 +1,618 @@
+\section{The final bound}\label{sec:final-bill}
+
+We keep the notation of Sections~\ref{sec:introduction} and
+\ref{sec:notation}.
+All error terms below are nonnegative.
+The analytic inputs are \textup{(A1)}--\textup{(A5)} of
+Table~\ref{tab:intro-inputs}.
+
+\subsection{Addition of the comparisons}
+
+Put $\delta_{\mathrm{err}}=10^{-4}$.
+The constant of \eqref{eq:intro-DB} is
+\begin{equation}\label{eq:bill-constant}
+\begin{aligned}
+ D_B={}&D_{\mathrm{II}}+\frac{5719}{10^6}
+       +M_{5,\mathrm{internal}}+g_{\mathrm{RA,lo}}\\
+     &-\delta_{\mathrm{err}}+
+       \left(2-\frac{c_{K2,G0}}{4}\right)\overline H,
+ \qquad \overline H=\frac{389253}{5000000}.
+\end{aligned}
+\end{equation}
+Here $D_{\mathrm{II}}$ is Paper~II's original lower constant
+\cite[(6.3a)]{PaperII}.
+The six endpoint gains $g_6$ of \eqref{eq:retB-six-gain} are not used.
+The two profile gains enter separately.
+In particular,
+\begin{equation}\label{eq:bill-components}
+\begin{aligned}
+ D_{\mathrm{II}}&=\frac{45849916338009170593}
+                         {25000000000000000000},\\
+ M_{5,\mathrm{internal}}
+     &=-K_{\mathrm{hi}}\frac{6073714261}{10^9}-L_{G1},\\
+ g_{\mathrm{RA,lo}}&=\frac{989598353}{10^{10}}=0.0989598353.
+\end{aligned}
+\end{equation}
+The last line is the conservative rational floor for the integral
+gain $\mathfrak g_{\mathrm{RA}}$. It is not a central estimate.
+Section~\ref{sec:root-a} separates it from the integral gain.
+The certified integral enclosure is
+$[0.0989598353353,0.0989598353355]$.
+We take $K_{\mathrm{hi}}$ and $L_{G1}$ as defined in
+\cite[(A.10d), (4.84)]{PaperII}.
+Their exact values are
+\begin{equation}\label{eq:bill-M5-inputs}
+\begin{aligned}
+ K_{\mathrm{hi}}&=
+ \frac{3989480791070578466390443009830933753748442947478110112223}
+      {10^{58}},\\[2pt]
+ L_{G1}&=-
+ \frac{243950428265194656254206921939947762868871361874409552095097}
+      {100433627766186892221372630771322662657637687111424552206336}.
+\end{aligned}
+\end{equation}
+Thus $M_{5,\mathrm{internal}}=M_n/M_d$ exactly, where
+\begin{equation}\label{eq:bill-M5-integers}
+ M_n=\sum_{i=0}^5m_i10^{20i},\qquad
+ M_d=\sum_{i=0}^5d_i10^{20i}.
+\end{equation}
+The coefficients are printed in Table~\ref{tab:bill-M5-integers}.
+\begingroup
+\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{@{}rrr@{}}
+\caption{Exact shifted-profile gain}\label{tab:bill-M5-integers}\\
+\hline
+$i$ & $m_i$ & $d_i$\\
+\hline
+\endfirsthead
+\hline
+$i$ & $m_i$ & $d_i$\\
+\hline
+\endhead
+0 & 66922148532305907989 & 0\\
+1 & 34893223604885136721 & 0\\
+2 & 3973350097562772509 & 0\\
+3 & 87266878234046404033 & 48635364229120000000\\
+4 & 28374567121249055735 & 73384187692692674921\\
+5 & 3998 & 680564\\
+\hline
+\end{longtable}
+\endgroup
+The exact rational $c_{\mathrm{O1}}$ is defined in
+\eqref{eq:l3-exact-certificate-constant} and
+Table~\ref{tab:l3-certificate-integers}.
+It records the optional sharper certificate only.
+The main count uses $c_{K2,G0}$ in both comparisons.
+The common functional comparison is \eqref{eq:l3-certificate}.
+For comparison with the optional sharper coefficient, exact rational
+arithmetic gives
+\begin{equation}\label{eq:bill-coefficient-cost}
+ 0<c-c_{\mathrm{O1}}<4.081\cdot10^{-46},\qquad
+ 0<\frac{c-c_{\mathrm{O1}}}{4}\overline H
+                  <7.943\cdot10^{-48}.
+\end{equation}
+This is a rational comparison only. It gives no bound for $2e^{-\gamma}U_0$.
+The further cost of the common coefficient relative to \(c\) is exactly
+\[
+ \frac{c_{K2,G0}-c}{4}\overline H
+ =0.000049489563023753677508253183146688036059673516909.
+\]
+The resulting main switched gain is exactly
+\[
+ \Delta D_{L3}=0.02263846472429815434060381043792394540367262995113415.
+\]
+Neither optional certificate is required for \eqref{eq:bill-constant}.
+Each gain is proved on the original arithmetic source of its comparison.
+The gains $5719/10^6$ and $M_{5,\mathrm{internal}}$ come from
+Proposition~\ref{prop:retB-comparison}, through
+Propositions~\ref{prop:app-h6-four-profiles} and~\ref{prop:app-m5-cap}.
+The gain $g_{\mathrm{RA,lo}}$ comes from Proposition~\ref{prop:ra-b11}, and
+$\Delta D_{L3}$ from \eqref{eq:l3-final}. Table~\ref{tab:bill-binding} lists the bindings.
+
+Table~\ref{tab:bill-components} itemizes the constant.
+Its decimal column gives approximations only.
+The defining formulas determine the exact sum.
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}p{.48\linewidth}p{.43\linewidth}@{}}
+\caption{The six terms in $D_B$}\label{tab:bill-components}\\
+\hline
+Term & Value\\
+\hline
+\endfirsthead
+\hline
+Term & Value\\
+\hline
+\endhead
+$D_{\mathrm{II}}$ & $1.83399665352036682372$\\
+$5719/10^6$ & $0.005719$\\
+$M_{5,\mathrm{internal}}$ & $0.005874949945026357\ldots$\\
+$g_{\mathrm{RA,lo}}$ & $0.0989598353$\\
+$-\delta_{\mathrm{err}}$ & $-0.0001$\\
+$\Delta D_{L3}=(2-c_{K2,G0}/4)\overline H$
+ & $0.022638464724298154\ldots$\\
+\hline
+$D_B$ & $1.967088903489691335\ldots$\\
+\hline
+\end{longtable}
+\endgroup
+
+Adding \eqref{eq:intro-comparisons} and
+\eqref{eq:intro-exterior} cancels the sixth endpoint:
+\begin{equation}\label{eq:bill-cancellation}
+ \overline J_6-\overline J_6=0,\qquad
+ 2\overline H-\frac{c_{K2,G0}}{4}\overline H
+ =\left(2-\frac{c_{K2,G0}}{4}\right)\overline H.
+\end{equation}
+Thus their conditional consequence is
+\begin{equation}\label{eq:bill-added}
+ \frac{4G_b(N)}{W(N)}
+ \ge D_B+\delta_{\mathrm{err}}-c_{K2,G0}I(b)-\mathcal E_B(N;b,\sigma).
+\end{equation}
+This uses the complete $S_2$ of Paper~II.
+The finite identities keep their original signs and multiplicities.
+The fixed errors in Paper~II are subtracted once
+\cite[(6.4)--(6.6)]{PaperII},
+and not again in \eqref{eq:bill-constant}.
+
+\subsection{Ten error allocations}
+
+Use the exterior error from \eqref{eq:bill-K-error}.
+For the table below, a conservative majorant is convenient:
+\begin{equation}\label{eq:bill-K-error}
+\begin{aligned}
+ E_K(N;b,\sigma)
+ &=A_K(b)C_{\mathrm{AA}}\sigma
+      +\frac{3884000000000}{9999}\sigma^9+r_K(N;b,\sigma)\\
+ &\le 4A_K(b)C_{\mathrm{AA}}\sigma
+      +\frac{3884000000000}{9999}\sigma^9
+      +r_K(N;b,\sigma),\\
+ A_K(b)&=2e^{-\gamma}I(b)W_{\mathrm{AA},K},\qquad
+ P_K=\frac{3884000000000}{9999},\\
+ r_K(N;b,\sigma)&=o_{b,\sigma}(1).
+\end{aligned}
+\end{equation}
+Here $W_{\mathrm{AA},K}$ is the exterior remainder-weight bound.
+It belongs to the source in Section~\ref{sec:k2}.
+The extra factor four only enlarges this nonnegative error.
+It leaves the principal constant unchanged.
+Similarly, the switched comparison requires
+\begin{equation}\label{eq:bill-sw-error}
+\begin{aligned}
+ E_{\mathrm{sw}}(N;\sigma)
+ &\le \frac{650000000}{1111}C_E\sigma
+       +\frac{48544888063158}{27775}\sigma^9
+       +V_{\mathrm{sw}}(N;\sigma),\\
+ V_{\mathrm{sw}}(N;\sigma)&=o_\sigma(1).
+\end{aligned}
+\end{equation}
+Here $V_{\mathrm{sw}}$ is the positive part in
+\eqref{eq:l3-remainder}.
+The conditional limit is \eqref{eq:l3-remainder-limit}.
+These two limits concern the actual sums stated there.
+Both majorants are the error terms of \eqref{eq:k2-final-fixed-sigma} under
+\textup{(A3)} and of \eqref{eq:l3-final} under \textup{(A4)}, with
+$C_{\mathrm{sw}}$ from \eqref{eq:l3-price}. By \textup{(A5)},
+$C_{\mathrm{AA}}$ and $C_E$ do not depend on $\sigma$. The exterior weight
+$W_{\mathrm{AA},K}$ is $W_{\mathrm{AA}}$ of \eqref{eq:k2-aa-mass}:
+\begin{equation}\label{eq:bill-AK-positive}
+\begin{gathered}
+ A_K(b)=2e^{-\gamma}I(b)W_{\mathrm{AA},K},\qquad
+ W_{\mathrm{AA},K}=500\Bigl(1+H_{\log}+\frac{H_{\log}^2}2
+                    +\frac{H_{\log}^3}6\Bigr),\\
+ H_{\log}=\log\frac{\mu_*}{u}=\log\frac{3125}{32}>0.
+\end{gathered}
+\end{equation}
+Since $I(b)>0$, this gives $0<A_K(b)<\infty$. In particular
+$A_K(b)C_{\mathrm{AA}}\sigma\le4A_K(b)C_{\mathrm{AA}}\sigma$.
+
+The retained and Root--A comparisons require
+\begin{equation}\label{eq:bill-eventual-errors}
+ E'(N;\sigma)=o_\sigma(1),\qquad
+ E_{\mathrm{RA}}(N;\sigma)=o_\sigma(1).
+\end{equation}
+For Root--A, use $E_{\mathrm{RA}}(N;\sigma)$
+from \eqref{eq:ra-b11-floor}.
+The first includes every conversion and the saved-array contribution
+$\sum_{j\in\mathcal H}|\Lambda^0_{j,N}|$ in
+\eqref{eq:intro-retained-error}; that contribution is not charged again.
+The pointwise error may use the coarser bound
+\begin{equation}\label{eq:bill-pointwise-error}
+ E_{\mathrm{exc}}(N)=\frac{4E_{\mathrm{pt}}(N)}{W(N)}
+ \le\frac{2197N^{1-\alpha}}{W(N)}=o(1).
+\end{equation}
+Here $E_{\mathrm{pt}}$ is defined in
+\eqref{eq:source-pointwise-error}. The explicit pointwise argument in
+Section~\ref{sec:source-decomposition} gives $E_{\mathrm{pt}}=0$
+for $N\ge N_{\mathrm{pt}}$. The coarser majorant retains the same error bound.
+The inequality follows from \eqref{eq:source-first-lower}, using both
+the pointwise bound and the exceptional-set cardinality.
+Since $C(N)\ge C_2>0$ and $\alpha>0$, the coarser majorant tends to zero:
+$N^{-\alpha}(\log N)^2\to0$.
+No sharper exceptional coefficient is needed.
+Proposition~\ref{prop:retB-comparison} gives $E'(N;\sigma)\to0$, and
+Proposition~\ref{prop:ra-b11} gives $E_{\mathrm{RA}}(N;\sigma)\to0$ under
+\textup{(A2)}, each at fixed $\sigma$.
+Lemma~\ref{lem:source-pointwise} gives $E_{\mathrm{exc}}(N)=0$ for
+$N\ge N_{\mathrm{pt}}$.
+
+Fix $b$, all absolute constants, and the source geometry first.
+Choose positive absolute constants $C_E^{\mathrm{L3}}$ and
+$C_E^{\mathrm{II}}$ for the Section~\ref{sec:l3} and Paper~II sieve bounds. Define
+\begin{equation}\label{eq:bill-CE-definition}
+ C_E:=\max\{C_E^{\mathrm{L3}},C_E^{\mathrm{II}}\}.
+\end{equation}
+By \textup{(A5)}, these constants are independent of $\sigma$ and $N$.
+Here $C_{\mathrm{AA}}=4C_{\mathrm{AA37}}$ by \eqref{eq:k2-aa-constant}. The
+constant $C_E$ dominates the absolute constant of
+\eqref{eq:classical-structured-sieve} used in \eqref{eq:l3-sieve-error}.
+The underlying sieve bounds come from Paper~I, Theorem~2.6, (2.31)
+\cite[Theorem~2.6, (2.31)]{PaperI}.
+Choose one rational $\sigma_*>0$ satisfying
+\begin{equation}\label{eq:bill-sigma}
+\begin{aligned}
+ 0<\sigma_*&\le 10^{-10},\\
+ \sigma_*&\le\frac{713332}{625\cdot10^{21}C_E},\\
+ \sigma_*&\le\frac{1}{400000A_K(b)C_{\mathrm{AA}}},\\
+ \sigma_*&\le\left(\frac{9999}{388400000000000000}\right)^{1/9},\\
+ \sigma_*&\le\frac{1111}{65000000000000C_E},\\
+ \sigma_*&\le\left(\frac{27775}{4854488806315800000}\right)^{1/9},\\
+ \tau_*&=(\sigma_*)^9.
+\end{aligned}
+\end{equation}
+By \eqref{eq:bill-AK-positive} and \textup{(A5)}, every right side in
+\eqref{eq:bill-sigma} is positive and independent of $\sigma$.
+Hence such a rational $\sigma_*$ exists.
+The second restriction preserves Paper~II's fixed error bound.
+It is exactly
+\begin{equation}\label{eq:bill-paperII-AA}
+ \sigma_*\le\frac{4g_{\mathrm{AA}}}{C_EW_*},\qquad
+ g_{\mathrm{AA}}=\frac{178333}{6250000000},\qquad W_*=10^{14}
+ \quad\text{\cite[(1.26), (1.27), (6.6)]{PaperII}}.
+\end{equation}
+The other four restrictions control new fixed errors.
+Freeze every finite partition and logarithmic precision next.
+Only then choose the common threshold.
+
+The ten allocations are printed in Table~\ref{tab:bill}.
+The two zero rows are unused capacity.
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.65}
+\setlength{\extrarowheight}{2pt}
+\begin{longtable}{@{}r p{.60\linewidth} p{.25\linewidth}@{}}
+\caption{The error bound $\delta_{\mathrm{err}}=10^{-4}$}
+\label{tab:bill}\\
+\hline
+ & Error term & Allocation\\
+\hline
+\endfirsthead
+\hline
+ & Error term & Allocation\\
+\hline
+\endhead
+1 & $4A_K(b)C_{\mathrm{AA}}\sigma_*$ & $\delta_{\mathrm{err}}/10$\\
+2 & $\tfrac{3884000000000}{9999}\tau_*$ & $\delta_{\mathrm{err}}/10$\\
+3 & $\tfrac{650000000}{1111}C_E\sigma_*$ & $\delta_{\mathrm{err}}/10$\\
+4 & $\tfrac{48544888063158}{27775}\tau_*$ & $\delta_{\mathrm{err}}/10$\\
+5 & $E'(N;\sigma_*)+V_{\mathrm{sw}}(N;\sigma_*)$
+    & $\tfrac{\delta_{\mathrm{err}}}{20}+\tfrac{\delta_{\mathrm{err}}}{20}$\\
+6 & $0$ & $\delta_{\mathrm{err}}/10$\\
+7 & $E_{\mathrm{RA}}(N;\sigma_*)$ & $\delta_{\mathrm{err}}/10$\\
+8 & $r_K(N;b,\sigma_*)$ & $\delta_{\mathrm{err}}/10$\\
+9 & $E_{\mathrm{exc}}(N)$ & $\delta_{\mathrm{err}}/10$\\
+10 & $0$ & $\delta_{\mathrm{err}}/10$\\
+\hline
+\end{longtable}
+\endgroup
+Its capacities sum exactly:
+\begin{equation}\label{eq:bill-sum}
+ 4\frac{\delta_{\mathrm{err}}}{10}
+ +\left(\frac{\delta_{\mathrm{err}}}{20}
+       +\frac{\delta_{\mathrm{err}}}{20}\right)
+ +5\frac{\delta_{\mathrm{err}}}{10}
+ =\delta_{\mathrm{err}}.
+\end{equation}
+The first four bounds follow from \eqref{eq:bill-sigma}.
+The five remaining nonzero bounds follow from the stated limits.
+Each limit is taken at fixed $\sigma_*$.
+
+\begin{proposition}[Error budget]\label{prop:bill-budget}
+Assume \textup{(A1)}--\textup{(A5)}, and let $\sigma_*$ be rational with
+\eqref{eq:bill-sigma}. Then every even $N\ge N_0^*(\sigma_*)$ satisfies
+\begin{equation}\label{eq:bill-budget}
+ \mathcal E_B(N;b,\sigma_*)\le\frac8{10}\delta_{\mathrm{err}}
+ <\delta_{\mathrm{err}}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Rows 1 and 3. The third and fifth lines of \eqref{eq:bill-sigma} give
+\[
+ 4A_K(b)C_{\mathrm{AA}}\sigma_*\le\frac4{400000}=\frac{\delta_{\mathrm{err}}}{10},
+ \qquad
+ \frac{650000000}{1111}C_E\sigma_*\le\frac{650000000}{65000000000000}
+ =\frac{\delta_{\mathrm{err}}}{10}.
+\]
+Rows 2 and 4. The first line gives $\tau_*\le10^{-90}$. This is below
+$9999/388400000000000000$ and $27775/4854488806315800000$, so the fourth and
+sixth lines hold, and
+\[
+ \frac{3884000000000}{9999}\tau_*\le\frac{\delta_{\mathrm{err}}}{10},\qquad
+ \frac{48544888063158}{27775}\tau_*\le\frac{\delta_{\mathrm{err}}}{10}.
+\]
+Rows 5, 7 and 8. At the fixed $\sigma_*$, $E'\to0$ by \textup{(A1)},
+$V_{\mathrm{sw}}\to0$ by \eqref{eq:l3-remainder-limit} under \textup{(A4)},
+$E_{\mathrm{RA}}\to0$ by \textup{(A2)}, and $r_K\to0$ by \textup{(A3)}.
+By \eqref{eq:not-little-o}, the thresholds
+$T_{E'},T_V,T_{E_{\mathrm{RA}}},T_r,T_{E_{\mathrm{exc}}}$ of
+\eqref{eq:not-common-threshold} exist,
+and above them $E'\le\delta_{\mathrm{err}}/20$,
+$V_{\mathrm{sw}}\le\delta_{\mathrm{err}}/20$,
+$E_{\mathrm{RA}}\le\delta_{\mathrm{err}}/10$ and
+$r_K\le\delta_{\mathrm{err}}/10$.
+Row 9. Lemma~\ref{lem:source-pointwise} gives $E_{\mathrm{exc}}(N)=0$ for
+$N\ge N_{\mathrm{pt}}$, so $T_{E_{\mathrm{exc}}}\le N_{\mathrm{pt}}$.
+Rows 6 and 10 are zero.
+Every threshold used is bounded by the common maximum in
+\eqref{eq:not-common-threshold}. Also $N_{\mathrm{pt}}<N_{\mathrm{tr}}$
+by Lemma~\ref{lem:bill-transfer}. Hence all of them hold for
+$N\ge N_0^*(\sigma_*)$. By \eqref{eq:intro-error-identifications},
+\eqref{eq:bill-K-error} and \eqref{eq:bill-sw-error},
+\[
+\begin{aligned}
+ \mathcal E_B
+ \le{}&\bigl(E'+V_{\mathrm{sw}}\bigr)+E_{\mathrm{RA}}
+   +\Bigl(\frac{650000000}{1111}C_E\sigma_*+\frac{48544888063158}{27775}\tau_*\Bigr)\\
+   &+\Bigl(4A_KC_{\mathrm{AA}}\sigma_*+\frac{3884000000000}{9999}\tau_*+r_K\Bigr)
+   +E_{\mathrm{exc}}.
+\end{aligned}
+\]
+The bounds above give at most
+$\frac{\delta_{\mathrm{err}}}{10}+\frac{\delta_{\mathrm{err}}}{10}
++\frac{2\delta_{\mathrm{err}}}{10}+\frac{3\delta_{\mathrm{err}}}{10}+0$,
+which is below the nonzero allocations
+$\frac{8\delta_{\mathrm{err}}}{10}$ of Table~\ref{tab:bill}.
+\end{proof}
+
+Take the named source, application and error thresholds listed in
+Section~\ref{sec:notation}. The Section~\ref{sec:k2} definitions of
+\(T_K\) and \(T_r\) already include the main-mass threshold
+\(N_{\mathrm{mass}}(b,\sigma_*)\) and the AA threshold
+\(N_{\mathrm{AA}}(b,\sigma_*)\). Thus the common maximum in \(\mathcal T_*\)
+below includes both requirements at the fixed \(b,\sigma_*\).
+The common threshold is the single definition
+\begin{equation}\label{eq:bill-threshold}
+ N_0^*(\sigma_*)\quad\text{as defined in \eqref{eq:not-common-threshold}}.
+\end{equation}
+Its existence depends on all those estimates. The floor alone supplies
+none of them. By its definition and Lemma~\ref{lem:bill-transfer},
+$N_0^*(\sigma_*)\ge\max\{N_{\mathrm{tr}},N_6\}>N_{\mathrm{pt}}$.
+The Section~\ref{sec:notation} threshold definitions include $N_{\mathrm{pt}}$ through
+$T_{\mathrm{src}}$ and $N_6$ through $T_{\mathrm{RA}}$. The bound $N_{\mathrm{tr}}$
+enters directly in the common maximum. Lemma~\ref{lem:source-pointwise}
+holds for $N\ge N_{\mathrm{pt}}$ and Lemma~\ref{lem:source-upper-sources}
+for $N\ge N_6$.
+Thus the order is
+\begin{equation}\label{eq:bill-order}
+ \text{constants}\ \longrightarrow\ \sigma_*
+ \ \longrightarrow\ \text{finite choices}
+ \ \longrightarrow\ N_0^*(\sigma_*)\ \longrightarrow\ N.
+\end{equation}
+No parameter $\sigma_*(N)$ is used.
+
+Proposition~\ref{prop:bill-budget} gives
+\begin{equation}\label{eq:bill-error-bound}
+ \mathcal E_B(N;b,\sigma_*)\le\delta_{\mathrm{err}}
+ \qquad(N\ge N_0^*(\sigma_*),\ N\in2\mathbb Z).
+\end{equation}
+Combining \eqref{eq:bill-added} and \eqref{eq:bill-error-bound} gives
+\begin{equation}\label{eq:bill-positive-count}
+ \boxed{\displaystyle
+ \frac{4G_b(N)}{W(N)}\ge D_B-c_{K2,G0}I(b).}
+\end{equation}
+It holds for every even $N\ge N_0^*(\sigma_*)$ under
+\textup{(A1)}--\textup{(A5)}.
+
+\subsection{The numerical margin}
+
+All constants in \eqref{eq:bill-constant} have exact definitions.
+The exterior price uses the G0 coefficient in
+\eqref{eq:k2-certificate}.
+The same coefficient prices L3. No $G_*,U_0$ sharper domination
+is used in this arithmetic or in the main-count hypotheses.
+The constants have the following outward enclosures:
+\begin{equation}\label{eq:bill-numeric-enclosures}
+\begin{gathered}
+ 1.967088903489691335582703173494<D_B,\\
+ D_B<1.967088903489691335582703173495,\\[2pt]
+ 1.966859949178424046530804965343<c_{K2,G0}I(b),\\
+ c_{K2,G0}I(b)<1.966859949178424046530804965344,\\[2pt]
+ 0.000228954311267289051898208151<D_B-c_{K2,G0}I(b),\\
+ D_B-c_{K2,G0}I(b)<0.000228954311267289051898208152.
+\end{gathered}
+\end{equation}
+Here
+\begin{equation}\label{eq:bill-price-definition}
+ c_{K2,G0}=\frac{6836825163875517756286846321650754372931094689}{10^{45}},
+ \qquad I(b)=\log\frac{4000007}{2999993}.
+\end{equation}
+The coefficient is defined in \eqref{eq:k2-certificate}.
+The final comparison is \eqref{eq:k2-final-fixed-sigma}.
+Hence
+\begin{equation}\label{eq:bill-margin-simple}
+ D_B-c_{K2,G0}I(b)>0.0002289>\frac1{5000}>0.
+\end{equation}
+The table below identifies each exact constant by its defining display and
+lists the comparisons that use it unchanged.
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}p{.27\linewidth}p{.31\linewidth}p{.34\linewidth}@{}}
+\caption{Constants and the comparisons that use them}
+\label{tab:bill-binding}\\
+\hline
+Constant & Definition & Comparison\\
+\hline
+\endfirsthead
+\hline
+Constant & Definition & Comparison\\
+\hline
+\endhead
+$D_{\mathrm{II}}$ & \eqref{eq:intro-components}, \cite[(6.3a)]{PaperII}
+ & Proposition~\ref{prop:retB-comparison}, by \eqref{eq:retB-paperII-floor}\\
+$5719/10^6$ & \eqref{eq:retB-H6-finite}
+ & Proposition~\ref{prop:retB-comparison}, by
+   Proposition~\ref{prop:app-h6-four-profiles}\\
+$M_{5,\mathrm{internal}}$, $K_{\mathrm{hi}}$, $L_{G1}$
+ & \eqref{eq:bill-M5-inputs}, Table~\ref{tab:bill-M5-integers}
+ & Proposition~\ref{prop:retB-comparison}, by
+   Proposition~\ref{prop:app-m5-cap}\\
+$g_{\mathrm{RA,lo}}$ & \eqref{eq:ra-rational-floor}
+ & Proposition~\ref{prop:ra-b11}, \eqref{eq:ra-b11-floor}\\
+$\overline H$, $c_{K2,G0}$ & \eqref{eq:bill-constant}, \eqref{eq:k2-certificate}
+ & \eqref{eq:l3-final}, with \eqref{eq:l3-price}\\
+$c_{K2,G0}$, $I(b)$ & \eqref{eq:bill-price-definition}
+ & Proposition~\ref{prop:k2-comparison}, \eqref{eq:k2-final-fixed-sigma}\\
+$A_K(b)$, $C_{\mathrm{AA}}$, $P_K$
+ & \eqref{eq:bill-AK-positive}, \eqref{eq:k2-aa-constant},
+   \eqref{eq:k2-final-fixed-sigma}
+ & Table~\ref{tab:bill}, rows 1 and 2\\
+$C_{\mathrm{sw}}$, $P_{\mathrm{sw}}$ & \eqref{eq:l3-price}
+ & Table~\ref{tab:bill}, rows 3 and 4\\
+$\delta_{\mathrm{err}}$ & \eqref{eq:bill-constant}
+ & Proposition~\ref{prop:bill-budget}\\
+\hline
+\end{longtable}
+\endgroup
+No other constant enters $D_B$ or the error budget.
+
+The logarithm enclosure uses rational arithmetic.
+Put $t_{\log}=500007/3500000$ and
+\begin{equation}\label{eq:bill-log-enclosure}
+ S_m=2\sum_{k=0}^{m}\frac{t_{\log}^{2k+1}}{2k+1},
+ \qquad
+ S_m< I(b)<S_m+
+       \frac{2t_{\log}^{2m+3}}{(2m+3)(1-t_{\log}^2)}.
+\end{equation}
+Here $I(b)=2\operatorname{arctanh}t_{\log}$ and $0<t_{\log}<1$.
+Bounding each remaining denominator by $2m+3$ proves the upper bound.
+Taking $m=24$ gives \eqref{eq:bill-numeric-enclosures}.
+Thus no rounded logarithm enters the margin test.
+
+For reference, put $\zeta=10^{-6}$ and $\mathfrak E_*=\exp(D_B/c_{K2,G0})$.
+The buffered critical exponent is
+\begin{equation}\label{eq:bill-critical-exponent}
+ a_{\mathrm{buf}}^*
+ =\frac{\mathfrak E_*+1}{(1-\zeta)\mathfrak E_*-\zeta}.
+\end{equation}
+To derive it, write $b_*=1/(1+\mathfrak E_*)+\zeta$.
+The equation $a(1-b_*)=1$ gives
+\eqref{eq:bill-critical-exponent}.
+For the present constants,
+\begin{equation}\label{eq:bill-critical-enclosure}
+ 1.749974884137892433433207484622
+ <a_{\mathrm{buf}}^*
+ <1.749974884137892433433207484623<\frac74.
+\end{equation}
+This enclosure also uses rational bounds.
+For $x=D_B/c_{K2,G0}$ and $m=36$, put
+\begin{equation}\label{eq:bill-exp-enclosure}
+ T_m=\sum_{k=0}^{m}\frac{x^k}{k!},\qquad
+ T_m<e^x<T_m+
+ \frac{x^{m+1}}{(m+1)!}\frac{1}{1-x/(m+2)}.
+\end{equation}
+Here $0<x<1$.
+The tail ratio is at most $x/(m+2)$.
+The function in \eqref{eq:bill-critical-exponent} decreases with $\mathfrak E_*$.
+Substitution of the two rational bounds proves
+\eqref{eq:bill-critical-enclosure}.
+
+The endpoint in \eqref{eq:bill-critical-enclosure} is equivalent to the
+positive scalar margin at this fixed $b$. It supplies no theorem at a
+smaller $a$ without new comparisons at the corresponding cutoff.
+If the optional Lemma~\ref{lem:retB-six-endpoints} is used, $D_B$ increases by
+$g_6=0.0020549454896034927680\ldots$ of \eqref{eq:retB-six-gain}. The margin
+then becomes $0.0022838998008707818199\ldots$, and $a_{\mathrm{buf}}^*$ becomes
+$1.7497494980881623276859\ldots$. Theorem~\ref{thm:main} does not use this.
+
+For an optional arithmetic comparison, define
+$D_{B,c}=D_B+(c_{K2,G0}-c)\overline H/4$.
+Using $c$ in both K2 and L3 would require two further inputs.
+This paragraph concerns the optional scalar comparison at the same fixed cutoff;
+it supplies no new cutoff-dependent estimate. The first is
+the separate sharper functional domination $G_*\le U_0$ from
+\hyperref[eq:app-g24-inclusion]{equation~\ref*{eq:app-g24-inclusion}}. The second is a certified
+$2e^{-\gamma}U_0\le c$. It does not follow from the coarse
+interval in \hyperref[eq:app-g24-numbers]{equation~\ref*{eq:app-g24-numbers}}. The main proof uses
+neither.
+Its scalar endpoint is
+\begin{equation}\label{eq:bill-active-critical-exponent}
+ E_c=\exp(D_{B,c}/c),\qquad
+ a^*_{\mathrm{buf},c}
+ =\frac{E_c+1}{(1-\zeta)E_c-\zeta}.
+\end{equation}
+The same rational Taylor enclosure gives
+\begin{equation}\label{eq:bill-active-critical-enclosure}
+ 1.749889173139093190128834678
+ <a^*_{\mathrm{buf},c}
+ <1.749889173139093190128834679<\frac74.
+\end{equation}
+Thus, on the optional sharper branch, $a^*_{\mathrm{buf},c}$ is
+$1.7498891731390\ldots$. The main theorem uses the explicitly certified
+G0 coefficient defined and bounded in \eqref{eq:k2-certificate}; the
+display above is only the optional exponent endpoint.
+
+\subsection{The transfer}
+
+\begin{lemma}[Transfer]\label{lem:bill-transfer}
+The parameters \eqref{eq:not-transfer-parameters} satisfy
+\begin{equation}\label{eq:bill-transfer-parameters}
+ \kappa_{\mathrm{tr}}=\frac34(1-b)-b=\frac7{4000000},\qquad
+ N_{\mathrm{tr}}=10^{12000000/7}>10^{12}+1=N_{\mathrm{pt}}.
+\end{equation}
+For even $N\ge N_{\mathrm{tr}}$, every $n=rq\in\mathcal A_N$ with primes
+$r\le q$ and $r<N^b$ satisfies
+\begin{equation}\label{eq:bill-transfer}
+ q>\varepsilon N^{1-b},\qquad
+ q^{3/4}>\varepsilon^{3/4}N^{b+\kappa_{\mathrm{tr}}}\ge N^b>r.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Since $a=7/4$, $a(1-b)-1=\frac34(1-b)-b$, and $b=2999993/7000000$ gives
+$7/4000000$. Also $\varepsilon^{-(a-1)/\kappa_{\mathrm{tr}}}
+=10^{4\cdot3000000/7}$, and $12000000/7>13$.
+For $n=rq\in\mathcal A_N$ we have $n>\varepsilon N$, so
+$q=n/r>\varepsilon N^{1-b}$ and
+$q^{3/4}>\varepsilon^{3/4}N^{3(1-b)/4}=\varepsilon^{3/4}N^{b+\kappa_{\mathrm{tr}}}$.
+Finally $N^{\kappa_{\mathrm{tr}}}\ge\varepsilon^{-3/4}$ exactly when
+$N\ge N_{\mathrm{tr}}$.
+\end{proof}
+
+\section*{Proof of Theorem 1}
+
+Use the established inputs \textup{(A1)}--\textup{(A5)} and fix a rational
+$\sigma_*$ satisfying \eqref{eq:bill-sigma}. Let
+$N\ge N_0^*(\sigma_*)$ be even. Then
+$N\ge\max\{N_{\mathrm{tr}},N_6\}>N_{\mathrm{pt}}$.
+Lemma~\ref{lem:source-pointwise} gives the first line of
+\eqref{eq:intro-comparisons}. At $\sigma=\sigma_*$, the established
+comparisons \textup{(A1)}, \textup{(A2)} and \textup{(A4)} give its other
+three lines, and \textup{(A3)} gives \eqref{eq:intro-exterior}.
+The zero-gain combination
+Lemma~\ref{lem:source-trackb-combination} adds these four comparisons to
+\eqref{eq:bill-added}. Proposition~\ref{prop:bill-budget} gives
+\eqref{eq:bill-error-bound}, hence \eqref{eq:bill-positive-count}.
+Equation~\eqref{eq:bill-margin-simple} then gives $G_b(N)>0$, since
+$W(N)>0$ by \eqref{eq:not-normalization}.
+Hence the set in \eqref{eq:intro-count} is nonempty.
+
+Choose one counted integer $n=N-p$.
+If $n$ is prime, take $q=n$ and $r=1$.
+Otherwise $n=rq$ with primes $r\le q$ and $r<N^b$, and
+Lemma~\ref{lem:bill-transfer} gives $r<q^{3/4}$.
+Therefore $N=p+rq$ and $r\le q^{3/4}$. $\square$

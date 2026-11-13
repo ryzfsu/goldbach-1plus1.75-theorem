@@ -1,0 +1,1500 @@
+\section{\texorpdfstring{The sixth sum at \(N/4\)}{The sixth sum at N/4}}\label{sec:root-a}
+
+Put \(L=\log N\) and fix \(0<\sigma\le10^{-10}\) for the common
+error allocation. No estimate in the sixth-sum construction depends on \(\sigma\). Fix
+\begin{equation}\label{eq:ra-parameters}
+\begin{gathered}
+ \alpha=\frac{100}{1149},\qquad t_0=\frac{57}{224},\qquad
+ v_{\mathrm{RA}}=\frac{5227}{10000},\qquad \eta_{\mathrm m}=\varepsilon=\frac1{10000},\\
+ J=[t_0,1/3),\quad J_t=[t_0,1/3-\eta_{\mathrm m}),\quad
+ J_{\mathrm{tail}}=[1/3-\eta_{\mathrm m},1/3),\\
+ I_L=[2,N/4],\qquad I_H=(N/4,(1-\varepsilon)N),\qquad z_s=N^\alpha.
+\end{gathered}
+\end{equation}
+Write \(p\in N^K\) for \(p\in\mathbb P\) with \(\log p/L\in K\).
+Paper II, (1.7), gives the original sum \cite[(1.7)]{PaperII}:
+\begin{equation}\label{eq:ra-original-s6}
+ S_6=\sum_{\substack{p\in N^J\\(p,N)=1}}
+ \ \sum_{\substack{m\ge1,\ e=N-pm\in\mathbb P\\2\le e<(1-\varepsilon)N}}
+ \mathbf1_{P^-(m)\ge z_s}\mathbf1_{(m,Np)=1}.
+\end{equation}
+Each prime mark remains a separate occurrence.
+
+\subsection{Three upper weights}
+
+For squarefree \(d=\ell_1\cdots\ell_k\), order its primes decreasingly.
+The ordinary upper Rosser weight is
+\begin{equation}\label{eq:ra-rosser-weight}
+ \mu_d^+(D)=\mu(d)
+ \prod_{\substack{1\le j\le k\\j\ \mathrm{odd}}}
+ \mathbf1_{\ell_1\cdots\ell_{j-1}\ell_j^3<D},
+ \qquad \mu_1^+(D)=1.
+\end{equation}
+The weight is zero outside its stated squarefree support.
+Its divisor sum is a nonnegative upper sieve weight
+\cite[Lemma 1, (3.2), (3.6)]{Iwaniec1980Rosser}
+\cite[Lemmas 2--3, p.~313]{Iwaniec1980Remainder}.
+
+For \(K\subseteq J\) and \(p\in N^K\), define
+\begin{equation}\label{eq:ra-coefficient}
+ c_{R,K}(pd)=\mu(d)\mathbf1_{pd<R}
+ \prod_{\substack{1\le j\le k\\j\ \mathrm{odd}}}
+ \mathbf1_{p\ell_1\cdots\ell_{j-1}\ell_j^3<R}.
+\end{equation}
+Require \(\ell_j<z_s\) and \((pd,2N)=1\).
+Set the coefficient to zero otherwise.
+Since \(t_0>\alpha\), the mark is unique.
+Thus \(|c_{R,K}(q)|\le1\).
+On supported moduli with \(p<R\), the gates give \(d<R/p\).
+For \(d=1\) the gate product is empty, and \(p<R\) suffices.
+Every marked prime has \(p<N^{1/3}\).
+Each sieve level below is \(>N^{1/3}\) for large \(N\).
+Hence
+\begin{equation}\label{eq:ra-weight-equality}
+ c_{R,K}(pd)=\mu_d^+(R/p),\qquad
+ \varphi(pd)=(p-1)\varphi(d).
+\end{equation}
+The equality is claimed on supported moduli only.
+Off that support the coefficient is zero.
+
+Choose fixed logarithmic exponents. Put
+\begin{equation}\label{eq:ra-factories}
+\begin{aligned}
+ R_L&=N^{1/2}L^{-B_L},&
+ R_{\mathrm{tail}}&=N^{1/2}L^{-B_{\mathrm{tail}}},\\
+ Q&=N^{v_{\mathrm{RA}}}L^{-B},&Q_0&=N^{1/2}L^{-B_0},\\
+ b_{\mathrm{all}}&=c_{R_L,J},&
+ b_{\mathrm{tail}}&=c_{R_{\mathrm{tail}},J_{\mathrm{tail}}},\\
+ c_{\mathrm{trim}}&=c_{Q,J_t},&
+ c_{\mathrm{lo}}(q)&=c_{\mathrm{trim}}(q)\mathbf1_{q\le Q_0},\\
+ \Gamma(q)&=c_{\mathrm{trim}}(q)\mathbf1_{q>Q_0}.
+\end{aligned}
+\end{equation}
+The last two arrays keep the gates at \(Q\).
+
+First omit \((m,Np)=1\) in \eqref{eq:ra-original-s6}.
+Sieve the larger sequence by primes \(\ell\nmid2N\), \(\ell<z_s\).
+Use the three weights on
+\begin{equation}\label{eq:ra-three-pieces}
+ I_L\times J,\qquad I_H\times J_{\mathrm{tail}},\qquad I_H\times J_t.
+\end{equation}
+Their divisor sum is the finite weighted count
+\begin{equation}\label{eq:ra-mix-definition}
+\begin{aligned}
+ A_{\mathrm{mix}}={}&
+ \sum_q b_{\mathrm{all}}(q)
+       \sum_{\substack{e\in I_L\cap\mathbb P\\e\equiv N\ (q)}}1\\
+ &+\sum_q\{b_{\mathrm{tail}}(q)+c_{\mathrm{trim}}(q)\}
+       \sum_{\substack{e\in I_H\cap\mathbb P\\e\equiv N\ (q)}}1.
+\end{aligned}
+\end{equation}
+The upper-weight comparison
+\begin{equation}\label{eq:ra-positive-comparison}
+ S_6\le A_{\mathrm{mix}},\qquad
+ Z_6:=A_{\mathrm{mix}}-S_6\ge0,
+\end{equation}
+is proved in Lemma~\ref{lem:ra-upper-sieve}(a) below.
+Positivity is used before expanding the divisor sums.
+
+\subsection{The exact discrepancy identity}
+
+For a bounded interval \(I\subset[2,\infty)\) and a finitely supported
+modulus array \(a(q)\), put \(\operatorname{Li}(I)=\int_I dt/\log t\)
+and define
+\begin{equation}\label{eq:ra-discrepancies}
+\begin{aligned}
+ \Pi_I(q)&=\sum_{e\in I\cap\mathbb P}\mathbf1_{e\equiv N\pmod q},\\
+ B_I(q)&=\frac1{\varphi(q)}
+             \sum_{e\in I\cap\mathbb P}\mathbf1_{(e,q)=1},\\
+ D_I(a)&=\sum_q a(q)
+       \left\{\Pi_I(q)-\frac{\operatorname{Li}(I)}{\varphi(q)}\right\},\\
+ P_I(a)&=\sum_q a(q)\{\Pi_I(q)-B_I(q)\},\qquad
+ C_I(a)=D_I(a)-P_I(a).
+\end{aligned}
+\end{equation}
+Also put
+\begin{equation}\label{eq:ra-main-mass}
+\begin{aligned}
+ M_{\mathrm{mix}}={}&\operatorname{Li}(I_L)
+              \sum_q\frac{b_{\mathrm{all}}(q)}{\varphi(q)}\\
+ &+\operatorname{Li}(I_H)
+              \sum_q\frac{b_{\mathrm{tail}}(q)+c_{\mathrm{trim}}(q)}{\varphi(q)}.
+\end{aligned}
+\end{equation}
+Finite expansion gives
+\begin{equation}\label{eq:ra-b9}
+\begin{aligned}
+ A_{\mathrm{mix}}={}&M_{\mathrm{mix}}+D_{I_L}(b_{\mathrm{all}})
+     +D_{I_H}(b_{\mathrm{tail}})\\
+ &+C_{I_H}(c_{\mathrm{trim}})+P_{I_H}(c_{\mathrm{lo}})
+     +P_{I_H}(\Gamma).
+\end{aligned}
+\end{equation}
+Since \(c_{\mathrm{trim}}=c_{\mathrm{lo}}+\Gamma\),
+\begin{equation}\label{eq:ra-cancellation}
+ C_{I_H}(c_{\mathrm{trim}})+P_{I_H}(c_{\mathrm{lo}})
+       =D_{I_H}(c_{\mathrm{lo}})+C_{I_H}(\Gamma).
+\end{equation}
+Therefore
+\begin{equation}\label{eq:ra-b9-f1}
+\begin{aligned}
+ A_{\mathrm{mix}}={}&M_{\mathrm{mix}}+D_{I_L}(b_{\mathrm{all}})
+     +D_{I_H}(b_{\mathrm{tail}})+D_{I_H}(c_{\mathrm{lo}})\\
+ &+C_{I_H}(\Gamma)+P_{I_H}(\Gamma).
+\end{aligned}
+\end{equation}
+No low natural-coprime term is estimated separately.
+
+For large \(N\), each prime in \(I_H\) exceeds \(Q\).
+Hence
+\begin{equation}\label{eq:ra-high-conversion}
+ C_{I_H}(\Gamma)=
+ \{\pi(I_H)-\operatorname{Li}(I_H)\}
+          \sum_q\frac{\Gamma(q)}{\varphi(q)}.
+\end{equation}
+The elementary identity
+\begin{equation}\label{eq:ra-totient-mass}
+ \frac q{\varphi(q)}=\sum_{d\mid q}\frac{\mu(d)^2}{\varphi(d)},
+ \qquad
+ \sum_{q\le Q}\frac1{\varphi(q)}\ll\log(2Q)
+\end{equation}
+follows by multiplicativity and a convergent Euler product.
+Thus Paper I, (2.21), bounds \eqref{eq:ra-high-conversion}
+by \(O_A(NL^{-A})\) for each fixed \(A\)
+\cite[(2.21)]{PaperI}.
+
+For the three \(D\)-terms we use the maximal-endpoint prime form of
+Bombieri--Vinogradov.
+Here it is conditional on the prime Siegel--Walfisz input
+\cite[(2.21)]{PaperI}. Define the prime progression error by
+\begin{equation}\label{eq:ra-prime-error}
+ \Delta_\pi(y;q,a)=\pi(y;q,a)-\frac{\operatorname{Li}(y)}{\varphi(q)}.
+\end{equation}
+Fact~\ref{fact:prime-estimates-maximal} gives, for each fixed \(S>0\),
+\begin{equation}\label{eq:ra-prime-bv}
+ \sum_{q\le X^{1/2}(\log X)^{-(S+60)}}
+ \max_{(a,q)=1}\sup_{0\le y\le X}
+ |\Delta_\pi(y;q,a)|\ll_S X(\log X)^{-S}.
+\end{equation}
+Here \(\operatorname{Li}(y)=0\) for \(0\le y<2\).
+The level sits at \(X\), not at the variable endpoint \(y\),
+so intervals with endpoints chosen separately for each
+modulus cost at most twice this bound. This is the maximal prime statement.
+We do not substitute the fixed-endpoint von Mangoldt statement of
+Paper I, (2.20). The source and the fixed \(60\) logarithmic buffer
+are those of Fact~\ref{fact:prime-estimates-maximal}.
+
+Set \(X=N\), \(S=A+10\), and choose the half-level buffers so that
+\begin{equation}\label{eq:ra-bv-buffer}
+ B_L,\ B_{\mathrm{tail}},\ B_0\ge A+72.
+\end{equation}
+\begin{lemma}[The three low discrepancies]\label{lem:ra-n4-bv}
+Under \eqref{eq:ra-bv-buffer},
+\begin{equation}\label{eq:ra-three-bv-errors}
+ |D_{I_L}(b_{\mathrm{all}})|+
+ |D_{I_H}(b_{\mathrm{tail}})|+
+ |D_{I_H}(c_{\mathrm{lo}})|\ll_A NL^{-A-10}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The arrays \(b_{\mathrm{all}}\), \(b_{\mathrm{tail}}\) and \(c_{\mathrm{lo}}\)
+are supported on \(q<R_L\), \(q<R_{\mathrm{tail}}\) and \(q\le Q_0\),
+respectively. Each is one-bounded. Since
+\(B_L,B_{\mathrm{tail}},B_0\ge A+72>S+60\), every such \(q\) has
+\(q\le N^{1/2}L^{-(S+60)}\).
+This is the level of \eqref{eq:ra-prime-bv} at
+\(X=N\). Every supported \(q\) is coprime to \(N\), so \(N\bmod q\) is a
+reduced class. Since \(\pi(y;q,N)=\operatorname{Li}(y)=0\) for \(y<2\),
+\[
+ \Pi_{I_L}(q)-\frac{\operatorname{Li}(I_L)}{\varphi(q)}
+   =\Delta_\pi(N/4;q,N).
+\]
+Write \(y^-\) for the left limit at \(y\). Then
+\[
+ \Pi_{I_H}(q)-\frac{\operatorname{Li}(I_H)}{\varphi(q)}
+   =\Delta_\pi\bigl(((1-\varepsilon)N)^-;q,N\bigr)
+    -\Delta_\pi(N/4;q,N).
+\]
+A left limit is a limit of values at points of \([0,N]\).
+Hence each value on the right is at most
+\(\sup_{0\le y\le N}|\Delta_\pi(y;q,N)|\).
+Therefore the left side of
+\eqref{eq:ra-three-bv-errors} is at most five times the left side of
+\eqref{eq:ra-prime-bv}, with \(X=N\) and \(S=A+10\). This is the maximal
+prime statement of Fact~\ref{fact:prime-estimates-maximal}.
+\end{proof}
+
+
+\subsection{The high coefficient}
+
+Put
+\begin{equation}\label{eq:ra-rough-arrays}
+\begin{gathered}
+ U=V=N^{1/3},\qquad z_0=N^{1/(\log\log N)^3},\\
+ \mathcal R(n)=\mathbf1_{P^-(n)>z_0},\qquad \mathcal R(1)=1,\qquad
+ \mathcal A(a)=\mu(a)\mathcal R(a),\\
+ \mathcal C(t)=\mathcal R(t)
+       \sum_{\substack{ab=t\\a\le U,\ b\le V}}\mu(a)\Lambda(b),\qquad
+ \mathcal B(s)=\mathcal R(s)\sum_{\substack{b\mid s\\b>V}}\Lambda(b),\\
+ \mathcal K_q(e)=\mathbf1_{e\equiv N\pmod q}
+                   -\frac{\mathbf1_{(e,q)=1}}{\varphi(q)}.
+\end{gathered}
+\end{equation}
+The von Mangoldt identity gives three sums:
+\begin{equation}\label{eq:ra-three-bilinear-sums}
+\begin{aligned}
+ T_1&=\sum_q\Gamma(q)
+   \sum_{\substack{a\le U,\ c\ge1\\ac\in I_H}}
+   \mathcal A(a)\mathcal R(c)\frac{\log c}{\log(ac)}\mathcal K_q(ac),\\
+ T_2&=-\sum_q\Gamma(q)
+   \sum_{\substack{t\le UV,\ c\ge1\\tc\in I_H}}
+   \frac{\mathcal C(t)\mathcal R(c)}{\log(tc)}\mathcal K_q(tc),\\
+ T_{\mathrm{II}}&=\sum_q\Gamma(q)
+   \sum_{\substack{a>U,\ s>V\\as\in I_H}}
+   \frac{\mathcal A(a)\mathcal B(s)}{\log(as)}\mathcal K_q(as).
+\end{aligned}
+\end{equation}
+These come from
+\begin{equation}\label{eq:ra-vaughan-identity}
+ \Lambda=\mu_{\le U}*\log-\mu_{\le U}*\Lambda_{\le V}*1
+             +\Lambda_{\le V}+\mu_{>U}*\Lambda_{>V}*1.
+\end{equation}
+Roughness is multiplicative, including shared prime factors.
+The short \(\Lambda\)-term vanishes on \(I_H\).
+
+The detector retains proper prime powers whose bases exceed \(z_0\).
+For \(e\in I_H\), hence \(e>z_0\),
+\begin{equation}\label{eq:ra-proper-power-detector}
+ \frac{\mathcal R(e)\Lambda(e)}{\log e}
+ =\mathbf1_{e\in\mathbb P}
+  +\sum_{\substack{P\in\mathbb P,\ j\ge2\\e=P^j}}
+                                      \frac{\mathbf1_{P>z_0}}j.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:ra-b10}
+\begin{aligned}
+ P_{I_H}(\Gamma)&=T_1+T_2+T_{\mathrm{II}}-E_{\mathrm{pp}},\\
+ E_{\mathrm{pp}}&=\sum_q\Gamma(q)
+   \sum_{\substack{P\in\mathbb P,\ j\ge2\\P^j\in I_H}}
+           \frac{\mathbf1_{P>z_0}}j\mathcal K_q(P^j).
+\end{aligned}
+\end{equation}
+Let \(e\in I_H\).
+A supported \(q\) with \(e\equiv N\pmod q\) divides
+\(N-e\), and \(|\Gamma(q)|\le1\) by unique marking.
+The comparator part is at most \(\sum_{q\le Q}1/\varphi(q)\). Hence \eqref{eq:ra-totient-mass}
+gives
+\begin{equation}\label{eq:ra-proper-power-bound}
+ \sum_q|\Gamma(q)||\mathcal K_q(e)|\le d(N-e)+O(L),
+ \qquad E_{\mathrm{pp}}\ll_\nu N^{1/2+\nu}L^2.
+\end{equation}
+Here \(N-e\ge\varepsilon N\), and \(0<\nu<1/2\) is fixed. The second bound
+follows from the first, \(d(N-e)\ll_\nu N^{\nu}\) and
+\(\sum_{j\ge2}\#\{P\in\mathbb P:P^j\le N\}\ll N^{1/2}\).
+The high-coefficient estimate uses the \(P>z_0\) mask of
+\(E_{\mathrm{pp}}\) in \eqref{eq:ra-b10}. That mask excludes bases
+\(P\le z_0\),
+so the displayed decomposition needs no separate add-back.
+
+Proposition~\ref{hyp:ra-applications}(3) proves the high-coefficient estimate
+\begin{equation}\label{eq:ra-ra1}
+ P_{I_H}(\Gamma)\ll_{A,B,B_0}NL^{-A}
+ \qquad(A>0\ \hbox{fixed}).
+\end{equation}
+Its modulus coefficient is exactly \eqref{eq:ra-factories}.
+The estimate permits no joint arithmetic mask.
+Table~\ref{tab:ra-rows} gives its decomposition.
+Each power boundary belongs to the interval on its right.
+
+\begin{table}[ht]
+\caption{The high-coefficient decomposition}\label{tab:ra-rows}
+\small
+\begin{tabular}{@{}lll@{}}
+\hline
+Sum and range & Tested array & Required estimate\\
+\hline
+\(T_1\), all \(a\le U\) & \(\mathcal R(c)\) & Rough-factor estimate\\
+\(T_2\), \(c<N^{.46}\) & \(\mathcal R(c)\) & Two-factor convolution\\
+\(T_2\), \(N^{.46}\le c<N^{.50}\) & \(\mathcal C(t)/(2L)\) & Central estimate\\
+\(T_2\), \(N^{.50}\le c<N^{.54}\) & \(\mathcal R(c)\) & Central estimate\\
+\(T_2\), \(c\ge N^{.54}\) & \(\mathcal R(c)\) & Rough-factor estimate\\
+\(T_{\mathrm{II}}\), \(a<N^{.46}\) & \(\mathcal A(a)\) & Two-factor convolution\\
+\(T_{\mathrm{II}}\), \(N^{.46}\le a<N^{.50}\) & \(\mathcal B(s)/(2L)\) & Central estimate\\
+\(T_{\mathrm{II}}\), \(N^{.50}\le a<N^{.54}\) & \(\mathcal A(a)\) & Central estimate\\
+\(T_{\mathrm{II}}\), \(a\ge N^{.54}\) & \(\mathcal B(s)/(2L)\) & Two-factor convolution\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{The three distribution estimates}
+
+\begin{lemma}[Rough-factor distribution under parent-scale and strict-roughness conditions]\label{hyp:ra-rough}
+Let \(L=\log N\), \(z_0=N^{1/(\log\log N)^3}\), and
+\(Q=N^{5227/10000}L^{-B}\), with fixed \(B\). Assume the two explicit
+conditions used by the direct rows:
+\begin{enumerate}
+ \item[(W1)] The original parent satisfies
+ \(cN^{.54}\le H\le N\), for a fixed \(c>0\). In the \(T_1\) row
+ \(H=N/a\le N\); in the right \(T_2\) row \(H=N/t\le N\).
+ \item[(W2)] Use the strict roughness convention
+ \(\mathcal R(n)=\mathbf1_{P^-(n)>z_0}\), as in
+ \eqref{eq:ra-rough-arrays}. It is not replaced by
+ \(P^-(n)\ge z_0\).
+\end{enumerate}
+For every fixed \(T_{\mathrm{save}}>0\), uniformly in real intervals \(I\subset(0,2H]\)
+(so \(|I|\le2H\); open, closed or one-point),
+supported \(q\le Q\) with \((q,N)=1\), and reduced residues \((b,q)=1\),
+\begin{equation}\label{eq:ra-theorem-r}
+ \sum_{n\in I}\mathcal R(n)
+ \left\{\mathbf1_{n\equiv b\pmod q}
+          -\frac{\mathbf1_{(n,q)=1}}{\varphi(q)}\right\}
+ \ll_{T_{\mathrm{save}}}\frac{H}{qL^{T_{\mathrm{save}}}}.
+\end{equation}
+The interval may be arbitrarily short.
+The saving is measured at its original parent. The estimate is an integer-sieve statement and uses no prime
+distribution input.
+\end{lemma}
+\begin{proof}
+Put \(\ell=\log\log N\) and
+\(\mathcal P_q=\{p\le z_0:p\nmid q\}\). The Euler product at
+\(s=1+1/\log z_0\) gives
+\(h_q=\sum_{p\in\mathcal P_q}p^{-1}\le3\ell\) for sufficiently large
+\(N\). Choose the fixed constant \(K\) after \(T_{\mathrm{save}}\), with
+\begin{equation}\label{eq:ra-bonferroni-constant}
+ K>3e,\qquad K\log\!\left(\frac K{3e}\right)>T_{\mathrm{save}}+4.
+\end{equation}
+Let \(k=2\lceil K\ell/2\rceil\). The two adjacent Bonferroni truncations
+bracket the strict exclusion of all primes in \(\mathcal P_q\).
+Their normalized gap satisfies
+\begin{equation}\label{eq:ra-theorem-r-lattice}
+ k=2\lceil K\log\log N/2\rceil,\qquad
+ E_k\le\frac{h_q^k}{k!}
+       \le\left(\frac{3e}{K}\right)^{K\ell}
+       \le L^{-T_{\mathrm{save}}-4},\qquad
+ (k+1)z_0^k=N^{O(K/\ell^2)}.
+\end{equation}
+Every divisor in the truncation is at most \(z_0^k\).
+By CRT, each divisor
+contributes its expected interval mass with error \(O(1)\).
+This is uniform for open, closed, or singleton intervals.
+The same expansion applies to the comparator after using
+\[
+ \mathbf1_{(n,q)=1}=\sum_{\substack{d\mid\operatorname{rad}(q)\\d\mid n}}\mu(d).
+\]
+Thus the main terms cancel. The accumulated lattice error is
+\(N^{O(K/\ell^2)}q/\varphi(q)\), and
+\(q/\varphi(q)\le\omega(q)+1\ll L\). Under (W1),
+\(H/q\gg N^{.0173}L^B\). The Bonferroni remainder is at
+most \((|I|/q)E_kL^2\le2HL^{-T_{\mathrm{save}}-2}/q\) because \(|I|\le2H\). Hence both are
+absorbed by \(H/(qL^{T_{\mathrm{save}}})\) once the fixed truncation precision is raised. This proves \eqref{eq:ra-theorem-r}.
+
+The strict convention in (W2) has no threshold atom.
+An application might instead use \(P^-(n)\ge z_0\).
+Then the only possible difference is the atom
+\(z_0=P\) when \(z_0\) is prime. That weak convention requires its separate
+CRT boundary correction. It is not used in \eqref{eq:ra-theorem-r}.
+\end{proof}
+The positive gap \(.54-v_{\mathrm{RA}}=173/10000\) absorbs the lattice error
+in \eqref{eq:ra-theorem-r-lattice}.
+For \(T_1\), the free scale is at least \(N^{2/3}/4\).
+For the right \(T_2\)-part, it exceeds a fixed multiple of \(N^{.54}\).
+Partial summation then gives
+\begin{equation}\label{eq:ra-direct-row-total}
+ \sum_{m\le M_{\mathrm{out}}}\sum_{q\le Q}\frac{N}{mqL^{T_{\mathrm{save}}}}
+ \ll NL^{2-T_{\mathrm{save}}}.
+\end{equation}
+Both kernel terms remain in this estimate.
+Here \(M_{\mathrm{out}}\) is the outer endpoint of the current row.
+It is \(U\) in the \(T_1\) row and the
+corresponding low-row endpoint in the \(T_2\) decomposition.
+
+
+The other tested arrays need uniformity under coprimality
+with an auxiliary integer. Write \(\tau(h)=\sum_{d\mid h}1\) and
+\(\omega(h)=\#\{p\in\mathbb P:p\mid h\}\).
+For any sequence \(f(n)\) on its original parent \((H,2H]\), define
+\begin{equation}\label{eq:ra-sw-difference}
+\begin{aligned}
+ \Delta_f(I;k,b;h)={}&
+ \sum_{\substack{n\in I,\ n\equiv b\pmod k\\(n,h)=1}}f(n)\\
+ &-\frac1{\varphi(k)}
+     \sum_{\substack{n\in I\\(n,kh)=1}}f(n) .
+\end{aligned}
+\end{equation}
+\begin{lemma}[Prime-variable transfer]\label{lem:ra-prime-transfer}
+Let \(N^{1/3}/8\le H\le 2N\), \(L=\log N\), and
+\(z_0=N^{1/(\log\log N)^3}\). Let \(y_0\ge z_0\) and
+\[
+ f(n)=\sum_{\substack{mp=n\\p\in J_m}}\alpha(m)w(p),
+\]
+where \(p\) is prime and \(|\alpha(m)|\le1\).
+For each \(m\) the
+allowed primes lie in a real interval \(J_m\subset[y_0,\infty)\).
+Assume \(\|w\|_\infty+\operatorname{Var}(w)\le W\) on \([y_0,2H]\)
+and \(|f(n)|\le1\) on \((H,2H]\). For every fixed \(P>0\), uniformly
+in intervals \(I\subset(H,2H]\), \(k,h\ge1\), and \((b,k)=1\),
+prime Siegel--Walfisz, Paper~I (2.21), implies
+\begin{equation}\label{eq:ra-prime-transfer}
+ |\Delta_f(I;k,b;h)|
+ \ll_P WH\left(L^{-P}+\frac{\omega(h)L}{y_0}\right)
+ \ll_P WH\tau(h)L^{-P}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Put \(K=2P+4\). If \(k>L^K\), the two terms in the discrepancy are
+bounded by a constant times \(\|f\|_\infty(H/k+1+H/\varphi(k))\).
+For each represented \(n\), a prime divisor \(p\ge y_0\) determines at
+most one pair \((m,p)\), since \(m=n/p\). Hence
+\[
+ |f(n)|\le W\frac{\log(2H)}{\log y_0}
+ \ll W(\log L)^3,
+\]
+using \(y_0\ge z_0\), \(H\le2N\), and
+\(\log z_0=L/(\log L)^3\). Since \(\varphi(k)\gg\sqrt{k}\) and
+\(H\ge N^{1/3}/8\), the resulting discrepancy is
+\(\ll_P WHL^{-P}\). The two spare powers in \(K/2=P+2\) absorb
+\((\log L)^3\). The additive \(1\) is absorbed because
+\(H\ge N^{1/3}/8\gg L^P\).
+
+Now let \(k\le L^K\). Terms with \((m,kh)>1\) vanish from both sides.
+Otherwise the prime progression is \(p\equiv bm^{-1}\pmod{k}\) on
+\(J_m\cap I/m\).
+Primes dividing \(h\) are excluded on the progression side and in the
+comparator.
+For each \(m\) the two exclusions differ by at most
+\(2W\omega(h)\).
+There are at most \(2H/y_0\) possible
+values of \(m\), so these terms contribute
+\(\ll WH\omega(h)/y_0\).
+
+For the remaining primes define
+\[
+ E(t)=\pi(t;k,c)-\frac1{\varphi(k)}
+       \sum_{\substack{a\bmod k\\(a,k)=1}}\pi(t;k,a).
+\]
+The reduced-class sum equals \(\pi(t)-\#\{p\le t:p\mid k\}\).
+Thus this is the centered prime discrepancy without the primes dividing \(k\).
+Apply (2.21) to the class \(c\) and average its uniform error over
+all reduced classes.
+This gives \(E(t)\ll_{A'}t(\log t)^{-A'}\), with no factor
+of \(k\). Since \(t\ge y_0\ge z_0\),
+\(\log t\ge L/(\log L)^3\). Hence, for all sufficiently large \(N\),
+\(k\le(\log t)^{2K}\).
+Therefore (2.21), with modulus exponent \(2K\)
+and fixed saving \(A'\), applies throughout each interval of
+integration. Stieltjes partial summation bounds each \(m\)-contribution
+by \(O(W(H/m)(\log y_0)^{-A'})\). Sum over
+\(m\le2H/y_0\) and take \(A'=2(P+K+2)\).
+This gives \(O_P(WHL^{-P})\). The estimate is measured at the original parent
+\(H\), including for short intervals. Finally,
+\(L/y_0\ll_P L^{-P}\) because \(y_0\ge z_0\), and
+\(\omega(h)\le\tau(h)\). This proves \eqref{eq:ra-prime-transfer}.
+\end{proof}
+
+\begin{lemma}[Four-family auxiliary-coprime Siegel--Walfisz]
+\label{lem:ra-sw}
+By prime Siegel--Walfisz, Paper~I (2.21), for each of
+\(\mathcal R,\mathcal A,\mathcal C/(2L),\mathcal B/(2L)\), the bound
+\begin{equation}\label{eq:ra-full-sw}
+ |\Delta_f(I;k,b;h)|\ll_P H\tau(h)L^{-P},
+ \qquad (b,k)=1,
+\end{equation}
+holds uniformly for every \(I\subset(H,2H]\) and \(k,h\ge1\).
+The parents are the
+central ranges in Table~\ref{tab:ra-rows} and the convolution parents
+\(N^{1/3}/8\le H\le2N^{.46+O(1/L)}\).
+The proof uses the lower
+bound only to absorb the large-modulus lattice term and to exclude \(n=1\).
+It uses \(H\le2N^{.54}\) for the remaining weight bounds. The divisor
+exponent is the single fixed value \(C_{\mathrm{SW}}=1\), independent of
+\(P\). The implied constant may depend on \(P\) and the fixed family
+parameters, but not on \(N,H,I,k,h,b\). The error is measured at \(H\),
+even when \(I\) is short.
+\end{lemma}
+\begin{proof}
+For sufficiently large \(N\), every parent has
+\(H\ge N^{1/3}/8>1\), so \(n=1\) is excluded. The rough and signed-rough
+arrays have exact prime-variable decompositions.
+For \(\mathcal R(n)\), take \(\alpha(m)=\mathcal R(m)\),
+\(J_m=[P^+(m),\infty)\cap(z_0,\infty)\), and \(w(p)=1\).
+Use \(P^+(1)=1\). The largest prime factor gives the unique term. For
+\(\mathcal A(n)=\mu(n)\mathcal R(n)\),
+take \(\alpha(m)=-\mu(m)\mathcal R(m)\),
+\(J_m=(\max(P^+(m),z_0),\infty)\), and \(w(p)=1\). The strict
+inequality excludes repeated largest primes, where \(\mu(n)=0\).
+
+For \(\mathcal B(s)/(2L)\), the \(j=1\) terms in
+\(b=p^j\mid s\), \(b>V\), use \(\alpha(m)=\mathcal R(m)\),
+\(J_m=(V,\infty)\), and \(w(p)=\log p/(2L)\). For
+\(\mathcal C(t)/(2L)\), the \(j=1\) terms use
+\(\alpha(a)=\mu(a)\mathcal R(a)\mathbf1_{a\le U}\),
+\(J_a=(z_0,V]\), and the same weight. In each case
+\(\|w\|_\infty+\operatorname{Var}(w)\le1\).
+The four tested arrays
+are one-bounded on their parent ranges. For the last two arrays this follows
+from \(\sum_{d\mid n}\Lambda(d)=\log n\) and
+\(\log(2H)<2L\). On the central ranges \(H\le2N^{.54}\).
+There the weight bound follows from \(y_0=V=N^{1/3}\) for \(\mathcal B\) and \(y_0=z_0\)
+for \(\mathcal C\), since \(\log(2H)\le .54L+O(1)\).
+
+For \(\mathcal B\) and \(\mathcal C\), write the remaining \(j\ge2\)
+terms as \(f_{\ge2}\). They need not be nonnegative.
+For instance, the
+\(\mu(a)\) coefficient in \(\mathcal C\) may change sign.
+Take absolute values before summing:
+\[
+ \sum_{n\le2H}|f_{\ge2}(n)|
+ \ll \frac{H}{L}\sum_{p>z_0}\sum_{j\ge2}\frac{\log p}{p^j}
+ \ll \frac{H\log z_0}{Lz_0}
+ \ll \frac{H}{z_0}.
+\]
+For any sequence \(g\),
+\(|\Delta_g|\le2\sum_{n\le2H}|g(n)|\).
+Hence this remainder is
+\(O_P(HL^{-P})\) for every fixed \(P\). Applying
+Lemma~\ref{lem:ra-prime-transfer} to each prime term proves
+\eqref{eq:ra-full-sw} with the same exponent \(C_{\mathrm{SW}}=1\).
+\end{proof}
+The mean-square estimate below has five uses.
+Section~\ref{sec:k2} uses it for the zero mode of the exterior sum.
+Section~\ref{sec:retained-side} uses it for the Class II estimate of
+Paper~II inside the retained side.
+Section~\ref{sec:l3} uses it for the row-three dispersion estimate of the
+switched sum. These three apply Paper~I, Theorem~3.2.
+In the large-norm case of Paper~I, (3.48), part (ii) below replaces
+\cite[Theorem~0(a)]{BFI86}. The other two uses are the central rectangular
+estimate of Lemma~\ref{hyp:ra-central} and the small-modulus norm-relative
+step of Lemma~\ref{hyp:ra-l52}. Part (i) derives the conclusion of that
+published theorem (Paper~I, Theorem~2.4).
+Its inputs are the norm-relative condition
+\eqref{eq:ra-mean-square-a2} and
+an elementary large sieve, so the argument is self-contained
+at this step. We do not correct \cite{BFI86}.
+Paper~I's use of it is unaffected. The norm-relative premise is not deduced from the
+absolute parent-scale estimate \eqref{eq:ra-full-sw} alone.
+Let \(\xi\) be complex and supported in \([1,Z]\), \(Z\ge3\). Fix
+\(B_{\mathrm{div}}\ge0\). Consider the following condition.
+For every
+\(P>0\), uniformly in integers \(h,k\ge1\) and reduced classes
+\(b\bmod k\),
+\begin{equation}\label{eq:ra-mean-square-a2}
+ \left|\sum_{\substack{n\equiv b\ (k)\\(n,h)=1}}\xi_n
+ -\frac1{\varphi(k)}\sum_{(n,kh)=1}\xi_n\right|
+ \ll_P\|\xi\|_2Z^{1/2}\tau(h)^{B_{\mathrm{div}}}(\log(2Z))^{-P},
+\end{equation}
+The constants are common to the family of pairs \((Z,\xi)\) under
+consideration.
+Write \(\Delta_\xi(k,b)\) for the centered discrepancy at \(h=1\). The norm conclusion is
+\begin{equation}\label{eq:ra-transferred-mean-square}
+ \sum_{k\le Z(\log Z)^{-B_1(A)}}\sum_{b\bmod k}^{*}
+       |\Delta_\xi(k,b)|^2
+ \ll_A\|\xi\|_2^2 Z(\log Z)^{-A}.
+\end{equation}
+In the selected-factor form of Paper~I, (3.48),
+\(\xi_n=\alpha_n1_{(n,r)=1}\), \(Z=\lceil2T_{\mathrm{int}}\rceil\), and
+\begin{equation}\label{eq:ra-mean-square-transfer}
+ \sum_{q\le3Q}\sum_{b\bmod q}^{*}|\Delta_\xi(q,b)|^2
+ \ll N_{\mathcal I}T_{\mathrm{int}} L^{-A_3},\qquad
+ 3Q\le Z(\log Z)^{-B_F},\quad B_F=A_3+15,
+\end{equation}
+where \(N_{\mathcal I}\) is the interval mass in Paper~I, (3.8).
+\begin{lemma}[Transferred mean-square estimate]
+\label{hyp:ra-ms-transfer}
+\begin{enumerate}
+ \item[(i)] If \eqref{eq:ra-mean-square-a2} holds, then
+ \eqref{eq:ra-transferred-mean-square} holds for every fixed \(A>0\).
+ Here \(B_1(A)\) and the implied constant depend only on \(A\),
+ \(B_{\mathrm{div}}\) and the common constants.
+ \item[(ii)] Assume the hypotheses (3.1), (3.2), (3.6), (3.8) with its
+ length condition, (3.11) and (3.25)--(3.27) of Paper~I. Then the estimate
+ \eqref{eq:ra-mean-square-transfer} holds uniformly over the parameter
+ boxes and selected factors of Paper~I, Theorem~3.2. Hence that theorem
+ holds with this input in place of \cite[Theorem~0(a)]{BFI86} at (3.48).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) Expand \(\Delta_\xi(k,b)\) in Dirichlet characters modulo \(k\) and
+pass to primitive characters. For conductors up to a fixed power of
+\(\log Z\), apply \eqref{eq:ra-mean-square-a2}.
+Take the auxiliary divisor
+\(h\) to be the imprimitive part of the modulus. For larger conductors
+use the multiplicative large sieve inequality.
+Its elementary proof uses
+finite Fourier identities and the spacing of reduced fractions.
+Summing over the moduli gives (i).
+(ii) If \(\|\xi\|_2^2\le N_{\mathcal I}L^{-A_3-1}\), the elementary bound
+in Paper~I, (3.48), applies. Otherwise (3.25), with auxiliary divisor
+\(dr\), and (3.26) give \eqref{eq:ra-mean-square-a2} for
+\(\xi_n=\alpha_n1_{(n,r)=1}\) with divisor exponent one. Also (3.6) gives
+the modulus range in \eqref{eq:ra-mean-square-transfer}. Part (i) then
+applies. The complete argument is in Appendix~
+\hyperref[subsec:supp-lem-65]{\ref*{subsec:supp-lem-65}}, with its
+row index in Appendix~
+\hyperref[subsec:app-ra-rows]{\ref*{subsec:app-ra-rows}}. We assert no implication from
+\eqref{eq:ra-full-sw} alone to the norm bound.
+\end{proof}
+
+For the three convolution rows, let
+\begin{equation}\label{eq:ra-l52-scales}
+ D_1=HN^{-\sigma_{\mathrm p}},\qquad
+ D_2=QN^{w_{\mathrm{RA}}+\sigma_{\mathrm p}}/H,\qquad
+ \sigma_{\mathrm p}=10^{-6},\quad w_{\mathrm{RA}}=9/1000,
+\end{equation}
+where \(N^{1/3}/8\le H\le2N^{.46+O(1/L)}\).
+A supported modulus has
+the unique form \(q=pd\) of \eqref{eq:ra-coefficient}.
+Here \(p\) is the marked prime and \(d\) the squarefree cofactor.
+\begin{equation}\label{eq:ra-l52-caps}
+ r<D_1,\qquad s<D_2,\qquad rs=q<Q.
+\end{equation}
+
+\begin{lemma}[Deterministic allocation]\label{lem:ra-selector}
+For each supported \(q=pd\), the following rule defines a unique coprime
+split \(q=rs\) satisfying \eqref{eq:ra-l52-caps}. Put \(p\) in \(r\).
+Order the cofactor primes exceeding \(N^{w_{\mathrm{RA}}}\) as
+\(b_1>\cdots>b_m\).
+Here \(m\le(v_{\mathrm{RA}}-t_0)/w_{\mathrm{RA}}=37553/1260<30\). Process them in this order.
+Put \(b_i\) in \(r\) exactly when the current \(r b_i<D_1\), and put it
+in \(s\) otherwise. Let \(r_{\rm big}\) and \(s_{\rm big}\) be the
+resulting factors.
+Order the remaining cofactor primes as
+\(l'_1>\cdots>l'_k\). Set
+\(r_0=r_{\rm big}\prod_{j=1}^k l'_j\). If \(r_0<D_1\), take
+\(r=r_0\), \(s=s_{\rm big}\). Otherwise let \(j_*\) be the least index
+for which \(r_0/(l'_1\cdots l'_{j_*})<D_1\), and take
+\[
+ r=r_0/(l'_1\cdots l'_{j_*}),\qquad
+ s=s_{\rm big}l'_1\cdots l'_{j_*}.
+\]
+Call the resulting pair \(\operatorname{Sel}_H(q)=(r,s)\).
+\end{lemma}
+\begin{proof}
+The marked prime fits, since
+\(p<N^{1/3-\eta_{\rm m}}<D_1\), even at the fixed lower endpoint
+\(H\ge N^{1/3}/8\). The accepted big-prime partial products stay below
+\(D_1\).
+Thus \(r_{\rm big}<D_1\), and the least index \(j_*\) exists
+when needed. Write all cofactor primes in decreasing order as
+\(l_1>l_2>\cdots\). The odd cube gates in \eqref{eq:ra-coefficient}
+imply
+\[
+ p l_1\cdots l_{i-1}l_i^2<Q\qquad\text{for every }i:
+\]
+For odd \(i\), drop one factor from the cube gate.
+For even \(i\), use
+the preceding odd gate and \(l_i\le l_{i-1}\).
+
+Suppose \(r_0<D_1\), and let \(b_i\) be the last big prime rejected
+into \(s\). The rejection test gives \(r^{(i)}b_i\ge D_1\). The
+two-gate inequality then gives
+\[
+ s=s_{\rm big}
+ =\frac{p b_1\cdots b_i}{r^{(i)}}
+ \le\frac{p b_1\cdots b_{i-1}b_i^2}{D_1}<\frac Q{D_1}<D_2.
+\]
+If no big
+prime is rejected, \(s=1\). In the prefix case, minimality gives
+\(r l'_{j_*}\ge D_1\), hence \(r\ge D_1N^{-w_{\mathrm{RA}}}\) and
+\[
+ s=q/r<QN^{w_{\mathrm{RA}}}/D_1=D_2.
+\]
+The factors partition the squarefree prime factors of \(q\).
+Thus
+\((r,s)=1\), \(rs=q<Q\), and \(r<D_1\).
+\end{proof}
+
+Define the exact joint coefficient on each dyadic Cartesian modulus shell by
+\begin{equation}\label{eq:ra-global-tensor}
+\begin{gathered}
+ F_H(r,s)=
+ \begin{cases}
+ \Gamma(rs),&rs\text{ is supported and }\operatorname{Sel}_H(rs)=(r,s),\\
+ 0,&\text{otherwise},
+ \end{cases}\\
+ \sum_q\Gamma(q)\Phi(q)=\sum_{r,s}F_H(r,s)\Phi(rs),\\
+ F_H(r,s)=\sum_\nu c_\nu f_\nu(r)g_\nu(s),\qquad
+ |f_\nu|,|g_\nu|\le1,\qquad
+ \sum_\nu|c_\nu|\ll L^{C_{\mathrm{tensor}}},\quad C_{\mathrm{tensor}}=2^{30}+91.
+\end{gathered}
+\end{equation}
+Here \(\operatorname{Sel}_H\) is the rule in Lemma~\ref{lem:ra-selector}.
+The expansion is exact on the full Cartesian parent, including zero values
+off the selected pairs.
+
+\begin{lemma}[Global tensor for the selector]\label{lem:ra-tensor}
+The coefficient \(F_H\) has a rank-one expansion satisfying
+\eqref{eq:ra-global-tensor}, with the sharper bound
+\begin{equation}\label{eq:ra-tensor-norm}
+ \sum_\nu|c_\nu|
+ \le4(2^{30}-1)(3+L)^{78}\ll L^{79}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Fix a pair of dyadic shells. A branch fixes the merge order
+\(\pi\in\{R,S\}^m\) of the at most 29 big cofactor primes. It also fixes the final
+large-prime/prefix case.
+In the prefix case it fixes the parity of the number
+of factors assigned to \(s\). There are at most
+\(4\sum_{m=0}^{29}2^m=4(2^{30}-1)\) branches. Within a branch, unary
+conditions impose squarefreeness, coprimality with \(2N\) and the unique
+marked prime \(p\) in \(r\). They also impose the bounds \(P^+(r/p)<z_s\) and
+\(P^+(s)<z_s\), assigned big-prime counts, \(r<D_1\), \(s<D_2\), and
+\(r_{\rm big}<D_1\). The remaining unary data are the case indicator, the parity of the small-prime
+count, and the sign \(\Gamma(rs)=\mu(rs/p)=-\mu(r)\mu(s)\).
+
+Every cross-condition is a comparison \(\phi(r)<\psi(s)\) or its weak
+counterpart. Let \(K_0\) be the number of distinct values of \(\phi\) on
+the \(r\)-shell. For ranks \(1\le a\le K_0\), \(0\le b\le K_0\), put
+\(M=2K_0+1\) and
+\[
+ c_t=M^{-1}\sum_{u=0}^{K_0}e(-tu/M).
+\]
+Finite Fourier orthogonality gives the exact separator
+\begin{equation}\label{eq:ra-rank-separator}
+ \mathbf1_{a\le b}=\sum_{t\bmod M}c_t e(tb/M)e(-ta/M),
+ \qquad \sum_{t\bmod M}|c_t|\le3+\log M.
+\end{equation}
+Rank \(\phi(r)\) among its shell values, and count the values below
+\(\psi(s)\).
+Each shell has at most \(Q\) values, so
+\(\log M\ll L\). The cross-comparisons are exactly:
+\begin{enumerate}
+ \item the adjacent strict comparisons in the fixed merge order of the
+ big primes (at most 28);
+ \item for each \(S\)-letter \(b_i\), the greedy rejection test
+ \(p(\prod_{b_j>b_i,\ b_j\in r}b_j)b_i\ge D_1\) (at most 29);
+ \item the odd cube gates
+ \(p l_1\cdots l_{i-1}l_i^3<Q\) at odd indices among the big primes
+ (at most 15);
+ \item the remaining odd cube gates on the small-prime part, grouped by
+ the fixed parity into the two maxima of the \(r\)- and \(s\)-side
+ partial products (two comparisons);
+ \item in the prefix case, the prefix-order test
+ \(\min P>\max R_{\rm small}\) and the least-prefix test
+ \(r\min P\ge D_1\) (two comparisons);
+ \item the support range \(Q_0<rs<Q\) (two comparisons).
+\end{enumerate}
+There are at most 78 comparisons in total. Once a merge branch is fixed,
+each displayed test compares an \(r\)-only quantity with an
+\(s\)-only quantity. The small-prime maxima combine all gates of the same
+parity and side. The branch conditions are exactly the greedy tests, the
+cube gates and the least-prefix condition.
+Hence their union is precisely
+\(F_H\). Multiplying the separators in
+\eqref{eq:ra-rank-separator} gives \eqref{eq:ra-tensor-norm}. The unary
+factors remain one-bounded. The bound in \eqref{eq:ra-tensor-norm} is per
+dyadic shell pair. The resulting \(O(L^2)\) shell pairs are absorbed by the
+chosen logarithmic precision.
+\end{proof}
+
+For the convolution rows, split \(s=dt\) with
+\(P^+(d)\le z< P^-(t)\), where
+\(z=N^{1/(\log\log N)^3}\) and \(y=N^{1/\log\log N}\). The aggregate
+with \(d>y\) is bounded by Rankin's method. The mean-square modulus in the
+proof of Lemma~\ref{hyp:ra-l52} is \(k=rd\), not the full \(q\).
+Its scale is
+\begin{equation}\label{eq:ra-l52-small-modulus}
+ Q'=D_1y=HN^{-\sigma_{\mathrm p}+1/\log\log N},\qquad
+ k\le5Q',\qquad Z=\lceil2H\rceil.
+\end{equation}
+The inner factor \(t\) is \(z\)-rough and is removed in \(L^2\), with cost
+\(H^2L^C/z\). No bound for \(\tau(r)\) and no roughness condition on \(r\)
+is used. The required range is
+\begin{equation}\label{eq:ra-l52-range}
+ 5Q'\le Z(\log Z)^{-B_F},\qquad B_F=P_{\mathrm{MS}}+15,
+\end{equation}
+where \(P_{\mathrm{MS}}\) is the fixed source-level precision in the
+supplementary Lemma~6.5(i). This holds since
+\(Q'/H=N^{-\sigma_{\mathrm p}+o(1)}\). The full-modulus
+range \(3Q\le Z(\log Z)^{-B_F}\) is not asserted for these parents.
+
+\begin{lemma}[Two-factor convolution estimate]\label{hyp:ra-l52}
+Let \(N^{1/3}/8\le H\le2N^{.46+O(1/L)}\) and \(HM\asymp N\). Let \(a_n\),
+\(n\sim H\), be one-bounded, supported on \(P^-(n)>z\), and satisfy
+\eqref{eq:ra-full-sw} at the original parent \(H\), where
+\(z=N^{1/(\log\log N)^3}\). Let \(b_m\), \(m\sim M\), be one-bounded.
+Let \(U_1,V_1\) be dyadic modulus scales, allowing the singleton scale
+\(1/2\) for the integer \(1\), such that
+\[
+ U_1\le D_1,\qquad V_1\le D_2,\qquad U_1V_1\le N^{v_{\mathrm{RA}}}.
+\]
+Let \(f(r)\), \(r\sim U_1\), and \(g(s)\), \(s\sim V_1\), be arbitrary
+one-bounded arrays.
+Keep the unary restrictions \(r<D_1\), \(s<D_2\),
+\((r,N)=(s,N)=1\). Neither a pointwise condition \(rs<Q\) nor a joint condition
+\((r,s)=1\) is imposed on the pair. Then, for every fixed \(A>0\), uniformly in these
+occupied-parent scales, \(f\), \(g\), unary interval cuts of \(a_n\) and
+\(b_m\), and intervals \(I\subset[N/8,2N]\),
+\begin{equation}\label{eq:ra-l52-input}
+ \sum_{r,s}f(r)g(s)
+ \sum_{\substack{n,m\\nm\in I}}a_n b_m\mathcal K_{rs}(nm)\ll_A NL^{-A}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We use the dispersion method of Paper~I, Theorem~3.2.
+It runs on the
+whole Cartesian shell \(r\sim U_1\), \(s\sim V_1\), with residue class
+\(N\bmod rs\). Its occupied-parent scale conditions are
+\(U_1\le HN^{-\sigma_{\mathrm p}}\),
+\(V_1\le N^{v_{\mathrm{RA}}+w_{\mathrm{RA}}}/(HN^{-\sigma_{\mathrm p}})\), and
+\(U_1V_1\le N^{v_{\mathrm{RA}}}\).
+The second follows from the displayed
+bound by \(D_2\) after dropping \(L^{-B}\). The tested sequence is
+strictly \(z\)-rough. The unary supports carry \((rs,N)=1\) and the
+individual caps. No pointwise product cap is needed for the rank-one
+arrays.
+After Cauchy's inequality in \(m\), the split \(s=dt\) above reduces the
+modulus of the mean square to \(k=rd\) in the range
+\eqref{eq:ra-l52-range}. The mean square is split at a fixed power of
+\(L\) below its target. Below it the trivial bound suffices. Above it
+\eqref{eq:ra-full-sw} gives \eqref{eq:ra-mean-square-a2} with a loss of
+that power, so Lemma~\ref{hyp:ra-ms-transfer}(i) applies. The
+prime Siegel--Walfisz input is Paper~I, (2.21). No joint condition \((r,s)=1\) is used, because \(r,s\) are not the
+moduli of Paper~I, Theorem~2.8. Write \(s=dt\) as above and \(k=rd\). A
+prime \(p\mid(r,s)\) with \(p\le z\) divides \(d\) and only enlarges \(k\).
+The Chinese remainder step needs only that \(k,t_1,t_2\) are pairwise
+coprime.
+The smooth--rough split gives \((d,t_1t_2)=1\). A prime
+\(p\mid(r,s)\) with \(p>z\) divides \(k\) and a rough \(t_i\). Such tuples
+are the bad type \((k,t_1t_2)>1\). If \(p\mid t_2\), the second progression
+\(kt_2\mid mn_2-N\) places \(n_2\) in one class modulo \(kp\). If
+\(p\mid t_1\) only, exchange the two copies first; the absolute square
+majorant is symmetric, and the same statement then applies. We therefore
+remove these tuples before the Chinese remainder step.
+The cost in the square is
+\(\ll MT_{\mathrm{int}}L^C[T_{\mathrm{int}}/(zK)+1]\). After the factor \(KM\) of the
+first Cauchy step this is
+\(\ll NL^C(z^{-1/2}+(K/T_{\mathrm{int}})^{1/2})\).
+That is \(O_A(NL^{-A})\), since
+\(z=N^{1/(\log\log N)^3}\) and \(K/T_{\mathrm{int}}\le N^{-\sigma_{\mathrm p}/2}\).
+The zero-mode identity holds for all tuples, including those with gcd
+failures. After the second Cauchy step, Paper~I, Theorem~2.8 bounds the nonzero
+frequencies. It is applied with \(r_{\mathrm{int}}=tt'\), the product of two
+\(z\)-rough inner variables, and \(s_{\mathrm{int}}=p_0\), the least prime not dividing
+\(N\). Since \(p_0\ll\log N<z\), \((r_{\mathrm{int}},s_{\mathrm{int}})=1\), exactly as in Paper~I,
+(3.82)--(3.83). This is the form of Paper~I, Theorem~2.8
+(Sections~5.3 and~7.4) used here. Its statement allows arbitrary one-bounded
+\(f,g\) with only \((rs,N)=1\). The product restriction
+\(nm\in I\) is kept as in Paper~I, Theorem~3.2.
+The finite product
+partition used there also handles the endpoints.
+Neither \eqref{eq:ra-mean-square-transfer} at the full modulus \(3Q\) nor
+a norm-relative consequence of \eqref{eq:ra-full-sw} for small norms is
+used. The complete argument is in Appendix~
+\hyperref[subsec:supp-lem-68]{\ref*{subsec:supp-lem-68}}, with its
+row index in Appendix~
+\hyperref[subsec:app-ra-rows]{\ref*{subsec:app-ra-rows}}.
+\end{proof}
+
+
+The central rows use \(Y=N^y\), \(y=341/5000\).
+Choose the largest divisor \(s\mid d\) with \(s\le Y\).
+Since \(p<N^{1/3-\eta_{\mathrm m}}\) and \(q=pd>Q_0\),
+\(d>Q_0/p\gg N^{1/6+\eta_{\mathrm m}}L^{-B_0}>Y\).
+Hence a next divisor exists.
+The cube gates control adjacent divisors and give
+\begin{equation}\label{eq:ra-central-selector}
+ \frac{Yq}{Q}<s\le Y,\qquad r=q/s<Q/Y.
+\end{equation}
+This allocation keeps a one-bounded joint modulus coefficient.
+The required central estimate has
+\begin{equation}\label{eq:ra-m53-range}
+\begin{gathered}
+ H_{\mathrm c}M_{\mathrm c}\asymp N,\qquad
+ N^{.50}\ll H_{\mathrm c}\ll N^{.54},\\
+ Q_1\ll N^{.4545},\qquad Q_2\ll N^{.0682}.
+\end{gathered}
+\end{equation}
+\begin{lemma}[Central rectangular distribution]\label{hyp:ra-central}
+Let \(x\) be even, \(H_{\mathrm c}M_{\mathrm c}\asymp x\), and let the
+bounds in \eqref{eq:ra-m53-range} hold with \(N\) replaced by \(x\), with
+fixed comparison constants. Let \(a_n,b_m\) be one-bounded on the complete
+dyadic rectangle \(n\sim H_{\mathrm c},m\sim M_{\mathrm c}\). Let the
+tested \(a_n\) satisfy \eqref{eq:ra-full-sw} at its original parent.
+The divisor exponent is fixed, and the constants are uniform at every requested
+precision. Write
+\[
+ \mathcal D(q,a)=\sum_{n\sim H_{\mathrm c},m\sim M_{\mathrm c}}a_nb_m
+ \left(1_{nm\equiv a\ (q)}-\frac{1_{(nm,q)=1}}{\varphi(q)}\right).
+\]
+Then, for every fixed \(A>0\),
+\begin{equation}\label{eq:ra-m53-input}
+ \sum_{r\sim Q_1}\max_{(b,r)=1}
+ \sum_{\substack{s\sim Q_2\\\mu(rs)^2=1,\ (rs,x)=1}}
+ \max_{\substack{a\bmod rs,\ (a,rs)=1\\a\equiv b\ (r)}}
+       |\mathcal D(rs,a)|\ll_A x(\log x)^{-A}.
+\end{equation}
+The constant is uniform over these families, rectangles, squarefree
+modulus supports and unary interval restrictions of \(a_n\) and \(b_m\).
+All errors are measured at the original parents. One outer residue
+\(b\) is chosen before \(s\) varies.
+In the application it is
+\(N\bmod r\).
+\end{lemma}
+\begin{proof}
+This is the rectangular dispersion theorem proved in Appendix~
+\hyperref[subsec:supp-lem-69]{\ref*{subsec:supp-lem-69}} and indexed
+in Appendix~\hyperref[subsec:app-ra-rows]{\ref*{subsec:app-ra-rows}}.
+The restriction
+\((rs,x)=1\) only removes nonnegative terms. Its proof opens the inner
+modulus \(s\) by dispersion with the outer residue fixed. It uses the mean
+square over all moduli of Lemma~\ref{hyp:ra-ms-transfer}(i), which gives
+Paper~I, (2.17), under its hypothesis (2.16). The supplementary proof applies the mean square twice.
+The second application is repeated over two
+correlations. At each application a constant sequence
+on the same parent is added. Its sign is chosen by the parallelogram
+identity to make the tested sequence norm-large. The resulting sequence
+and the constant sequence satisfy \eqref{eq:ra-mean-square-a2} uniformly.
+Their squared norms are at most the original parent times a fixed
+power of \(L\). Fix the requested logarithmic modulus buffer \(B_1\)
+first.
+Then choose the source-level parameter so that the moduli lie in the
+range of \eqref{eq:ra-transferred-mean-square}. Apply part (i) to both
+sequences,
+subtract by linearity, and absorb that fixed power by increasing the
+requested precision. This uses neither part (ii) nor a mean-square
+conclusion for an arbitrary small-norm sequence from absolute
+Siegel--Walfisz alone. The other inputs are Paper~I, (2.21) (prime
+Siegel--Walfisz), (2.35) (Weil--Estermann)
+and Lemma~3.4 (completed hyperbola count). It does not use Paper~I, Theorem~2.8. For the four tested
+arrays of Table~\ref{tab:ra-rows}, Lemma~\ref{lem:ra-sw} supplies
+\eqref{eq:ra-full-sw} with divisor exponent one.
+\end{proof}
+Lemma~\ref{hyp:ra-central} concerns complete dyadic rectangles and
+one-bounded sequences. Lemma~\ref{lem:ra-product-region} below reduces the
+four central rows, with their product cuts, to it.
+The raw exponent checks are
+\begin{equation}\label{eq:ra-central-margins}
+\begin{aligned}
+ 7v_{\mathrm{RA}}+5y&=3.9999<4,\\
+ 3v_{\mathrm{RA}}-y-1&=.4999<.50,\\
+ 1-v_{\mathrm{RA}}+y&=.5455>.54.
+\end{aligned}
+\end{equation}
+The three margins verify the numerical range only. They do not establish
+the rectangular-support or family hypotheses for a selected product region.
+
+
+Product cuts require an additional finite reduction. For \(e\in I_H\), put
+\begin{equation}\label{eq:ra-restoration}
+\begin{aligned}
+ w(e)&=\frac{2L}{\log e},\\
+ \mathcal A(a)\mathcal R(c)\frac{\log c}{\log(ac)}
+ &=\left(\mathcal A(a)\mathcal R(c)\frac{\log c}{2L}\right)w(ac),\\
+ -\frac{\mathcal C(t)\mathcal R(c)}{\log(tc)}
+ &=\left(-\frac{\mathcal C(t)}{2L}\mathcal R(c)\right)w(tc),\\
+ \frac{\mathcal A(a)\mathcal B(s)}{\log(as)}
+ &=\left(\mathcal A(a)\frac{\mathcal B(s)}{2L}\right)w(as).
+\end{aligned}
+\end{equation}
+Here \(\log c/(2L)\) is unary, and
+\(\|w\|_\infty\le2L/(L-\log4)=O(1)\), and
+\[
+ \operatorname{Var}_{I_H}(w)
+ =\frac{2L}{L-\log4}-\frac{2L}{L+\log(1-\varepsilon)}=O(1).
+\]
+Thus uniform product-prefix estimates restore the exact weights by
+Stieltjes summation, including the minus sign of \(T_2\).
+Use multiplicative cells of relative width \(L^{-D_{\mathrm m}}\).
+The original-source boundary strips satisfy
+\begin{equation}\label{eq:ra-strip}
+ E_{\mathrm{strip}}\ll
+       \bigl(NL^{-D_{\mathrm m}/2}+N^{1/2}\bigr)L^{15/2}.
+\end{equation}
+Each unnormalized source multiplicity is at most \(3d(e)\).
+Cauchy and \(d(n)^4\le d_{16}(n)\) give \eqref{eq:ra-strip}.
+Sum the boundary strips before the modulus expansion.
+For a final saving \(A\), fix
+\begin{equation}\label{eq:ra-precision-order}
+ D_{\mathrm m}=2A+40,\qquad
+ T_{\mathrm{save}}>A+C_{\mathrm{tensor}}+2D_{\mathrm m}+40.
+\end{equation}
+Then fix every Siegel--Walfisz and half-level precision.
+Choose the common threshold last.
+
+\begin{lemma}[Product-region reduction for the central rows]
+\label{lem:ra-product-region}
+Fix \(A>0\) and choose \(D_{\mathrm m}\) and \(T_{\mathrm{save}}\) as in
+\eqref{eq:ra-precision-order}. Take one of the four central rows of
+Table~\ref{tab:ra-rows}.
+Keep its unary cuts, its normalized arrays from
+\eqref{eq:ra-restoration} and the coefficient \(\Gamma\). For
+\(N/4<u\le(1-\varepsilon)N\) let \(\mathcal S(u)\) be its normalized
+discrepancy sum over \(N/4<nm\le u\), without the factor \(w\). Then
+\begin{equation}\label{eq:ra-central-rows}
+ \sup_{N/4<u\le(1-\varepsilon)N}|\mathcal S(u)|\ll_A NL^{-A},
+\end{equation}
+and the same bound holds for the sum over \(nm\in I_H\) with the factor
+\(w(nm)\).
+\end{lemma}
+\begin{proof}
+\emph{Selector.} Let \(q=pd\) be supported, with the primes of \(d\) in
+decreasing order \(\ell_1>\cdots>\ell_k\). As in the proof of
+Lemma~\ref{lem:ra-selector}, the cube gates give
+\(p\ell_1\cdots\ell_{i-1}\ell_i^2<Q\) for every \(i\), hence
+\[
+ \frac{\ell_i}{\ell_{i+1}\cdots\ell_k}<\frac Qq\qquad(1\le i\le k).
+\]
+Consecutive divisors of a squarefree \(d\) have ratio at most
+\(\max_i\ell_i/(\ell_{i+1}\cdots\ell_k)\). Write \(d=\ell_1M\).
+The divisors of \(d\) form the two chains \(\mathcal D(M)\) and
+\(\ell_1\mathcal D(M)\). If \(\ell_1>M\), the only new gap is
+\(\ell_1/M\). If \(\ell_1\le M\), the ranges \([1,M]\) and
+\([\ell_1,\ell_1M]\) overlap. A gap of the union below \(M\) lies inside a
+gap of \(\mathcal D(M)\).
+One above \(M\) lies inside a gap of
+\(\ell_1\mathcal D(M)\). Induction on \(k\) gives the claim. Since
+\(d>Y\), the largest divisor \(s\le Y\) of \(d\) has a successor
+\(s'>Y\) with \(s'/s<Q/q\).
+This proves \eqref{eq:ra-central-selector}.
+The pair \((r,s)\) is determined by \(q\), and \(q=rs\).
+Put \(F(r,s)=\Gamma(rs)\) on selected pairs and \(F(r,s)=0\) otherwise.
+This coefficient is
+one-bounded and supported on squarefree \(rs\) with \((rs,2N)=1\). Its
+dyadic shells satisfy \(Q_1\ll N^{v_{\mathrm{RA}}-y}\) and
+\(Q_2\ll N^{y}\), where \(v_{\mathrm{RA}}-y=909/2000\) and
+\(y=341/5000\).
+There are \(O(L^2)\) shell pairs.
+
+\emph{Parents.} In the first central \(T_2\) row the tested variable and
+array are \(n=t\) and
+\(\mathcal C(t)/(2L)\).
+In the second they are \(n=c\) and
+\(\mathcal R(c)\). In the central \(T_{\mathrm{II}}\) rows they are
+\(n=s\) and \(\mathcal B(s)/(2L)\) in the first.
+In the second they are \(n=a\) and \(\mathcal A(a)\). The other variable carries the remaining one-bounded array,
+with the sign of \(T_2\). On \(I_H\), every relevant pair of dyadic parents
+has \(H_{\mathrm c}M_{\mathrm c}\asymp N\) and
+\(N^{.50}\ll H_{\mathrm c}\ll N^{.54}\) with fixed constants.
+There are
+\(O(L^2)\) such pairs. Lemma~\ref{lem:ra-sw} gives \eqref{eq:ra-full-sw}
+for the tested arrays at these parents.
+
+\emph{Restriction.} Let \(a_n\) be a tested array on its parent and \(J\)
+an interval.
+On the same parent, \(a_n\mathbf1_J(n)\) satisfies
+\(\Delta_{a\mathbf1_J}(I;k,b;h)=\Delta_a(I\cap J;k,b;h)\) for every
+interval \(I\). It therefore satisfies \eqref{eq:ra-full-sw} with the same
+constants, measured at the original parent. The other array may be
+restricted to any interval.
+
+\emph{Mesh.} Put \(\delta=L^{-D_{\mathrm m}}\). Divide each parent into
+\(O(\delta^{-1})\) intervals with endpoint ratio at most \(1+\delta\).
+All unary cut points of the row are endpoints. For fixed \(u\), call
+a cell complete if it lies inside \(\{N/4<nm\le u\}\). Any other cell
+meeting this region has all its products within a factor \((1+\delta)^2\)
+of \(N/4\) or of \(u\). The part of the region it covers lies in the set
+\(\mathcal E_u\) of integers \(e\in(N/4,(1-\varepsilon)N]\) with \(|e-N/4|\le3\delta N\) or
+\(|e-u|\le3\delta N\).
+Here \(\#\mathcal E_u\ll\delta N+1\). For a complete
+cell apply Lemma~\ref{hyp:ra-central} with \(x=N\), saving \(T_{\mathrm{save}}\), the
+restricted arrays, \(b=N\bmod r\) and \(a=N\bmod rs\). Both classes are
+reduced since \((rs,N)=1\), and \(a\equiv b\pmod r\). Thus
+\[
+ \Bigl|\sum_{r,s}F(r,s)\mathcal D_{\mathrm{cell}}(rs,N)\Bigr|
+ \le\sum_r\max_{(b,r)=1}\sum_s
+   \max_{\substack{a\bmod rs\\a\equiv b\ (r)\\(a,rs)=1}}
+   |\mathcal D_{\mathrm{cell}}(rs,a)|
+ \ll_{T_{\mathrm{save}}} NL^{-T_{\mathrm{save}}}.
+\]
+There are \(O(L^{2D_{\mathrm m}+4})\) choices of cell and shell pair, so the
+ complete cells contribute \(O(NL^{-T_{\mathrm{save}}+2D_{\mathrm m}+4})\).
+
+\emph{Strips.} Sum the incomplete cells together before expanding
+the modulus coefficient. For fixed \(e\), the factorizations
+\(e=nm\) in the row carry total normalized weight at most \(d(e)\).
+Also \eqref{eq:ra-proper-power-bound} bounds the modulus sum by
+\(d(N-e)+O(L)\). Their contribution is therefore
+\[
+ \ll\sum_{e\in\mathcal E_u}d(e)\{d(N-e)+L\}
+ \ll(\#\mathcal E_u)^{1/2}N^{1/2}L^{15/2}
+ \ll\bigl(N\delta^{1/2}+N^{1/2}\bigr)L^{15/2},
+\]
+by Cauchy's inequality twice, \(d(n)^4\le d_{16}(n)\) and
+\(\sum_{n\le N}d_{16}(n)\ll NL^{15}\). This is \eqref{eq:ra-strip}.
+
+\emph{Conclusion.} With \(D_{\mathrm m}=2A+40\) and
+\(T_{\mathrm{save}}>A+C_{\mathrm{tensor}}+2D_{\mathrm m}+40\), the two contributions are
+\(O(NL^{-A-C_{\mathrm{tensor}}-36})\) and \(O(NL^{-A-25/2}+N^{1/2}L^{15/2})\), uniformly
+in \(u\). This proves \eqref{eq:ra-central-rows}. Since
+\(\|w\|_\infty+\operatorname{Var}_{I_H}(w)=O(1)\), Stieltjes summation
+against \(\mathcal S\) gives the weighted bound, with the sign of \(T_2\)
+kept.
+\end{proof}
+
+
+\subsection{The main coefficient}
+
+For primes \(\ell\nmid2N\), set \(g_N(\ell)=1/(\ell-1)\), and put
+\(g_N(\ell)=0\) for \(\ell\mid2N\). Extend \(g_N\) multiplicatively to
+squarefree integers, with \(g_N(\ell^j)=0\) for \(j\ge2\). For primes
+\(e\equiv N\pmod p\) in the fixed reduced class modulo \(p\), and primes
+\(\ell\nmid2Np\), the condition \(\ell\mid(N-e)/p\) has
+density \(1/\varphi(\ell)=g_N(\ell)\). Put
+\begin{equation}\label{eq:ra-euler-density}
+ V_N(z_s)=\prod_{\substack{2<\ell<z_s\\\ell\nmid N}}
+       \left(1-\frac1{\ell-1}\right)
+ =\frac{2e^{-\gamma}C(N)}{\alpha L}(1+o(1)),
+\end{equation}
+with \(C(N)\) as in Paper~II, (1.2). For a marked prime \(p\in N^K\) and a
+level \(R\), put \(D=R/p\) and \(s_p=\log D/(\alpha L)\).
+Let \(P=P_N(z_s)\) be the product of the primes \(\ell<z_s\) with
+\(\ell\nmid2N\).
+
+\begin{lemma}[Upper-sieve application]\label{lem:ra-upper-sieve}
+\begin{enumerate}
+ \item[(a)] The comparison \eqref{eq:ra-positive-comparison} holds.
+ \item[(b)] There is an absolute constant \(K_{\mathrm{dim}}\) such that,
+ for every even \(N\),
+ \begin{equation}\label{eq:ra-product-condition}
+  \prod_{w\le\ell<z}(1-g_N(\ell))^{-1}
+  \le\frac{\log z}{\log w}\left(1+\frac{K_{\mathrm{dim}}}{\log w}\right)
+  \quad(z>w\ge2).
+ \end{equation}
+ \item[(c)] For the three pairs
+ \((R,K)\in\{(R_L,J),(R_{\mathrm{tail}},J_{\mathrm{tail}}),(Q,J_t)\}\),
+ uniformly in the mark and in even \(N\),
+ \begin{equation}\label{eq:ra-finite-density}
+  \sum_{d\mid P}\frac{\mu_d^+(R/p)}{\varphi(d)}
+  \le V_N(z_s)\{F(s_p)+O(L^{-1/3})\},
+ \end{equation}
+ and, with \(R=N^rL^{-B_r}\),
+ \begin{equation}\label{eq:ra-mark-density}
+  \sum_q\frac{c_{R,K}(q)}{\varphi(q)}
+  \le\frac{2e^{-\gamma}C(N)}{\alpha L}
+  \left\{\int_K F\left(\frac{r-t}{\alpha}\right)\frac{dt}{t}+o(1)\right\}.
+ \end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We use Iwaniec's upper bound for the linear sieve
+\cite{Iwaniec1980Remainder}. Let \(\mathcal A\) be a finite sequence and
+\(D>1\) a level.
+Let \(P(z)\) be the product of the sifting primes below \(z\). The
+upper weight \(\mu_d^+\) of \cite[p.~313]{Iwaniec1980Remainder} is
+\((-1)^k\) when \(d=\ell_1\cdots\ell_k\mid P(z)\),
+\(\ell_1>\cdots>\ell_k\), and
+\(\ell_1\cdots\ell_{2l}\ell_{2l+1}^3<D\) for every
+\(0\le l\le(k-1)/2\).
+Otherwise it is \(0\). With \(j=2l+1\) these are the
+gates of \eqref{eq:ra-rosser-weight}, so \eqref{eq:ra-rosser-weight} is
+this weight on \(d\mid P\). By the definition of \(W^+\)
+\cite[p.~310]{Iwaniec1980Remainder} and Lemma~2 there
+\cite[p.~313]{Iwaniec1980Remainder},
+\[
+ \sum_{d\mid P(z)}\mu_d^+|\mathcal A_d|=W^+\ge S(\mathcal A,P,z)
+\]
+for every \(D>1\), since \(W^+\) is \(S(\mathcal A,P,z)\) plus nonnegative
+sifted counts. If the density satisfies \eqref{eq:ra-product-condition}
+with a constant \(K\) and \(z\le D\), Lemma~3, (12), of
+\cite[p.~313]{Iwaniec1980Remainder} gives, with \(s=\log D/\log z\),
+\[
+ \sum_{d\mid P(z)}\mu_d^+g(d)
+ \le V(z)\{F(s)+O(e^{\sqrt K-s}(\log D)^{-1/3})\}.
+\]
+
+(a) Let \(e\) be a prime in one of the pieces \eqref{eq:ra-three-pieces}
+and \(p\) a mark with \(pm=N-e\). If \(P^-(m)\ge z_s\), then
+\((m,P)=1\). The inequality \(W^+\ge S\) for the one-term sequence
+\(\{m\}\) at level \(D=R/p\) gives
+\begin{equation}\label{eq:ra-upper-weight-positivity}
+ \sum_{\substack{d\mid P\\d\mid m}}\mu_d^+(D)
+   \ge\mathbf1_{(m,P)=1}\ge\mathbf1_{P^-(m)\ge z_s}.
+\end{equation}
+This holds for every \(D>1\), in particular when \(s_p=383/200<2\).
+Omitting \((m,Np)=1\) in \eqref{eq:ra-original-s6} only enlarges the
+count. The condition \(d\mid m\) is \(e\equiv N\pmod{pd}\), and
+\(c_{R,K}(pd)=\mu_d^+(R/p)\) by \eqref{eq:ra-weight-equality}. The pieces
+\eqref{eq:ra-three-pieces} partition \([2,(1-\varepsilon)N)\times J\). The
+point \(e=N/4\) lies in \(I_L\) and \(t=1/3-\eta_{\mathrm m}\) lies in
+\(J_{\mathrm{tail}}\). Summing \eqref{eq:ra-upper-weight-positivity} over
+\(e\) and \(p\), each mark with its multiplicity, gives
+\(S_6\le A_{\mathrm{mix}}\) by \eqref{eq:ra-mix-definition}.
+
+(b) For odd \(\ell\),
+\[
+ \Bigl(1-\frac1{\ell-1}\Bigr)^{-1}
+ =\Bigl(1-\frac1\ell\Bigr)^{-1}\Bigl(1-\frac1{(\ell-1)^2}\Bigr)^{-1}.
+\]
+The factors with \(\ell\mid2N\) equal one.
+Omitting them only lowers the product. Mertens' theorem, with its uniform error term, bounds the
+product of the first factors over \(w\le\ell<z\) by
+\((\log z/\log w)(1+K_1/\log w)\). The product of the second factors
+over \(\ell\ge\max(w,3)\) is at most \(1+K_2/\log w\). The constants
+\(K_1,K_2\) are absolute. This gives \eqref{eq:ra-product-condition} with one
+\(K_{\mathrm{dim}}\), independent of \(N\) and of \(\omega(N)\).
+
+(c) The limiting ranges of \(s_p\) for the three pairs are
+\[
+ \Bigl(\frac{383}{200},\frac{12639}{4480}\Bigr],\qquad
+ \Bigl(\frac{383}{200},\frac{1916149}{1000000}\Bigr],\qquad
+ \Bigl(\frac{544243}{250000},\frac{43148397}{14000000}\Bigr],
+\]
+all inside \([383/200,3.083)\subset(1,\infty)\). The factors \(L^{-B_r}\)
+move \(s_p\) by \(O(\log L/L)\). Hence \(z_s\le D\) and \(\log D\asymp L\)
+for \(N\ge N_0(B_r)\).
+Then (12) gives \eqref{eq:ra-finite-density}, with
+an error \(O(L^{-1/3})\) uniform in the mark, the pair and \(N\). For
+\eqref{eq:ra-euler-density}, use the factorization in (b) for odd
+\(\ell<z_s\) and restore the factors with \(\ell\mid N\). The primes
+\(\ell\mid N\) with \(\ell\ge z_s\) number at most \(1/\alpha\) and change
+the product by a factor \(1+O(1/z_s)\). By \eqref{eq:ra-weight-equality},
+\[
+ \sum_q\frac{c_{R,K}(q)}{\varphi(q)}
+ =\sum_{\substack{p\in N^K\\p\nmid N}}\frac1{p-1}
+   \sum_{d\mid P}\frac{\mu_d^+(R/p)}{\varphi(d)}.
+\]
+The outer weights are positive, so \eqref{eq:ra-finite-density} may be
+summed termwise. Since \(F\) is Lipschitz on the compact range above, the
+prime number theorem and partial summation give \eqref{eq:ra-mark-density}.
+Marks dividing \(N\) number at most \(1/t_0\), and endpoint atoms and the
+logarithmic buffers contribute \(o(1)\).
+\end{proof}
+The delayed branch \(s_p>3\) of \(F\) occurs only for \(c_{\mathrm{trim}}\),
+when \(t<t_{\mathrm{RA}}\), where \(t_{\mathrm{RA}}=v_{\mathrm{RA}}-3\alpha\).
+
+
+Define
+\begin{equation}\label{eq:ra-j-functional}
+ J_K(r)=\frac1{2e^\gamma\alpha}
+          \int_K F\left(\frac{r-t}{\alpha}\right)\frac{dt}{t}.
+\end{equation}
+The rational endpoint \(\overline J_6\) is as in Paper II
+\cite[(A.13)]{PaperII}:
+\begin{equation}\label{eq:ra-j6bar-comparison}
+\begin{gathered}
+ \overline J_6=
+ \frac{13148581959157321533513247276782285310758770468886237619585}
+      {10^{58}},\\
+ J_J(1/2)=2\log(110/57)\le\overline J_6.
+\end{gathered}
+\end{equation}
+The inequality is certified by outward interval evaluation.
+No central approximation is rounded.
+Since \(W=4(1-\varepsilon)C(N)N/L^2\), the interval masses give
+\begin{equation}\label{eq:ra-main-normalized}
+\begin{aligned}
+ \frac{M_{\mathrm{mix}}}{W}
+ &\le w_LJ_J(1/2)
+       +w_H\{J_{J_{\mathrm{tail}}}(1/2)+J_{J_t}(v_{\mathrm{RA}})\}+o(1),\\
+ w_L&=\frac{2500}{9999},\qquad w_H=\frac{7499}{9999}.
+\end{aligned}
+\end{equation}
+Here \(w_L+w_H=1\).
+No mark multiplicity or singular-series factor is suppressed.
+
+On \(J_{\mathrm{tail}}\), the explicit upper-sieve formula gives
+\begin{equation}\label{eq:ra-trim-debit}
+\begin{aligned}
+ 0&\le w_H\{J_{J_{\mathrm{tail}}}(1/2)-J_{J_{\mathrm{tail}}}(v_{\mathrm{RA}})\}\\
+ &=w_H\int_{1/3-\eta_{\mathrm m}}^{1/3}
+       \frac{v_{\mathrm{RA}}-1/2}{t(1/2-t)(v_{\mathrm{RA}}-t)}\,dt\\
+ &\le\frac{w_H\eta_{\mathrm m}(v_{\mathrm{RA}}-1/2)}
+              {(1/3)(1/2-1/3)(v_{\mathrm{RA}}-1/3)}\\
+ &=:d_{\mathrm m}=\frac{5106819}{31557955000}.
+\end{aligned}
+\end{equation}
+The last integrand is increasing on this interval.
+Put
+\begin{equation}\label{eq:ra-exact-gain}
+ \mathfrak g_{\mathrm{RA}}
+   =w_H\{J_J(1/2)-J_J(v_{\mathrm{RA}})\}-d_{\mathrm m}.
+\end{equation}
+Combining \eqref{eq:ra-main-normalized} with \eqref{eq:ra-j6bar-comparison} gives
+\begin{equation}\label{eq:ra-b11-integral}
+ \frac{M_{\mathrm{mix}}}{W}
+       \le\overline J_6-\mathfrak g_{\mathrm{RA}}+o(1).
+\end{equation}
+
+The remaining integral is elementary.
+The linear-sieve functions $F$ and $f$ are as in
+\cite[(1.8)--(1.9), pp.~172--173]{Iwaniec1980Rosser}.
+Set \(t_{\mathrm{RA}}=v_{\mathrm{RA}}-3\alpha\). On the ranges here,
+\begin{equation}\label{eq:ra-delay-formula}
+ \frac{F(s)}{2e^\gamma}
+  =\begin{cases}
+      1/s,&1\le s\le3,\\[2pt]
+      \displaystyle\frac1s\left\{1+
+            \int_2^{s-1}\frac{\log(\xi-1)}\xi\,d\xi\right\},&3<s<5.
+    \end{cases}
+\end{equation}
+This is the linear-sieve normalization
+\cite[p.~202]{Iwaniec1980Rosser}\cite[(2.23)]{PaperI}.
+Write the delayed contribution as
+\begin{equation}\label{eq:ra-delayed-integral}
+ \mathcal I_{\mathrm{RA}}=
+ \int_{t_0}^{t_{\mathrm{RA}}}\frac{dt}{t(v_{\mathrm{RA}}-t)}
+ \int_2^{(v_{\mathrm{RA}}-t)/\alpha-1}
+                 \frac{\log(\xi-1)}\xi\,d\xi.
+\end{equation}
+Substitution gives
+\begin{equation}\label{eq:ra-gain-elementary}
+\begin{aligned}
+ \mathfrak g_{\mathrm{RA}}+d_{\mathrm m}
+ =w_H\Bigg\{&\int_{t_0}^{1/3}
+   \left(\frac1{t(1/2-t)}-\frac1{t(v_{\mathrm{RA}}-t)}\right)dt\\
+ &-\mathcal I_{\mathrm{RA}}\Bigg\}.
+\end{aligned}
+\end{equation}
+Swap the order in \eqref{eq:ra-delayed-integral} to obtain
+\begin{equation}\label{eq:ra-swapped-integral}
+\begin{aligned}
+ \mathcal I_{\mathrm{RA}}&=\frac1{v_{\mathrm{RA}}}
+ \int_3^{s_{\max}}h(\zeta)\,d\zeta,\qquad
+ s_{\max}=\frac{v_{\mathrm{RA}}-t_0}{\alpha},\\
+ h(\zeta)&=\frac{\log(\zeta-2)}{\zeta-1}
+ \log\frac{(v_{\mathrm{RA}}-\alpha\zeta)(v_{\mathrm{RA}}-t_0)}
+               {\alpha\zeta t_0}.
+\end{aligned}
+\end{equation}
+For \(n=20000\), set \(d=(s_{\max}-3)/n\). The composite midpoint sum
+has error at most
+\[
+ \left|\int_3^{s_{\max}}h(\zeta)\,d\zeta
+      -d\sum_{j=0}^{n-1}h(3+(j+1/2)d)\right|
+ \le\frac{(s_{\max}-3)d^2}{24}\sup|h''|.
+\]
+Directed interval differentiation on \(400\) covering boxes gives
+\(\sup|h''|\le0.720711111\). An independent directed-interval replay
+encloses
+\(\mathfrak g_{\mathrm{RA}}\) in
+\([0.09895983533531812,0.09895983533543704]\).
+Outward rounding therefore gives
+\begin{equation}\label{eq:ra-gain-enclosure}
+ 0.0989598353353\le\mathfrak g_{\mathrm{RA}}
+                      \le0.0989598353355.
+\end{equation}
+Thus we may use the certified rational floor
+\begin{equation}\label{eq:ra-rational-floor}
+ g_{\mathrm{RA,lo}}=\frac{989598353}{10^{10}}=0.0989598353,
+ \qquad \mathfrak g_{\mathrm{RA}}\ge g_{\mathrm{RA,lo}}.
+\end{equation}
+The exact integral \(\mathfrak g_{\mathrm{RA}}\) and its certified floor
+\(g_{\mathrm{RA,lo}}\) are distinct.
+
+\begin{proposition}[Sixth-sum source applications]\label{hyp:ra-applications}
+On the exact arrays above, the following hold.
+\begin{enumerate}
+ \item The comparison \eqref{eq:ra-positive-comparison}, and the density
+ bound \eqref{eq:ra-mark-density} for the three pairs \((R,K)\).
+ \item The three low discrepancy bounds \eqref{eq:ra-three-bv-errors}.
+ \item For every fixed \(A>0\), each of the nine rows of
+ Table~\ref{tab:ra-rows}, with its exact weight, is \(O_A(NL^{-A})\).
+ Consequently the high-coefficient estimate \eqref{eq:ra-ra1} holds.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Items 1 and 2 are Lemmas~\ref{lem:ra-upper-sieve} and~\ref{lem:ra-n4-bv}.
+For item 3 fix \(A\). Choose in this order: \(D_{\mathrm m}=2A+40\);
+\(T_{\mathrm{save}}>A+C_{\mathrm{tensor}}+2D_{\mathrm m}+40\); the saving \(A+C_{\mathrm{tensor}}\) in
+Lemma~\ref{hyp:ra-l52} and the saving \(T_{\mathrm{save}}\) in Lemma~\ref{hyp:ra-central}.
+Then fix the Siegel--Walfisz precisions that these require, the buffers
+\eqref{eq:ra-bv-buffer} and \(B\), and the constant \(K_{\mathrm{dim}}\).
+Choose the common threshold last. The rows partition \(T_1+T_2+T_{\mathrm{II}}\):
+\(T_1\) is all of \(a\le U\). The sums \(T_2\) in \(c\) and \(T_{\mathrm{II}}\)
+in \(a>U\) are split at \(N^{.46}\), \(N^{.50}\) and \(N^{.54}\).
+Each boundary goes to the interval on its right.
+
+\emph{Direct rows.} These are \(T_1\) and the part of \(T_2\) with
+\(c\ge N^{.54}\). Fix the outer variable \(a\), respectively \(t\). Terms
+with \((a,q)>1\), respectively \((t,q)>1\), vanish in \(\mathcal K_q\).
+Otherwise \(\mathcal K_q(ac)\) is the kernel of \eqref{eq:ra-theorem-r} for
+\(c\) in the reduced class \(N\bar a\bmod q\), and similarly for \(t\). The
+parent is \(H=N/a\), respectively \(H=N/t\). The free variable runs over
+\(H/4<c<(1-\varepsilon)H\), intersected with \(c\ge N^{.54}\) in the
+\(T_2\)-row and with any prefix cut.
+This interval lies in \((0,2H]\).
+Condition (W1) holds.
+For \(a\le U\) we have \(N^{2/3}\le H\le N\).
+If the right \(T_2\)-row is nonempty, then
+\(N^{.54}<N/t=H\le N\), since
+\(N^{.54}\le c<(1-\varepsilon)N/t\). Thus Lemma~\ref{hyp:ra-rough} applies
+with this \(H\). (Equivalently, split at \(H/2\) into
+\((H/4,H/2]\) and \((H/2,(1-\varepsilon)H)\).
+Each lies inside a dyadic parent
+\((H',2H']\) with \(H'\in\{H/4,H/2\}\ge N^{.54}/4\). This only doubles the
+constant.) The weights
+\(\log c/\log(ac)\) and \(\mathcal C(t)/\log(tc)\) are bounded and
+monotone in \(c\). Partial summation and \eqref{eq:ra-direct-row-total}
+with \(T_{\mathrm{save}}>A+2\) bound both rows by \(O(NL^{-A})\).
+
+\emph{Convolution rows.} These are \(T_2\) with \(c<N^{.46}\) (tested
+\(\mathcal R(c)\), \(c>N^{1/3}/4\)), \(T_{\mathrm{II}}\) with
+\(a<N^{.46}\) (tested \(\mathcal A(a)\), \(a>N^{1/3}\)), and
+\(T_{\mathrm{II}}\) with \(a\ge N^{.54}\) (tested \(\mathcal B(s)/(2L)\),
+\(N^{1/3}<s<2N^{.46+O(1/L)}\)). Each tested array contains the
+strict roughness factor \(\mathcal R(n)=1_{P^-(n)>z}\).
+This is explicit
+for \(\mathcal R(c)\).
+It follows from
+\(\mathcal A(a)=\mu(a)\mathcal R(a)\) and from
+\(\mathcal B(s)=\mathcal R(s)\sum_{b\mid s,\ b>V}\Lambda(b)\).
+Lemma~\ref{lem:ra-sw} gives \eqref{eq:ra-full-sw} on these original
+parents. Write
+\(\sum_q\Gamma(q)\Phi(q)=\sum_{r,s}F_H(r,s)\Phi(rs)\) as in
+\eqref{eq:ra-global-tensor}. Lemma~\ref{lem:ra-selector} places the
+joint support in \eqref{eq:ra-l52-caps}. Discard a dyadic shell pair
+\(r\sim U_1\), \(s\sim V_1\) if \(F_H\) vanishes identically there.
+Otherwise a supported pair in it satisfies
+\(U_1V_1<rs<Q\), \(U_1<D_1\), and \(V_1<D_2\).
+Hence this occupied
+shell satisfies all scale conditions of Lemma~\ref{hyp:ra-l52}.
+Lemma~\ref{lem:ra-tensor} expands \(F_H\) on the whole Cartesian shell
+into rank-one terms with \(\sum_\nu|c_\nu|\ll L^{79}\).
+The unary caps and coprimality are kept. Each rank-one term is estimated on that
+whole shell. Its factors need not preserve the joint condition
+\(rs<Q\) or the condition \((r,s)=1\), since
+Lemma~\ref{hyp:ra-l52} imposes neither. Apply Lemma~\ref{hyp:ra-l52} with saving \(A+C_{\mathrm{tensor}}\) to each
+term on each occupied shell pair and each product prefix
+\(I=(N/4,u]\). Since
+\(C_{\mathrm{tensor}}\ge83\), the total is \(O(NL^{-A})\), uniformly in \(u\). The factor
+\(w\) is then restored by Stieltjes summation, as in
+\eqref{eq:ra-restoration}.
+
+\emph{Central rows.} The four central rows are bounded by
+Lemma~\ref{lem:ra-product-region}.
+
+\emph{Proper powers.} By \eqref{eq:ra-b10} and
+\eqref{eq:ra-proper-power-bound},
+\(P_{I_H}(\Gamma)=T_1+T_2+T_{\mathrm{II}}+O(N^{1/2+\nu}L^2)\). This
+proves \eqref{eq:ra-ra1}.
+\end{proof}
+
+\begin{proposition}[Sixth-sum estimate]\label{prop:ra-b11}
+Fix \(\sigma\) in the range stated above before taking \(N\to\infty\).
+Then, along even integers,
+\begin{equation}\label{eq:ra-b11}
+ \frac{S_6}{W}\le\overline J_6-\mathfrak g_{\mathrm{RA}}+o(1).
+\end{equation}
+In particular, the certified floor in \eqref{eq:ra-rational-floor} gives
+\begin{equation}\label{eq:ra-b11-floor}
+ \frac{S_6}{W}\le\overline J_6-g_{\mathrm{RA,lo}}
+                         +E_{\mathrm{RA}}(N;\sigma),
+ \qquad E_{\mathrm{RA}}(N;\sigma)\ge0,\qquad
+ E_{\mathrm{RA}}(N;\sigma)\longrightarrow0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{hyp:ra-applications}(1), \(S_6\le A_{\mathrm{mix}}\).
+Use \eqref{eq:ra-b9-f1}, obtained from \eqref{eq:ra-b9} and
+\eqref{eq:ra-cancellation}. Fix \(A>2\), so that \(NL^{-A}=o(W)\). The
+three low discrepancies are \(O(NL^{-A-10})\) by
+Proposition~\ref{hyp:ra-applications}(2).
+The term
+\eqref{eq:ra-high-conversion} is \(O_A(NL^{-A})\).
+Also \(P_{I_H}(\Gamma)=O_A(NL^{-A})\) by
+Proposition~\ref{hyp:ra-applications}(3). Hence
+\(S_6/W\le M_{\mathrm{mix}}/W+o(1)\), and \eqref{eq:ra-b11-integral} gives
+\eqref{eq:ra-b11}. Enlarge the vanishing error to make it nonnegative. The
+certified floor \eqref{eq:ra-rational-floor} gives \eqref{eq:ra-b11-floor}.
+\end{proof}
+
+The precisions are fixed in the order \eqref{eq:ra-precision-order}.
+All constants precede the common threshold.
+Their dependence through prime Siegel--Walfisz may be ineffective.
+The final section uses only \eqref{eq:ra-b11-floor}.
+It uses the certified rational floor in \eqref{eq:bill-components}.
+Its gain is independent of the common coefficient used in the
+balanced-semiprime and switched comparisons.

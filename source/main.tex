@@ -1,0 +1,101 @@
+\documentclass{amsart}
+\def\PaperFinal{1}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amssymb,mathtools,array,longtable,xcolor,mathrsfs}
+\input{paperiii-notation.tex}
+\usepackage[textwidth=42pc,textheight=58pc,centering]{geometry}
+\usepackage[hidelinks]{hyperref}
+\def\UrlBreaks{\do\/\do-\do.}
+\newcommand{\GoldbachTitlePhrase}{1 + 1.75}
+\hypersetup{
+  pdftitle={Theorem (\GoldbachTitlePhrase) on the Goldbach conjecture},
+  pdfauthor={Ruiyi Zhang}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{fact}[lemma]{Fact}
+\newtheorem{hypothesis}[lemma]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\theoremstyle{plain}
+
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\linespread{0.94}
+
+\makeatletter
+\newcommand{\captionof}[1]{\def\@captype{#1}\caption}
+\makeatother
+\begin{document}
+
+\title{Theorem (\GoldbachTitlePhrase) on the Goldbach conjecture}
+\author{Ruiyi Zhang}
+\address{Independent Researcher, Columbia, Maryland, USA}
+\email{ryzfsu@gmail.com}
+\date{November 12, 2026}
+\subjclass[2020]{Primary 11P32; Secondary 11N36, 11N35}
+\keywords{Goldbach problem, sieve methods, primes in arithmetic progressions, automorphic forms}
+
+\begin{abstract}
+Every sufficiently large even integer $N$ has a representation
+$N=p+rq$, where $p,q$ are prime, $r=1$ or prime, and
+$r\le q^{a-1}=q^{3/4}$. In the terminology of Li and Liu, this proves
+Proposition $(1+a)$ for $a=1.75=7/4$. A weighted sieve combines thirteen signed row estimates with
+a switched upper bound. The directed comparison gives
+$D_B>1.967088903489691335582703173494$ and
+$c_{K2,G0}I(b)<1.966859949178424046530804965344$. The exact margin
+enclosure is $D_B-c_{K2,G0}I(b)>0.000228954311267289051898208151$.
+\end{abstract}
+
+\maketitle
+\raggedbottom
+\input{chapters/01-introduction.tex}
+\input{chapters/02-notation.tex}
+\input{chapters/03-classical-inputs.tex}
+\input{chapters/04-source-decomposition.tex}
+\input{chapters/05-retained-side.tex}
+\input{chapters/06-root-a.tex}
+\input{chapters/07-k2.tex}
+\input{chapters/08-l3.tex}
+\input{chapters/09-final-bill.tex}
+
+\section*{Appendices}
+Appendix~A proves three auxiliary estimates. Appendix~B records finite
+calculations, numerical certificates, and exact arithmetic. All cross-references
+to these appendices are internal to this document.
+\appendix
+\input{chapters/supplementary-proofs.tex}
+\input{chapters/appendix-computational.tex}
+
+\section*{Use of AI tools}
+
+The author devised the method of proof. Codex (OpenAI, Astra 6) derived and
+checked the estimates, wrote the Python code for the certificates in
+Appendix~B and ran blind reviews of the manuscript. Claude Code (Anthropic,
+Claude Fable 5) checked the proofs, the numerical certificates and the
+references. The author checked every step of the proof, every table and every
+reference, and takes full responsibility for the content of the paper.
+
+\section*{Statements and declarations}
+
+\textbf{Competing interests.} The author has no competing interests.
+
+\textbf{Funding.} No funding was received for this work.
+
+\textbf{Data availability.} The supplementary scripts, exact inputs and
+compact outputs are archived as
+\path{paper-iii-public-certificates-v1.tar.gz} with release~v1 at
+\url{https://github.com/ryzfsu/goldbach-1plus1.75-theorem/releases/download/v1/paper-iii-public-certificates-v1.tar.gz}.
+\par\noindent The SHA-256 hash of the archive's internal
+\texttt{SHA256SUMS} manifest is
+\texttt{81fc0044}\allowbreak{}\texttt{1c3a3f09}\allowbreak{}\texttt{24995cd4}\allowbreak{}\texttt{1263fedd}\allowbreak{}\texttt{ece827d9}\allowbreak{}\texttt{b40376da}\allowbreak{}\texttt{e531191c}\allowbreak{}\texttt{86f90ed3}.
+
+\input{references.tex}
+
+\end{document}

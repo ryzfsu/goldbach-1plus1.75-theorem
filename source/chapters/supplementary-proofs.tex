@@ -1,0 +1,1700 @@
+\providecommand{\Li}{\operatorname{Li}}
+\newenvironment{mainlemma}[2]%
+  {\par\medskip\noindent\textbf{Lemma~#1}\ (#2)\textbf{.}\ \itshape}%
+  {\par\medskip}
+
+\section{Proofs of three estimates of Section~\ref{sec:root-a}}\label{app:ra-proofs}
+
+This section proves Lemmas~6.5, 6.8 and~6.9.
+Numbers (6.$k$) and~6.$k$ refer to Section~\ref{sec:root-a}. Numbers (\ref{sp:first})
+and later refer to this section. The only inputs are Papers~I and~II and
+the classical results cited at the point of use. Throughout,
+$\tau_j$ is the $j$-fold divisor function and $\tau=\tau_2$.
+Let $\omega(n)$ be the number of distinct prime divisors of $n$. Let $P^+(n)$ and $P^-(n)$
+be its largest and least prime factors. The sum $\sum^*_{b\bmod k}$ runs over
+reduced residues.
+
+\subsection{Elementary inequalities}
+
+For integers $j\ge1$, $k\ge1$ and $Y\ge1$,
+\begin{equation}\label{sp:first}
+ \tau(n)^j\le\tau_{2^j}(n),\qquad
+ \sum_{n\le Y}\frac{\tau_k(n)}n\le(1+\log Y)^k,\qquad
+ \sum_{n\le Y}\tau_k(n)\le Y(1+\log Y)^{k-1}.
+\end{equation}
+The first is multiplicative. At a prime power it is
+$(a+1)^{j}\le\binom{a+2^j-1}{2^j-1}$, which follows by induction on $j$
+from
+\[
+ (a+1)\binom{a+k-1}{k-1}\le\binom{a+2k-1}{2k-1}.
+\]
+The right side is the coefficient of $p^a$ in the convolution of two
+$k$-fold divisor functions. Each of its $a+1$ terms is at least the left
+factor $\binom{a+k-1}{k-1}$, since $(j'+i)(a-j'+i)\ge i(a+i)$ for
+$0\le j'\le a$. The two sums in \eqref{sp:first} follow by writing
+$n=n_1\cdots n_k$, enlarging the constraint to $n_i\le Y$, and summing
+one factor last. Also
+\begin{equation}\label{sp:phi-tau}
+ \frac n{\varphi(n)}\le\tau(n),\qquad
+ \varphi(mn)\ge\varphi(m)\varphi(n),\qquad
+ \tau(mn)\le\tau(m)\tau(n),
+\end{equation}
+prime power by prime power, and $\tau(n)\ll_\epsilon n^\epsilon$.
+
+For a finitely supported sequence $\xi$, a modulus $k$ and an integer
+$h\ge1$, put
+\begin{equation}\label{sp:disc}
+ \Delta_\xi(k,b;h)=\sum_{\substack{n\equiv b\ (k)\\(n,h)=1}}\xi_n
+ -\frac1{\varphi(k)}\sum_{(n,kh)=1}\xi_n,\qquad
+ \Delta_\xi(k,b)=\Delta_\xi(k,b;1),
+\end{equation}
+\begin{equation}\label{sp:variance}
+ V(k;\xi)=\sum_{b\bmod k}^{*}|\Delta_\xi(k,b)|^2 .
+\end{equation}
+If $\xi$ is supported in an interval of length at most $Y$, then
+\begin{equation}\label{sp:projection}
+ V(k;\xi)\le\sum_{b\bmod k}\Bigl|\sum_{n\equiv b\ (k)}\xi_n\Bigr|^2
+ \le\Bigl(\frac Yk+1\Bigr)\|\xi\|_2^2 .
+\end{equation}
+Here $\Delta_\xi(k,b)$ is the deviation of the reduced class sums from
+their mean. The variance is at most the second moment. Cauchy's
+inequality in each class gives the second bound.
+
+The sequence $e_n=\mathbf1_{H<n\le2H}$ satisfies, for all $k,h\ge1$ and
+$(b,k)=1$,
+\begin{equation}\label{sp:constant-sw}
+ |\Delta_e(k,b;h)|\le3\tau(h).
+\end{equation}
+By inclusion--exclusion over $d\mid h$, $(d,k)=1$, the class count equals
+$(H/k)\prod_{p\mid h,\,p\nmid k}(1-1/p)+O(\tau(h))$, with error at most
+$\tau(h)$ in absolute value. The comparator has the same main term and error
+at most $\tau(h)\tau(k)/\varphi(k)\le2\tau(h)$.
+
+Let $\ell=\log\log N$, $z=N^{1/\ell^3}$ and $y=N^{1/\ell}$. Here $N$ is
+the large parameter of the lemma at hand. For each fixed
+$C\ge0$, Rankin's method gives
+\begin{equation}\label{sp:rankin}
+ \sum_{\substack{d>y\\P^+(d)\le z}}\frac{\tau(d)^C}d
+ \ll_C(\log N)^{K_C}e^{-\ell^2}
+\end{equation}
+with a fixed $K_C$. With $\lambda=1/\log z$, the left side is at most
+\[
+ y^{-\lambda}\prod_{p\le z}\Bigl(1+\sum_{e\ge1}(e+1)^Cp^{-e(1-\lambda)}\Bigr),
+ \qquad y^{-\lambda}=e^{-\ell^2}.
+\]
+For $p\le z$ one has $p^{\lambda}\le e$ and $1-\lambda\ge1/2$, so the factor
+at $p$ is $1+O_C(1/p)$. Mertens' theorem gives
+$\sum_{p\le z}1/p\le\ell+O(1)$. Hence the product is $\ll(\log N)^{K_C}$.
+Since $e^{-\ell^2}=(\log N)^{-\ell}$, the right side of \eqref{sp:rankin}
+is $O_{C,A}((\log N)^{-A})$ for every fixed $A$.
+
+\subsection{Lemma 6.5}\label{subsec:supp-lem-65}
+
+Recall the setting of Section~\ref{sec:root-a}. Let $\xi$ be complex, supported in
+$[1,Z]$, $Z\ge3$, and fix $B_{\mathrm{div}}\ge0$. The hypothesis (6.35) is
+that, for every $P>0$, uniformly in $h,k\ge1$ and reduced $b\bmod k$,
+\[
+ \left|\sum_{\substack{n\equiv b\ (k)\\(n,h)=1}}\xi_n
+ -\frac1{\varphi(k)}\sum_{(n,kh)=1}\xi_n\right|
+ \ll_P\|\xi\|_2Z^{1/2}\tau(h)^{B_{\mathrm{div}}}(\log(2Z))^{-P},
+ \tag{6.35}
+\]
+with constants common to the family of pairs $(Z,\xi)$. The conclusion
+(6.36) is
+\[
+ \sum_{k\le Z(\log Z)^{-B_1(A)}}\sum_{b\bmod k}^{*}
+       |\Delta_\xi(k,b)|^2
+ \ll_A\|\xi\|_2^2 Z(\log Z)^{-A}.
+ \tag{6.36}
+\]
+In the selected-factor form of Paper~I, (3.48), $\xi_n=\alpha_n1_{(n,r)=1}$,
+$Z=\lceil2T\rceil$, and (6.37) reads
+\[
+ \sum_{q\le3Q}\sum_{b\bmod q}^{*}|\Delta_\xi(q,b)|^2
+ \ll N_{\mathcal I}T L^{-A_3},\qquad
+ 3Q\le Z(\log Z)^{-B_F},\quad B_F=A_3+15,
+ \tag{6.37}
+\]
+where $N_{\mathcal I}$ is the interval mass in Paper~I, (3.8).
+
+\begin{mainlemma}{6.5}{Transferred mean-square estimate}
+\begin{enumerate}
+ \item[(i)] If \textup{(6.35)} holds, then
+ \textup{(6.36)} holds for every fixed \(A>0\). Here
+ \(B_1(A)\) and the implied constant depend only on \(A\),
+ \(B_{\mathrm{div}}\) and the common constants.
+ \item[(ii)] Assume the hypotheses (3.1), (3.2), (3.6), (3.8) with its
+ length condition, (3.11) and (3.25)--(3.27) of Paper~I. Then the estimate
+ \textup{(6.37)} holds uniformly over the parameter
+ boxes and selected factors of Paper~I, Theorem~3.2. Hence that theorem
+ holds with this input in place of \cite[Theorem~0(a)]{BFI86} at (3.48).
+\end{enumerate}
+\end{mainlemma}
+
+\begin{proof}[Proof of \textup{(i)}]
+Put $E=\|\xi\|_2^2$, $\lambda=\log(2Z)$ and, for $1\le Q\le Z$,
+\[
+ S(Q)=\sum_{k\le Q}V(k;\xi).
+\]
+Since $2Z\le Z^2$, $\log Z\le\lambda\le2\log Z$.
+
+\emph{Characters.} Orthogonality on the reduced classes gives
+$\Delta_\xi(k,b)=\varphi(k)^{-1}\sum_{\chi\ne\chi_0}\overline{\chi}(b)
+\sum_n\xi_n\chi(n)$. The centring removes exactly the principal character.
+Hence
+\begin{equation}\label{sp:parseval}
+ S(Q)=\sum_{k\le Q}\frac1{\varphi(k)}\sum_{\substack{\chi\bmod k\\\chi\ne\chi_0}}
+       \Bigl|\sum_n\xi_n\chi(n)\Bigr|^2 .
+\end{equation}
+Each $\chi\ne\chi_0$ modulo $k$ is induced by a unique primitive
+$\psi\bmod f$ with $f\mid k$, $f>1$. Write $k=fe$. Then
+$\chi(n)=\psi(n)\mathbf1_{(n,e)=1}$, since $\psi$ already vanishes on
+primes of $f$. The pair $(e,\psi)$ determines $(k,\chi)$, and
+$\varphi(fe)\ge\varphi(f)\varphi(e)$ by \eqref{sp:phi-tau}. Therefore
+\begin{equation}\label{sp:primitive}
+ S(Q)\le\sum_{e\le Q}\frac1{\varphi(e)}
+ \sum_{1<f\le Q/e}\frac1{\varphi(f)}\sum_{\psi\bmod f}^{\rm prim}
+ |C_e(\psi)|^2,\qquad
+ C_e(\psi)=\sum_{(n,e)=1}\xi_n\psi(n).
+\end{equation}
+
+\emph{Small conductors.} Let $F\ge1$ and $1<f\le F$. Since
+$\sum_{b}^{*}\psi(b)=0$,
+\[
+ C_e(\psi)=\sum_{b\bmod f}^{*}\psi(b)
+ \Bigl\{\sum_{\substack{n\equiv b\ (f)\\(n,e)=1}}\xi_n
+ -\frac1{\varphi(f)}\sum_{(n,ef)=1}\xi_n\Bigr\}.
+\]
+The bracket is the left side of (6.35) with $k=f$ and $h=e$. For a fixed
+$a>0$ it is at most $C_aE^{1/2}Z^{1/2}\tau(e)^{B_{\rm div}}\lambda^{-a}$.
+There are at most $\varphi(f)$ primitive characters modulo $f$, so
+\begin{equation}\label{sp:small-cond}
+ \sum_{1<f\le F}\frac1{\varphi(f)}\sum_\psi^{\rm prim}|C_e(\psi)|^2
+ \le C_a^2EZ\tau(e)^{2B_{\rm div}}\lambda^{-2a}\sum_{f\le F}\varphi(f)^2
+ \le C_a^2EZ\tau(e)^{2B_{\rm div}}F^3\lambda^{-2a}.
+\end{equation}
+
+\emph{Large conductors.} The multiplicative large sieve, Paper~I, (2.19),
+applied to $c_n=\xi_n\mathbf1_{(n,e)=1}$ with support in $[1,Z]$ and
+$\|c\|_2^2\le E$, gives
+\[
+ \sum_{f\le 2V}\sum_\psi^{\rm prim}|C_e(\psi)|^2\ll(V^2+Z)E .
+\]
+If $p_1<\cdots<p_s$ are the primes of $f$, then $p_i\ge i+1$ and
+$f/\varphi(f)\le\prod_i(i+1)/i=s+1\le1+\log f/\log2$. Thus
+$1/\varphi(f)\le3\lambda/V$ for $V<f\le2V$, and
+\[
+ \sum_{V<f\le2V}\frac1{\varphi(f)}\sum_\psi^{\rm prim}|C_e(\psi)|^2
+ \ll\lambda E\Bigl(V+\frac ZV\Bigr).
+\]
+Summing over $V=2^jF<Q$ gives, uniformly in $e$,
+\begin{equation}\label{sp:large-cond}
+ \sum_{F<f\le Q/e}\frac1{\varphi(f)}\sum_\psi^{\rm prim}|C_e(\psi)|^2
+ \ll\lambda E\Bigl(Q+\frac ZF\Bigr).
+\end{equation}
+If $F\ge Q$, this range is empty.
+
+\emph{Summation over $e$.} Let $r=\lceil2B_{\rm div}+1\rceil$ and
+$m=2^r$. By \eqref{sp:phi-tau} and \eqref{sp:first},
+\[
+ \sum_{e\le Q}\frac{\tau(e)^{2B_{\rm div}}}{\varphi(e)}
+ \le\sum_{e\le Q}\frac{\tau(e)^r}e\le(1+\log Q)^m,\qquad
+ \sum_{e\le Q}\frac1{\varphi(e)}\le(1+\log Q)^2 .
+\]
+Inserting \eqref{sp:small-cond} and \eqref{sp:large-cond} in
+\eqref{sp:primitive} gives
+\begin{equation}\label{sp:bdh-total}
+ S(Q)\ll_aE\lambda^{m+3}\Bigl(ZF^3\lambda^{-2a}+\frac ZF+Q\Bigr).
+\end{equation}
+Put
+\begin{equation}\label{sp:b1}
+ B_1(A)=A+2^{\lceil2B_{\rm div}+1\rceil}+7,\qquad F=\lambda^{B_1},\qquad a=2B_1 .
+\end{equation}
+For $Q\le Z(\log Z)^{-B_1}\le2^{B_1}Z\lambda^{-B_1}$ each term in
+\eqref{sp:bdh-total} is $\ll EZ\lambda^{m+3-B_1}\le EZ\lambda^{-A}$. This
+is (6.36). The constants depend only on $A$, $B_{\rm div}$ and the constant
+$C_{2B_1}$ of (6.35). For $B_{\rm div}=1$ one has $r=3$, $m=8$ and
+$B_1(A)=A+15$.
+\end{proof}
+
+\begin{proof}[Proof of \textup{(ii)}]
+Fix a box and a selected factor $r$ of Paper~I, (3.26). Put
+$\xi_n=\alpha_n\mathbf1_{(n,r)=1}$, with $\alpha$ as in Paper~I, (3.8).
+Then $\xi$ is supported in $I_T\subset(T,2T]\subset[1,Z]$, $Z=\lceil2T\rceil$,
+$|\xi_n|\le1$, and $E=\|\xi\|_2^2\le N_{\mathcal I}+1$. Its discrepancy
+\eqref{sp:disc} at $h=1$ is $\Delta(\alpha^{(r)};q,b)$ of Paper~I, (3.46).
+The support of $\psi_0$ in Paper~I, (3.27), gives $q\le5Q/2<3Q$.
+
+\emph{Low norm.} If $E\le N_{\mathcal I}L^{-A_3-1}$, then
+\eqref{sp:projection}, $Q<T$ and $\log(3Q)\le L$ give
+\[
+ \sum_{q\le3Q}V(q;\xi)\le(N_{\mathcal I}(1+\log3Q)+3Q)E\ll TLE\le N_{\mathcal I}TL^{-A_3}.
+\]
+This is the first case of Paper~I, (3.48).
+
+\emph{High norm.} Let $E>N_{\mathcal I}L^{-A_3-1}$. For $d,k\ge1$ and
+$(l,k)=1$,
+\[
+ \Delta_\xi(k,l;d)=\sum_{\substack{n\in I_T,\ n\equiv l\ (k)\\(n,dr)=1}}\alpha_n
+ -\frac1{\varphi(k)}\sum_{\substack{n\in I_T\\(n,dkr)=1}}\alpha_n ,
+\]
+which is the discrepancy of Paper~I, (3.25), with $I=I_T$ and auxiliary
+divisor $dr$. Hence, for each $A_{\rm SW}>0$,
+\begin{equation}\label{sp:pi03-sw}
+ |\Delta_\xi(k,l;d)|\ll_{A_{\rm SW}}T\tau(d)\tau(r)L^{-A_{\rm SW}} .
+\end{equation}
+By Paper~I, (3.26), $r$ is $u_0$-rough and $r\le X^{0.6}\le N^{0.6}$. With
+$\log u_0=\ell_0\sigma^2\log N$ from Paper~I, (3.2), the number $\Omega(r)$
+of prime factors with multiplicity satisfies
+$\Omega(r)\le0.6/(\ell_0\sigma^2)$, so
+\[
+ \tau(r)\le2^{\Omega(r)}=O_\sigma(1).
+\]
+By Paper~I, (3.8), $N_{\mathcal I}\asymp TL^{-C_{\rm box}}$, hence
+\[
+ E^{1/2}Z^{1/2}\gg TL^{-(C_{\rm box}+A_3+1)/2}.
+\]
+By Paper~I, (3.11), $T\ge X^{60\sigma}$, so $\log(2Z)\asymp_\sigma L$.
+Take $A_{\rm SW}=P+(C_{\rm box}+A_3+1)/2$ in \eqref{sp:pi03-sw}. This gives
+(6.35) for $\xi$ with $B_{\rm div}=1$, at every precision $P$. The
+constants depend only on $\sigma$, $C_{\rm box}$, $A_3$, $P$ and the
+constants of Paper~I, (3.25). These are common to all boxes and selected
+factors.
+
+By part (i) with $B_{\rm div}=1$ and $A=A_3$, the range parameter is
+$B_1(A_3)=A_3+15=B_F$. Paper~I, (3.6), gives $Q<TX^{-29\sigma}$, hence
+\[
+ 3Q<3TX^{-29\sigma}\le Z(\log Z)^{-B_F}
+\]
+for all sufficiently large $X$. Part (i) yields
+\[
+ \sum_{q\le3Q}V(q;\xi)\ll EZ(\log Z)^{-A_3}\ll N_{\mathcal I}TL^{-A_3}.
+\]
+This is (6.37), uniformly in the box and the selected factor.
+
+In the proof of Paper~I, Theorem~3.2, \cite[Theorem~0(a)]{BFI86} is used
+only to obtain the second case of (3.48). See the list of inputs after the
+statement of that theorem in Paper~I. The two cases above give (3.48) for
+every box and selected factor, with the same constants and quantifiers.
+The rest of that proof is unchanged.
+\end{proof}
+
+\subsection{Lemma 6.8}\label{subsec:supp-lem-68}
+
+Recall the notation of Section~\ref{sec:root-a}. Put $L=\log N$, $\ell=\log\log N$,
+\[
+ z=N^{1/\ell^3},\qquad y=N^{1/\ell},\qquad
+ v=v_{\mathrm{RA}}=\frac{5227}{10000},\qquad w=\frac9{1000},\qquad
+ \sigma_{\mathrm p}=10^{-6},\qquad \theta=\frac7{32},
+\]
+and, for an integer $q$ and a residue $e$,
+\[
+ \mathcal K_q(e)=\mathbf1_{e\equiv N\ (q)}-\frac{\mathbf1_{(e,q)=1}}{\varphi(q)}
+ \tag{6.21}
+\]
+(the last line of (6.21)). For a parent $(H,2H]$ with
+$N^{1/3}/8\le H\le2N^{.46+O(1/L)}$, (6.38) defines
+\[
+ D_1=HN^{-\sigma_{\mathrm p}},\qquad D_2=QN^{w+\sigma_{\mathrm p}}/H,
+ \qquad Q=N^{v}L^{-B}.
+ \tag{6.38}
+\]
+For a sequence $f$ on $(H,2H]$, (6.32) defines $\Delta_f(I;k,b;h)$ as
+\eqref{sp:disc} with $n$ restricted to the interval $I$. Then (6.34) is the
+bound
+\[
+ |\Delta_f(I;k,b;h)|\ll_PH\tau(h)L^{-P},\qquad(b,k)=1,
+ \tag{6.34}
+\]
+uniformly for $I\subset(H,2H]$ and $k,h\ge1$.
+
+\begin{mainlemma}{6.8}{Two-factor convolution estimate}
+Let \(N^{1/3}/8\le H\le2N^{.46+O(1/L)}\) and \(HM\asymp N\). Let \(a_n\),
+\(n\sim H\), be one-bounded, supported on \(P^-(n)>z\), and satisfy
+\textup{(6.34)} at the original parent \(H\), where
+\(z=N^{1/(\log\log N)^3}\). Let \(b_m\), \(m\sim M\), be one-bounded.
+Let \(U_1,V_1\) be dyadic modulus scales, allowing the singleton scale
+\(1/2\) for the integer \(1\), such that
+\[
+ U_1\le D_1,\qquad V_1\le D_2,\qquad U_1V_1\le N^{v_{\mathrm{RA}}}.
+\]
+Let \(f(r)\), \(r\sim U_1\), and \(g(s)\), \(s\sim V_1\), be arbitrary
+one-bounded arrays, with the unary restrictions \(r<D_1\), \(s<D_2\),
+\((r,N)=(s,N)=1\) in force. Neither a pointwise condition \(rs<Q\) nor a joint condition
+\((r,s)=1\) is imposed on the pair. Then, for every fixed \(A>0\), uniformly in these
+occupied-parent scales, \(f\), \(g\), unary interval cuts of \(a_n\) and
+\(b_m\), and intervals \(I\subset[N/8,2N]\),
+\[
+ \sum_{r,s}f(r)g(s)
+ \sum_{\substack{n,m\\nm\in I}}a_n b_m\mathcal K_{rs}(nm)\ll_A NL^{-A}.
+ \tag{6.45}
+\]
+\end{mainlemma}
+
+Write $H=N^h$. Fixed-factor enlargements of the parents change $h$ by
+$O(1/L)$, so
+\begin{equation}\label{sp:l52-h}
+ \tfrac13-o(1)\le h\le\tfrac{23}{50}+o(1),\qquad
+ M\gg N^{.54-o(1)} .
+\end{equation}
+All implied constants below may depend on $A$, on the fixed comparison
+constants and on the constants in (6.34). They do not depend on $N$, $H$,
+$f$, $g$, $a$ or $b$. All fixed precisions are chosen before the final
+threshold for $N$.
+
+\subsubsection*{Step 0: reductions}
+A unary cut $a_n\mathbf1_J(n)$ satisfies (6.34) with the same constants,
+since $\Delta_{a\mathbf1_J}(I;k,b;h)=\Delta_a(I\cap J;k,b;h)$. The error is
+still measured at $H$. A unary cut of $b_m$ keeps it one-bounded. The
+product cut $nm\in I$ is removed in Step~9. Until then we prove, for every
+fixed $A>0$,
+\begin{equation}\label{sp:l52-L}
+ \mathcal S:=\sum_{r\sim U_1,\ s\sim V_1}f(r)g(s)
+ \sum_{n\sim H,\ m\sim M}a_nb_m\mathcal K_{rs}(nm)\ll_ANL^{-A}.
+\end{equation}
+
+\subsubsection*{Step 1: a shifted divisor moment and the mean square}
+For each fixed $j$ and each interval $J$ of length $O(M)$ in $(M/2,4M]$,
+\begin{equation}\label{sp:shifted-moment}
+ \sum_{\substack{n\sim H,\ m\in J\\mn\ne N}}\tau(|mn-N|)^j\ll_jMHL^{C_j}.
+\end{equation}
+Let $1\le u\le N^3$. Its prime factors above $N^{1/8}$ have total
+multiplicity at most $24$. Group the others greedily into at most $25$
+factors, each at most $N^{1/4}$. Submultiplicativity of $\tau$ gives
+\[
+ \tau(u)^j\le2^{24j}\sum_{\substack{d\mid u\\d\le N^{1/4}}}\tau(d)^{25j}.
+\]
+For fixed $n$ and $d$, put $h_0=(d,n)$. The congruence $d\mid mn-N$ has no
+solution unless $h_0\mid N$, and otherwise $O(Mh_0/d+1)$ solutions $m\in J$.
+Using $(d,n)\le\sum_{e\mid(d,n)}e$ and \eqref{sp:first},
+\[
+ \sum_{d\le N^{1/4}}\tau(d)^{25j}\Bigl(\frac{M(d,n)}d+1\Bigr)
+ \ll L^{C}\bigl(M\tau(n)^{25j+1}+N^{1/4}\bigr).
+\]
+Summing over $n$ with \eqref{sp:first}, and using $N^{1/4}\le M$, proves
+\eqref{sp:shifted-moment}.
+
+Put $Z_H=\lceil2H\rceil$. For each fixed $P>0$ and every $K'\le HN^{-\sigma_{\mathrm p}/2}$,
+\begin{equation}\label{sp:l52-ms}
+ \sum_{k\le5K'}\tau(k)V(k;a)\ll_PH^2L^{-P}.
+\end{equation}
+First let $R>0$ be fixed. If $\|a\|_2^2\le HL^{-R}$, then
+\eqref{sp:projection} gives
+$\sum_{k\le5K'}V(k;a)\ll(H(1+\log5K')+K')\|a\|_2^2\ll H^2L^{1-R}$. If
+$\|a\|_2^2>HL^{-R}$, then $\|a\|_2Z_H^{1/2}\ge HL^{-R/2}$. Taking
+$I=(H,2H]$ in (6.34) at precision $P'+R/2$ gives (6.35) for $\xi=a$ with
+$Z=Z_H$, $B_{\rm div}=1$ and common constants, since $\log(2Z_H)\asymp L$.
+This argument is uniform at every requested precision $P$ (after choosing
+$P'$ accordingly).
+Lemma~6.5(i) with $A=P'$ and $B_1(P')=P'+15$ gives
+\[
+ \sum_{k\le Z_H(\log Z_H)^{-P'-15}}V(k;a)\ll\|a\|_2^2Z_H(\log Z_H)^{-P'}
+ \ll H^2L^{-P'}.
+\]
+The range contains $k\le5K'$, because $5K'/H\le5N^{-\sigma_{\mathrm p}/2}$
+beats every fixed power of $L$. Thus in both cases
+$\sum_{k\le5K'}V(k;a)\ll H^2L^{-\min(R-1,P')}$. To insert $\tau(k)$, split at
+$\tau(k)=L^{R'}$. Below the split the cost is $L^{R'}$. Above it,
+$\tau(k)\le L^{-R'}\tau(k)^2$, and $V(k;a)\le(2H/k+1)(H+1)$ by
+\eqref{sp:projection}; hence by \eqref{sp:first}
+\[
+ \sum_{\substack{k\le5K'\\\tau(k)>L^{R'}}}\tau(k)V(k;a)
+ \ll L^{-R'}H^2\sum_{k\le5K'}\frac{\tau(k)^2}k\ll H^2L^{4-R'} .
+\]
+Choosing $R'=P+4$ and then $R,P'\ge P+R'+1$ proves \eqref{sp:l52-ms}.
+
+For a $z$-rough integer $t\le N^{C}$ put $a^{(t)}_n=a_n\mathbf1_{(n,t)=1}$.
+Since $\omega(t)\le\log t/\log z\ll\ell^3$ and each prime $p\mid t$ exceeds
+$z$,
+\[
+ \|a-a^{(t)}\|_2^2\le\sum_{p\mid t}\Bigl(\frac{2H}p+1\Bigr)\ll\frac{HL}z ,
+\]
+and by \eqref{sp:projection} and \eqref{sp:first}, uniformly in $t$,
+\begin{equation}\label{sp:l52-mask}
+ \sum_{k\le5K'}\tau(k)V(k;a-a^{(t)})\ll\frac{H^2L^3}z .
+\end{equation}
+
+\subsubsection*{Step 2: large smooth parts}
+Write $s=dt$ with $P^+(d)\le z<P^-(t)$. Consider the pairs $(r,s)$ with
+$d>y$. Then the $z$-smooth part of $q=rs$ exceeds $y$. A modulus $q$ has at
+most $\tau(q)$ factorizations $q=rs$, and $q\le4U_1V_1\le4N^v$. For
+$(q,N)=1$, counting $m$ for each $n$ coprime to $q$ gives
+\[
+ \Bigl|\sum_{n,m}a_nb_m\mathcal K_q(nm)\Bigr|\ll\frac Nq+H+\frac N{\varphi(q)} .
+\]
+By \eqref{sp:phi-tau}, the contribution of these pairs to $\mathcal S$ is
+\[
+ \ll N\sum_{\substack{q\le4N^v\\ q=d'h',\ d'>y,\ P^+(d')\le z}}\frac{\tau(q)^2}q
+ +H\sum_{q\le4N^v}\tau(q)
+ \ll NL^{C}\sum_{\substack{d'>y\\P^+(d')\le z}}\frac{\tau(d')^2}{d'}
+ +HN^vL .
+\]
+Here $\tau(q)^2\le\tau(d')^2\tau(h')^2$ and the sum over $h'$ is bounded
+by \eqref{sp:first}. By \eqref{sp:rankin} the first term is
+$O_A(NL^{-A})$. The second is at most $N^{.9827+o(1)}$, since
+$h+v\le.46+.5227+o(1)$. It remains to treat $d\le y$.
+
+\subsubsection*{Step 3: the first Cauchy square}
+Split $d$ and $t$ into dyadic shells $d\sim D$, $t\sim S$, with $D\le y$,
+$DS\asymp V_1$. There are $O(L)$ choices of $D$ and $O(1)$ of $S$. Put
+\[
+ \lambda_d(t)=g(dt)\mathbf1_{dt\sim V_1}\mathbf1_{P^-(t)>z}\mathbf1_{P^+(d)\le z},
+ \qquad K=U_1D,\qquad k=rd .
+\]
+Then $|\lambda_d(t)|\le1$, $rs=kt$, and $(kt,N)=1$ on the supports. One
+block of $\mathcal S$ is
+\[
+ \mathcal S_0=\sum_{r,d,m}f(r)b_m\sum_t\lambda_d(t)\sum_na_n\mathcal K_{kt}(mn).
+\]
+Fix a smooth $\psi\ge0$ supported in $[1/2,5/2]$, equal to $1$ on $[1,2]$.
+Cauchy's inequality in $(r,d,m)$ gives
+\begin{equation}\label{sp:l52-cs1}
+ |\mathcal S_0|^2\le CKM\,\mathcal S',\qquad
+ \mathcal S'=\sum_{r,d}\psi\Bigl(\frac r{U_1}\Bigr)\mathbf1_{(rd,N)=1}\mathbf1_{d\sim D}
+ \sum_m\psi\Bigl(\frac mM\Bigr)
+ \Bigl|\sum_t\lambda_d(t)\sum_na_n\mathcal K_{kt}(mn)\Bigr|^2 .
+\end{equation}
+The indicator $\mathbf1_{(rd,N)=1}$ is part of the original support and
+is kept. The scale conditions and \eqref{sp:l52-h} give, for large $N$,
+\begin{equation}\label{sp:l52-scales}
+ \frac KH\le N^{-\sigma_{\mathrm p}/2},\qquad
+ \frac{KS}M\le N^{-.0172},\qquad M\gg N^{.54-o(1)},
+\end{equation}
+because $K\le D_1y$, $KS\asymp U_1V_1\le N^v$ and $v-.54=-.0173$. In
+particular $kt=o(M)$ and $K=o(H)$.
+
+Expand $\mathcal S'=\mathcal S_3-2\operatorname{Re}\mathcal S_2+\mathcal S_1$
+over tuples $\mathbf t=(r,d,t_1,t_2,n_1,n_2)$ with coefficient
+\[
+ c(\mathbf t)=\psi(r/U_1)\mathbf1_{(rd,N)=1}\mathbf1_{d\sim D}
+ \lambda_d(t_1)\overline{\lambda_d(t_2)}a_{n_1}\overline{a_{n_2}},\qquad
+ \omega(\mathbf t)=\mathbf1_{(n_1,kt_1)=(n_2,kt_2)=1}:
+\]
+\[
+\begin{aligned}
+ \mathcal S_3&=\sum_{\mathbf t}c\sum_m\psi(m/M)\mathbf1_{kt_1\mid mn_1-N}\mathbf1_{kt_2\mid mn_2-N},\\
+ \mathcal S_2&=\sum_{\mathbf t}c\sum_m\psi(m/M)\mathbf1_{kt_1\mid mn_1-N}
+   \frac{\mathbf1_{(mn_2,kt_2)=1}}{\varphi(kt_2)},\\
+ \mathcal S_1&=\sum_{\mathbf t}c\sum_m\psi(m/M)
+   \frac{\mathbf1_{(mn_1,kt_1)=1}\mathbf1_{(mn_2,kt_2)=1}}{\varphi(kt_1)\varphi(kt_2)} .
+\end{aligned}
+\]
+In $\mathcal S_3$ the factor $\omega$ is automatic, since $(kt_i,N)=1$.
+
+\subsubsection*{Step 4: restoration before the Chinese remainder theorem}
+Call a tuple \emph{gcd-bad} if one of
+\begin{equation}\label{sp:bad}
+ (n_1,n_2)>1,\quad(t_1,t_2)>1,\quad(n_1,t_2)>1,\quad(n_2,t_1)>1,\quad(k,t_1t_2)>1
+\end{equation}
+ holds. Call a tuple \emph{near-diagonal} if
+$|n_1-n_2|<HL^{-C_M}$; this condition is charged separately below. On the
+other tuples $k,t_1,t_2$ are pairwise coprime. For a set $\mathcal B$ of
+tuples define the formal terms
+\begin{equation}\label{sp:formal}
+ MT(\mathcal B)=\sum_{\mathcal B}\frac{c\,\omega\,M\hat\psi(0)}{kt_1t_2\varphi(k)},\qquad
+ \mathcal Z(\mathcal B)=\sum_{\mathcal B}\frac{c\,\omega\,\mathbf1_{n_1\equiv n_2\ (k)}M\hat\psi(0)}{kt_1t_2}.
+\end{equation}
+We show
+\begin{equation}\label{sp:restoration}
+\begin{gathered}
+ \mathcal S'=M\mathcal E+\mathcal Z(\mathrm{all})-MT(\mathrm{all})+O(R_0),\\
+ R_0\ll_P\frac{MH^2}KL^{-P}+MHL^{C}\Bigl[\frac H{zK}+1\Bigr]
+   +N^{o(1)}\Bigl[\frac{H^2}K+H^2S\Bigr]+N^{o(1)}\frac{(H+KS)^2}K ,
+\end{gathered}
+\end{equation}
+where $\mathcal E$ is the nonzero-frequency sum on good tuples defined in
+Step~6. The exponent $C$ is fixed after $P$ and the truncation parameters.
+
+\emph{Resonant $m$.} If $mn_i=N$, then $m\mid N$. There are
+$\tau(N)=N^{o(1)}$ such $m$. For fixed $(r,d)$ and such $m$, the
+congruence terms over $(t,n)$ number at most $\sum_t(2H/(kt)+1)\ll H/K+S$.
+The comparator terms are $\ll L^{C}H/K$. Hence these $m$ contribute
+$\ll N^{o(1)}K(H/K+S)^2$ to $\mathcal S_1,\mathcal S_2,\mathcal S_3$ and to every subset of
+tuples below. This is the last term of $R_0$.
+
+\emph{Divisor truncation.} For the other $m$ put $u_i=|mn_i-N|\ge1$. Let
+$\Sigma^*$ be the event $\tau(u_1),\tau(u_2)\le L^{C_\Sigma}$. On the part of
+the complement with $\tau(u_1)\ge\tau(u_2)$, the triples $(r,d,t_1)$ with
+$kt_1\mid u_1$ number at most $\tau(u_1)^3$. The $t_2\mid u_2$ number at
+most $\tau(u_1)$, and $n_2$ lies in one class modulo $k$, with $O(H/K)$
+choices. With $\mathbf1_{\tau(u_1)>L^{C_\Sigma}}\le\tau(u_1)L^{-C_\Sigma}$,
+\eqref{sp:shifted-moment} gives a contribution to $\mathcal S_3$ of
+\begin{equation}\label{sp:trunc}
+ \ll L^{-C_\Sigma}\frac HK\sum_{m,n_1}\psi(m/M)\tau(u_1)^5\ll\frac{MH^2}KL^{C_5-C_\Sigma}.
+\end{equation}
+The other part is symmetric. Choose $C_\Sigma\ge C_5+P$.
+
+\emph{Bad tuples in $\mathcal S_3$.} In this paragraph, ``bad'' means
+$\Sigma^*$ intersected with the five gcd failures in \eqref{sp:bad}; the
+near-diagonal set is not included in this term and is charged separately
+below. On $\Sigma^*$ fix $(m,n_1)$. There are at
+most $L^{3C_\Sigma}$ triples $(r,d,t_1)$ and at most $O(L)$ candidate primes
+$p$ for a failure in \eqref{sp:bad}. Once $n_2$ is fixed, there are at most
+$L^{C_\Sigma}$ choices of $t_2$. Every witnessing prime exceeds $z$: it divides a
+$z$-rough $n_i$ or $t_i$. Since $(k,N)=1$ and $k\mid mn_1-N$, we have
+$(m,k)=(n_1,k)=1$ and $n_2\equiv n_1\pmod k$. Each failure places $n_2$ in
+one class modulo $kp$:
+\begin{itemize}
+ \item $p\mid(n_1,n_2)$: $p\nmid k$; combine $n_2\equiv0\ (p)$ with $n_2\equiv n_1\ (k)$.
+ \item $p\mid(t_1,t_2)$, $p\nmid k$: $p\nmid m$, since $p\mid mn_1-N$ and $p\nmid N$;
+ combine $mn_2\equiv N\ (p)$ with $n_2\equiv n_1\ (k)$. If $p\mid k$, then
+ $kt_2\mid mn_2-N$ and $p\mid t_2$ give $kp\mid mn_2-N$.
+ \item $p\mid(n_1,t_2)$: $p\nmid k$ and $p\nmid m$; combine $mn_2\equiv N\ (p)$ with $n_2\equiv n_1\ (k)$.
+ \item $p\mid(n_2,t_1)$: $p\nmid k$; combine $n_2\equiv0\ (p)$ with $n_2\equiv n_1\ (k)$.
+ \item $p\mid(k,t_1t_2)$: since $p>z\ge P^+(d)$, $p\mid r$. If $p\mid t_2$, then
+ $kt_2\mid mn_2-N$ gives $kp\mid mn_2-N$. If $p\mid t_1$ only, exchange
+ the two copies first.
+\end{itemize}
+The number of $n_2$ in one class modulo $kp$ is $O(H/(zK)+1)$. Hence
+\begin{equation}\label{sp:bad-s3}
+ \mathcal S_3(\text{bad})\ll MHL^{4C_\Sigma+1}\Bigl[\frac H{zK}+1\Bigr].
+\end{equation}
+The near-diagonal $|n_1-n_2|<HL^{-C_M}$ is counted in the same way, with
+$H/z$ replaced by $HL^{-C_M}$. Choose $C_M\ge P+4C_\Sigma+1$. This gives the
+first two terms of $R_0$. No joint condition $(r,s)=1$ has been used. A
+prime $p\le z$ dividing $(r,s)$ divides $d$ and only enlarges $k$. A
+prime $p>z$ dividing $(r,s)$ divides $k$ and some $t_i$. This is the last
+case of \eqref{sp:bad}.
+
+\emph{Bad tuples in the density terms.} For $\mathcal S_1$, $\mathcal S_2$ and
+$MT$, dropping coprimality leaves the positive density
+\[
+ \ll L^{C_\varphi}\frac M{k^2t_1t_2},
+\]
+since $kt_1=o(M)$ and $q/\varphi(q)\le L^{C_\varphi}$ for $q\le N^{O(1)}$. (In
+$\mathcal S_2$ the $m$-sum is nonzero only if $n_1$ is invertible modulo
+$kt_1$, by $(k,N)=(t_1,N)=1$ and $kt_1\mid mn_1-N$. Then $m$ lies in one
+class modulo $kt_1$.) For $\mathcal Z$ retain $\omega$ and
+$n_2\equiv n_1\ (k)$, with weight $M/(kt_1t_2)$. In particular
+$(n_1,k)=(n_2,k)=1$ there. Without the bad condition these weights sum to
+$\ll L^{C_\varphi}MH^2/K$ and $\ll MH^2/K$, using $\sum_{t\sim S}1/t\le1$,
+$k=rd\asymp K$ and, in $\mathcal Z$, $O(H/K)$ values of $n_2$ in one class
+modulo $k$. As in $\mathcal S_3$ every witnessing prime $p$ exceeds $z$. In
+each case below the prime $p$ divides $n_1$ or $t_1$, which is fixed first
+together with $p$. Since $\omega(n_1),\omega(t_1)\ll L$, there are $O(L)$
+choices of $p$. We use
+\[
+\begin{gathered}
+ \#\{n_2\sim H:\ p\mid n_2\}\le\frac Hp+1,\qquad
+ \sum_{\substack{t_2\sim S\\p\mid t_2}}\frac1{t_2}\le\frac1S\cdot\frac{2S}p=\frac2p,\\
+ \#\{r\le\tfrac52U_1:\ p\mid r\}\le\frac{5U_1}{2p};
+\end{gathered}
+\]
+the last two have no $+1$, because they count multiples of $p$ in
+$[1,2S]$ and $[1,\frac52U_1]$.
+\begin{itemize}
+ \item $p\mid(n_1,n_2)$: fix $n_1$ and $p\mid n_1$. In $\mathcal S_1,\mathcal S_2,MT$
+ there are $\le H/z+1$ values of $n_2$. In $\mathcal Z$, $p\nmid k$ since
+ $(n_1,k)=1$; combining $n_2\equiv0\ (p)$ with $n_2\equiv n_1\ (k)$ leaves
+ $O(H/(zK)+1)$ values of $n_2$.
+ \item $p\mid(t_1,t_2)$: fix $t_1$ and $p\mid t_1$; the $t_2$-sum is at most
+ $2/p\le2/z$. The $n_2$-count is unchanged; $p\mid k$ is allowed.
+ \item $p\mid(n_1,t_2)$: fix $n_1$ and $p\mid n_1$; the $t_2$-sum is at most
+ $2/z$, and the $n_2$-count is unchanged.
+ \item $p\mid(n_2,t_1)$: fix $t_1$ and $p\mid t_1$. In $\mathcal S_1,\mathcal S_2,MT$
+ there are $\le H/z+1$ values of $n_2$. In $\mathcal Z$, $p\mid k$ would
+ contradict $(n_2,k)=1$, so $p\nmid k$; combining $n_2\equiv0\ (p)$ with
+ $n_2\equiv n_1\ (k)$ leaves $O(H/(zK)+1)$ values of $n_2$.
+ \item $p\mid(k,t_1t_2)$: the weights are symmetric in the two copies, so let
+ $p\mid t_1$; fix $t_1$ and $p\mid t_1$. Since $p>z\ge P^+(d)$, $p\mid r$, and
+ there are at most $5U_1/(2p)\le5U_1/(2z)$ values of $r$. The $d$-, $t_2$-
+ and $n$-counts are unchanged.
+\end{itemize}
+In every case the bad part of each density term is
+$\ll MHL^{C_\varphi+1}[H/(zK)+1]$. This is part of $R_0$. The near-diagonal is
+counted in the same way, with $H/z$ replaced by $HL^{-C_M}$. There are
+$O(HL^{-C_M}+1)$ values of $n_2$, and $O(HL^{-C_M}/K+1)$ in one class
+modulo $k$. Hence the near-diagonal is $\ll MH^2L^{C_\varphi-C_M}/K+MHL^{C_\varphi}$. This is part of $R_0$ once also
+$C_M\ge P+C_\varphi$. Thus all bad tuples may be removed from
+$\mathcal S_1,\mathcal S_2,\mathcal S_3,\mathcal Z,MT$ at the cost $R_0$.
+
+\emph{Good tuples.} On good tuples the two congruences in $\mathcal S_3$ are
+compatible exactly on the support $\omega(\mathbf t)=1$ and
+$n_1\equiv n_2\pmod k$. Then $m$ lies in one
+class $\mu$ modulo $kt_1t_2$, with
+\begin{equation}\label{sp:mu}
+ \frac\mu{kt_1t_2}\equiv\frac{N\overline{n_1t_2}}{kt_1}+\frac{N\overline{n_2kt_1}}{t_2}\pmod1 .
+\end{equation}
+Poisson summation gives
+\begin{equation}\label{sp:poisson-m}
+ \sum_{m\equiv\mu\ (kt_1t_2)}\psi\Bigl(\frac mM\Bigr)
+ =\frac M{kt_1t_2}\sum_{h\in\mathbb Z}\hat\psi\Bigl(\frac{hM}{kt_1t_2}\Bigr)
+  e\Bigl(\frac{h\mu}{kt_1t_2}\Bigr).
+\end{equation}
+The term $h=0$ gives $\mathcal Z(\mathrm{good})$. All three expanded
+summands vanish unless $\omega(\mathbf t)=1$. The following main-term
+computations are on that support. For $\mathcal S_1$ the smooth
+coprime $m$-sum is $M\hat\psi(0)\varphi(kt_1t_2)/(kt_1t_2)+O(\tau(kt_1t_2))$.
+Division by $\varphi(kt_1)\varphi(kt_2)=\varphi(k)^2\varphi(t_1)\varphi(t_2)$
+gives $MT(\mathrm{good})$ with total error $N^{o(1)}H^2/K$. For $\mathcal S_2$
+expand $\mathbf1_{(m,t_2)=1}$ by M\"obius inversion. The main term is
+$M\hat\psi(0)\varphi(t_2)/(kt_1t_2)$, with error $O(\tau(t_2))$.
+Division by $\varphi(kt_2)=\varphi(k)\varphi(t_2)$ gives $MT(\mathrm{good})$
+with total error $N^{o(1)}H^2S$. Completing $\mathcal Z$ and $MT$ back to all
+tuples costs $R_0$. This proves \eqref{sp:restoration}.
+
+\subsubsection*{Step 5: the zero mode}
+Expanding the centred class counts gives the exact identity, valid for all
+tuples including those with gcd failures,
+\begin{equation}\label{sp:zero-mode}
+ \mathcal Z(\mathrm{all})-MT(\mathrm{all})
+ =M\hat\psi(0)\sum_{r,d,t_1,t_2}
+ \frac{\psi(r/U_1)\mathbf1_{(rd,N)=1}\lambda_d(t_1)\overline{\lambda_d(t_2)}}{kt_1t_2}
+ \sum_{b\bmod k}^{*}\Delta_{a^{(t_1)}}(k,b)\overline{\Delta_{a^{(t_2)}}(k,b)} .
+\end{equation}
+For fixed $(k,t_1,t_2)$ both sides equal
+\[
+ \sum_{b\bmod k}^{*}A_1(b)\overline{A_2(b)}
+ -\frac1{\varphi(k)}\sum_{b\bmod k}^{*}A_1(b)\sum_{b\bmod k}^{*}\overline{A_2(b)},
+ \qquad A_i(b)=\sum_{\substack{n\equiv b\ (k)\\(n,t_i)=1}}a_n .
+\]
+Use
+$|u\bar v|\le(|u|^2+|v|^2)/2$ and
+\[
+ V(k;a^{(t)})\le2V(k;a)+2V(k;a-a^{(t)}).
+\]
+The sums $\sum_{t\sim S}1/t$ are $O(1)$, a given $k$ has at most $\tau(k)$
+factorizations $k=rd$, and $k\le5K$. By \eqref{sp:l52-ms} with $K'=K$ and
+\eqref{sp:l52-mask},
+\begin{equation}\label{sp:zero-mode-bound}
+ |\mathcal Z(\mathrm{all})-MT(\mathrm{all})|\ll_P\frac{MH^2}K\Bigl[L^{-P}+\frac{L^3}z\Bigr].
+\end{equation}
+Only $|\lambda_d|\le1$ is used, so $\lambda_d$ may vary with $d$. The factor
+$1/K$ is cancelled by $KM$ in \eqref{sp:l52-cs1}.
+
+By \eqref{sp:l52-cs1}, \eqref{sp:restoration}, \eqref{sp:zero-mode-bound} and
+\eqref{sp:l52-scales}, the contributions to $|\mathcal S_0|$ of all terms
+except $M\mathcal E$ are
+\begin{equation}\label{sp:nonspectral}
+ \ll NL^{-P/2}+NL^{C}\Bigl[z^{-1/2}+\Bigl(\frac KH\Bigr)^{1/2}\Bigr]
+ +N^{1+o(1)}\Bigl[M^{-1/2}+\Bigl(\frac{KS}M\Bigr)^{1/2}\Bigr]+N^{.857}.
+\end{equation}
+For the last term, $M^{1/2}(H+KS)\le N^{(1+h)/2+o(1)}+N^{(1-h)/2+v+o(1)}$,
+and $(1+h)/2\le.73+o(1)$, $(1-h)/2+v\le.856034$.
+
+\subsubsection*{Step 6: nonzero frequencies}
+Fix $d\sim D$ and let $\mathcal E_d$ be the part of $\mathcal E$ with this
+$d$:
+\[
+ \mathcal E_d=\sum_{\substack{\text{good }\mathbf t,\ \omega(\mathbf t)=1\\n_1\equiv n_2\ (k)}}\frac{c(\mathbf t)}{kt_1t_2}
+ \sum_{h\ne0}\hat\psi\Bigl(\frac{hM}{kt_1t_2}\Bigr)e\Bigl(\frac{h\mu}{kt_1t_2}\Bigr).
+\]
+Put $\eta=10^{-9}$ and
+\begin{equation}\label{sp:hstar}
+ H_*=C\frac{KS^2N^\eta}M ,
+\end{equation}
+with $C$ larger than every $kt_1t_2/(KS^2)$. Since
+$|\hat\psi(\xi)|\ll_j|\xi|^{-j}$, the terms $|h|>H_*$ contribute $O(N^{-90})$
+in total, taking $j>200/\eta$. If $H_*<1$, $\mathcal E_d$ is negligible.
+This covers $t=1$, $S=1/2$, where $H_*\ll KN^\eta/M\le N^{-.07}$. Hence we may
+assume $S\ge1$ and $H_*\ge1$.
+
+\emph{Reciprocity.} For coprime $u,v$, $\bar u/v+\bar v/u\equiv1/(uv)\pmod1$.
+Applied to the first term of \eqref{sp:mu}, with $u=n_1t_2$ and $v=kt_1$, it
+gives
+\[
+ e\Bigl(\frac{h\mu}{kt_1t_2}\Bigr)
+ =e\Bigl(\frac{Nh(n_1-n_2)\overline{n_2kt_1}}{n_1t_2}\Bigr)
+  e\Bigl(\frac{Nh}{kt_1t_2n_1}\Bigr).
+\]
+Put $f_0=(n_1-n_2)/k$, a nonzero integer on good tuples. Cancelling $k$,
+\begin{equation}\label{sp:phase}
+ e\Bigl(\frac{Nhf_0\overline{n_2t_1}}{n_1t_2}\Bigr).
+\end{equation}
+The conditions on $t_1$ are
+\begin{equation}\label{sp:inner-cond}
+ (t_1,Nc)=1,\qquad(t_1,J)=1,\qquad b=n_2,\quad c=n_1t_2,\quad J=kn_2 .
+\end{equation}
+The first is kept. To separate the second, colour every prime in
+$[z,N^3]$ blue or red independently with probability $1/2$. Since $t_1$ is
+$z$-rough,
+\begin{equation}\label{sp:colour}
+ \mathbf1_{(t_1,J)=1}=\mathbb E_{\rm col}\Bigl[2^{\omega(t_1)+\omega_z(J)}
+ \mathbf1_{\text{all primes of }t_1\text{ blue}}\,
+ \mathbf1_{\text{all primes}\ \ge z\text{ of }J\text{ red}}\Bigr],
+\end{equation}
+where $\omega_z(J)$ counts the primes $\ge z$ of $J$. A shared prime makes
+the event empty. Otherwise its probability is the reciprocal of the power of
+$2$. Both counts are $O(\ell^3)$, so the multipliers are
+$\exp(O(\ell^3))=N^{o(1)}$. Fix one colouring.
+
+Split $f_0$ and $h$ into signed dyadic blocks $|f_0|\sim F$ and
+$h=\varepsilon h_+,\ h_+\sim H_0>0$, with $F\ll H/K$ and
+$H_0\le H_*$. Below, $h_+$ is renamed $h>0$. Fix $d$, this block, a
+sign $\varepsilon$, and one prime colouring from \eqref{sp:colour}.
+The \emph{outer} tuple is
+$\mathbf o=(r,n_1,n_2,t_2)$, with $k=rd$,
+$b=n_2$, $c=n_1t_2$ and $f_0=(n_1-n_2)/k$. Its support contains
+$k\mid n_1-n_2$, the near-diagonal exclusion, and the conditions on
+$(r,d,n_1,n_2,t_2)$ inherited from the good tuples and $\omega=1$.
+It also requires every prime $\ge z$ of $J=kn_2$ to be red.
+The remaining $t_1$-conditions are $(t_1,Nc)=1$, $t_1\sim S$ and
+all primes of $t_1$ blue. The colouring enforces $(t_1,J)=1$.
+Write
+\[
+ u=\frac{hS}{H_0t_1},\quad
+ Y_2(\mathbf o)=\frac{\varepsilon H_0M}{kt_2S},\quad
+ Y_1(\mathbf o)=\frac{\varepsilon NH_0}{kt_2n_1S},\quad
+ W_{\mathbf o}(u)=w_0(u)\hat\psi(Y_2(\mathbf o)u)e(Y_1(\mathbf o)u),
+\]
+where $w_0$ is a fixed smooth cutoff supported in $(1/4,4)$ and equal
+to $1$ on $[1/2,2]$. Since $H_0\le H_*$, $k\asymp K$,
+$t_2\asymp S$, and $N/(n_1M)\asymp1$, uniformly in \emph{all}
+outer tuples,
+$|Y_1(\mathbf o)|+|Y_2(\mathbf o)|\ll N^\eta$.
+On the original support, the remaining Fourier weight is exactly
+$W_{\mathbf o}(hS/(H_0t_1))$.
+Define the Mellin transform and its uniform majorant by
+\[
+ \widetilde W_{\mathbf o}(it)=\int_0^\infty
+ W_{\mathbf o}(u)u^{it}\,\frac{du}{u},\qquad
+ m(t)=C_{\psi,w_0}\min\{1,N^{2\eta}(1+|t|)^{-2}\}.
+\]
+The compact support, two integrations by parts, and the bounds on
+$Y_1,Y_2$ give
+\[
+ \sup_{\mathbf o,t}\frac{|\widetilde W_{\mathbf o}(it)|}{m(t)}\le1,
+ \qquad\int_{\mathbb R}m(t)\,dt\ll_{\psi,w_0}N^\eta,
+\]
+with the fixed constant $C_{\psi,w_0}$ chosen large enough.
+Mellin inversion is the \emph{outer-dependent} identity
+\[
+ W_{\mathbf o}\Bigl(\frac{hS}{H_0t_1}\Bigr)
+ =\frac1{2\pi}\int_{\mathbb R}m(t)
+ \underbrace{\Bigl(\frac{H_0}{S}\Bigr)^{it}
+ \frac{\widetilde W_{\mathbf o}(it)}{m(t)}}_{\text{outer coefficient}}
+ \underbrace{h^{-it}t_1^{it}}_{\text{inner factors}}\,dt.
+\]
+In particular $\widetilde W_{\mathbf o}(it)/m(t)$ is not
+an inner $t_1$-weight: it depends on $k,t_2,n_1$ and the fixed
+sign and block.
+
+\emph{The $t$-integral precedes Cauchy.}
+Let $B_{\rm in}\ge\sup_{t_1}2^{\omega(t_1)}$ and
+$B_{\rm out}\ge\sup_{\mathbf o}2^{\omega_z(kn_2)}$ on this block,
+with $B_{\rm in}B_{\rm out}=\exp(O(\ell^3))=N^{o(1)}$.
+For fixed real Mellin parameter $t$ set
+\[
+\begin{aligned}
+ \lambda'_{v}(t)&=\frac{S}{v}\lambda_d(v)
+ \frac{2^{\omega(v)}}{B_{\rm in}}
+ \mathbf1_{\text{all primes of }v\text{ blue}}\,v^{it},\\
+ \eta_h(t)&=h^{-it}\mathbf1_{h\sim H_0}\mathbf1_{h\le H_*},\\
+ A_{\mathbf o}(t)&=\frac{KS}{kt_2}\,
+ \psi(r/U_1)\overline{\lambda_d(t_2)}a_{n_1}\overline{a_{n_2}}
+ \frac{2^{\omega_z(kn_2)}}{B_{\rm out}}
+ \mathbf1_{\text{all primes }\ge z\text{ of }kn_2\text{ red}}\,
+ \Bigl(\frac{H_0}{S}\Bigr)^{it}
+ \frac{\widetilde W_{\mathbf o}(it)}{m(t)}.
+\end{aligned}
+\]
+The factor $\mathbf1_{h\le H_*}$ is the one-bounded mask on a terminal
+frequency block; it is independent of the outer tuple.
+The sum over $\mathbf o$ is restricted to the outer support just
+specified. Choose the fixed cutoff $\psi$ with $0\le\psi\le1$.
+On the dyadic support $KS/(kt_2)\le2$. By the definitions of $m$, $B_{\rm in}$
+and $B_{\rm out}$, every other factor above
+has modulus at most one. Hence $|A_{\mathbf o}(t)|\le2$ and
+$|\lambda'_v(t)|,|\eta_h(t)|\le1$, uniformly in the real $t$
+and all original outer parameters.
+Using $1/(kt_1t_2)=(KS^2)^{-1}(KS/(kt_2))(S/t_1)$,
+the contribution of this block and colouring to $\mathcal E_d$ is
+\[
+ \frac{B_{\rm in}B_{\rm out}}{2\pi KS^2}
+ \int_{\mathbb R}m(t)
+ \sum_{\mathbf o}A_{\mathbf o}(t)
+ \sum_{\substack{v\sim S\\(v,Nc)=1}}\ \sum_{h\sim H_0}
+ \lambda'_v(t)\eta_h(t)
+ e\Bigl(\frac{\varepsilon Nhf_0\overline{bv}}c\Bigr)\,dt.
+\]
+Here $(b,c)=1$ on the good support. The colour average and the
+$O(L^2)$ signed dyadic blocks are taken \emph{after} the estimate.
+Their cost is $N^{o(1)}$.
+
+\emph{Second square, pointwise in $t$.} Group the outer tuples by
+$(b,c,f_0)$. For fixed $(b,c,f_0)$, the factorization $n_1t_2=c$ has at most
+$\tau(c)=N^{o(1)}$ choices. Then
+$k=(n_1-b)/f_0$ and $r=k/d$ are determined. The number of outer
+tuples is $\ll N^{o(1)}H^2S$. Let $\rho\ge0$ be a smooth majorant,
+at least $1$ on their ranges $b\ll H$, $c\ll HS$.
+Since $b=n_2$ is $z$-rough, $(b,p_0)=1$ for the least prime $p_0$
+not dividing $N$, as $p_0\ll\log N<z$. Define, for each real $t$,
+\begin{equation}\label{sp:cs2}
+\begin{aligned}
+ W_4(t)&=\sum_{\substack{(b,c)=1\\(b,p_0)=1}}
+ \rho(b,c)\sum_{f_0\sim F}
+ \Bigl|\sum_{\substack{v\sim S\\(v,Nc)=1}}
+ \sum_{h\sim H_0}\lambda'_v(t)\eta_h(t)
+ e\Bigl(\frac{\varepsilon Nhf_0\overline{bv}}c\Bigr)\Bigr|^2,\\
+ |\mathcal E_d|&\ll N^{o(1)}\frac{H}{KS^{3/2}}
+ \int_{\mathbb R}m(t)W_4(t)^{1/2}\,dt
+ \le N^{\eta+o(1)}\frac{H}{KS^{3/2}}
+ (W_4^*)^{1/2},\\
+ W_4^*&=\sup_{\substack{\mathrm{signed\ blocks},\ \mathrm{colourings}\\t\in\mathbb R}}W_4(t).
+\end{aligned}
+\end{equation}
+Here $W_4(t)$ is formed with a fixed block and colouring;
+the supremum is taken afterwards. The displayed bound for the full
+$\mathcal E_d$ follows from the colour expectation and the sum over
+the $O(L^2)$ blocks. Their cost is a uniform $N^{o(1)}$. Thus no outer
+coefficient is moved through Cauchy or the $t$-integral.
+Cauchy is applied \emph{inside} the integral for each $t$.
+No outer-dependent Mellin factor appears in $\lambda'_v(t)$.
+
+For every fixed $t$, expand the square with $z_1=vv'$,
+$k_0=h_1v'-h_2v$ and $y_1=f_0k_0$. Since
+$|\lambda'_v(t)|,|\eta_h(t)|\le1$, the diagonal $k_0=0$ obeys,
+uniformly in $t$,
+\begin{equation}\label{sp:diag}
+ W_{\rm diag}(t)\le N^{o(1)}H_*S\cdot H\cdot F\cdot HS
+ \le N^{\eta+o(1)}\frac{H^4S^4}N .
+\end{equation}
+For $k_0\ne0$, write $m=|y_1|\ll FH_*S$ and separate the two
+signs of $y_1$. The off-diagonal is a sum of expressions
+\begin{equation}\label{sp:offdiag}
+ \sum_{z_1,m}b^{\pm}_{z_1,m}(t)
+ \sum_{\substack{(b,c)=(b,p_0)=(z_1,c)=1}}\rho(b,c)
+ e\Bigl(\pm\frac{Nm\overline{z_1b}}c\Bigr),
+\end{equation}
+where $b^{\pm}_{z_1,m}(t)$ depends only on
+$(d,S,F,H_0,\varepsilon,\text{colouring},t;z_1,m)$, and not on
+$(b,c,f_0)$ or the original outer tuple. Its summands are products
+of the one-bounded weights $\lambda'_v(t),\eta_h(t)$, and
+$|b^{\pm}_{z_1,m}(t)|\le B_{z_1,\pm m}$ for the counting
+majorant defined below. The support has $(z_1,Np_0)=1$.
+
+\emph{Coefficient norm.} Fix $C>0$. For $1\le S\le N^C$, $1\le H'\le S$ and
+$1/2\le F\le N^C$ let $B_{z_1,y_1}$ count $t,t'\sim S$, $(tt',N)=1$,
+$1\le|h_1|,|h_2|\le H'$, $f_0\sim F$, with $tt'=z_1$ and
+$f_0(h_1t'-h_2t)=y_1\ne0$. Write $y_N$ for the largest divisor of $y$ composed
+of primes dividing $N$. Then
+\begin{equation}\label{sp:coef-norm}
+ \sum_{z_1,y_1\ne0}B_{z_1,y_1}^2(y_{1,N})^\theta\le N^{o(1)}FH'^2S^2 .
+\end{equation}
+At fixed $(z_1,y_1)$ there are at most $\tau(z_1)\tau(|y_1|)=N^{o(1)}$
+choices of $(t,t',f_0)$. By Cauchy's inequality the left side is at most
+\[
+ N^{o(1)}\Bigl[\sum_{f\le2F}f_N^\theta\Bigr]\mathcal Q,\qquad
+ \mathcal Q=\sum_{t,t'}\sum_{k_0\ne0}(k_{0,N})^\theta\mathcal N_{t,t'}(k_0)^2,
+\]
+where $\mathcal N_{t,t'}(k_0)$ counts $(h_1,h_2)$ with $h_1t'-h_2t=k_0$.
+Since $f_N^\theta\le\sum_{d\mid f,\ d\mid N^\infty}d^\theta$, the $f$-sum is at
+most $2FP_0$, with $P_0=\prod_{p\mid N}(1-p^{\theta-1})^{-1}$.
+
+Write $g_0=(t,t')$, $t=g_0u$, $t'=g_0v$ and $S'=S/g_0$. A fibre of
+$(h_1,h_2)\mapsto k_0$ is an arithmetic progression with step $(u,v)$. It
+has at most $1+2H'/S'$ points, and at most one if $S'\ge2H'$. Also
+\[
+ (k_{0,N})^\theta=\sum_{d\mid k_0,\ d\mid N^\infty}\phi_\theta(d),\qquad
+ 0\le\phi_\theta(d)\le d^\theta,
+\]
+by telescoping each prime power. Let $A_d(t,t')$ count $(h_1,h_2)$ with
+$k_0\ne0$ and $d\mid k_0$. Then
+\begin{equation}\label{sp:Q-split}
+ \mathcal Q\le\sum_{\substack{d\mid N^\infty\\d\le4H'S}}d^\theta
+ \Bigl[\sum_{t,t'}A_d(t,t')+\sum_{t,t':\,S'<2H'}\frac{2H'}{S'}A_d(t,t')\Bigr].
+\end{equation}
+For the first sum write $(h_1,h_2)=e\,\mathbf w$ with $\mathbf w$ primitive,
+$\|\mathbf w\|_\infty=j\le H'$. There are at most $8j$ such $\mathbf w$ and
+$e\le H'/j$. Put $d_e=d/(d,e)$. Since $tt'$ is prime to $d$, a contributing
+$\mathbf w$ has $(w_1,d_e)=1$ (and $w_1=0$ forces $d_e=1$). Counting $t$ and
+then $t'$ in one class modulo $d_e$, and using
+$\sum_{e\le E}(d,e)\le\tau(d)E$,
+\begin{equation}\label{sp:Ad1}
+ \sum_{t,t'}A_d(t,t')\le C\Bigl[\tau(d)\frac{H'^2S^2}d+H'^2S\Bigr].
+\end{equation}
+For the second sum $(g_0,d)=1$. There are $O(H'S'/d)$ nonzero levels of
+$h_1v-h_2u$ divisible by $d$. Each has $O(H'/S')$ points, so
+$A_d\le CH'^2/d$. Summing over $g_0$, with
+$\sum_{g_0\le2S}(S/g_0+1)^2(g_0/S)\le S(8+\log2S)$,
+\begin{equation}\label{sp:Ad2}
+ \sum_{t,t':\,S'<2H'}\frac{2H'}{S'}A_d\le C(1+\log2S)\frac{H'^3S}d
+ \le C(1+\log2S)\frac{H'^2S^2}d .
+\end{equation}
+Finally
+\[
+ \sum_{d\mid N^\infty}\tau(d)d^{\theta-1}=P_0^2,\qquad
+ \sum_{\substack{d\mid N^\infty\\d\le4H'S}}d^\theta\le(4H'S)^{1/2}P_2,\qquad
+ P_2=\prod_{p\mid N}(1-p^{\theta-1/2})^{-1}.
+\]
+Since $H'\le S$, $H'^2S(H'S)^{1/2}\le H'^2S^2$. Both $P_0$ and $P_2$ are
+$N^{o(1)}$: with the primes of $N$ in increasing order,
+$\log P_2\ll\sum_{i\le\omega(N)}p_i^{\theta-1/2}\ll(\log N)^{\theta+1/2}$.
+This proves \eqref{sp:coef-norm}.
+
+With $H'=H_*$ we have $H_*/S\ll KSN^\eta/M\le N^{-.0171}$ by
+\eqref{sp:l52-scales}. For every real Mellin parameter $t$, fixed
+$d,S,F,H_0,\varepsilon$ and colouring, the coefficient sequences
+$b^{\pm}_{z_1,m}(t)$ in \eqref{sp:offdiag} satisfy the \emph{uniform}
+weighted estimate
+\[
+ \sum_{z_1,m\ge1}(m_N)^\theta
+ |b^{\pm}_{z_1,m}(t)|^2
+ \le\sum_{z_1,y_1\ne0}B_{z_1,y_1}^2(y_{1,N})^\theta
+ \ll N^{o(1)}F H_*^2S^2.
+\]
+This follows from \eqref{sp:coef-norm}, since the inner complex
+weights have modulus at most one. In particular the implied constant
+is independent of $t$ and of all original outer data
+$(r,k,n_1,n_2,t_2,b,c,f_0)$. The dependence on these data was
+placed in $A_{\mathbf o}(t)$ \emph{before} Cauchy.
+Writing $\widetilde b_t^{\pm}(j)$ for the slices of Paper~I,
+(2.43), with $n_T=p_0m$ and $a_T=\pm N$, gives
+\begin{equation}\label{sp:slices}
+ \sup_{t\in\mathbb R}\sum_{j\mid N^\infty}j^\theta
+ \|\widetilde b_t^{\pm}(j)\|_2^2
+ \ll N^{o(1)}F(H_*S)^2,
+ \qquad \sup_{t\in\mathbb R}\|b_t^{\pm}\|_2^2
+ \ll N^{o(1)}F(H_*S)^2.
+\end{equation}
+Since $(p_0,N)=1$, the $N$-part of $n_T=p_0m$ is precisely
+$m_N$. This is the norm required by Paper~I, (2.42)--(2.43), for
+every $t$, without any Mellin factor in the inner coefficients.
+
+\emph{Application of Paper~I, Theorem~2.8.} In \eqref{sp:offdiag} put
+\begin{equation}\label{sp:t28-map}
+\begin{gathered}
+ r_T=z_1\sim Z_1,\quad s_T=p_0,\quad R_T=Z_1,\quad S_T=p_0/2,\\
+ d_T=b,\quad c_T=c,\quad n_T=p_0m,\quad
+ Y:=FH_*S,\quad N_T=Cp_0Y\le N^{o(1)}Y,\quad p_0\ll\log N,\quad a_T=\pm N,
+\end{gathered}
+\end{equation}
+with $A=N$. Since $t,t'\sim S$, $z_1=tt'\in(S^2,4S^2]$, which meets two
+dyadic windows. Split the $z_1$-sum into $z_1\in(S^2,2S^2]$ and
+$z_1\in(2S^2,4S^2]$. Apply the theorem to each, with $Z_1=S^2$ and
+$Z_1=2S^2$ respectively. This costs a factor $2$ in the final bound, and
+$Z_1\asymp S^2$ in both windows. Then $s_T\in(S_T,2S_T]$ and $S_T\ge3/2$,
+since $N$ is even and $p_0\ge3$. The support has $(a_T,r_Ts_T)=1$. The
+domain of the theorem is exactly
+\[
+ (z_1b,p_0c)=1\iff(b,c)=(z_1,c)=(z_1,p_0)=(b,p_0)=1,
+\]
+and $(z_1,p_0)=1$ holds by roughness. Exactly as in Paper~I,
+(3.82)--(3.84), reducing the inverse modulo $c$ gives
+\[
+ e\Bigl(\frac{a_Tn_T\overline{z_1b}}{p_0c}\Bigr)=e\Bigl(\pm\frac{Nm\overline{z_1b}}c\Bigr),
+\]
+also when $p_0\mid c$. Split $\rho$ into finitely many smooth pieces on
+strict dyadic windows in $(b,c)$. Multiply by fixed smooth cutoffs
+equal to $1$ on the supported $n_T,z_1,p_0$. At $n_T\ge1$ use a cutoff
+vanishing below $1/2$. All derivatives satisfy Paper~I, (2.39), with
+uniform seminorms. Take $\epsilon=\epsilon_0=10^{-12}$. All parameters lie
+in $[1,N^{10}]$, so $\mathcal X=2+ACDNRS\le3N^{60}$ in Paper~I, (2.41).
+The prefactor there satisfies
+$\mathcal X^{\epsilon+18\epsilon_0}=\mathcal X^{19\cdot10^{-12}}\le N^{1.2\cdot10^{-9}}$
+for large $N$. Write $\delta_X=1.2\cdot10^{-9}$ for this fixed loss.
+This loss and the factors $N^{\eta}=N^{10^{-9}}$ are
+far below three power savings obtained below. These are $N^{-.00829}$, $N^{-.1317}$ and $N^{-.2914}$,
+one for each term of the bound. It leaves the final
+saving $N^{-.001}$ intact. Powers of $p_0$ are $N^{o(1)}$.
+
+Put $B=H$ and $C_{\mathrm{aux}}=HS$. Then $Y\ll Z_1$, since
+$Y/Z_1\ll N^\eta H^2S/N\le N^{-.008}$ (see \eqref{sp:reserves}). On a
+nonempty $f_0$-block the near-diagonal removal gives $F\ge cHL^{-C_M}/K$,
+hence $NY\ge cH^2S^3N^\eta L^{-C_M}\ge C_{\mathrm{aux}}BZ_1$. All exponents of $B,C_{\mathrm{aux}}$
+in Paper~I, (2.42), are nonnegative. By (2.42) and \eqref{sp:slices},
+\[
+ J_*^2\le N^{o(1)}\bigl[N^\theta(C_{\mathrm{aux}}BZ_1+NY)+C_{\mathrm{aux}}BZ_1(C_{\mathrm{aux}}/Z_1)^{2\theta}+B^2Y\bigr]
+ Z_1F(H_*S)^2;
+\]
+the regular spectral product is
+$C_{\mathrm{aux}}(C_{\mathrm{aux}}B\sqrt{Z_1})^{2\theta}Z_1^{1-\theta}(BZ_1)^{1-2\theta}=C_{\mathrm{aux}}^{1+2\theta}BZ_1^{2-2\theta}$.
+With $B^2<N$, $F\ll H/K$ and \eqref{sp:hstar},
+\begin{equation}\label{sp:t28-out}
+ \frac{J_*^2}{H^4S^6}\le N^{3\eta+o(1)}[L_A+L_R],\qquad
+ L_A=\frac{N^\theta HKS^5}{N^2},\qquad
+ L_R=\Bigl(\frac HS\Bigr)^{2\theta}\frac{HKS^5}{N^2}.
+\end{equation}
+Fix a real $t$. Apply the diagonal bound \eqref{sp:diag}, Paper~I,
+Theorem~2.8 with the uniform coefficient norm \eqref{sp:slices}, and
+\eqref{sp:t28-out}. The resulting estimate is the same for every real $t$. Thus their supremum $W_4^*$ satisfies
+\begin{equation}\label{sp:Ed}
+ |\mathcal E_d|\ll N^{\eta+o(1)}\frac H{KS^{3/2}}(W_4^*)^{1/2},\qquad
+ \frac{W_4^*}{H^2S^3}\ll
+ N^{\eta+o(1)}\frac{H^2S}N+
+ N^{3\eta/2+\delta_X+o(1)}(L_A+L_R)^{1/2}.
+\end{equation}
+All Mellin and colouring costs remain $N^{\eta+o(1)}$ as recorded
+in \eqref{sp:cs2}. No outer-dependent coefficient enters the norm.
+
+\subsubsection*{Step 7: exponent reserves}
+With $S\ll V_1/D$, $K=U_1D$ and the three scale conditions,
+$H^2S\le H^2V_1$, $KS^5\le U_1V_1^5$ and
+$H^{2\theta}KS^{5-2\theta}\le H^{2\theta}U_1V_1^{5-2\theta}$. The smooth part
+$D$ only helps. Using $U_1\le HN^{-\sigma_{\mathrm p}}$,
+$V_1\le N^{v+w+\sigma_{\mathrm p}}/H$ and $U_1V_1\le N^v$,
+\begin{equation}\label{sp:reserves}
+\begin{aligned}
+ 1-v-h-\sigma_{\mathrm p}-w&\ge\tfrac{8299}{1000000},\\
+ 2-\theta-5v+3h-4(\sigma_{\mathrm p}+w)&\ge\tfrac{65873}{500000},\\
+ 2-(5-2\theta)v+(3-4\theta)h-(4-2\theta)(\sigma_{\mathrm p}+w)&\ge\tfrac{13989529}{48000000},
+\end{aligned}
+\end{equation}
+on $1/3\le h\le23/50$. The first minimum is at $h=.46$, the other two at
+$h=1/3$. These are the savings of $H^2S/N$, $L_A$ and $L_R$. Hence
+$H^2S/N\le N^{-.00829}$, $L_A\le N^{-.1317}$, $L_R\le N^{-.2914}$, and
+\eqref{sp:Ed} gives
+\begin{equation}\label{sp:Ed-final}
+ |\mathcal E_d|\le C\frac{H^2}KN^{-.001}.
+\end{equation}
+Summing over the $O(D)$ values of $d$, $|\mathcal E|\le CDH^2N^{-.001}/K$.
+Its contribution to $|\mathcal S_0|$ through \eqref{sp:l52-cs1} is
+\[
+ \bigl[KM\cdot M\cdot DH^2N^{-.001}/K\bigr]^{1/2}\le CND^{1/2}N^{-.0005}\le N^{1-.0004},
+\]
+since $D\le y=N^{o(1)}$.
+
+\subsubsection*{Step 8: parameter order and conclusion of \eqref{sp:l52-L}}
+Fix $A$. Choose $P\ge2A+20$; then $C_\Sigma$; then $C_M\ge\max(P+4C_\Sigma+1,\,P+C_\varphi)$. Here $C_\varphi$ is the absolute exponent with $q/\varphi(q)\le L^{C_\varphi}$. The smooth
+weights, $\eta$, $\epsilon$ and $\epsilon_0$ are fixed numbers. Choose the
+threshold for $N$ last. By \eqref{sp:nonspectral} and Step~7,
+\[
+ |\mathcal S_0|\ll NL^{-A-3}+N^{1-\sigma_{\mathrm p}/8}L^{C},
+\]
+since $(K/H)^{1/2}\le N^{-\sigma_{\mathrm p}/4}$ and $z^{-1/2}$ beats every
+power of $L$. Sum over the $O(L)$ shells of $D$ and the $O(1)$ shells of
+$S$, and add Step~2. This proves \eqref{sp:l52-L}, uniformly in $f,g,a,b$ and
+the scales. Of $f$ and $g$ we used only one-boundedness and the
+unary support $(rs,N)=1$.
+
+\subsubsection*{Step 9: the product interval}
+Let $I\subset[N/8,2N]$ and $C_{\mathrm{grid}}\ge1$. Divide $(H,2H]$ and
+$(M,2M]$ into $O(L^{C_{\mathrm{grid}}})$ consecutive intervals of relative
+length at most $L^{-C_{\mathrm{grid}}}$. Call a rectangle $J_1\times J_2$ interior if
+$J_1J_2\subset I$, exterior if $J_1J_2\cap I=\emptyset$, and boundary
+otherwise. On each interior rectangle apply \eqref{sp:l52-L} to
+$a_n\mathbf1_{J_1}(n)$ and $b_m\mathbf1_{J_2}(m)$, with saving
+$A+2C_{\mathrm{grid}}$. By Step~0 the first array satisfies (6.34) at the original
+parent $H$. For fixed $n$, the $m$ in boundary rectangles lie in $O(1)$
+intervals of total length $O(ML^{-C_{\mathrm{grid}}})$. A modulus $q\le4N^v$ has at
+most $\tau(q)$ factorizations $q=rs$. Counting $m$ for each $n$,
+\[
+ \sum_{q\le4N^v}\tau(q)\sum_{n\sim H}
+ \Bigl[\frac{ML^{-C_{\mathrm{grid}}}}q+1+\frac{ML^{-C_{\mathrm{grid}}}}{\varphi(q)}\Bigr]
+ \ll NL^{C_1-C_{\mathrm{grid}}}+HN^vL ,
+\]
+with a fixed $C_1$. The last term saves a fixed power, since
+$h+v\le.9827+o(1)$. Taking $C_{\mathrm{grid}}=A+C_1$ proves (6.45).
+\qed
+
+\subsection{Lemma 6.9}\label{subsec:supp-lem-69}
+
+Recall (6.47):
+\[
+ H_{\mathrm c}M_{\mathrm c}\asymp N,\qquad
+ N^{.50}\ll H_{\mathrm c}\ll N^{.54},\qquad
+ Q_1\ll N^{.4545},\qquad Q_2\ll N^{.0682}.
+ \tag{6.47}
+\]
+
+\begin{mainlemma}{6.9}{Central rectangular distribution}
+Let \(x\) be even and \(H_{\mathrm c}M_{\mathrm c}\asymp x\). Let the
+bounds in \textup{(6.47)} hold with \(N\) replaced by \(x\), with
+fixed comparison constants. Let \(a_n,b_m\) be one-bounded on the complete
+dyadic rectangle \(n\sim H_{\mathrm c},m\sim M_{\mathrm c}\). Let the
+tested \(a_n\) satisfy \textup{(6.34)} at its original parent, with
+one fixed divisor exponent and uniform constants at every requested
+precision. Write
+\[
+ \mathcal D(q,a)=\sum_{n\sim H_{\mathrm c},m\sim M_{\mathrm c}}a_nb_m
+ \left(1_{nm\equiv a\ (q)}-\frac{1_{(nm,q)=1}}{\varphi(q)}\right).
+\]
+Then, for every fixed \(A>0\),
+\[
+ \sum_{r\sim Q_1}\max_{(b,r)=1}
+ \sum_{\substack{s\sim Q_2\\\mu(rs)^2=1,\ (rs,x)=1}}
+ \max_{\substack{a\bmod rs,\ (a,rs)=1\\a\equiv b\ (r)}}
+       |\mathcal D(rs,a)|\ll_A x(\log x)^{-A}.
+ \tag{6.48}
+\]
+The constant is uniform over these families, rectangles, squarefree
+modulus supports and unary interval restrictions of \(a_n\) and \(b_m\).
+All errors are measured at the original parents. One outer residue
+\(b\) is chosen before \(s\) varies. In the application it is
+\(N\bmod r\).
+\end{mainlemma}
+
+Write $H=H_{\mathrm c}$, $M=M_{\mathrm c}$, $L=\log x$, $\ell=\log\log x$,
+$z=x^{1/\ell^3}$, $y=x^{1/\ell}$. Let $c_0\ge0$ be the fixed divisor
+exponent in the hypothesis, so that for every $D>0$, uniformly in intervals
+$I\subset(H,2H]$, $k,h\ge1$ and $(u,k)=1$,
+\begin{equation}\label{sp:c58-sw}
+ |\Delta_a(I;k,u;h)|\le C_DH\tau(h)^{c_0}L^{-D}.
+\end{equation}
+Since $\Delta_{a\mathbf1_J}(I;k,u;h)=\Delta_a(I\cap J;k,u;h)$, a unary
+restriction of $a$ satisfies \eqref{sp:c58-sw} with the same constants. A
+unary restriction of $b$ keeps it one-bounded. We may therefore assume that
+$a$ and $b$ are the restricted arrays. We keep $(rs,x)=1$ in (6.48)
+and throughout the signed residue-difference argument. The
+individual maxima in (6.48) are nonnegative, but the signed differences in
+Step~2 are not. Enlarging their support does not preserve order. Every selected coefficient below is extended by zero outside
+$\mu(rs)^2=1$ and $(rs,x)=1$. On this support $(r,s)=1$ and
+$\varphi(rs)=\varphi(r)\varphi(s)$. Throughout,
+$rs\le4Q_1Q_2\le Cx^{v}$ with $v=.5227$, and $M\gg x^{.46}$.
+
+\subsubsection*{Step 1: the projected comparator}
+For $t=rs$ and reduced $a\equiv b\pmod r$ put
+$S_t(a)=\sum_{n,m}a_nb_m\mathbf1_{nm\equiv a\ (t)}$ and
+\[
+\begin{aligned}
+ \Delta(a,b;r,s)&=S_t(a)-\frac{\varphi(r)}{\varphi(t)}
+ \sum_{\substack{(nm,t)=1\\nm\equiv b\ (r)}}a_nb_m,\\
+ \mathcal F(b;r,s)&=\frac{\varphi(r)}{\varphi(t)}\sum_{(nm,t)=1}a_nb_m
+ \Bigl[\mathbf1_{nm\equiv b\ (r)}-\frac1{\varphi(r)}\Bigr].
+\end{aligned}
+\]
+Then exactly
+\begin{equation}\label{sp:proj-split}
+ \mathcal D(t,a)=\Delta(a,b;r,s)+\mathcal F(b;r,s).
+\end{equation}
+With $a^{(s)}_n=a_n\mathbf1_{(n,s)=1}$,
+\begin{equation}\label{sp:F-form}
+ \mathcal F(b;r,s)=\frac1{\varphi(s)}\sum_{\substack{m\sim M\\(m,rs)=1}}b_m
+ \Delta_{a^{(s)}}(r,b\overline m).
+\end{equation}
+
+\emph{Mean square for $a^{(s)}$.} The identity
+$\Delta_{a^{(s)}}(I;k,u;h)=\Delta_a(I;k,u;sh)$ and \eqref{sp:phi-tau} give
+\[
+ |\Delta_{a^{(s)}}(I;k,u;h)|\le C_DH\tau(s)^{c_0}\tau(h)^{c_0}L^{-D}.
+\]
+Put
+$h_s=a^{(s)}/\tau(s)^{c_0}$, which is one-bounded, and
+$e_n=\mathbf1_{H<n\le2H}$. By the parallelogram identity
+$\|h_s+e\|^2+\|h_s-e\|^2\ge2\|e\|^2$, there is $\varepsilon_s\in\{\pm1\}$
+with
+\[
+ g_s=h_s+\varepsilon_se,\qquad \|g_s\|_2^2\ge\|e\|_2^2\ge H/2,\qquad
+ \|g_s\|_2^2\le4\|e\|_2^2\le8H .
+\]
+Let $Z=\lceil2H\rceil$ and $c_1=\max(c_0,1)$. By \eqref{sp:c58-sw} for
+$h_s$, by \eqref{sp:constant-sw} for $e$, and since
+$H\le2^{1/2}\|g_s\|_2Z^{1/2}$ and $\|e\|_2Z^{1/2}\ge H/2$, both $g_s$ and $e$
+satisfy (6.35) with $B_{\rm div}=c_1$. The constants are independent of $s$,
+the sign and the restriction. Here $\log(2Z)\asymp L$, as
+$H\gg x^{.50}$. Lemma~6.5(i) applies to both. Since
+$\Delta_{a^{(s)}}=\tau(s)^{c_0}(\Delta_{g_s}-\varepsilon_s\Delta_e)$ and
+$|u-w|^2\le2|u|^2+2|w|^2$, for every fixed $S_0>0$,
+\begin{equation}\label{sp:B2}
+ \sum_{k\le2Q_1}V(k;a^{(s)})\ll_{S_0}\tau(s)^{2c_0}H^2L^{-S_0}.
+\end{equation}
+The range condition $2Q_1\le Z(\log Z)^{-B_1(S_0)}$ holds for large $x$,
+because $Q_1/H\ll x^{.4545-.50}$.
+
+\emph{Bound for $\mathcal F$.} Each reduced class modulo $r$ contains at
+most $M/r+1$ values $m\sim M$. The map $m\mapsto b\overline m$ permutes the
+reduced classes. Cauchy's inequality in \eqref{sp:F-form} gives, uniformly
+in $b$,
+\[
+ \Bigl|\sum_{m}b_m\Delta_{a^{(s)}}(r,b\overline m)\Bigr|^2
+ \le2M\Bigl(\frac Mr+1\Bigr)V(r;a^{(s)}).
+\]
+Cauchy's inequality over $r\sim Q_1$ and \eqref{sp:B2} then give
+\[
+ \sum_{r\sim Q_1}\max_b\Bigl|\sum_{m}b_m\Delta_{a^{(s)}}(r,b\overline m)\Bigr|
+ \ll\bigl[Q_1M(M/Q_1+1)\tau(s)^{2c_0}H^2L^{-S_0}\bigr]^{1/2}
+ \ll\tau(s)^{c_0}HML^{-S_0/2},
+\]
+since $Q_1\le M$ by a fixed power. Summing over $s$ with
+\eqref{sp:phi-tau} and \eqref{sp:first},
+\begin{equation}\label{sp:E0}
+ \sum_{r\sim Q_1}\max_{(b,r)=1}\sum_{s\sim Q_2}|\mathcal F(b;r,s)|
+ \ll xL^{-S_0/2}\sum_{s\le2Q_2}\frac{\tau(s)^{c_0}}{\varphi(s)}
+ \ll_A xL^{-A},
+\end{equation}
+choosing $S_0$ after $A$ (the full order is fixed in Step~8).
+
+\subsubsection*{Step 2: residue differences}
+For coprime $r,s$ there are exactly $\varphi(s)$ reduced lifts
+$a'\bmod t$ of $b\bmod r$. Every $nm$ coprime to $t$ with
+$nm\equiv b\ (r)$ lies in exactly one of them. Hence
+\begin{equation}\label{sp:crt-average}
+ \Delta(a,b;r,s)=\frac1{\varphi(s)}\sum_{\substack{a'\bmod t,\ (a',t)=1\\a'\equiv b\ (r)}}
+ \bigl[S_t(a)-S_t(a')\bigr].
+\end{equation}
+For each $r$, choose one reduced class $b_r\pmod r$ maximizing the
+masked sum of the projected differences, before $s$ varies. For each
+$s$ with $\mu(rs)^2=1$ and $(rs,x)=1$, choose a reduced lift $a_{r,s}$
+maximizing $|\Delta(a,b_r;r,s)|$. By \eqref{sp:crt-average} and the triangle
+inequality, some reduced lift $a'_{r,s}\equiv b_r\pmod r$ satisfies
+\[
+ |S_{rs}(a_{r,s})-S_{rs}(a'_{r,s})|
+ \ge |\Delta(a_{r,s},b_r;r,s)|.
+\]
+Choose $|\gamma_{r,s}|=1$ to make this difference nonnegative real, and
+put $\gamma_{r,s}=0$ outside the masked squarefree support. By
+\eqref{sp:proj-split}, \eqref{sp:E0} and \eqref{sp:crt-average}, it suffices
+to prove, uniformly for all these residues and phases,
+\begin{equation}\label{sp:Z-target}
+ \mathcal Z_0^{(x)}=
+ \sum_{r\sim Q_1}
+ \sum_{\substack{s\sim Q_2\\\mu(rs)^2=1\\(rs,x)=1}}
+ \gamma_{r,s}\bigl[S_{rs}(a_{r,s})-S_{rs}(a'_{r,s})\bigr]
+ \ll_AxL^{-A}.
+\end{equation}
+This signed sum keeps the original mask.
+
+\subsubsection*{Step 3: large smooth parts and large divisor functions}
+We quote the completed-hyperbola lemma of Paper~I:
+\begin{quote}
+Let $c\bmod q$ be a unit. For integer
+intervals $J_1,J_2$, put
+
+\[
+\mathcal D=\#\{(u,v)\in J_1\times J_2:uv\equiv c(q)\}
+       -\frac{\#J_1^*\#J_2^*}{\varphi(q)}.
+\tag{3.107}
+\]
+
+The Weil--Estermann bound \cite{Weil48,Estermann61}
+
+\[
+|S(h,k;q)|\le\tau(q)q^{1/2}(h,k,q)^{1/2}.
+\tag{3.108}
+\]
+
+implies, uniformly in interval lengths and positions,
+
+\[
+|\mathcal D|\ll\tau(q)q^{1/2}\log^2(2q)
+        +\tau(q)^2\log^2(2q)/\varphi(q).
+\tag{3.109}
+\]
+\end{quote}
+For \eqref{sp:P1}, set the lemma's $q=t=rs$,
+$J_1=(H,2H]\cap\mathbb Z$, $J_2=(M,2M]\cap\mathbb Z$, and take
+$c=a$ or $c=a'$. Both are units modulo $t$ by the reduced-lift condition.
+Here $J_i^*=\{u\in J_i:(u,t)=1\}$. The source's $\mathcal D$ is an
+unweighted counting discrepancy. It differs from our weighted
+$\mathcal D(t,a)$. Define
+\[
+ C_t(c)=\#\{(n,m)\in J_1\times J_2:nm\equiv c\pmod t\}.
+\]
+The quoted lemma gives
+$C_t(c)\le\#J_1^*\#J_2^*/\varphi(t)+O(E_t)$, where
+$E_t=\tau(t)t^{1/2}\log^2(2t)+\tau(t)^2\log^2(2t)/\varphi(t)$.
+Since $|a_n|,|b_m|\le1$, one has $|S_t(c)|\le C_t(c)$. This is the
+only passage from unweighted counts to the arbitrary complex arrays.
+Every pair counted has $(nm,t)=1$ automatically because $c$ is a unit.
+No coprimality hypothesis on the arrays is inferred. Consequently,
+\begin{equation}\label{sp:P1}
+ |S_t(a)-S_t(a')|\le C_t(a)+C_t(a')
+ \le\frac{2\#J_1^*\#J_2^*}{\varphi(t)}+O(E_t)
+ \le\frac{8Cx}{\varphi(t)}+O(E_t),
+\end{equation}
+using $HM\le Cx$. The mask $(t,x)=1$ remains on the summation
+support but is not a hypothesis of Lemma~3.4. In the smooth-part and
+divisor-function eliminations below, we first take absolute values
+termwise. Only then are the nonnegative majorants enlarged.
+Write $s=k\varrho$ with $P^+(k)\le z<P^-(\varrho)$. If $k\ge y$, then the
+$z$-smooth part of $t$ is at least $y$. A given $t$ has at most $\tau(t)$
+factorizations $t=rs$. By \eqref{sp:P1}, \eqref{sp:phi-tau},
+\eqref{sp:first} and \eqref{sp:rankin}, the sum of the absolute values
+of these masked terms in $\mathcal Z_0^{(x)}$ is at most
+\[
+ \ll x\sum_{h'\le Cx^v}\frac{\tau(h')^2}{h'}
+ \sum_{\substack{d'\ge y\\P^+(d')\le z}}\frac{\tau(d')^2}{d'}
+ +\sum_{t\le Cx^v}\tau(t)E_t
+ \ll_AxL^{-A}+x^{3v/2}L^{K},
+\]
+and $3v/2=.78405<1$. In the same way the pairs with $\tau(rs)>L^{D_\tau}$
+contribute
+\[
+ \ll xL^{-D_\tau}\sum_{t\le Cx^v}\frac{\tau(t)^3}t+x^{3v/2}L^{K}\ll xL^{K'-D_\tau}+x^{3v/2}L^K .
+\]
+Choose $D_\tau=D_\tau(A)\ge K'+A$ after the requested precision $A$. From now on $k<y$, and every
+remaining modulus and every divisor of it has $\tau\le L^{D_\tau}$.
+
+\subsubsection*{Step 4: the first Cauchy square}
+Rename the outer modulus $r$ as $q\sim Q:=Q_1$ and write the inner one as
+$s=kr$, with $k\sim K\le y$ smooth and $r\sim R$ squarefree and $z$-rough.
+Then $KR\asymp Q_2$. On the support of \eqref{sp:Z-target}, $q,k,r$ are
+pairwise coprime and squarefree, $(qkr,x)=1$, and $QKR\ll x^v$.
+There are $O(L^2)$ choices of $(K,R)$. Extend the selected coefficients
+by zero and put
+\[
+ \Gamma_{qkr}=\gamma_{q,kr}\,\mathbf1_{\mu(qkr)^2=1}
+             \mathbf1_{(qkr,x)=1},\qquad |\Gamma_{qkr}|\le1.
+\]
+The $\Gamma_{qkr}$ are identical in both choices $a,a'$ of residue.
+For one shell the \emph{masked signed sum} is
+\[
+ \mathcal Z^{(x)}=
+ \sum_{\substack{q\sim Q,\ k\sim K\\(qk,x)=1}}\sum_m b_m
+ \sum_{\substack{r\sim R,\ n\\(r,x)=1}}\Gamma_{qkr}a_n
+ \bigl[\mathbf1_{mn\equiv a_{qkr}\ (qkr)}
+       -\mathbf1_{mn\equiv a'_{qkr}\ (qkr)}\bigr],
+\]
+where $a_{qkr}\equiv a'_{qkr}\equiv b_q\pmod q$ and $b_q$ does not
+depend on $k,r$. Put
+\[
+ \mathcal F^{(x)}_{qk}(m)=
+ \sum_{\substack{r\sim R,\ n\\(r,x)=1}}\Gamma_{qkr}a_n
+ \bigl[\mathbf1_{mn\equiv a_{qkr}\ (qkr)}
+       -\mathbf1_{mn\equiv a'_{qkr}\ (qkr)}\bigr].
+\]
+With $\psi$ as in Step~3 of the proof of Lemma~6.8,
+\begin{equation}\label{sp:c58-cs1}
+ |\mathcal Z^{(x)}|^2\ll QKM
+ \sum_{\substack{q\sim Q,\ k\sim K\\(qk,x)=1}}
+ \sum_m\psi(m/M)|\mathcal F^{(x)}_{qk}(m)|^2.
+\end{equation}
+For $A_i=A_i(q,k,r_i)$ chosen from $a_{qkr_i},a'_{qkr_i}$, the four
+correlations, with signs $+,-,-,+$, are precisely
+\[
+ \begin{aligned}
+ \mathcal C_x(A_1,A_2)={}&
+ \sum_{\substack{q\sim Q,\ k\sim K\\(qk,x)=1}}
+ \sum_m\psi(m/M)
+ \sum_{\substack{r_1,r_2\sim R\\(r_1r_2,x)=1}}
+ \Gamma_{qkr_1}\overline{\Gamma_{qkr_2}}\\[-2pt]
+ &\qquad\times\sum_{n_1,n_2}a_{n_1}\overline{a_{n_2}}
+ \mathbf1_{mn_1\equiv A_1\ (qkr_1)}
+ \mathbf1_{mn_2\equiv A_2\ (qkr_2)}.
+ \end{aligned}
+\]
+We prove at arbitrary fixed precision $P>0$ that
+\begin{equation}\label{sp:C}
+ \mathcal C_x(A_1,A_2)=MT_x+
+ O_P\Bigl(\frac{MH^2}{QKL^{P}}\Bigr),
+\end{equation}
+where $MT_x$ contains the same mask and selected coefficients. It is
+independent of the choices of $A_1,A_2$. Since the coefficients and
+support are the same in all four correlations, their main terms cancel.
+Equation \eqref{sp:c58-cs1} then gives
+$|\mathcal Z^{(x)}|\ll xL^{-P/2}$ before the $O(L^2)$ shell sum.
+
+Write $g=(r_1,r_2)$, $r_1=gu$, $r_2=gv$, $(u,v)=1$, with $g\sim G$ dyadic.
+Put $d_0=qkg$ and $U=R/G$. Then $q,k,g,u,v$ are pairwise coprime.
+The product of the two $\Gamma$-supports imposes
+$(qkguv,x)=1$. This modulus-only restriction remains in the
+correlation and its zero mode. It may be omitted only from a
+termwise absolute-value majorant. It may not be omitted from a signed expression
+or from an inner sum before squaring. The two congruences
+$mn_1\equiv A_1\ (d_0u)$, $mn_2\equiv A_2\ (d_0v)$ are
+soluble exactly when
+\begin{equation}\label{sp:comp}
+ n_2\equiv A_2\overline{A_1}\,n_1\pmod{d_0},\qquad(n_1,d_0u)=(n_2,d_0v)=1,
+\end{equation}
+and then $m$ lies in one reduced class modulo $l=d_0uv$. Modulo $q$ both
+residues equal $b_q$, so $n_2\equiv n_1\pmod q$.
+
+\subsubsection*{Step 5: large common factor}
+Let $G\ge H/(QKL^{C_g})$, with $C_g$ fixed later. The target is
+$\mathcal B=MH^2/(QK)\asymp xH/(QK)$. In the large-$G$ estimate
+we first take absolute values of each weighted correlation term.
+Hence its nonnegative counting majorant may be enlarged to all
+$(q,k,g,u,v)$, while $\mathcal C_x$ itself stays masked.
+For fixed $(q,k,g,u,v)$ the pairs
+$(n_1,n_2)$ in \eqref{sp:comp} lie in a congruence lattice of determinant
+$d_0$. Let
+$\mathbf w$ be a shortest nonzero vector. If the line
+$\mathbb R\mathbf w$ meets the positive rectangle, choose its sign so its
+coordinates are positive; otherwise the $\beta=0$ contribution is empty.
+Complete it to a reduced basis
+$(\mathbf w,\mathbf w')$. The component of $\mathbf w'$ orthogonal to
+$\mathbf w$ has length $h_\perp=d_0/|\mathbf w|\ge\sqrt3|\mathbf w|/2$. In a
+disc of radius $CH$ the points $\alpha\mathbf w+\beta\mathbf w'$ with
+$\beta\ne0$ have $|\beta|\ll H/h_\perp$ and, for fixed $\beta$,
+$O(H/|\mathbf w|+1)$ values of $\alpha$. Such points exist only if
+$h_\perp\ll H$. Then $|\mathbf w|\ll h_\perp\ll H$ and
+$(H/h_\perp)^2\ll H^2/d_0$, so they number $O(H^2/d_0)$. Each such pair has $O(M/l+1)$ values of
+$m$. Hence these points contribute
+\[
+ \ll QKGU^2\cdot\frac{H^2}{QKG}\Bigl(1+\frac M{QKGU^2}\Bigr)=H^2U^2+\frac{MH^2}{QKG}.
+\]
+For $\beta=0$, $(n_1,n_2)=\alpha\mathbf w$ with $\alpha\ge1$, and the two
+congruences fix $\alpha m\le Cx$ in one unit class $c\pmod l$.
+Here $l=d_0uv=qkguv\ge1$, and $c$ is a unit. Each original
+congruence has a unit right-hand side $A_i$. Hence $m$ and $\alpha$
+are units modulo every factor of $l$ on this line.
+For $X\le Cx$, cover the positive integer hyperbola $\alpha m\le X$
+by the $O(L)$ integer rectangles $J_{1,0}=\{1\}$,
+$J_{2,0}=[1,\lfloor X\rfloor]$, and, for $j\ge1$ with $2^{j-1}<X$,
+\[
+ J_{1,j}=(2^{j-1},2^j]\cap\mathbb Z,\qquad
+ J_{2,j}=[1,\lfloor X/2^{j-1}\rfloor]\cap\mathbb Z.
+\]
+These rectangles may overcount. This is harmless for the positive
+quantity $\sum_{e\le X,e\equiv c\ (l)}\tau(e)$. Each has
+$\#J_{1,j}\#J_{2,j}\ll X$, and their number is $O(L)$.
+Apply the quoted Paper~I, Lemma~3.4 with its modulus
+$q=l$, unit $c$, and these two integer intervals. Empty intervals
+contribute zero. The positive counts give, uniformly in $c$ and $X$,
+\begin{equation}\label{sp:TP}
+ \sum_{\substack{e\le X\\e\equiv c\ (l)}}\tau(e)
+ \ll\frac{XL}{\varphi(l)}+\Bigl[\tau(l)l^{1/2}+\frac{\tau(l)^2}{\varphi(l)}\Bigr]L^3
+\end{equation}
+uniformly in the unit $c$ and $X\le Cx$. A modulus $l$ has at most
+$\tau_5(l)\le\tau(l)^4$ representations $l=qkguv$. Summing \eqref{sp:TP}
+with \eqref{sp:first},
+\[
+ \ll xL^{C}+(QKGU^2)^{3/2}L^{C}.
+\]
+With $W=QK\le x^{.4545+o(1)}$, $R\ll x^{.0682}$ and $WR\ll x^{.5227}$, on
+this range of $G$,
+\[
+ \frac{MH^2/(QKG)}{\mathcal B}=\frac1G\le x^{-.0455+o(1)},\quad
+ \frac{H^2U^2}{\mathcal B}\ll\frac{W^3R^2L^{2C_g}}{xH}\le x^{-.0001+o(1)},\quad
+ \frac x{\mathcal B}\le x^{-.0455+o(1)},
+\]
+and $(QKGU^2)^{3/2}\le(W^2R^2L^{C_g}/H)^{3/2}\le x^{.8181+o(1)}$, while
+$\mathcal B\ge x^{1.0455-o(1)}$. So the large-$G$ part of
+$\mathcal C_x$ is $O(\mathcal BL^{-P})$ at any requested fixed
+precision $P$. The mask was removed only after taking absolute values.
+
+\subsubsection*{Step 6: small common factor, Poisson and the zero mode}
+Let $G<H/(QKL^{C_g})$. For one class $c\bmod l$,
+\begin{equation}\label{sp:c58-poisson}
+ \sum_{m\equiv c\ (l)}\psi\Bigl(\frac mM\Bigr)=\frac Ml\sum_{h\in\mathbb Z}
+ \hat\psi\Bigl(\frac{hM}l\Bigr)e\Bigl(\frac{hc}l\Bigr),
+\end{equation}
+and the terms $|h|>x^{\eta}l/M$ contribute $O(x^{-100})$ per tuple. We take
+$\eta=10^{-8}$.
+
+The zero mode is $M\hat\psi(0)/l$ times the weighted number of compatible
+$(n_1,n_2)$. It still carries the product of the two
+$\Gamma$-supports, and thus $(qkguv,x)=1$. After taking absolute
+values of the \emph{error}, its positive majorant can be enlarged.
+This is the only use of the unmasked range in \eqref{sp:ZM}.
+Put $f_v=a\mathbf1_{(n,v)=1}$. For fixed $n_1$, the
+$n_2$-sum in \eqref{sp:comp} is a sum of $\overline{f_v}$ over one reduced
+class $c(n_1)$ modulo $d_0$. Replace it by
+$\varphi(d_0)^{-1}\sum_{(n_2,d_0v)=1}\overline{a_{n_2}}$. The error is
+$\overline{\Delta_{f_v}(d_0,c(n_1))}$. The map $n_1\mapsto c(n_1)$ hits each
+reduced class $O(H/d_0)$ times, so Cauchy's inequality gives
+\[
+ \sum_{n_1}|\Delta_{f_v}(d_0,c(n_1))|\ll Hd_0^{-1/2}V(d_0;f_v)^{1/2}.
+\]
+A given $d_0$ has at most $\tau_3(d_0)\le L^{2D_\tau}$ representations, and
+$d_0\asymp D_0=QKG$. Multiplying by $M/(d_0uv)$ and summing over $u,v$,
+the zero-mode error is
+\begin{equation}\label{sp:ZM}
+ \ll\frac{MH}{D_0}L^{2D_\tau}\sup_v\Bigl[\sum_{d_0\le C'D_0}V(d_0;f_v)\Bigr]^{1/2}.
+\end{equation}
+Since $v$ divides a remaining modulus, $\tau(v)\le L^{D_\tau}$. The identity
+$\Delta_{f_v}(I;k,u;h)=\Delta_a(I;k,u;vh)$ and \eqref{sp:c58-sw} show that
+$f_v$ satisfies \eqref{sp:c58-sw} at precision $D-c_0D_\tau$. As in Step~1, add $\varepsilon_ve$ to make the norm
+at least $(H/2)^{1/2}$. Both sequences satisfy (6.35) with $B_{\rm div}=c_1$
+and uniform constants. Lemma~6.5(i) and linearity give, uniformly in $v$,
+\[
+ \sum_{d_0\le C'D_0}V(d_0;f_v)\ll_{S_0}H^2L^{-S_0},
+\]
+because $C'D_0\le C'H/L^{C_g}\le Z(\log Z)^{-B_1(S_0)}$ once
+$C_g>B_1(S_0)+1$. With $D_\tau=D_\tau(A)$ fixed in Step~3, choose first
+$S_0>4D_\tau+2A$, then $C_g>B_1(S_0)+1$, then the threshold for $x$.
+Since $D_0\ge cQK$, \eqref{sp:ZM} is
+$O(\mathcal BL^{2D_\tau-S_0/2})=O(\mathcal BL^{-A})$.
+
+What remains of the zero mode is the \emph{masked} main term
+\begin{equation}\label{sp:c58-MT}
+ MT_{x,G}=M\hat\psi(0)
+ \sum_{\substack{q,k,g,u,v\\(qkguv,x)=1}}
+ \Gamma_{qkgu}\overline{\Gamma_{qkgv}}
+ \frac{\bigl[\sum_{(n_1,d_0u)=1}a_{n_1}\bigr]
+       \bigl[\sum_{(n_2,d_0v)=1}\overline{a_{n_2}}\bigr]}
+ {d_0uv\varphi(d_0)} ,
+\end{equation}
+with the previously imposed coprime/squarefree and dyadic conditions
+understood. This expression depends on the modulus support and
+$\Gamma$, but not on $A_1,A_2$. Put
+$MT_x=\sum_{G\ \rm small}MT_{x,G}$.
+
+\subsubsection*{Step 7: the second square}
+It remains to bound the frequencies $h\ne0$ in the masked
+correlation. Write
+\[
+ \frac Ml=\frac M{QKGU^2}\cdot\frac{QKGU^2}{qkguv};
+\]
+the second factor is a product of bounded weights in $(q,k,g)$, in $u$ and
+in $v$. The mask factors exactly as
+\[
+ \mathbf1_{(qkguv,x)=1}=
+ \mathbf1_{(qkg,x)=1}\mathbf1_{(u,x)=1}\mathbf1_{(v,x)=1}.
+\]
+Keep the first factor with the outer $(q,k,g,n_1,n_2)$ data and the
+last two with the $(u,v,h)$-sum, together with
+$\Gamma_{qkgu}\overline{\Gamma_{qkgv}}$. No masked term is reintroduced
+into a signed sum.
+
+Every $z$-rough $u,v\le x^2$ has $O(\ell^3)$ prime factors. Colour each prime
+below $x^2$ red or blue independently. A coprime pair $(u,v)$ is covered if
+all primes of $u$ are red and all of $v$ blue. This has probability at least
+$2^{-O(\ell^3)}$. With $J_0=\lceil2^{O(\ell^3)}(10\log x+1)\rceil$ independent
+colourings, the probability that one of the at most $x^4$ pairs is never
+covered is $<1$. Fix such a list and assign each pair to its first
+covering colouring. This partitions the coprime pairs into
+$J\le J_0=x^{o(1)}$ classes, and $(uu',vv')=1$ for any two pairs in one
+class.
+
+On one class let $\mathcal Y$ be the sum over compatible $(n_1,n_2)$, $(u,v)$
+and $0<|h|\le\mathsf F$, after removing $M/(QKGU^2)$, where
+\begin{equation}\label{sp:Fcut}
+ \mathsf F=Cx^{\eta}QKGU^2/M .
+\end{equation}
+If $\mathsf F<1$ there is nothing to bound. By CRT the class of $m$ in the
+phase is
+\[
+ \frac c{l}\equiv\frac{A_1\overline{n_1}\,\overline v}{d_0u}
+ +\frac{A_2\overline{n_2}\,\overline{d_0u}}v\pmod1 .
+\]
+Cauchy's inequality over the \emph{masked} outer data
+$(q,k,g,n_1,n_2)$, $(qkg,x)=1$, with $n_2\equiv n_1\ (q)$ removes
+$a$ and gives
+\begin{equation}\label{sp:c58-cs2}
+ |\mathcal Y|^2\ll H^2KG\,\mathcal D_3,
+\end{equation}
+since there are at most
+$QKG\cdot O(H(H/Q+1))\ll H^2KG$ outer tuples ($Q<H$).
+Here $\mathcal Y$ and $\mathcal D_3$ keep the $x$-mask.
+The sum $\mathcal D_3$ runs over $(qkg,x)=1$ and $n_2\equiv n_1\ (q)$. Its terms are
+a smooth majorant times the square of the $(u,v,h)$-sum. This inner sum
+contains $\mathbf1_{(u,x)=1}\mathbf1_{(v,x)=1}$ and the selected
+$\Gamma$ coefficients. The congruence modulo $kg$ stays inside the
+square. In the expansion of this square each pair of copies keeps its
+zero--one masks. The later diagonal, Weil and Ramanujan bounds are
+termwise bounds after taking absolute values of the expanded
+contributions. Hence they may discard zero--one factors.
+We do not use the false inequality
+$|\sum_{(uv,x)=1}z_{uv}|^2\le|\sum_{u,v}z_{uv}|^2$.
+
+Expanding gives $(u,v,h)$ and $(u',v',h')$ with $0<|h|,|h'|\le\mathsf F$. Put
+$A=A_1(u)$, $A'=A_1(u')$, $B=A_2(v)$, $B'=A_2(v')$ and
+\[
+ \Delta=hu'v'-h'uv .
+\]
+The two congruences modulo $kg$ must agree, or the term vanishes. Let
+$t\equiv B\overline A\pmod{d_0}$. The $(n_1,n_2)$-sum is
+\[
+ \mathcal K=\sum_{\substack{n_2\equiv tn_1\ (d_0)\\(n_1,d_0uu')=1,\ (n_2,vv')=1}}
+ \psi\Bigl(\frac{n_1}H\Bigr)\psi\Bigl(\frac{n_2}H\Bigr)
+ e\Bigl(\frac{c_1\overline{n_1}}{d_0uu'}\Bigr)e\Bigl(\frac{c_2\overline{n_2}}{vv'}\Bigr),
+\]
+\[
+ c_1\equiv(Ahu'v'-A'h'uv)\overline{vv'}\pmod{d_0uu'},\qquad
+ c_2\equiv(Bhu'v'-B'h'uv)\overline{d_0uu'}\pmod{vv'}.
+\]
+All inverses exist, since $(uu',vv')=1$ and both are prime to $d_0$.
+Completing first in $n_2$ and then in $n_1$,
+\begin{equation}\label{sp:P2}
+ \mathcal K=\frac{H^2}{d_0^2uu'vv'}\sum_{\ell_1,\ell_2\in\mathbb Z}
+ \hat\psi\Bigl(\frac{\ell_2H}{d_0vv'}\Bigr)\hat\psi\Bigl(\frac{\ell_1H}{d_0uu'}\Bigr)
+ S(c_2,\ell_2\overline{d_0};vv')\,S(c_1,\ell_1+\ell_2c_3;d_0uu'),
+\end{equation}
+with $c_3\equiv uu't\,\overline{vv'}\pmod{d_0uu'}$ and the Kloosterman sum
+$S(a,b;m)$ of Paper~I, (2.35). The first completion produces the phase
+$e(\ell_2tn_1\overline{vv'}/d_0)$, which combines with the $n_1$-phase to
+give $c_3$. Let
+\begin{equation}\label{sp:dual}
+ \Lambda=C_1x^{\eta}QKGU^2/H .
+\end{equation}
+Frequencies with $|\ell_i|>\Lambda$ contribute $O(x^{-100})$ per tuple. If
+$\Lambda<1$, only $(\ell_1,\ell_2)=(0,0)$ remains.
+
+The target for $\mathcal D_3$ is $T_3=H^2U^4G/K$. By \eqref{sp:c58-cs2}, a
+bound $\mathcal D_3\ll T_3x^{-\rho}$ gives $|\mathcal Y|\ll H^2U^2Gx^{-\rho/2}$.
+
+\emph{Diagonal $\Delta=0$.} Then $uv\mid hu'v'$, so for fixed $(h,u',v')$
+there are $x^{o(1)}$ choices of $(h',u,v)$. Bounding $\mathcal K$ trivially
+by $O(H^2/d_0)$, as $d_0<H$,
+\[
+ \mathcal D_3^{\rm diag}\ll x^{o(1)}H^2\mathsf FU^2,\qquad
+ \frac{\mathcal D_3^{\rm diag}}{T_3}\ll x^{\eta+o(1)}\frac{QK^2H}x\le x^{-.0055+\eta+o(1)}.
+\]
+The divisor-counting bound $x^{o(1)}$ for the tuple count immediately above is
+loose. Only this $x^{o(1)}$ factor is used in the estimate for
+$\mathcal D_3^{\rm diag}$.
+
+\emph{Gcd bound.} Put $e=(u,u')$, $f=(v,v')$, $u_0=u/e$, $u_1=u'/e$,
+$v_0=v/f$, $v_1=v'/f$. Then
+\begin{equation}\label{sp:gcd-local}
+ (c_1,uu')(c_2,vv')\le(h,u_0v_0)(h',u_1v_1)(c_1,e^2)(c_2,f^2).
+\end{equation}
+The four factors are supported on disjoint sets of primes. If $p\mid u$,
+$p\nmid u'$, then $c_1\equiv Ahu'v'\overline{vv'}\pmod p$ with a unit
+multiplier, so $(c_1,p)=(h,p)$. The cases $p\mid u'$ only, $p\mid v$ only and
+$p\mid v'$ only are identical, with $(h',p)$, $(h,p)$ and $(h',p)$. If
+$p\mid e$, the numerator of $c_1$ is $p(Aha'v'-A'h'a''v)$ with $u=pa''$,
+$u'=pa'$. Thus the $p$-part of $(c_1,e^2)$ is at most $p^2$. The case
+$p\mid f$ is similar. Modulo $q$ all four residues equal $b_q$, so
+$c_1\equiv b_q\overline{vv'}\Delta\pmod q$ and $(c_1,q)=(\Delta,q)$. For
+$p\mid kg$ we use only $(c_1,kg)\le kg$. Hence
+\begin{equation}\label{sp:gcd-W}
+ (c_1,d_0uu')(c_2,vv')\le kg\,(\Delta,q)\,(h,uv)(h',u'v')(u,u')^2(v,v')^2 .
+\end{equation}
+
+\emph{Long dual range, $\Lambda\ge1$, $\Delta\ne0$.} There are $O(\Lambda^2)$
+pairs $(\ell_1,\ell_2)$. Paper~I, (2.35), gives
+\[
+ |S(a,b;m)|\le\tau(m)m^{1/2}(a,m)^{1/2}.
+\]
+Use the square root of \eqref{sp:gcd-W} and
+$(kg)^{1/2}(QKG)^{1/2}\ll Q^{1/2}KG$. Then
+\[
+\begin{multlined}
+ |\mathcal K|\ll x^{2\eta+o(1)}Q^{1/2}KGU^2\\
+ \times(h,uv)^{1/2}(h',u'v')^{1/2}(u,u')(v,v')(\Delta,q)^{1/2}.
+\end{multlined}
+\]
+The averages
+\[
+ \sum_{1\le|h|\le\mathsf F}(h,a)\le2\mathsf F\tau(a),\qquad
+ \sum_{q\sim Q}(\Delta,q)\le CQ\tau(|\Delta|),\qquad
+ \sum_{u,u'\sim U}(u,u')\ll U^2\log(2U)
+\]
+follow from $(h,a)=\sum_{d\mid(h,a)}\varphi(d)$ and counting multiples.
+Summing over the $O(KG)$ choices of $(k,g)$,
+\[
+ \mathcal D_3^{\rm long}\ll x^{2\eta+o(1)}Q^{3/2}K^2G^2U^6\mathsf F^2,\qquad
+ \frac{\mathcal D_3^{\rm long}}{T_3}\ll x^{4\eta+o(1)}\frac{Q^{7/2}K^5R^6}{G^3x^2}
+ \le x^{-.00005+4\eta+o(1)},
+\]
+using $U=R/G$, $G\ge\tfrac12$, $K\le y$; the possible absolute factor
+$G^{-3}\le8$ is absorbed in the implied constant and in $x^{o(1)}$, and
+then
+\[
+ 2-\tfrac72(.4545)-6(.0682)=.00005 .
+\]
+
+\emph{Short dual range, $\Lambda<1$, $\Delta\ne0$.} Now
+\[
+ \mathcal K=\frac{H^2\hat\psi(0)^2}{d_0^2uu'vv'}\,c_{vv'}(c_2)\,c_{d_0uu'}(c_1)+O(x^{-100}),
+\]
+with Ramanujan sums $c_m(a)=S(a,0;m)$, and $|c_m(a)|\le(a,m)$. By
+\eqref{sp:gcd-W} each term is
+\[
+ \ll\frac{H^2}{Q^2KGU^4}(\Delta,q)(h,uv)(h',u'v')(u,u')^2(v,v')^2 .
+\]
+With $\sum_{u,u'\sim U}(u,u')^2\ll U^3$ and the averages above,
+\[
+ \mathcal D_3^{\rm short}\ll x^{o(1)}\frac{H^2\mathsf F^2U^2}Q,\qquad
+ \frac{\mathcal D_3^{\rm short}}{T_3}\ll x^{2\eta+o(1)}\frac{H^2QK^3R^2}{Gx^2}
+ \le x^{-.3291+2\eta+o(1)},
+\]
+since $2(.54)+.4545+2(.0682)-2=-.3291$.
+
+\subsubsection*{Step 8: conclusion}
+After the $x^{o(1)}$ factors the three ratios are at most
+$x^{-.00005+5\eta}$. These factors include $J$, the divisor bounds,
+$K\le y$ and fixed powers of $L$. Take $\rho=10^{-6}$. Then
+$|\mathcal Y|\ll H^2U^2Gx^{-\rho/2}$ on each masked colouring class.
+Restoring $M/(QKGU^2)$ and the $J=x^{o(1)}$ classes, the nonzero
+frequencies contribute $\ll\mathcal Bx^{-\rho/3}$ to each small-$G$
+block of $\mathcal C_x$. The modulus mask was preserved through both
+Cauchy squares. Only termwise absolute-value majorants were enlarged.
+There are $O(L)$ common-factor blocks. Together with Steps~5 and~6
+this proves \eqref{sp:C} with the \emph{same} masked $MT_x$ in each
+of its four choices of residues. Their signed combination is
+$MT_x-MT_x-MT_x+MT_x=0$.
+Fix a requested final exponent $A$. First choose the correlation
+precision $P>2A+10$. Then choose
+$D_\tau=D_\tau(P)\ge K'+P$ (Step~3). Then choose
+$S_0>4D_\tau+2P$, also large enough to make \eqref{sp:E0} smaller
+than $xL^{-A-10}$. Next take $C_g>B_1(S_0)+1$, and finally the
+threshold for $x$. Equation \eqref{sp:c58-cs1} gives
+$\mathcal Z^{(x)}\ll xL^{-P/2}$ on each shell. Sum over its
+$O(L^2)$ choices of $(K,R)$ and add the masked Step~1 and Step~3
+errors. This proves exactly (6.48), with $(rs,x)=1$ as stated.
+Every constant depends only on $A$, the comparison constants in
+(6.47) and the constants in \eqref{sp:c58-sw}.
+\qed

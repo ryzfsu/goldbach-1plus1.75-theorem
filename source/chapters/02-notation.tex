@@ -1,0 +1,226 @@
+\section{Notation and parameters}\label{sec:notation}
+
+All logarithms are natural. Put \(L=\log N\).
+The integer \(N\) is even throughout.
+Table~\ref{tab:notation} fixes the common notation.
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}p{.27\linewidth}p{.67\linewidth}@{}}
+\caption{Common notation}\label{tab:notation}\\
+\hline
+Symbol & Meaning\\
+\hline
+\(\mathbb P\) & The set of primes.\\
+\(\varphi(n),d(n)\) & Euler's totient and divisor function. The inherited notation \(\tau(n)=d(n)\) has an integer argument; the scalar \(\tau=\sigma^9\) has none.\\
+\(\mu_{\mathrm{Mob}}(n),\mu(n)\) & The M\"obius function; use \(\mu_*\) for the sieve cutoff.\\
+\(\Omega(n)\) & Prime factors counted with multiplicity.\\
+\(P^-(n)\) & Least prime factor; \(P^-(1)=\infty\).\\
+\(\mathbf1_E\) & Indicator of \(E\).\\
+\(\gamma,\gamma_E\) & Euler's constant, with \(\gamma_E=\gamma\).\\
+\(a,b\) & Representation exponent and smaller-factor cutoff.\\
+\(\varepsilon\) & Fixed truncation parameter.\\
+\(\alpha,\beta,\mu_*,\lambda,t_0,u\) & Fixed sieve exponents in \eqref{eq:not-sieve-parameters}; cutoff \(\mu=\mu_*\).\\
+\(C(N),U_C(N),W(N)\) & Normalizations in \eqref{eq:not-normalization}.\\
+\(\sigma,\tau,\rho\) & Partition parameters: \(\tau=\sigma^9\), \(\rho=1+\tau\).\\
+\(\sigma_*,\tau_*,\rho_*\) & Their fixed choices for the final argument.\\
+\(\kappa_{\mathrm{tr}},N_{\mathrm{tr}}\) & Transfer parameters in \eqref{eq:not-transfer-parameters}.\\
+\(\delta_{\mathrm{err}}\) & Fixed total error bound, \(10^{-4}\).\\
+\(\delta_{\mathrm{pk}}\) & The parameter in the factor-partition theorem.\\
+\(h_G,h,\delta_h\) & Profile displacement \(h_G=9/5000\); \(h=h_G\) in \eqref{eq:retB-parameters}, \(\delta_h=h_G/\alpha\).\\
+\(\epsilon_s,\delta_s\) & Local sieve parameters, \(\delta_s=\epsilon_s^9\); applications use \(\epsilon_s=\sigma\).\\
+\(\eta_L\) & The level margin, \(10^{-4}\); separate from \(\varepsilon\) and \(\delta_{\mathrm{err}}\).\\
+\(r,q\) & In \eqref{eq:intro-target}, \(q\) is prime and \(r\) is either \(1\) or prime; other uses are locally bound variables.\\
+\(c,I(b)\) & Optional sharper coefficient and the logarithm in \eqref{eq:intro-exterior-constant}.\\
+\(c_{K2,G0}\) & Common K2/L3 coefficient in \eqref{eq:intro-fallback-constant}.\\
+\(C_E,C_{\mathrm{AA}}\) & Error constants in \eqref{eq:l3-sieve-error} and \eqref{eq:k2-aa-mass}.\\
+\(K_{\mathrm{SW}}(A),C_{\mathrm{K2},\sigma},C_{\mathrm{L3},\sigma}\) & The logarithmic Siegel--Walfisz level and the K2 and L3 coefficient bounds; each is local to its stated application.\\
+\(R,R_{\mathrm{fix}}\) & The signed sum in \eqref{eq:intro-source}; elsewhere \(R\) is a local level or remainder.\\
+\(\Sigma_W,\mathcal W\) & Equal signed source sums; see \eqref{eq:source-weight-identity}.\\
+\(W_{13},W_{rs}\) & Arithmetic source weight and spectral operator, respectively. Neither denotes \(W(N)\).\\
+\(\overline H,\overline H_L\) & Equal switched-integral bounds, \(389253/5000000\).\\
+\(H_{\mathrm{pk,max}},H_{\max}\) & Equal packing ceilings, \(153/256\).\\
+\(D_{\mathrm{II}},\overline J_6\) & Original Paper II lower constant and sixth upper endpoint; \eqref{eq:intro-components}, \eqref{eq:ra-j-functional}.\\
+\(g_{\mathrm{RA,lo}}\) & Certified floor \(0.0989598353\), used in \eqref{eq:intro-DB}.\\
+\(E',E_{\mathrm{van}}\) & Complete retained error and inherited envelope; \eqref{eq:intro-retained-error}, \eqref{eq:retB-base-errors}.\\
+\(\begin{gathered}\Lambda_{j,N},\\\Lambda_{G,N}\end{gathered}\) & Retained conversion differences, defined in \eqref{eq:retB-direct-Lambda} and \eqref{eq:retB-G-array}.\\
+\(\Delta_G,\Lambda_{G,N}\) & Joint-profile gain and conversion difference in \eqref{eq:retB-G-array}. The spelling \(G1\) in subscripts denotes the same group.\\
+\(\begin{gathered}E_{\mathrm{RA}},E_{\mathrm{sw}},\\E_K,E_{\mathrm{exc}}\end{gathered}\) & Nonnegative complete errors in \eqref{eq:intro-comparisons}--\eqref{eq:intro-error-identifications} and \eqref{eq:intro-exterior}.\\
+\(\mathcal E_B\) & Their total, including \(E'\), in \eqref{eq:intro-total-error}.\\
+\(D_B\) & The constant in \eqref{eq:intro-DB}; evaluated in \eqref{eq:bill-constant}.\\
+\(\mathcal A_N,\mathcal P_b,G_b,B_b\) & Shifted-prime source, admissible factors, positive count and exterior count in \eqref{eq:intro-count}, \eqref{eq:intro-source}.\\
+\(S_1,\ldots,S_{13},S_{\mathrm{sw}}\) & Paper II arithmetic sums retained in \eqref{eq:intro-source}; definitions in Section~\ref{sec:source-decomposition}.\\
+\(\mathfrak g_{\mathrm{RA}},g_{\mathrm{RA,lo}}\) & Integral gain and its smaller rational floor; only the floor enters $D_B$.\\
+\(\begin{gathered}g_6,M_{5,\mathrm{internal}},\\K_{\mathrm{hi}},L_{G1}\end{gathered}\) & Optional six-endpoint gain, shifted-profile gain and mass constants; the main proof sets \(g_6=0\), see \eqref{eq:retB-six-gain}, \eqref{eq:intro-components}, \eqref{eq:intro-G1-constants}.\\
+\(\Delta D_{L3}\) & Switched gain $(2-c_{K2,G0}/4)\overline H$.\\
+\(G_*,G_0,U_0,c_{\mathrm{O1}}\) & Common unshifted K2/L3 functional; coefficient cap $G_0=6088440363/10^9$; optional sharper upper certificate $U_0$; its exact coefficient in \eqref{eq:l3-exact-certificate-constant}.\\
+\(\mathcal H,\Lambda^0_{j,N}\) & Retained row set and saved-array contribution in \eqref{eq:retB-goal}.\\
+\(\mathcal E,E_{\mathrm{pt}}\) & Pointwise exceptional set and error in \eqref{eq:source-exceptional-set}, \eqref{eq:source-pointwise-error}.\\
+\(N_0^*,N_{\mathrm{floor}},T_{\bullet}\) & Common threshold, numerical floor and named threshold requirements in \eqref{eq:not-common-threshold}.\\
+\(\zeta,a_{\mathrm{buf}}^*,\mathfrak E_*\) & Buffer $10^{-6}$, scalar endpoint and its exponential in \eqref{eq:bill-critical-exponent}.\\
+\(W_{\mathrm{AA},K},W_*\) & K2 source-weight bound in \eqref{eq:k2-aa-mass} and Paper II bound $10^{14}$; these are distinct.\\
+\(A_K,P_K,r_K\) & K2 error multiplier, peel multiplier and vanishing remainder in \eqref{eq:bill-K-error}.\\
+\(C_{\mathrm{sw}},P_{\mathrm{sw}},V_{\mathrm{sw}}\) & Switched error multipliers and positive remainder in \eqref{eq:l3-price}, \eqref{eq:l3-remainder}.\\
+\(L,g_{\mathrm{AA}}\) & $\log N$ and Paper II's fixed error allowance in \eqref{eq:bill-paperII-AA}.\\
+\hline
+\end{longtable}
+\endgroup
+
+Cusps carry the index \(\mathfrak a\) in spectral sums.
+The switched blocks carry the index \(\mathfrak b\).
+Partition cells are \(c\) or \(\mathfrak c\).
+Coefficient sequences are \(a_n,b_m\), with dummy indices interchanged when needed.
+Spectral moduli and cusp numerators are locally bound variables.
+They do not redefine the constants \(c\) and \(u\).
+Packing coordinates also have local scope.
+Bare \(T\) and \(w\) are local endpoints or weights; the named saved and
+root-A scales are \(T_{\mathrm{save}},T_{\mathrm{int}}\), and \(w_{\mathrm{RA}}\).
+The exponent \(A_0>0\) in distribution estimates is a logarithmic precision.
+The normalization factor is written \(2e^{-\gamma}\).
+
+\subsection{Fixed parameters}
+
+Keep \(a,b,\varepsilon\) from \eqref{eq:intro-exponents}.
+The sieve parameters are
+\begin{equation}\label{eq:not-sieve-parameters}
+\begin{aligned}
+ \alpha&=\frac{100}{1149},&\beta&=\frac{50}{309},&
+ \mu_*&=\frac{25}{128},\\
+ \lambda&=\frac{93}{400},&t_0&=\frac{57}{224},&
+ u&=\frac1{500}.
+\end{aligned}
+\end{equation}
+These follow Paper II's notation
+\cite[(1.5)]{PaperII}; $\varepsilon$ is $\varepsilon_A$ in
+\cite[(1.3)]{PaperII}.
+Put
+\begin{equation}\label{eq:not-normalization}
+\begin{aligned}
+ C_2&=\prod_{\substack{\ell\in\mathbb P\\\ell>2}}
+       \left(1-\frac1{(\ell-1)^2}\right),\\
+ C(N)&=C_2\prod_{\substack{\ell\in\mathbb P,\ \ell\mid N\\\ell>2}}
+                   \frac{\ell-1}{\ell-2},\\
+ U_C(N)&=\frac{C(N)N}{L^2},\qquad
+ W(N)=4(1-\varepsilon)U_C(N).
+\end{aligned}
+\end{equation}
+We often suppress the argument \(N\).
+
+Define the transfer parameters by
+\begin{equation}\label{eq:not-transfer-parameters}
+\begin{aligned}
+ \kappa_{\mathrm{tr}}&=a(1-b)-1=\frac7{4000000},\\
+ N_{\mathrm{tr}}&=\varepsilon^{-(a-1)/\kappa_{\mathrm{tr}}}
+                 =\varepsilon^{-3000000/7}.
+\end{aligned}
+\end{equation}
+Here $a-1=3/4$ is the exponent on the larger prime in the bound for the
+smaller factor.
+The transfer argument appears in the final section.
+
+\subsection{Order of choice}
+
+First fix all \(\sigma\)-independent constants in the estimates.
+These include \(C_E\) in \eqref{eq:l3-sieve-error}
+and \(C_{\mathrm{AA}}\) in \eqref{eq:k2-aa-mass}.
+Then choose one rational \(\sigma_*\), with
+\begin{equation}\label{eq:not-sigma-choice}
+ 0<\sigma_*\le10^{-10},\qquad
+ \tau_*=(\sigma_*)^9,\qquad \rho_*=1+\tau_*.
+\end{equation}
+The final section gives the remaining upper restrictions.
+Apply every partition estimate with \(\sigma=\sigma_*\).
+Freeze its finite partitions and coefficient bounds next.
+Freeze the resulting finite-family bounds and logarithmic precisions too.
+These choices precede the common threshold.
+
+Use the following named thresholds. Each requires its listed statement
+for every even $N$ above it, at the fixed $\sigma_*$. The cited comparison
+propositions establish these statements. The numerical floor supplies none
+of them. The resulting threshold exists but may be ineffective.
+\begin{enumerate}
+\item $T_{\mathrm{src}}$: the actual-source identity and first line of
+\eqref{eq:intro-comparisons}, including the pointwise hypotheses in
+\eqref{eq:source-pointwise} and \eqref{eq:source-first-lower}.
+Include the explicit pointwise threshold
+$N_{\mathrm{pt}}=1+\lceil\max\{2^{1/\alpha},\varepsilon^{-3},
+\varepsilon^{-1/(1-\lambda-\beta)}\}\rceil$ from
+Section~\ref{sec:source-decomposition}.
+\item $T_{\mathrm{ret}}$: the retained comparison, saved-array
+identifications and nonnegativity of $E_{\mathrm{van}}$ in
+Section~\ref{sec:retained-side}.
+\item $T_{\mathrm{RA}}$: the sixth-sum comparison
+\eqref{eq:ra-b11-floor}, with every distribution and coefficient bound
+specified in Section~\ref{sec:root-a}. It also covers the finite source
+threshold $N_6$, chosen so that every even $N\ge N_6$ satisfies
+\[
+ N^{1/6}>L^{\max(B_L,B_{\mathrm{tail}})},\quad
+ N^{v_{\mathrm{RA}}-1/3}>L^B,\quad
+ \varepsilon N^{1/2}>N^{\mu_*},\quad
+ NL^{-333}\ge N^{\mu_*}.
+\]
+Thus the operative $T_{\mathrm{RA}}$ is the maximum of the sixth-sum
+comparison threshold and this $N_6$.
+\item $T_K$: the actual-source exterior comparison
+\eqref{eq:k2-final-fixed-sigma} and its nonnegative error decomposition,
+the $r_K$ formula displayed after
+\eqref{eq:k2-final-fixed-sigma}.
+\item $T_{\mathrm{sw}}$: the switched comparison \eqref{eq:l3-final}
+and the nonnegative decomposition \eqref{eq:l3-remainder}.
+\item $T_{\mathrm{len}}$: all scale-conversion, zero-mode, factorization,
+packing, interval-length and logarithmic-precision conditions of the
+preceding applications, with the fixed finite partitions. In particular,
+require $N^{\sigma_*}\ge2$,
+$N^{60\sigma_*2^{-126}}\ge12L^{334}$,
+\eqref{eq:k2-med-length} and \eqref{eq:l3-lengths}, and include
+$N_{\mathrm{dom}},N_{z,0},N_{\mathrm{LEN,app}}$ from
+\eqref{eq:l3-structural-thresholds}. The remaining application conditions
+are exactly those of the cited comparison propositions. The floor implies
+none of them.
+\item $T_{E'},T_V,T_{E_{\mathrm{RA}}},T_r,T_{E_{\mathrm{exc}}}$:
+respectively the eventual bounds
+\[
+\begin{gathered}
+ E'\le\frac{\delta_{\mathrm{err}}}{20},\qquad
+ V_{\mathrm{sw}}\le\frac{\delta_{\mathrm{err}}}{20},\qquad
+ E_{\mathrm{RA}}\le\frac{\delta_{\mathrm{err}}}{10},\\
+ r_K\le\frac{\delta_{\mathrm{err}}}{10},\qquad
+ E_{\mathrm{exc}}\le\frac{\delta_{\mathrm{err}}}{10}.
+\end{gathered}
+\]
+All arguments are $(N;\sigma_*)$, or $(N;b,\sigma_*)$ for $r_K$.
+\end{enumerate}
+These are finitely many requirements after all finite choices.
+Define the common threshold once by
+\begin{equation}\label{eq:not-common-threshold}
+\begin{aligned}
+ \mathcal T_*={}&\{T_{\mathrm{src}},T_{\mathrm{ret}},T_{\mathrm{RA}},
+ T_K,T_{\mathrm{sw}},T_{\mathrm{len}},\\
+ &\hspace{12mm}T_{E'},T_V,T_{E_{\mathrm{RA}}},T_r,T_{E_{\mathrm{exc}}}\},\\
+ N_0^*(\sigma_*)&=2\left\lceil\frac12
+ \max\bigl(\{N_{\mathrm{tr}},N_{\mathrm{floor}}\}\cup\mathcal T_*\bigr)
+ \right\rceil,\\
+ N_{\mathrm{floor}}&=2\left\lceil e^{2^{150}}/2\right\rceil.
+\end{aligned}
+\end{equation}
+The floor is a convention added to Paper~I's
+selected-interval length hypothesis
+\cite[\S3.2, length hypothesis preceding (3.12)]{PaperI}. It proves none of
+the listed estimates. The named application estimates establish this
+threshold. The resulting $N_0^*$ may be ineffective.
+
+This implements the order in \eqref{eq:intro-order}.
+Afterwards, \(N\) is even and $N\ge N_0^*(\sigma_*)$.
+
+Let \(\epsilon_{\mathrm{err}}(N;\sigma_*)\) be a real- or complex-valued error function.
+Write \(\epsilon_{\mathrm{err}}(N;\sigma_*)=o_{\sigma_*}(1)\) if and only if
+\begin{equation}\label{eq:not-little-o}
+\begin{gathered}
+ \forall\eta>0\ \exists N_\eta(\sigma_*)\ \forall N\in2\mathbb N,\\
+ N\ge N_\eta(\sigma_*)\ \Longrightarrow\ |\epsilon_{\mathrm{err}}(N;\sigma_*)|\le\eta.
+\end{gathered}
+\end{equation}
+All preceding fixed data are suppressed here.
+The parameter \(\sigma_*\) remains fixed in this limit.
+Uniformity in other variables is stated with each estimate.

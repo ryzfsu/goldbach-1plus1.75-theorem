@@ -1,0 +1,783 @@
+\section{Finite source identities and decomposition}
+\label{sec:source-decomposition}
+
+Throughout this section, \(N\) is an even integer with \(N\ge2\).
+Further size hypotheses appear at each display or just before it.
+Use \(L=\log N\) from Section~\ref{sec:notation}.
+We prove the finite identities of this section below.
+They count each occurrence with its multiplicity.
+The later analytic estimates are separate hypotheses.
+Use \(\mathcal A_N,G_b(N),\varepsilon,a,b\) from
+\eqref{eq:intro-exponents}--\eqref{eq:intro-count} and
+\(\alpha,\beta,\mu_*,\lambda,t_0,u\) from
+\eqref{eq:not-sieve-parameters}. Take the roughness cutoff
+\(z_s=N^\alpha\) from the Root--A scale definition in
+\eqref{eq:ra-parameters}.
+Throughout, \(n\) is a positive source integer. When
+\(n\in\mathcal A_N\), \(n=N-p\) for a prime \(p\). In a source sum, \(e\)
+is the integer being counted. The letters \(p,p_i,a_i,r\) denote
+prime variables, \(q\) is a positive modulus, and \(m\) is the factor or
+cofactor specified by its sum. Paper-II counts use
+\(n=dm\); the marked count of Section~\ref{sec:root-a} uses \(m=(N-e)/p\). These roles
+are local to the displayed source.
+Here \(\Omega(n)\) counts prime factors with multiplicity.
+For squarefree \(d\) with \((d,N)=1\), define
+\begin{equation}\label{eq:source-paperii-cofactor}
+ S^{\mathrm{II}}(d;y)
+ =\#\{n=dm\in\mathcal A_N:P^-(m)\ge y,\ (m,Nd)=1\}.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Set this count to zero for other \(d\).
+For admissible \(d\), it is Paper~II's (1.7) count in our notation
+\cite[(1.7)]{PaperII}. The zero value for other \(d\) is our convention.
+Put \(x_i=\log p_i/\log N\).
+The tenth row uses
+\begin{equation}\label{eq:source-paperii-clipping}
+\begin{aligned}
+ C_{10}&=\frac{57}{64}-\frac1{500}-\frac{11}{5}\alpha,\\
+ B_{10}(x)&=\begin{cases}
+ \beta,&\beta\le x<\mu_*,\\
+ \min\{\beta,\max\{\alpha,C_{10}-5x/2\}\},
+     &\mu_*\le x<\lambda.
+ \end{cases}
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Table~\ref{tab:source-paperii-rows} lists all thirteen sums with every
+divisor and cutoff of \cite[(1.6)--(1.7), row table]{PaperII}.
+All \(p_i\) in the table are prime.
+Each admissible divisor contributes separately.
+
+\begin{longtable}{@{}c c p{.47\textwidth} p{.19\textwidth}@{}}
+\caption{The Paper~II source sums. Each row sums \(S^{\mathrm{II}}(d;y)\).}
+\label{tab:source-paperii-rows}\\
+\hline
+Row & Coefficient & Divisor and domain & Cutoff \(y\)\\
+\hline
+\endfirsthead
+\hline
+Row & Coefficient & Divisor and domain & Cutoff \(y\)\\
+\hline
+\endhead
+\(S_1\)&\(3\)&\(d=1\)&\(N^\alpha\)\\
+\(S_2\)&\(1\)&\(d=1\)&\(N^\beta\)\\
+\(S_3\)&\(-2\)&\(d=p_1,\ \alpha\le x_1<\mu_*\)&\(N^\alpha\)\\
+\(S_4\)&\(-1\)&\(d=p_1,\ \mu_*\le x_1<1/4\)&\(N^\alpha\)\\
+\(S_5\)&\(-1\)&\(d=p_1,\ 1/4\le x_1<t_0\)&\(N^\alpha\)\\
+\(S_6\)&\(-1\)&\(d=p_1,\ t_0\le x_1<1/3\)&\(N^\alpha\)\\
+\(S_7\)&\(-1\)&\(d=p_1,\ \mu_*\le x_1<\lambda\)&\(N^\alpha\)\\
+\(S_8\)&\(1\)&\(d=p_1p_2,\)\newline
+ \(\alpha\le x_2<x_1<\beta\)&\(N^\alpha\)\\
+\(S_9\)&\(1\)&\(d=p_1p_2,\)\newline
+ \(\alpha\le x_2<\beta\le x_1<\mu_*\)&\(N^\alpha\)\\
+\(S_{10}\)&\(1\)&\(d=p_1p_2,\ \mu_*\le x_1<\lambda,\)\newline
+ \(\alpha\le x_2<B_{10}(x_1)\)&\(N^\alpha\)\\
+\(S_{11}\)&\(-2\)&\(d=p_1p_2,\ \lambda\le x_1<1/3,\)\newline
+ \(x_1<x_2<(1-x_1)/2\)&\(p_2\)\\
+\(S_{12}\)&\(-1\)&\(d=p_1p_2,\)\newline
+ \(\alpha\le x_1<1/3\le x_2<(1-x_1)/2\)&\(p_2\)\\
+\(S_{13}\)&\(-1\)&\(d=p_1p_2,\)\newline
+ \(\beta\le x_1<\lambda\le x_2<(1-x_1)/2\)&
+ \(\sqrt{N/(p_1p_2)}\)\\
+\hline
+\end{longtable}
+
+Let \(\mathcal D_i\) be the displayed divisor domain and \(y_i(d)\) its cutoff.
+Define the row occurrences by
+\begin{equation}\label{eq:source-row-occurrences}
+ \vartheta_i(n)=\sum_{\substack{d\in\mathcal D_i\\d\mid n\\
+                  d\ \mathrm{squarefree},\ (d,N)=1}}
+  1_{P^-(n/d)\ge y_i(d)}1_{(n/d,Nd)=1}.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Thus \(S_i=\sum_{d\in\mathcal D_i}S^{\mathrm{II}}(d;y_i(d))\).
+Keep every cofactor and endpoint restriction. Define
+\begin{equation}\label{eq:source-thirteen}
+\begin{aligned}
+ S_i&=\sum_{n\in\mathcal A_N}\vartheta_i(n)\qquad(1\le i\le13),\\
+ W_{13}(n)&=3\vartheta_1(n)+\vartheta_2(n)-2\vartheta_3(n)
+ -\vartheta_4(n)-\vartheta_5(n)-\vartheta_6(n)-\vartheta_7(n)\\
+ &{}+\vartheta_8(n)+\vartheta_9(n)+\vartheta_{10}(n)
+ -2\vartheta_{11}(n)-\vartheta_{12}(n)-\vartheta_{13}(n),\\
+ s_{\mathrm{sw}}(n)&=1_{\Omega(n)\ge3}\max\{W_{13}(n),0\},\\
+ S_{\mathrm{sw}}&=\sum_{n\in\mathcal A_N}s_{\mathrm{sw}}(n),\qquad
+ w(n)=W_{13}(n)-s_{\mathrm{sw}}(n),\qquad
+ \mathcal W=\sum_{n\in\mathcal A_N}w(n).
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+This is the complete switched source of Paper~II, (1.9)
+\cite[(1.9)]{PaperII}.
+Every divisor prime and cofactor cutoff is at least $N^\alpha$.
+For $S_{13}$ the cutoff exceeds $N^{(1-\lambda)/4}>N^\alpha$.
+Thus every $\vartheta_i(n)$ vanishes when $P^-(n)<N^\alpha$,
+so the extra roughness indicator of Paper~II is redundant.
+Use $P^-(1)=\infty$ as in Table~\ref{tab:notation}.
+Finite linearity gives
+\begin{equation}\label{eq:source-weight-identity}
+\begin{aligned}
+ \mathcal W={}&3S_1+S_2-2S_3-S_4-S_5-S_6-S_7\\
+ &+S_8+S_9+S_{10}-2S_{11}-S_{12}-S_{13}-S_{\mathrm{sw}}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+
+
+\subsection{The representation count}
+
+Put
+\begin{equation}\label{eq:source-bad-count}
+\begin{aligned}
+ g_b(e)&=\#\{(p_1,p_2)\in\mathbb P^2:
+       N^b\le p_1\le\sqrt N,\ \varepsilon N<p_1p_2=e<N\},\\
+ B_b&=\sum_e g_b(e)1_{N-e\in\mathbb P},\qquad
+ P_2=\#\{n\in\mathcal A_N:\Omega(n)\le2\}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+When \(e\) has distinct prime factors and both choices satisfy the
+first-factor cutoff, both orientations are counted. For \(e=p^2\), there
+is only the ordered pair \((p,p)\).
+Hence
+\begin{equation}\label{eq:source-multiplicity}
+ 0\le g_b(e)\le2,\qquad P_2-G_b(N)\le B_b
+ \qquad(\varepsilon N>1).
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+For the second inequality, write \(n=rs\), \(r\le s\), with both
+factors prime.
+If \(n\) is excluded from \(G_b\), then
+\begin{equation}\label{eq:source-excluded-factor}
+ N^b\le r\le\sqrt n<\sqrt N,\qquad g_b(n)\ge1.
+\qquad(2\mid N,\ N\ge2,\ \varepsilon N>1).
+\end{equation}
+Prime squares are counted with their actual multiplicity.
+
+Define
+\begin{equation}\label{eq:source-exceptional-set}
+ \mathcal E=\{n\in\mathcal A_N:P^-(n)\ge z_s,
+       \ n\text{ is not squarefree or }(n,N)>1\}.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+For \(z_s=N^\alpha\ge2\),
+\begin{equation}\label{eq:source-exceptional-size}
+\begin{aligned}
+ \#\{n\in\mathcal E:n\text{ is not squarefree}\}
+ &\le N\sum_{k\ge\lceil z_s\rceil}k^{-2}\le\frac{2N}{z_s},\\
+ \#\{n\le N:P^-(n)\ge z_s,\ (n,N)>1\}
+ &\le\sum_{\substack{\ell\in\mathbb P,\ \ell\mid N\\\ell\ge z_s}}\frac N\ell
+ \le\frac{11N}{z_s},\\
+ |\mathcal E|&\le13N^{1-\alpha}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge2^{1/\alpha}).
+\end{equation}
+The prime divisors in the middle sum are distinct.
+Their number is at most
+\(\lfloor1/\alpha\rfloor=11\).
+
+Set
+$N_{\mathrm{pt}}=1+\left\lceil\max\{2^{1/\alpha},
+\varepsilon^{-3},\varepsilon^{-1/(1-\lambda-\beta)}\}\right\rceil$.
+\begin{lemma}[Pointwise source weight bound]
+\label{lem:source-pointwise}
+For all $N\ge N_{\mathrm{pt}}$, the weight bounds are
+\begin{equation}\label{eq:source-pointwise}
+\begin{gathered}
+ w(n)=0\quad(P^-(n)<z_s),\qquad
+ w(n)\le4\,1_{\Omega(n)\le2}\quad(n\in\mathcal A_N\setminus\mathcal E),\\
+ \max\{0,w(n)-4\,1_{\Omega(n)\le2}\}\le169
+ \quad(n\in\mathcal E),
+ \qquad E_{\mathrm{pt}}=0.
+\end{gathered}
+\qquad(2\mid N,\ N\ge N_{\mathrm{pt}}).
+\end{equation}
+\begin{proof}
+Start from the roughness observation above.
+If $\Omega(n)\ge3$, then $w(n)=\min\{W_{13}(n),0\}\le0$.
+If $(n,N)>1$, the coprimality conditions force every row occurrence to vanish.
+For $\Omega(n)\le2$ and $n\in\mathcal E$ with $(n,N)=1$,
+only $n=p^2$ occurs; only $S_1,S_2$ contribute, giving $w(n)=4$.
+For $n\notin\mathcal E$ with $\Omega(n)\le2$, a prime has weight $4$.
+For $n=rs$, with primes $r<s$, the bands
+$[\alpha,\beta)$, $[\beta,\mu_*)$, $[\mu_*,\lambda)$,
+$[\lambda,1/3)$ and $[1/3,1/2)$ for $\log_Nr$
+give weights $1,2,2,3,4$, respectively, directly from the row table.
+This agrees with Paper~II, (1.11) \cite[(1.10)--(1.11)]{PaperII}.
+Here $N_{\mathrm{pt}}$ is chosen so that
+$\varepsilon N>N^{2/3}$ and
+$\varepsilon N>N^{\lambda+\beta}$.
+Then the larger prime exceeds $N^{1/3}$. The two-prime divisor
+rows vanish, since their products are below $N^{\lambda+\beta}$ for
+$S_8$--$S_{10}$ and below $N^{2/3}$ for $S_{11}$--$S_{13}$.
+These observations prove all three bounds, including the stronger
+exceptional bound with right-hand side zero.
+\end{proof}
+\end{lemma}
+Put
+\begin{equation}\label{eq:source-pointwise-error}
+ E_{\mathrm{pt}}=\frac14\sum_{n\in\mathcal E}
+       \max\{0,w(n)-4\,1_{\Omega(n)\le2}\}.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+The pointwise lemma gives $E_{\mathrm{pt}}=0$ for
+$N\ge N_{\mathrm{pt}}$, within its stated scope.
+We still record cruder bounds. Summation gives
+\begin{equation}\label{eq:source-first-lower}
+\begin{gathered}
+ 0\le E_{\mathrm{pt}}\le\frac{169}{4}|\mathcal E|
+       \le\frac{2197}{4}N^{1-\alpha},\\
+ \mathcal W\le4P_2+4E_{\mathrm{pt}},\qquad
+ 4G_b(N)\ge\mathcal W-4B_b-4E_{\mathrm{pt}}.
+\end{gathered}
+\qquad(2\mid N,\ N\ge N_{\mathrm{pt}}).
+\end{equation}
+The transfer to \(r\le q^{3/4}\) is \eqref{eq:intro-transfer}.
+
+\subsection{Signed arithmetic sums}
+
+Put
+\begin{equation}\label{eq:source-fixed-sum}
+\begin{aligned}
+ R_{\mathrm{fix}}={}&3S_1-2S_3-S_4-S_5-S_7+S_8+S_9+S_{10}\\
+ &-2S_{11}-S_{12}-S_{13}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Then \eqref{eq:source-weight-identity} gives
+\begin{equation}\label{eq:source-finite-identity}
+ \mathcal W-4B_b
+ =R_{\mathrm{fix}}+S_2-S_6-S_{\mathrm{sw}}-4B_b.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Define
+\begin{equation}\label{eq:source-retained-definitions}
+\begin{aligned}
+ G_{\mathrm{rows}}&=2S_{11}+S_{12}+S_{13},\\
+ \mathcal C_{\mathrm{ret}}&=3S_1+S_2-S_4-S_5-S_7+S_{10}-G_{\mathrm{rows}},\\
+ \mathcal Q&=-2S_3+S_8+S_9.
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Coefficient comparison gives
+\begin{equation}\label{eq:source-five-sums}
+\begin{gathered}
+ \mathcal C_{\mathrm{ret}}+\mathcal Q=R_{\mathrm{fix}}+S_2,\\
+ \mathcal W-4B_b
+ =\mathcal C_{\mathrm{ret}}+\mathcal Q-S_6-S_{\mathrm{sw}}-4B_b.
+\end{gathered}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Substitution proves both equalities coefficient by coefficient.
+The coefficients \(3S_1\) and \(+S_{10}\) are fixed.
+The integer supports may overlap.
+These coefficient identities do not depend on later estimates.
+Take the signed normalized chains \(Q_{j,k}\), their index set
+\(\mathcal I\), and the stage index \(k\in\{0,\ldots,10\}\) from
+Section~\ref{sec:retained-side}. See its ``original signed chains'' paragraph
+and \eqref{eq:retB-telescope}. Each \(Q_{j,k}\) already includes its
+signed normalized coefficient, so no extra multiplicity factor enters.
+Finite telescoping gives
+\begin{equation}\label{eq:source-signed-telescope}
+ \sum_{j\in\mathcal I}Q_{j,0}
+ =\sum_{j\in\mathcal I}Q_{j,10}
+  +\sum_{j\in\mathcal I}\sum_{k=1}^{10}(Q_{j,k-1}-Q_{j,k}).
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+This is the normalized-chain identity cited above. The arithmetic coefficient
+identities above keep their unnormalized definitions.
+Paper~II uses joint endpoints for
+\(S_1,S_2\text{-}T_8/4,G_{\mathrm{rows}}\)
+\cite[(6.4)--(6.4d), pp.~70--72]{PaperII}.
+Here \(T_8\) is Paper~II's stage-eight endpoint in the \(S_2\) chain.
+The notation \(S_2\text{-}T_8/4\) is a joint-chain label;
+it defines no new arithmetic sum.
+Their joint endpoint is kept before the differences are split.
+
+\subsection{A finite upper decomposition}
+
+Each original representation occurrence uses the shifted-prime set
+of \(\eqref{eq:intro-count}\):
+\begin{equation}\label{eq:source-A-N}
+ \mathcal A_N=\{N-p:p\in\mathbb P,\ p<(1-\varepsilon)N\}.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+The two arithmetic sources stay separate. Take \(A_b,E_{\mathrm{top}}\)
+from \eqref{eq:k2-source} and \(S_b\) from the Section~\ref{sec:k2} definition
+\eqref{eq:k2-sifted-source}; \(A\) from \eqref{eq:l3-source};
+\(\mathcal P_N\) from \eqref{eq:l3-constants}; and
+\(b_A,P_N,S_v,S_A,E_{\mathrm{src}}\) from
+\eqref{eq:l3-sieved-source}. The ordered prime coordinates
+\(a_i\) and their prefix domains are those of \eqref{eq:l3-buchstab} and
+the paragraph before it. Define
+\begin{equation}\label{eq:source-local-sequences}
+\begin{gathered}
+ h_b(n)=A_b(N-n),\qquad
+ \mathscr L_b=\{p\in\mathbb P:p\nmid2N\},\qquad E_b=E_{\mathrm{top}},\\
+ h_{\mathrm{sw}}(n)=A(N-n),\qquad
+ \mathscr L_{\mathrm{sw}}=\mathcal P_N,\qquad
+ E_{\mathrm{sw}}^{\mathrm{src}}=E_{\mathrm{src}},
+\end{gathered}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Here \(A_b,E_{\mathrm{top}}\) are the Section~\ref{sec:k2} source objects in
+\(\eqref{eq:k2-source}\). The objects \(A,\mathcal P_N,E_{\mathrm{src}}\) are
+the Section~\ref{sec:l3} source objects in \(\eqref{eq:l3-source}\),
+\(\eqref{eq:l3-constants}\), and \(\eqref{eq:l3-sieved-source}\). Both sequences are nonnegative.
+No extra \(1_{(e,2N)=1}\) factor enters.
+The script-font symbols \(\mathscr L_b\), \(\mathscr L_{\mathrm{sw}}\),
+\(\mathscr L_X\), and \(\mathscr U_X\) denote the variable sieve families
+and their sifted sums. The fixed prime support is written \(\mathcal P_N\).
+For \(X\in\{b,\mathrm{sw}\}\), write \(h_X,\mathscr L_X,E_X\) for the
+corresponding line of \(\eqref{eq:source-local-sequences}\), and put
+\begin{equation}\label{eq:source-sifted-sequence}
+\begin{aligned}
+ P_X(y)&=\prod_{\substack{\ell<y\\\ell\in\mathscr L_X}}\ell,\\
+ \mathscr U_X(d;y)&=\sum_{d\mid n}h_X(n)
+              1_{(n/d,P_X(y))=1}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Take \(I_L,I_H,J,J_{\mathrm{tail}},J_t,z_s,\eta_{\mathrm m},
+v_{\mathrm{RA}}\) from the Root--A definition \eqref{eq:ra-parameters}.
+Take \(c_{R,K}\) from \eqref{eq:ra-coefficient}, and
+\(R_L,R_{\mathrm{tail}},B_L,B_{\mathrm{tail}},B,c_{\mathrm{lo}},\Gamma\)
+from \eqref{eq:ra-factories} and its preceding choice of fixed logarithmic
+exponents. Take \(D_{\mathrm m}\) from \eqref{eq:ra-precision-order}.
+Write \(Q_{\mathrm{RA}}\) for the level called \(Q\) in
+\eqref{eq:ra-factories}. This alias is distinct from every signed chain
+\(Q_{j,k}\). We do not redefine these objects here.
+Both source comparisons require the finite threshold \(N_6\)
+of Section~\ref{sec:notation}.
+It enters the operative \(T_{\mathrm{RA}}\), the maximum of the
+sixth-sum comparison threshold and \(N_6\). We do not redefine it here.
+
+Use the common choice \(\sigma=\sigma_*\) from
+\eqref{eq:not-sigma-choice}. It lies in the Section~\ref{sec:k2} range of
+\eqref{eq:k2-parameters}, and the switched comparison uses it. Take
+\(\tau,\rho\) from Section~\ref{sec:k2} \eqref{eq:k2-parameters}; Section~\ref{sec:l3} uses the same
+values. We make no new choice or definition of
+\(\sigma,\tau,\rho\) here.
+Partition the logarithmic prime ranges into half-open intervals
+\([t_i,\rho t_i)\), with \(t_i=u\rho^{k_i}\), \(k_i\ge0\).
+Clip the intervals at \(\mu_*\).
+Each prime has one cell.
+For \(X=b\), use the retained cells of the Section~\ref{sec:k2}
+\(\eqref{eq:k2-retention}\) retained-cell definition and the cutoff in
+\(\eqref{eq:k2-four-rows}\). Write them as
+\(\mathcal R_b,z_{b,c},\chi_{b,c}\). For \(X=\mathrm{sw}\), use the
+Section~\ref{sec:l3} definitions \(\eqref{eq:l3-buchstab-peel}\) and
+\(\eqref{eq:l3-row3-level}\). Write them as
+\(\mathcal R_{\mathrm{sw}},z_{\mathrm{sw},c},\chi_{\mathrm{sw},c}\).
+These definitions come from the two source sections.
+They form no common envelope in this section.
+We use no equality between the retained collections of the three sections.
+The closed-cell infima of Sections~\ref{sec:k2} and~\ref{sec:l3} and their endpoint rules
+apply only within their own source.
+For \(X=b\), the packing function is \(H\), as specified in
+\eqref{eq:k2-retention}. For \(X=\mathrm{sw}\), it is
+\(\widetilde H\), as specified in \eqref{eq:l3-row3-level} and its
+preceding definition of \(\Theta_c\). The two functions are defined in
+Paper~II, equation (2.17d), and the paragraph after it.
+We have \(\widetilde H=H\) only on the stated largest-coordinate
+range, and use no equality outside it.
+For either source write \(z_{X,c}=N^{t_3}\), with \(t_3\) the lower
+endpoint of the third coordinate of its cell \(c\). Here
+\(z_{\mathrm{sw},c}\) is the object called \(z_c\) in Section~\ref{sec:l3}; we use only the
+source-indexed name. The Section~\ref{sec:k2} cutoff is defined
+in \eqref{eq:k2-four-rows}, with the lower-endpoint convention stated
+before \eqref{eq:k2-parent-functional}.
+
+The source index here is always \(X\in\{b,\mathrm{sw}\}\).
+For the $b$-source the underlying prime support is \(\mathcal P_N\), so
+\(P_b(y)=P_N(y)\). Both sieve products use primes below $y$ not dividing
+$2N$.
+For the \(b\)-source, the substitution \(e=N-n\) identifies the
+generic sieve with \(S_b\) of Section~\ref{sec:k2} on that source:
+\begin{equation}\label{eq:source-ch07-sieve-bridge}
+ \mathscr U_b(d;y)
+ =\sum_{d\mid n}A_b(N-n)1_{(n/d,P_b(y))=1}
+ =\sum_{d\mid N-e}A_b(e)1_{((N-e)/d,P_b(y))=1}
+ =S_b(d;y).
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+For \(X=\mathrm{sw}\), identify the generic cofactor sieve with the
+Section~\ref{sec:l3} sieve on precisely the following rows:
+\begin{itemize}
+\item \(d=1\) with cutoff \(y=N^{\mu_*}\), the source-comparison row
+\(\mathscr U_{\mathrm{sw}}(1;N^{\mu_*})=S_A\) from Section~\ref{sec:l3}
+\eqref{eq:l3-sieved-source};
+\item \(v=a_1\cdots a_j\), \(0\le j\le2\), with cutoff \(y=N^u\);
+\item \(v=a_1a_2a_3\), with dynamic cutoff \(y=a_3\), or retained-cell
+cutoff \(y=z_{\mathrm{sw},c}=N^{t_3}\);
+\item \(vr=a_1a_2a_3r\) on a retained cell, with
+\(z_{\mathrm{sw},c}\le r<a_3\), at cutoff \(y=r\) or
+\(y=z_{\mathrm{sw},c}\).
+\end{itemize}
+Here the empty prefix is \(v=1\), and all primes belong to
+\(\mathcal P_N\) and have the ordering in \eqref{eq:l3-buchstab}
+and \eqref{eq:l3-peel}. Let \(d\) be the displayed prefix \(v\) or
+product \(vr\). Every prime divisor of \(d\) is at least \(y\), so
+\((d,P_{\mathrm{sw}}(y))=1\). The definitions give
+\(P_{\mathrm{sw}}(y)=P_N(y)\). Write \(S_d(y)\) for the \(S_v(y)\) of Section~\ref{sec:l3}
+from \eqref{eq:l3-sieved-source} with \(v=d\). For \(d\mid n\), the Section~\ref{sec:l3} definition
+\eqref{eq:l3-sieved-source} gives
+\begin{equation}\label{eq:source-ch08-sieve-bridge}
+ \mathscr U_{\mathrm{sw}}(d;y)
+ =\sum_{d\mid n}h_{\mathrm{sw}}(n)1_{(n/d,P_N(y))=1}
+ =\sum_{d\mid n}b_A(n)1_{(n,P_{\mathrm{sw}}(y))=1}
+ =S_d(y).
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+This identity holds on these rows only, not for arbitrary \(d,y\).
+These \(E\)-terms are unnormalized source-restoration costs. The two
+source upper comparisons are stated separately:
+Here \(B_b'\) is the prime-occurrence part of \(B_b\), and
+\(E_{\mathrm{top}}\) is the removed-top cost.
+\begin{lemma}[Upper-source comparisons]
+\label{lem:source-upper-sources}
+\begin{equation}\label{eq:source-upper-comparison}
+\begin{gathered}
+ B_b\le E_b+\mathscr U_b(1;N^{\mu_*}),\qquad
+ S_{\mathrm{sw}}\le E_{\mathrm{sw}}^{\mathrm{src}}+
+ \mathscr U_{\mathrm{sw}}(1;N^{\mu_*})\\
+ \text{for even }N\ge N_6.
+\end{gathered}
+\end{equation}
+\begin{proof}
+The first inequality follows from Section~\ref{sec:k2} \eqref{eq:k2-source-comparison}
+and \(E_b=E_{\mathrm{top}}\); the second is the Section~\ref{sec:l3} source comparison
+\eqref{eq:l3-source-id}.
+We do not identify their hypotheses or their restoration costs.
+\end{proof}
+We invoke the source comparison once, with the named hypotheses displayed above.
+\end{lemma}
+For real cutoffs \(1\le y\le w_{\mathrm{cut}}\), the least allowed prime gives
+\begin{equation}\label{eq:source-buchstab-one-step}
+ \mathscr U_X(d;w_{\mathrm{cut}})=\mathscr U_X(d;y)
+ -\sum_{\substack{y\le r<w_{\mathrm{cut}}\\r\in\mathscr L_X}}\mathscr U_X(dr;r).
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Write \(n=dm\).
+If \(m\) survives at \(y\) but fails at \(w_{\mathrm{cut}}\),
+choose its least allowed prime in \([y,w_{\mathrm{cut}})\).
+Exactly one summand records that prime.
+Repeated copies remain in the cofactor.
+Thus the identity also counts prime powers correctly.
+
+Three applications give
+\begin{equation}\label{eq:source-buchstab}
+\begin{aligned}
+ \mathscr U_X(1;N^{\mu_*})&=T_{X,0}-T_{X,1}+T_{X,2}-T_{X,3},\\
+ T_{X,j}&=\sum_{\substack{N^u\le a_j<\cdots<a_1<N^{\mu_*}\\
+                         a_i\in\mathscr L_X}}
+                         \mathscr U_X(a_1\cdots a_j;N^u)\quad(0\le j\le2),\\
+ T_{X,3}&=\sum_{\substack{N^u\le a_3<a_2<a_1<N^{\mu_*}\\
+                         a_i\in\mathscr L_X}}
+                         \mathscr U_X(a_1a_2a_3;a_3).
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+For \(j=0\), the sum is \(\mathscr U_X(1;N^u)\).
+The primes are ordered; no factorial occurs.
+Every multiplicity remains in \(h_X\).
+
+For \(d=a_1a_2a_3\) in a retained cell of
+source \(X\), put
+\begin{equation}\label{eq:source-dynamic-cutoff}
+\begin{aligned}
+ -\mathscr U_X(d;a_3)
+ &= -\mathscr U_X(d;z_{X,c})+
+       \sum_{\substack{z_{X,c}\le r<a_3\\r\in\mathscr L_X}}\mathscr U_X(dr;r)\\
+ &\le-\mathscr U_X(d;z_{X,c})+
+       \sum_{\substack{z_{X,c}\le r<a_3\\r\in\mathscr L_X}}\mathscr U_X(dr;z_{X,c}).
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+The equality is \eqref{eq:source-buchstab-one-step}.
+Nonnegativity proves the inequality.
+Actual cell membership gives \(z_{X,c}\le a_3\).
+The closed infimum creates no additional occurrences.
+
+Let \(\sum_{\mathrm{ret},X}\) restrict the ordered triples to
+\(\mathcal R_X\), equivalently to \(\chi_{X,c}=1\). For either source define
+the peel terms
+\begin{equation}\label{eq:source-base-peel}
+\begin{aligned}
+ R_{X,3}&=\sum_{\mathrm{ret},X}\mathscr U_X(a_1a_2a_3;z_{X,c}),\\
+ P_{X,3}&=\sum_{\mathrm{ret},X}
+       \sum_{\substack{z_{X,c}\le r<a_3\\r\in\mathscr L_X}}
+             \mathscr U_X(a_1a_2a_3r;z_{X,c}).
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+For each source \(X\in\{b,\mathrm{sw}\}\), the non-retained depth-three
+terms are nonnegative and occur with a minus sign, so we drop them.
+The retained terms use the dynamic inequality above:
+\begin{equation}\label{eq:source-nonretained-drop}
+ -T_{X,3}\le -R_{X,3}+P_{X,3}.
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+For even \(N\ge N_6\), define the two upper expressions and their
+slacks, one per source. The next comparison proves their nonnegativity:
+\begin{equation}\label{eq:source-upper-slack}
+ \begin{aligned}
+ U_b&:=T_{b,0}-T_{b,1}+T_{b,2}-R_{b,3}+P_{b,3},&
+ Z_b&:=E_b+U_b-B_b\ge0,\\
+ U_{\mathrm{sw}}&:=T_{\mathrm{sw},0}-T_{\mathrm{sw},1}
+       +T_{\mathrm{sw},2}-R_{\mathrm{sw},3}+P_{\mathrm{sw},3},&
+ Z_{\mathrm{sw}}&:=E_{\mathrm{sw}}^{\mathrm{src}}
+       +U_{\mathrm{sw}}-S_{\mathrm{sw}}\ge0.
+ \end{aligned}
+ \qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+Hence
+\begin{equation}\label{eq:source-sifted-upper}
+ \mathscr U_X(1;N^{\mu_*})\le
+ \begin{cases}
+ U_b,&X=b,\\
+ U_{\mathrm{sw}},&X=\mathrm{sw}.
+ \end{cases}
+\qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+These inequalities assume the two source comparisons in
+\eqref{eq:source-upper-comparison}. They give no estimate for either
+restoration cost.
+
+\subsection{The conditional lower expression}
+
+Take \(A_{\mathrm{mix}}\) from the Root--A definition
+\eqref{eq:ra-mix-definition}, and \(Z_6\) with its comparison from
+Section~\ref{sec:root-a} \eqref{eq:ra-positive-comparison}. We redefine neither object.
+This sum uses the ordinary upper Rosser weights
+\(\mu_d^+(D)\) with the odd-index cubic gates of
+\(\eqref{eq:ra-rosser-weight}\). Their upper-sieve property is the
+Iwaniec upper-bound lemma
+\cite[Lemma~1, (3.2), (3.6)]{Iwaniec1980Rosser}
+\cite[Lemmas~2--3, p.~313]{Iwaniec1980Remainder}. This section
+introduces no new weight.
+The Section~\ref{sec:root-a} comparison gives
+\begin{equation}\label{eq:source-mixed-comparison}
+ S_6\le A_{\mathrm{mix}},\qquad Z_6\ge0
+ \qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+For a mark \(p\), put \(m=(N-e)/p\) and
+\(P_{\mathrm{RA}}=\prod_{\ell<z_s,\,\ell\nmid2N}\ell\).
+For \(D>1\), the cited Iwaniec upper-bound lemmas give, for the upper
+Rosser divisor sum,
+\cite[Lemma~1, (3.2), (3.6)]{Iwaniec1980Rosser}
+\cite[Lemmas~2--3, p.~313]{Iwaniec1980Remainder},
+\[
+ \sum_{d\mid(m,P_{\mathrm{RA}})}\mu_d^+(D)
+ \ge1_{(m,P_{\mathrm{RA}})=1}\ge1_{P^-(m)\ge z_s}
+ \qquad(2\mid N,\ N\ge2,\ D>1).
+\]
+Dropping \((m,Np)=1\) enlarges the original nonnegative occurrence count.
+For even \(N\ge N_6\), each of \(R_L,R_{\mathrm{tail}},Q_{\mathrm{RA}}\) exceeds
+\(N^{1/3}\). Hence take \(D=R_L/p,R_{\mathrm{tail}}/p,Q_{\mathrm{RA}}/p\) on,
+respectively, \(I_L\times J\), \(I_H\times J_{\mathrm{tail}}\),
+\(I_H\times J_t\). These pieces partition the original source: \(e=N/4\)
+belongs to \(I_L\), and the shared mark endpoint belongs to
+\(J_{\mathrm{tail}}\).
+Since \(p\ge N^{t_0}>z_s\), the mark is unique in \(q=pd\).
+The condition \(d\mid m\) is exactly \(e\equiv N\pmod{pd}\). The original gates give
+\(c_{R,K}(pd)=\mu_d^+(R/p)\). Summation gives precisely
+\(S_6\le A_{\mathrm{mix}}\) and \(Z_6\ge0\), with all mark
+multiplicities. A product-cell partition only splits these exact
+sums. It must keep the original \(pd<R\), the cubic gates and every clipped
+endpoint. In particular \(c_{\mathrm{lo}}\) and \(\Gamma\) keep the
+gates at \(Q_{\mathrm{RA}}\).
+Subdivide each of the three marked pieces in
+\eqref{eq:ra-three-pieces} into cells in its two displayed coordinates.
+Let \(\delta=L^{-D_{\mathrm m}}\), and use half-open multiplicative
+intervals of relative width at most \(1+\delta\) in each coordinate.
+Insert all row cuts, the points
+\(N/4\), \(1/3-\eta_{\mathrm m}\), \(1/3\), and the two endpoints of
+\(I_H\) as cell boundaries. Denote the resulting finite, disjoint cell
+ families by \(\Theta^{\sharp}_L,\Theta^{\sharp}_{\mathrm{tail}},\Theta^{\sharp}_t\).
+Use the separate piece index \(Y\in\{L,\mathrm{tail},t\}\) and the
+mapping
+\begin{equation}\label{eq:source-root-a-piece-map}
+ (I_Y,K_Y,R_Y)=
+ \begin{cases}
+ (I_L,J,R_L),&Y=L,\\
+ (I_H,J_{\mathrm{tail}},R_{\mathrm{tail}}),&Y=\mathrm{tail},\\
+ (I_H,J_t,Q_{\mathrm{RA}}),&Y=t.
+ \end{cases}
+\qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+Thus each \(C\in\Theta^{\sharp}_Y\) satisfies
+ \(C\subseteq(\mathbb P\cap I_Y)\times(\mathbb P\cap N^{K_Y})\) and
+\((p,N)=1\), with \(0<(N-e)/p\) on every included occurrence. Their unions
+are exactly the corresponding coprime marked source pieces
+\(I_L\times J\), \(I_H\times J_{\mathrm{tail}}\), and \(I_H\times J_t\).
+A cell touching a boundary is kept as a boundary cell.
+For \(Y\in\{L,\mathrm{tail},t\}\) and \(C\in\Theta^{\sharp}_Y\), define
+\begin{equation}\label{eq:source-cell-sums}
+\begin{aligned}
+ S_{6,Y,C}&:=\sum_{(e,p)\in C}\mathbf1_{p\in\mathbb P}\mathbf1_{(p,N)=1}\mathbf1_{p\mid N-e}\mathbf1_{0<(N-e)/p}\mathbf1_{e\in\mathbb P}
+ \mathbf1_{P^-((N-e)/p)\ge z_s}\mathbf1_{((N-e)/p,Np)=1},\\
+ A_{Y,C}&:=\sum_{(e,p)\in C}\mathbf1_{p\in\mathbb P}\mathbf1_{(p,N)=1}\mathbf1_{p\mid N-e}\mathbf1_{0<(N-e)/p}\mathbf1_{e\in\mathbb P}
+ \sum_{\substack{d\mid (N-e)/p\\d\mid P_{\mathrm{RA}}}}
+ c_{R_Y,K_Y}(pd)\mathbf1_{e\equiv N\ (pd)},
+\end{aligned}
+\qquad(2\mid N,\ N\ge2).
+\end{equation}
+Here \(R_Y\) is \(R_L\), \(R_{\mathrm{tail}}\), or \(Q_{\mathrm{RA}}\). The
+corresponding coefficient gates stay in the inner sum. The
+half-open families make every marked occurrence belong to exactly one
+\(C\), including \(e=N/4\) and the shared mark endpoint. The one-term
+Rosser inequality at each occurrence gives \(S_{6,Y,C}\le A_{Y,C}\), cell
+by cell. Reindexing the finite sums gives
+\begin{equation}\label{eq:source-cell-sum}
+ S_6=\sum_Y\sum_{C\in\Theta^{\sharp}_Y}S_{6,Y,C},\qquad
+ \sum_Y\sum_{C\in\Theta^{\sharp}_Y}A_{Y,C}=A_{\mathrm{mix}}.
+\qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+The finite comparison uses these cellwise Rosser inequalities.
+Thus the displayed comparison is the sum of finitely many explicit cell
+inequalities. No product cell, endpoint, or boundary strip is
+omitted. The later complete-cell estimates and boundary-strip bound are
+quantitative inputs only and do not alter this finite identity.
+The three slacks below are cited or defined by the source comparisons
+above, before this substitution.
+Substitution in \eqref{eq:source-finite-identity} gives
+\begin{equation}\label{eq:source-exact-slack}
+\begin{aligned}
+ \mathcal W-4B_b-4E_{\mathrm{pt}}
+ ={}&R_{\mathrm{fix}}+S_2-A_{\mathrm{mix}}
+       -U_{\mathrm{sw}}-4U_b\\
+    &-E_{\mathrm{sw}}^{\mathrm{src}}-4E_b-4E_{\mathrm{pt}}
+       +Z_6+Z_{\mathrm{sw}}+4Z_b.
+\end{aligned}
+\qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+This equality follows from the source identity and the cited and
+local definitions. The Section~\ref{sec:root-a} comparison
+\eqref{eq:ra-positive-comparison} gives \(Z_6\ge0\). The comparisons in
+\eqref{eq:source-upper-slack} give \(Z_{\mathrm{sw}},Z_b\ge0\).
+For even \(N\ge\max\{N_6,N_{\mathrm{pt}}\}\),
+\eqref{eq:source-first-lower} and nonnegativity of these slacks yield
+\begin{equation}\label{eq:source-final-lower}
+\begin{aligned}
+ 4G_b(N)\ge{}&R_{\mathrm{fix}}+S_2-A_{\mathrm{mix}}\\
+ &-(T_{\mathrm{sw},0}-T_{\mathrm{sw},1}+T_{\mathrm{sw},2}
+                         -R_{\mathrm{sw},3}+P_{\mathrm{sw},3})\\
+ &-4(T_{b,0}-T_{b,1}+T_{b,2}-R_{b,3}+P_{b,3})\\
+ &-E_{\mathrm{sw}}^{\mathrm{src}}-4E_b-4E_{\mathrm{pt}}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge\max\{N_6,N_{\mathrm{pt}}\}).
+\end{equation}
+The two expanded signs are
+\begin{equation}\label{eq:source-expanded-signs}
+\begin{aligned}
+ -U_{\mathrm{sw}}&=-T_{\mathrm{sw},0}+T_{\mathrm{sw},1}
+                  -T_{\mathrm{sw},2}+R_{\mathrm{sw},3}-P_{\mathrm{sw},3},\\
+ -4U_b&=-4T_{b,0}+4T_{b,1}-4T_{b,2}+4R_{b,3}-4P_{b,3}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge N_6).
+\end{equation}
+Use one bound for the complete \(S_{\mathrm{sw}}\).
+Paper~II gives its coefficient-eight estimate
+\cite[(1.9), (5.29)--(5.43)]{PaperII}; the Buchstab upper bound
+concerns the same occurrence.
+Sections~\ref{sec:k2} and \ref{sec:l3} estimate these two five-term
+upper expressions (four principal rows and their peel term) separately.
+The displayed expansion fixes each peel term's sign.
+The finite switched-source domination is already in the
+local \(Z_{\mathrm{sw}}\) identity above. The remaining distribution
+and quantitative estimates for this occurrence are separate hypotheses
+of the later bill. They lie outside the finite decomposition of this section.
+
+
+\subsection{\texorpdfstring{The lower expression with the original $S_2$}{The lower expression with the original S2}}
+
+Keep the original \(S_2\) throughout.
+Use $\overline H$, $M_{5,\mathrm{internal}}$ and $\Delta D_{L3}$
+from \eqref{eq:intro-components}.
+Here $\overline H$ is the switched integral bound.
+The distinct constant $153/256$ bounds the packing envelope.
+The complete normalized switched error is $E_{\mathrm{sw}}(N;\sigma)$.
+The source-restoration error $E_{\mathrm{sw}}^{\mathrm{src}}$ is unnormalized.
+The main route takes $g_6:=0$ and excludes the optional six-endpoint
+improvement.
+Fix this common parameter and an even \(N\ge\max\{N_6,N_{\mathrm{pt}}\}\)
+throughout the following conditional lemma. Take
+\(W,E_{\mathrm{van}},\Lambda^0_{j,N},\Lambda_N,\Delta_j,\Delta_{G1}\)
+from \eqref{eq:not-normalization}, \eqref{eq:intro-retained-error}, and
+Section~\ref{sec:retained-side}, and \(g_{\mathrm{RA,lo}},E_{\mathrm{RA}}\)
+from \eqref{eq:ra-b11-floor}. Use the complete switched and exterior
+errors from \eqref{eq:l3-final} and \eqref{eq:k2-final-fixed-sigma}.
+The fixed constants are defined in \eqref{eq:intro-components}
+and \eqref{eq:intro-fallback-constant}.
+
+\begin{lemma}[Addition of the four comparisons]
+\label{lem:source-trackb-combination}
+Assume \eqref{eq:source-pointwise} and the following four inequalities.
+Write
+\begin{equation}\label{eq:source-trackb-retained}
+\begin{aligned}
+ \frac{R_{\mathrm{fix}}+S_2}{W(N)}
+ &\ge D_{\mathrm{II}}+\overline J_6
+       +2\overline H+\frac{5719}{10^6}
+       +M_{5,\mathrm{internal}}-E'(N;\sigma),\\
+ E'(N;\sigma)&=E_{\mathrm{van}}(N;\sigma)
+    +\sum_{j\in\mathcal H}
+          \bigl(|\Lambda^0_{j,N}|+|\Lambda_N(\Delta_j)|\bigr)
+    +|\Lambda_N(\Delta_{G1})|.
+\end{aligned}
+\qquad(2\mid N,\ N\ge\max\{N_6,N_{\mathrm{pt}}\}\ \text{(assumed)}).
+\end{equation}
+Here \(D_{\mathrm{II}}\) denotes the original Paper~II floor.
+The main route does not use the six endpoint replacements.
+Here $\mathcal H=\{4,5,7,10\}$, with $5$ denoting the lower
+part of $S_5$ and $10$ its retained $S_{10}$ part.
+Section~\ref{sec:retained-side} gives the hypotheses for this estimate.
+
+The other three comparisons have the forms
+\begin{equation}\label{eq:source-trackb-three-estimates}
+\begin{aligned}
+ \frac{S_6}{W(N)}
+   &\le\overline J_6-g_{\mathrm{RA,lo}}+E_{\mathrm{RA}}(N;\sigma),\\
+ \frac{S_{\mathrm{sw}}}{W(N)}
+   &\le2\overline H-\Delta D_{L3}+E_{\mathrm{sw}}(N;\sigma),\\
+ \frac{4B_b}{W(N)}&\le c_{K2,G0}I(b)+E_K(N;b,\sigma).
+\end{aligned}
+\qquad(2\mid N,\ N\ge\max\{N_6,N_{\mathrm{pt}}\}\ \text{(assumed)}).
+\end{equation}
+All error terms are nonnegative.
+
+Then the following normalized lower bound holds:
+\begin{equation}\label{eq:source-trackb-combination}
+\begin{aligned}
+ \frac{4G_b(N)}{W(N)}
+ &\ge D_{\mathrm{II}}+\frac{5719}{10^6}
+      +M_{5,\mathrm{internal}}+g_{\mathrm{RA,lo}}+\Delta D_{L3}
+      -c_{K2,G0}I(b)-\mathcal E_B(N;b,\sigma),\\
+ \mathcal E_B(N;b,\sigma)
+ &=E'(N;\sigma)+E_{\mathrm{RA}}(N;\sigma)+E_{\mathrm{sw}}(N;\sigma)+E_K(N;b,\sigma)
+       +\frac{4E_{\mathrm{pt}}}{W(N)}.
+\end{aligned}
+\qquad(2\mid N,\ N\ge\max\{N_6,N_{\mathrm{pt}}\}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Substitute the four assumed estimates into
+\eqref{eq:source-finite-identity} and use \eqref{eq:source-first-lower}.
+The terms \(\overline J_6\) and \(2\overline H\) cancel exactly.
+Each complete upper source is subtracted once.
+In particular, no additional switched majorant is added.
+
+Using the same retained constant as in Section~\ref{sec:final-bill}, put
+\begin{equation}\label{eq:source-trackb-floor}
+\begin{aligned}
+ D_B&=D_{\mathrm{II}}+\frac{5719}{10^6}
+      +M_{5,\mathrm{internal}}+g_{\mathrm{RA,lo}}
+      -\frac1{10000}+\Delta D_{L3},\\
+ \mathcal E_B(N;b,\sigma)\le\frac1{10000}
+ &\quad\Longrightarrow\quad
+ \frac{4G_b(N)}{W(N)}\ge D_B-c_{K2,G0}I(b).
+\end{aligned}
+\qquad(2\mid N,\ N\ge\max\{N_6,N_{\mathrm{pt}}\}).
+\end{equation}
+\end{proof}

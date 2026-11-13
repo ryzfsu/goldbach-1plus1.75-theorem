@@ -1,0 +1,723 @@
+\section{Finite calculations}\label{app:finite-calculations}
+
+This appendix gives the finite quantities used above.
+Each terminating decimal denotes an exact rational number.
+All decimal interval endpoints are rounded outwards; decimal approximations
+in explanatory prose are not additional certified bounds.
+The comparisons with prime sums occur in the main text.
+
+\subsection{Series bounds}
+
+For \(|z|<1\),
+\begin{equation}\label{eq:app-log-tail}
+ \left|\operatorname{arctanh}z-
+ \sum_{k=0}^{m-1}\frac{z^{2k+1}}{2k+1}\right|
+ \le\frac{|z|^{2m+1}}{(2m+1)(1-z^2)}.
+\end{equation}
+Write any positive rational as \(t=2^a v\),
+where \(2/3\le v<4/3\).
+Then use
+\begin{equation}\label{eq:app-log-reduction}
+ \log t=a\log2+2\operatorname{arctanh}\frac{v-1}{v+1},
+ \qquad \log2=2\operatorname{arctanh}(1/3).
+\end{equation}
+Also, for \(0\le z<1\),
+\begin{equation}\label{eq:app-dilog-tail}
+ 0\le\operatorname{Li}_2(z)-\sum_{n=1}^m\frac{z^n}{n^2}
+ \le\frac{z^{m+1}}{(m+1)^2(1-z)}.
+\end{equation}
+These inequalities enclose the elementary functions below.
+Integer comparisons then give the printed rational bounds.
+
+\subsection{Four profile differences}\label{subsec:app-h6-four-profiles}
+
+Put
+\begin{gather}
+ \alpha=\frac{100}{1149},\quad \beta=\frac{50}{309},\quad
+ \mu_* =\frac{25}{128},\quad \lambda=\frac{93}{400},\quad
+ h_G=\frac9{5000},\quad K=\frac{57}{64}-\frac1{500},\notag\\
+ \delta_h=\frac {h_G}\alpha,\qquad C=K-\frac{11}{5}\alpha,\qquad
+ B(x)=\min\{\beta,\max\{\alpha,C-5x/2\}\}.
+ \label{eq:app-h6-profile-parameters}
+\end{gather}
+Define the elementary functions
+\begin{align}
+ \widehat f(s)&=\frac{\log(s-1)}s &&(2\le s\le4),\notag\\
+ \widehat F(s)&=\frac1s &&(1<s\le3),\label{eq:app-h6-profile-functions}\\
+ s\widehat F(s)&=1+\log(s-2)\log(s-1)
+ -\operatorname{Li}_2\!\left(\frac{s-2}{s-1}\right)\\
+ &\quad-\frac{\log^2(s-1)}2+\operatorname{Li}_2(1/2)
+ +\frac{\log^22}{2} &&(3<s<5),\notag
+\end{align}
+The two sieve normalizations satisfy
+\[
+ \widehat F=F/(2e^\gamma),\qquad \widehat f=f/(2e^\gamma).
+\]
+The raw multiplier $2/(e^\gamma\alpha)$, a signed row coefficient
+$\pm1/4$, and $F=2e^\gamma\widehat F$ or
+$f=2e^\gamma\widehat f$ combine to the displayed $1/\alpha$ factor.
+The directed integrals below use these hatted functions. No further $1/4$ or
+$2e^\gamma$ factor is applied.
+Also $\operatorname{Li}_2(t)=\sum_{n\ge1}t^n/n^2$ for $0\le t<1$.
+Write
+\[
+ D_F(s)=\widehat F(s)-\widehat F(s+\delta_h),\qquad
+ D_f(s)=\widehat f(s+\delta_h)-\widehat f(s).
+\]
+For the three intervals in Table~\ref{tab:app-h6-profile-bounds}, put
+\begin{align}
+ \Delta_j&=\frac1\alpha\int_{I_j}
+ D_F\!\left(\frac{K-5x/2}{\alpha}\right)\frac{dx}{x}
+ \quad(j=4,5,7),\label{eq:app-h6-profile-negative}\\
+ \Delta_{10}&=\frac1\alpha\int_{\mu_*}^\lambda\int_\alpha^{B(x)}
+ D_f\!\left(\frac{K-5x/2-y}{\alpha}\right)
+ \frac{dy\,dx}{xy}.
+ \label{eq:app-h6-profile-positive}
+\end{align}
+These $\Delta_j$ are those of
+equation~(5.22).
+Closed or half-open interval endpoints have measure zero.
+The curved domain is that of \cite[(2.38)--(2.40)]{PaperII}.
+
+\begin{proposition}\label{prop:app-h6-four-profiles}
+A directed interval computation certifies the following outward enclosure of the
+four elementary integrals:
+\begin{equation}\label{eq:app-h6-profile-total}
+ \frac{572004}{10^8}<\Delta_4+\Delta_5+\Delta_7+\Delta_{10}
+ <\frac{606486}{10^8}.
+\end{equation}
+In particular, their sum minus $10^{-20}$ exceeds $5719/10^6$.
+Also,
+\begin{equation}\label{eq:app-h6-profile-strip}
+ \frac{\log3}{4\alpha^2}
+ \left(\frac52\lambda+\beta\right)\frac{\lambda-\mu_*}{\mu_*}
+ <\frac{21137254516197687}{4120000000000000}
+ <\frac{5137}{1000}<\frac{21}{4}<\frac{179}{25}.
+\end{equation}
+\end{proposition}
+
+\begin{table}[ht]
+\centering
+\caption{Outward decimal bounds from the directed computation. Every
+endpoint is an exact terminating rational.}
+\label{tab:app-h6-profile-bounds}
+\begin{tabular}{cccc}
+\hline
+$j$ & $I_j$ & lower bound & upper bound\\
+\hline
+$4$ & $[25/128,1/4]$ & $0.00162068$ & $0.00169539$\\
+$5$ & $[1/4,7109/28000]$ & $0.00040327$ & $0.00041325$\\
+$7$ & $[25/128,93/400]$ & $0.00056463$ & $0.00059051$\\
+$10$ & curved domain & $0.00313145$ & $0.00336572$\\
+\hline
+sum & & $0.00572003$ & $0.00606487$\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{proof}
+The profiles are evaluated with directed interval arithmetic. An independent
+verifier rechecks the directed output. Put
+$h_G=9/5000$, $p(s)=-\widehat F'(s)$, and let $d$ be the right-branch
+derivative profile for $\widehat f$, so $d(s)=\widehat f'(s)$ for $2<s<4$
+and $d(2)=1/2$ by continuous extension.
+The three one-dimensional rows each use 2048 equal cells:
+\[
+ x_k=a_j+\frac{k(b_j-a_j)}{2048}\qquad(0\le k\le2048).
+\]
+For a cell $[x_0,x_1]=[x_k,x_{k+1}]$, define
+\[
+ s_-=\frac{K-5x_1/2}{\alpha},\qquad
+ s_+=\frac{K-5x_0/2+h_G}{\alpha}.
+\]
+Since $D_F(s)=\int_0^{h_G/\alpha}p(s+t)\,dt$, the code's lower and upper
+cell contributions are exactly
+\begin{equation}\label{eq:app-h6-profile-negative-cells}
+ L=\frac{h_G}{\alpha^2}\frac{x_1-x_0}{x_1}p(s_+),\qquad
+ U=\frac{h_G}{\alpha^2}\frac{x_1-x_0}{x_0}p(s_-).
+\end{equation}
+These hold because $s_-\le (K-5x/2)/\alpha+t\le s_+$ for every
+$x\in[x_0,x_1]$ and $0\le t\le h_G/\alpha$; also $x_0\le x\le x_1$.
+
+For the fourth integral, split at
+\[
+ x_B=\frac{506848823}{2366940000}.
+\]
+On each piece $[a,b]$ of $[\mu_*,x_B]\cup[x_B,\lambda]$, the S10 routine uses
+$x_i=a+i(b-a)/96$ and $z_j=j/96$ for $0\le i,j\le96$.
+For a cell $[x_i,x_{i+1}]\times[z_j,z_{j+1}]$, with $0\le i,j<96$, put
+\[
+ b_0=B(x_i),\quad b_1=B(x_{i+1}),\quad
+ y_-=\alpha+(b_1-\alpha)z_j,\quad
+ y_+=\alpha+(b_0-\alpha)z_{j+1},
+\]
+\[
+ q_-=\frac{K-5x_{i+1}/2-y_+}{\alpha},\qquad
+ q_+=\frac{K-5x_i/2-y_-+h_G}{\alpha}.
+\]
+The substitution is $y=\alpha+(B(x)-\alpha)z$. Its executed lower and
+upper contributions are
+\begin{equation}\label{eq:app-h6-profile-positive-cells}
+ L=\frac{h_G}{\alpha^2}(x_{i+1}-x_i)(z_{j+1}-z_j)
+       \frac{b_1-\alpha}{x_{i+1}y_+}d(q_+),\qquad
+ U=\frac{h_G}{\alpha^2}(x_{i+1}-x_i)(z_{j+1}-z_j)
+       \frac{b_0-\alpha}{x_iy_-}d(q_-).
+\end{equation}
+For every point in this cell and $0\le t\le h_G/\alpha$,
+$q_-\le (K-5x/2-y)/\alpha+t\le q_+$, and
+\[
+ \frac{b_1-\alpha}{x_{i+1}y_+}
+ \le\frac{B(x)-\alpha}{xy}
+ \le\frac{b_0-\alpha}{x_iy_-}.
+\]
+Hence the two positive factors are bounded separately, as in the code.
+The two rectangular grids contain $2\cdot96^2$ cells. The total
+executed cell count is
+\[
+ 3\cdot2048+2\cdot96\cdot96=24576.
+\]
+
+The endpoint bounds use the following branch formulas. For $2<s<4$,
+\[
+ d(s)=\frac{s/(s-1)-\log(s-1)}{s^2}>0,\qquad
+ d'(s)=-\frac1{s(s-1)^2}
+       -\frac{2\{s/(s-1)-\log(s-1)\}}{s^3}<0.
+\]
+They extend continuously to $s=2$ with $d(2)=1/2$ and right derivative
+$d'_+(2)=-1$. Thus the branch profile is positive and decreasing on $[2,4]$.
+For positivity: the numerator decreases, and at $s=4$ it is
+$4/3-\log3>0$, since
+$e^{4/3}>1+4/3+(4/3)^2/2+(4/3)^3/6>3$. For $s>3$, put
+$A(s)=\widehat F(s)-\widehat f(s-1)$. Then
+\[
+ (sA(s))'=-s\,\widehat f'(s-1)<0,\qquad
+ p(s)=A(s)/s,\qquad
+ p'(s)=-2A(s)/s^2-\widehat f'(s-1)/s.
+\]
+At $s=3$ the two pieces give $p(3)=1/9$, so $p$ is continuous
+there; the displayed differential identities are used on $s>3$.
+The exact directed evaluation at
+$s_{\max}=73930107/16000000$ gives
+$A(s_{\max})>1597/100000>0$. Hence $A(s)>0$ throughout the required
+range $3<s\le s_{\max}$, and there $p>0$ and $p'<0$. For $s\le3$,
+$p(s)=1/s^2$ is also positive and decreasing. The S10 mixed-corner range is
+\[
+ \frac{17359415273}{7910400000}\le q_-\le q_+
+ \le\frac{57930107}{16000000}<4,
+ \qquad \frac{17359415273}{7910400000}>\frac{219}{100}.
+\]
+These inequalities justify using the decreasing positive $d$ in
+\eqref{eq:app-h6-profile-positive-cells}. The lower bound refers only to the
+executed mixed-corner interval.
+
+The code evaluates the formulas by rational geometry and 256-bit Arb
+ball arithmetic. In \texttt{profile\_direct.py}, logarithms use Arb's
+\texttt{log()} operation. Put $w=s-2$. The dilogarithm uses Arb's
+\texttt{polylog(2)} operation at the negative argument $-w$, together with
+$\pi^2/12$. These are the code's evaluations of
+\eqref{eq:app-h6-profile-functions}. By the Landen identity
+\[
+ \operatorname{Li}_2(-w)
+ =-\operatorname{Li}_2\!\left(\frac{w}{1+w}\right)
+  -\frac12\log^2(1+w),\qquad
+ \operatorname{Li}_2(1/2)+\frac12\log^22=\frac{\pi^2}{12}
+\]
+the Arb expression equals the displayed formula. Arb supplies
+outward ball enclosures. The code does not use the atanh and
+dilogarithm tail inequalities above. The exact directed rational
+endpoints are written to the result record. The terminating decimals in the
+table are outward projections of each row's directed endpoint. Their displayed
+column sums are $0.00572003$ and $0.00606487$. The sharper bound
+\eqref{eq:app-h6-profile-total} adds the unrounded rational endpoints
+in RESULT.json before decimal projection. Summing before rounding proves the stated
+integer comparisons. Finally, 64 terms of
+$\log3=2\sum_{n\ge0}2^{-(2n+1)}/(2n+1)$ and its geometric remainder give
+$\log3<10987/10000$. This proves \eqref{eq:app-h6-profile-strip}.
+\end{proof}
+
+Proposition~\ref{prop:app-h6-four-profiles} concerns elementary integrals and
+one strip coefficient. Its application to the prime sums requires the
+source comparisons, uniform errors and a single charge of the strip.
+
+
+\subsection{The shifted three-variable integral}\label{subsec:app-m5}
+
+Here \(F,f\) are the linear-sieve functions.
+Their normalization is
+\begin{equation}\label{eq:app-delay-functions}
+\begin{gathered}
+ F(s)=2e^\gamma/s\quad(1\le s\le3),\qquad f(s)=0\quad(s\le2),\\
+ (sF(s))'=f(s-1)\quad(s>3),\qquad(sf(s))'=F(s-1)\quad(s>2),\\
+ 0\le f\le1\le F,\qquad f\text{ is nondecreasing}.
+\end{gathered}
+\end{equation}
+These classical properties are the inputs to this calculation.
+Put \(u=1/500\), \(\mu_*=25/128\) and \(h_G=9/5000\).
+Define
+\begin{equation}\label{eq:app-six-branch}
+\begin{aligned}
+ v_1(s)&=\min\left(\frac{1+s}{2},\frac{32-34s}{39},
+                         \frac{57}{64}-\frac{3s}{2}\right),&
+ v(s)&=v_1(s)-u,\\
+ \psi(x,y)&=\begin{cases}x,&x\ge y,\\-\infty,&x<y,\end{cases}\\
+ \Theta_*(x,y,z)&=\max\{v(x),v(y),v(x+y),v(x+y+z),\\
+ &\hspace{2.7em}\psi(v(x+z),x+2y+z),
+               \psi(v(y+z),2x+y+z)\}.
+\end{aligned}
+\end{equation}
+The unguarded branches include \(v(x)>0\) for \(u\le x\le\mu_*\).
+Thus replacing the inactive value \(-\infty\) by \(0\)
+leaves this maximum unchanged.
+For \(d=0,h_G\), put
+\begin{equation}\label{eq:app-G-functional}
+\begin{aligned}
+ J_d&=\int_{u\le z\le y\le x\le\mu_*}
+ \frac{1-f((\Theta_*(x,y,z)+d-x-y-z)/z)}{xyz^2}
+ \,dx\,dy\,dz,\\
+ H_{\log}&=\log(\mu_*/u),\\
+ R_{\mathrm{up}}&=500(F(30)-1)+500H_{\log}(1-f(30))
+                   +250H_{\log}^2(F(30)-1),\\
+ \mathcal G_d&=1/\mu_*+R_{\mathrm{up}}+J_d.
+\end{aligned}
+\end{equation}
+The unshifted $d=0$ profile and functional come from
+\cite[(4.70)--(4.75)]{PaperII}. The parameter $d$ and the shifted functional
+$\mathcal G_d$ are defined in this paper. The retained-side argument uses the
+instance $d=h_G$, constructed in
+\eqref{eq:retB-G-use}. Paper~II's (5.4)--(5.5) are not the source of this
+shifted functional.
+
+\begin{proposition}\label{prop:app-m5-cap}
+The shifted scalar satisfies
+\begin{equation}\label{eq:app-m5-cap}
+ 0\le\mathcal G_{h_G}\le U_h<\frac{6073714261}{10^9}.
+\end{equation}
+Let \(F_h^+\ge F(30)\), \(f_h^-\le f(30)\),
+and \(H_h^+\ge H_{\log}\) be the directed table endpoints.
+Define
+\begin{equation}\label{eq:app-directed-tail}
+\begin{aligned}
+ \mathcal R(X,Y,Z)&=500(X-1)+500Z(1-Y)
+                             +250Z^2(X-1),\\
+ R_h&=\mathcal R(F_h^+,f_h^-,H_h^+),\\
+ U_h&=1/\mu_*+R_h+J_h^+.
+\end{aligned}
+\end{equation}
+The construction has \(F_h^+\ge1\), \(f_h^-\le1\).
+Thus \(R_{\mathrm{up}}\le R_h\). This directed endpoint comparison is the
+monotonicity step of \cite[\S4.6, (4.73)]{PaperII}.
+Table~\ref{tab:app-m5} encloses these finite upper bounds.
+The constants $K_{\mathrm{hi}}$ and $L_{G1}$ are printed exactly in
+\eqref{eq:retB-exact-Khi} and \eqref{eq:retB-exact-LG1}, with their
+Paper~II locators.
+The normalization identities are
+\begin{equation}\label{eq:app-m5-normalization}
+\begin{aligned}
+ M_{5,\mathrm{internal}}
+ &=-K_{\mathrm{hi}}\frac{6073714261}{10^9}-L_{G1},\\
+ M_{5,\mathrm{internal}}+
+ K_{\mathrm{hi}}\left(\frac{6073714261}{10^9}-U_h\right)
+ &=-K_{\mathrm{hi}}U_h-L_{G1}.
+\end{aligned}
+\end{equation}
+\end{proposition}
+
+\begin{table}[ht]
+\centering\small
+\caption{Directed bounds for the shifted profile with $n_{\mathrm{mesh}}=512$.}
+\label{tab:app-m5}
+\begin{tabular}{@{}lll@{}}
+\hline
+Quantity & lower endpoint & upper endpoint\\
+\hline
+\(R_h\) & \(0.000004373236955\) & \(0.000004373236956\)\\
+\(J_h^+\) & \(0.953709886776891\)
+ & \(0.953709886776892\)\\
+\(U_h\) & \(6.073714260013847\)
+ & \(6.073714260013848\)\\
+\(6073714261/10^9-U_h\)
+ & \(0.000000000986152\)
+ & \(0.000000000986153\)\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{proof}
+For the outer partition put \(n=512\), \(x_0=u\), \(x_n=\mu_*\), and
+\begin{equation}\label{eq:app-m5-mesh}
+ x_i=2^{-48}\left\lfloor2^{48}
+       \left(u+(\mu_*-u)\sqrt{i/n}\right)\right\rfloor
+       \quad(1\le i<n).
+\end{equation}
+It is strictly increasing.
+For the inner integral write
+\begin{equation}\label{eq:app-inner}
+ g_d(x,y)=\int_u^y
+ \frac{1-f((\Theta_*(x,y,z)+d-x-y-z)/z)}{z^2}\,dz.
+\end{equation}
+Each branch residual decreases in \(x,y\).
+Each guard's active set is a down-set.
+Thus \(g_d\) is nondecreasing in \(x,y\),
+guard jumps included.
+
+Let \(w_i\) be an outward upper bound for
+\(\log(x_i/x_{i-1})\), on the \(2^{-128}\) lattice.
+Let \(v_{ij}\) enclose \(g_{h_G}(x_i,x_j)\) upwards
+on that lattice.
+The diagonal cell has half the logarithmic square's area.
+Hence
+\begin{equation}\label{eq:app-upper-corners}
+ J_{h_G}\le J_h^+
+ =\sum_{i=1}^n w_i\left(
+ \sum_{j<i}w_jv_{ij}+\frac12w_iv_{ii}\right).
+\end{equation}
+
+Split the inner interval at every affine crossing.
+Include every guard crossing and each branch kink.
+On each resulting interval the argument is \(A/z+B\).
+If \(\Phi(t)=\int_1^t(1-f(s))\,ds\), then
+\begin{equation}\label{eq:app-inner-primitive}
+ \int_p^q\frac{1-f(A/z+B)}{z^2}\,dz
+ =\frac{\Phi(A/p+B)-\Phi(A/q+B)}{A}
+ \quad(A\ne0).
+\end{equation}
+The trivial bound is \(1/p-1/q\).
+The smaller of the two upper bounds may be used.
+For \(A=0\), the argument is constant.
+
+The delay equations give the primitive explicitly:
+\begin{equation}\label{eq:app-Phi}
+ P(t)=\frac{tF(t)}{2e^\gamma},\qquad
+ \Phi(t)=t-1-2e^\gamma(P(t+1)-1)\quad(t\ge0).
+\end{equation}
+For \(t\ge30\), monotonicity gives
+\begin{equation}\label{eq:app-Phi-tail}
+ \Phi(30)\le\Phi(t)
+ \le\Phi(30)+(t-30)(1-f(30)).
+\end{equation}
+We bound the trapezoid error. If $g$ is either $F$ or $f$ and
+$[a,a+h_0]\subset[1,30]$ is one mesh panel, then
+\begin{equation}\label{eq:app-trapezoid-remainder}
+ \int_a^{a+h_0}g(s)\,ds-
+ {h_0\over2}\bigl(g(a)+g(a+h_0)\bigr)
+ =-{h_0^3\over12}g''(\xi),
+ \qquad a<\xi<a+h_0,
+\end{equation}
+with one-sided interpretations at the integer breakpoints. The mesh has
+$h_0=1/65536$ and every breakpoint is a mesh node. We prove the derivative
+bound independently of the quadrature table. Write $C=2e^\gamma$. The
+elementary inequality $\gamma\le H_6-\log6$ and the first three positive
+terms of the atanh series give
+\[
+ \log2>\frac{842}{1215},\qquad \log3>\frac{263}{240},\qquad
+ \gamma<\frac{12853}{19440}<\frac23<\log2.
+\]
+Thus $0<C<4$ and $\log2<1$. The defining functions satisfy
+\[
+ F(s)=C/s\ (1\le s\le3),\quad
+ f(s)=0\ (1\le s\le2),\quad f(s)=C\log(s-1)/s\ (2<s\le3),
+\]
+\[
+ sF(s)=C+\int_1^{s-1}f(t)\,dt,\qquad
+ sf(s)=\int_1^{s-1}F(t)\,dt\quad(s>3).
+\]
+Induction on unit intervals gives $0\le F,f\le C$. If the delayed
+functions are in this range, the integrals have length $s-2$, so
+$F(s)\le C(s-1)/s\le C$ and $f(s)\le C(s-2)/s\le C$.
+For either companion pair $(g,h)=(F,f)$ or $(f,F)$, differentiating on
+open unit intervals gives
+\[
+ g'(s)=\frac{h(s-1)-g(s)}s,\qquad
+ g''(s)=\frac{h'(s-1)}s+
+        \frac{2(g(s)-h(s-1))}{s^2}\quad(s>3).
+\]
+For $f$, the first-derivative delay identity holds already for $t>2$.
+For $F$ on $2<t<3$, use $F'(t)=-C/t^2$. Hence
+$|F'(t)|,|f'(t)|\le C/t$ for $t>2$. Since $g(s),h(s-1)\in[0,C]$, for $s>3$
+\[
+ |g''(s)|\le\frac{C}{s(s-1)}+\frac{2C}{s^2}
+ \le\frac{7C}{18}<\frac{14}{9}<12.
+\]
+On the initial intervals,
+\[
+ F''(s)=2C/s^3\ (1<s<3),\quad f''(s)=0\ (1<s<2),
+\]
+\[
+ f''(s)=C\left(\frac{2\log(s-1)}{s^3}
+       -\frac1{s(s-1)^2}-\frac2{s^2(s-1)}\right)\ (2<s<3).
+\]
+The formulas imply $0\le F''\le8$ on $[1,2]$,
+$0\le F''\le1$ on $[2,3]$, and $-4\le f''\le\log2<1$ on $[2,3]$.
+Inside the last parentheses each negative term has magnitude at most
+$1/2$. The positive term is at most $\log2/4$. Therefore
+$|g''|\le8<12$ on all smooth panel interiors of $[1,30]$, with one-sided
+limits at the integer breakpoints.
+
+The archived outward intervals and the independently computed exact rational
+intervals are recorded with the reproducibility materials. The derivative
+check starts from the proved invariant and then rebuilds the delay table.
+It checks every computed unit-interval enclosure against the archived coarse
+intervals. It confirms that the computed global bound is $\le12$, the
+recorded value:
+\[
+\begin{array}{c|cc}
+\text{range}&F''&f''\\ \hline
+[1,2]&[0,8]&[0,0]\\
+{}[2,3]&[-8,8]&[-4,4]\\
+{}[3,30]&[-12,12]&[-12,12]
+\end{array}
+\]
+The computed bound is 8. Hence the absolute local remainder is at most
+$8h_0^3/12=(2/3)h_0^3\le h_0^3$. The verifier checks this radius
+against the $h_0^3$ panel allowance before it accepts the regenerated
+table.
+The M5 computation builds the delay table with \texttt{DEN=65536},
+\texttt{S=128}, 160-bit Arb
+interval arithmetic, and 1,900,545 generated nodes. The shifted computation
+then evaluates the exact \(n_{\mathrm{mesh}}=512\) triangular
+grid, with \(512\cdot513/2=131,328\) inner-grid evaluations. It stores
+one aggregated row per outer index. Hence \texttt{SHIFT-N512-fresh.json} contains 512
+rows for the 131,328 evaluations.
+The M5 computation uses no Taylor model and no width-\(1/32\) step.
+The historical Taylor certificate provides background information and is not an input to this calculation. The table and
+shifted rows are regenerated before the directed inclusion check. The
+verifier compares recorded JSON fields and exact row values. It also checks
+SHA-256 hashes of the canonical compact-JSON integer arrays used by the
+real-inclusion verifier. These canonical-array hashes differ from hashes
+of regenerated JSON files. File formatting is not used as a certificate.
+Directed summation gives Table~\ref{tab:app-m5}.
+The positive last row proves the strict cap. The 512 aggregated rows give the exact 131328-term sum
+used for \(J_h^+\). The directed real-inclusion result records the directed
+tail and the cap check. The reproducibility report documents the execution
+boundary.
+The two normalization identities follow by expansion.
+\end{proof}
+
+The proposition concerns the scalar functional only.
+The prime-sum comparison is required separately in Section~\ref{sec:retained-side}.
+
+\subsection{Unshifted comparison (historical and not used)}\label{subsec:app-g24}
+
+\paragraph{Status: historical and non-certified.}
+This historical unshifted comparison records an earlier \(n=8192\) calculation for
+context only. No current computation reproduces it. None of its values,
+table, constants or comparison is an input to the main proof.
+The comparison concerns the unshifted functional
+$G_*:=\mathcal G_0$. It is distinct from the main-line coefficient bound
+$G_0=6088440363/10^9$. The main K2 and L3 comparisons use the latter
+via \cite[(4.73), (4.75), (4.79), (A.10a)]{PaperII}. They do not use
+$U_0$. The cited bound $G_*\le G_0$ is the coefficient used in the main
+argument. It does not assert the separate, sharper $G_*\le U_0$ comparison.
+This appendix proves that comparison only conditionally, as an optional one.
+Its historical delay table was constructed separately, but no such table or
+producer is part of the current proof package.
+The panel width is \(h_0=1/65536\).
+At 192-bit precision, each trapezoid receives radius \(h_0^3\).
+On smooth panel interiors, \(|F''|,|f''|<12\).
+The panels meet the integer breakpoints.
+This bounds each local truncation remainder. The endpoint enclosures
+pass through the delay recursion in Arb ball arithmetic.
+Accumulated input radii are thus kept before outward rounding.
+All table endpoints are then rounded outwards to \(2^{-128}\).
+The primitive and true tail use \eqref{eq:app-Phi-tail}.
+This table gives a historical directed bound for \(R_{\mathrm{up}}\).
+It is kept only to reproduce the earlier non-certified calculation.
+The separate earlier Taylor models are not part of the M5 computation.
+Let \(F_0^+\ge F(30)\), \(f_0^-\le f(30)\),
+and \(H_0^+\ge H_{\log}\) be these directed endpoints.
+Define
+\begin{equation}\label{eq:app-unshifted-tail}
+ R_0=\mathcal R(F_0^+,f_0^-,H_0^+)
+ \ge R_{\mathrm{up}}.
+\end{equation}
+The earlier finite calculation used \(n=8192\) in
+\eqref{eq:app-m5-mesh}.
+The outer sum has \(n(n+1)/2=33558528\) nodes.
+Write \(J_0^+\) for that upper-corner sum.
+Table~\ref{tab:app-g24-rows} groups its eight consecutive row ranges.
+Each row lists a lower and upper bound for the sum.
+The diagonal half-weights are already included.
+
+\begin{table}[ht]
+\centering\small
+\caption{Historical non-certified contributions to the unshifted sum.}
+\label{tab:app-g24-rows}
+\begin{tabular}{@{}rrrr@{}}
+\hline
+Rows & nodes & lower endpoint & upper endpoint\\
+\hline
+\(1\)--\(1024\)&524800&0.000002727813799350&0.000002727813799351\\
+\(1025\)--\(2048\)&1573376&0.001226034866061399&0.001226034866061400\\
+\(2049\)--\(3072\)&2621952&0.019651743682986805&0.019651743682986806\\
+\(3073\)--\(4096\)&3670528&0.080548405705743750&0.080548405705743751\\
+\(4097\)--\(5120\)&4719104&0.146720281588383935&0.146720281588383936\\
+\(5121\)--\(6144\)&5767680&0.200161682376550457&0.200161682376550458\\
+\(6145\)--\(7168\)&6816256&0.242188572133550572&0.242188572133550573\\
+\(7169\)--\(8192\)&7864832&0.275672089024516687&0.275672089024516688\\
+\hline
+\end{tabular}
+\end{table}
+
+The earlier, non-certified calculation reported
+\begin{equation}\label{eq:app-g24-numbers}
+\begin{aligned}
+ J_0^+&<0.966171537191592960294580903427,\\
+ R_0&<0.000004373236943357822206406687,\\
+ U_0&=1/\mu_*+R_0+J_0^++\frac1{2\cdot10^{85}}\\
+ &\in[6.086175910428536318116787310112545656706640625,\\
+ &\hspace{2.4em}6.086175910428536318116787310112545656706640626].
+\end{aligned}
+\end{equation}
+The term \(1/(2\cdot10^{85})\) bounds directed outer-sum rounding.
+The shifted computation does not use this interval.
+The comparison with the continuous functional is one-sided:
+\begin{equation}\label{eq:app-g24-inclusion}
+ \text{Historical comparison (not certified): }G_* = \mathcal G_0\le U_0.
+\end{equation}
+No claim $2e^{-\gamma}U_0\le c$ follows from the printed interval.
+The finite row sums alone prove no prime-sum estimate.
+The source comparison and its error terms remain required.
+
+\subsection{The sixth-sum constant}\label{subsec:app-roota}
+
+The certified finite enclosure is
+\begin{equation}\label{eq:app-roota-enclosure}
+ \mathfrak g_{\mathrm{RA}}
+ \in[0.0989598353353,\ 0.0989598353355].
+\end{equation}
+Here \(\mathfrak g_{\mathrm{RA}}\) denotes the integral quantity
+in Section~\ref{sec:root-a}.
+The constant used in the final bound is
+\begin{equation}\label{eq:app-roota-floor}
+ g_{\mathrm{RA,lo}}=
+ \frac{989598353}{10^{10}}=0.0989598353.
+\end{equation}
+Thus the certified enclosure gives
+\begin{equation}\label{eq:app-roota-comparison}
+ \frac{7499}{9999}
+ \left(J_J(1/2)-J_J(5227/10000)\right)
+ -\frac{5106819}{31557955000}
+ =\mathfrak g_{\mathrm{RA}}>g_{\mathrm{RA,lo}}.
+\end{equation}
+Only this conservative lower constant enters the final bound.
+
+\subsection{Computer checks}\label{subsec:app-checks}
+
+Table~\ref{tab:app-checks} lists the supplementary scripts.
+The second column states what each one checks.
+The partitions and defining formulas are printed above.
+The exact-arithmetic checks use Python's integer and fraction types.
+Environment and timing details are recorded in the reproducibility
+materials. They are not theorem inputs.
+A full numerical regeneration is distinguished from a compact check.
+The certificate bundle is available at the location given in the
+Data availability statement; its SHA-256 manifest hash is
+\texttt{81fc00441c3a3f0924995cd41263feddece827d9b40376dae531191c86f90ed3}.
+The recorded M5 regeneration agrees with the exact 512-row certificate.
+The reproducibility certificate set is independent. It consists of the H6
+\texttt{RESULT.json}, the 512-row M5 output, the Root--A enclosure, and the
+verifier scripts for those records. Each record is checked against the source
+hashes and the manifest. None replaces an analytic estimate.
+
+\begin{center}\footnotesize
+\begin{minipage}{\textwidth}\centering
+\captionof{table}{Scripts and finite checks.}\label{tab:app-checks}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{.25\textwidth}>{\raggedright\arraybackslash}p{.54\textwidth}>{\raggedleft\arraybackslash}p{.09\textwidth}}
+Script & Statements checked & Time\tabularnewline\hline
+\noalign{\vskip 2pt}
+\shortstack[l]{Reproducibility\\replay verifier}
+& manifests, source hashes, TeX structure, finite consistency checks,
+ and the producer verification run
+ & replay\tabularnewline
+\shortstack[l]{H6/M5 producer\\verification}
+ & executes the H6 computation and M5 $n_{\mathrm{mesh}}=512$ table, shifted probe
+ and real-inclusion verifier, computing the derivative enclosure and comparing
+ regenerated outputs
+ & replayed\tabularnewline
+\shortstack[l]{H6 directed\\verifier}
+ & regenerates the directed H6 rows from the source inputs and Arb runtime
+ & replayed\tabularnewline
+\shortstack[l]{M5 derivative\\verifier}
+ & exact rational unit-interval bounds for $F''$ and $f''$ and the panel radius
+ & replayed\tabularnewline
+\shortstack[l]{M5 table, shift and\\inclusion verifiers}
+ & regenerates the $DEN=65536$ delay table, $n_{\mathrm{mesh}}=512$ rows, and real inclusion
+ & replayed\tabularnewline
+\shortstack[l]{Finite consistency\\verifier}
+ & exact finite arithmetic, orbit, and sign checks for the patches
+ & replayed\tabularnewline
+\end{tabular}
+\end{minipage}
+\end{center}
+
+The reproducibility verifier checks the recorded inputs and then runs the
+producer verification.
+That run regenerates the H6 output, the M5 delay table, the shifted rows
+and the real inclusion on the recorded platform.
+The earlier unshifted calculation used Python~3.12.3
+and python-flint~0.9.0, with four workers.
+Its slowest worker took \(7639\) seconds, rounded upwards.
+The historical unshifted comparison is optional and not certified.
+The main proof does not use it, and it does not affect the shifted
+computation.
+Neither these scripts nor their agreement establishes a uniform estimate.
+The final proof requires the analytic comparisons in Sections~\ref{sec:retained-side}--\ref{sec:l3}.
+
+\subsection{Rows of the retained side}\label{subsec:app-retB-rows}
+
+The index set $\mathcal I$ of Section~\ref{sec:retained-side} consists of
+Paper~II's nineteen original row chains and one outer chain. The outer
+chain $\mathrm{T5}$ covers the upper part of $S_5$, Lemma~5.1. Sixteen of the row
+chains are listed below, each
+with its source parent and raw coefficient. The remaining three are
+Paper~II's single-prefix comparisons for $S_3$, $S_8$ and $S_9$. They keep
+Paper~II's own sources, restorations and error entries unchanged.
+The four rows of $\mathcal H$ are restored to their parents
+$S_4$, $S_5$, $S_7$ and $S_{10}$. The lower part of $S_5$ has no separate
+restoration address. The four joint rows are restored once to
+the joint source of $G_1$ with weights $(2,1,1)$.
+\begin{center}
+\small
+\begin{tabular}{@{}llr|llr@{}}
+\hline
+Row & Parent & Coefficient & Row & Parent & Coefficient\\
+\hline
+S1-0 & S1 & $3$ & S4 & S4 & $-1$\\
+S1-1 & S1 & $-3$ & S5-low & S5 & $-1$\\
+S1-2 & S1 & $3$ & S7 & S7 & $-1$\\
+S1-3 & S1 & $-3$ & S10-Ret & S10 & $1$\\
+S2-0 & S2 & $1$ & G1-0 & G1 $(2,1,1)$ & $-1$\\
+S2-1 & S2 & $-1$ & G1-1 & G1 $(2,1,1)$ & $1$\\
+S2-2 & S2 & $1$ & G1-2 & G1 $(2,1,1)$ & $-1$\\
+S2-3 & S2 & $-1$ & G1-3 & G1 $(2,1,1)$ & $1$\\
+\hline
+\end{tabular}
+\end{center}
+These sixteen rows, their seven source-parent restorations and four outer
+terms carry $91$ error addresses. Each address occurs exactly once. One
+outer term is the chain $\mathrm{T5}$. The others are the strict BV piece of
+$S_2$, inside its joint group, and two $G_1$ comparator entries. The
+same table has seven further rows with $38$ addresses. They treat
+$S_3$, $S_8$ and $S_9$ another way, and this paper does not use them.
+\subsection{Statements for the sixth sum}\label{subsec:app-ra-rows}
+
+The sixth-sum argument uses the following statements.
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.96\textwidth}@{}}
+\hline
+Statement\\
+\hline
+Lemma~6.2 (rough-factor distribution)\\
+Lemma~6.4 (four-family Siegel--Walfisz); range \(N^{1/3}/8\le H\)\\
+Lemmas~6.6 and~6.7 (selector and tensor, applied per shell pair)\\
+Lemma~6.5 (transferred mean square)\\
+Lemma~6.8 (two-factor convolution)\\
+Lemma~6.9 (central rectangles)\\
+Proper powers, (6.26)\\
+Fact~3.2 (maximal prime estimates)\\
+Paper~I, (2.21), as used in Paper~I, (3.25)\\
+\hline
+\end{tabular}
+\end{center}

@@ -1,0 +1,397 @@
+\section{Introduction}\label{sec:introduction}
+
+We represent large even integers by two primes and one factor.
+Write $\mathbb P$ for the primes.
+Chen's theorem represents every sufficiently large even integer as a prime
+plus an integer with at most two prime factors
+\cite{Chen2002}. Paper~II supplies the quantitative smaller-factor starting
+point and the signed sieve sums used here. We change the exterior and
+switched coefficients and add retained and sixth-sum gains.
+Table~\ref{tab:intro-components} lists their separate costs.
+We use the terminology Proposition $(1+a)$ introduced by Li and Liu
+\cite[p.~2, (1.6)]{LiLiu2026}.
+Runbo Li proved lower bounds for $D_{1,2}(N)$
+\cite{RunboLi2024}; we do not use that result.
+
+Cai established a small-prime variant of Chen's theorem \cite{Cai2002}.
+Wu developed Chen's double sieve for Goldbach and twin-prime problems
+\cite{Wu2004}. His later paper continues this double-sieve program
+\cite{Wu2008}. Lichtman modified the linear sieve and studied bounds for the
+twin-prime counting function \cite{Lichtman21}. He also proved results on
+large-modulus distribution and Goldbach beyond the square-root barrier
+\cite{Lichtman23}. Maynard's first paper proves large-modulus estimates for
+fixed residue classes \cite{MaynardI}. His second gives well-factorable
+estimates in that setting \cite{MaynardII}. His third treats estimates
+uniform over residue classes \cite{MaynardIII}. Pascadi studies exponents of
+distribution for primes and smooth numbers \cite{Pascadi25}. Li and Liu
+proved Proposition $(1+1.9)$, with a lower bound for $D_{1,1.9}(N)$
+\cite[Theorem~1.1]{LiLiu2026}. The present proof does not use their
+estimates.
+
+\begin{theorem}[Representation theorem]\label{thm:main}
+Let $\sigma_*$ be a rational number
+satisfying \eqref{eq:bill-sigma}, and let $N_0^*(\sigma_*)$ be the
+threshold \eqref{eq:not-common-threshold}. Then every even
+$N\ge N_0^*(\sigma_*)$ admits
+\begin{equation}\label{eq:intro-target}
+ N=p+rq,\qquad p,q\in\mathbb P,\qquad
+ r\in\{1\}\cup\mathbb P,\qquad r\le q^{a-1}=q^{3/4}.
+\end{equation}
+\end{theorem}
+Section~\ref{sec:retained-side} proves the retained comparison \textup{(A1)}
+of Table~\ref{tab:intro-inputs}.
+Section~\ref{sec:root-a} proves the sixth-sum estimate \textup{(A2)}.
+Section~\ref{sec:k2} proves the exterior comparison \textup{(A3)}.
+Section~\ref{sec:l3} proves the switched comparison \textup{(A4)}. The constant bounds \textup{(A5)} follow from the
+cited Paper~I and Paper~II estimates, including Paper~I,
+Theorem~2.6, (2.31) \cite[Theorem~2.6, (2.31)]{PaperI}.
+Hence a rational $\sigma_*$ as in the theorem exists;
+$N_0^*(\sigma_*)$ may be ineffective.
+
+The proof uses Paper~I,
+\cite[Theorems~2.6, 2.8, 3.2 and~4.1]{PaperI}, and Paper~II,
+\cite[(1.7)--(1.12), (6.4)--(6.4d)]{PaperII}.
+We restate each input below with its precise scope.
+
+\subsection{A positive count}
+
+Put
+\begin{equation}\label{eq:intro-exponents}
+ \varepsilon=\frac1{10000},\qquad a=\frac74,\qquad
+ b=\frac37-\frac1{10^6}=\frac{2999993}{7000000}.
+\end{equation}
+Define
+\begin{equation}\label{eq:intro-count}
+\begin{aligned}
+ \mathcal A_N&=\{N-p:p\in\mathbb P,\ p<(1-\varepsilon)N\},\\
+ \mathcal P_b&=\mathbb P\cup
+      \{rq:r,q\in\mathbb P,\ r\le q,\ r<N^b\},\\
+ G_b(N)&=\#(\mathcal A_N\cap\mathcal P_b).
+\end{aligned}
+\end{equation}
+For a counted semiprime,
+\begin{equation}\label{eq:intro-transfer}
+\begin{gathered}
+ q>\varepsilon N^{1-b},\\
+ q^{3/4}>\varepsilon^{3/4}N^{b+\kappa_{\mathrm{tr}}}\ge N^b>r
+ \qquad(N\ge N_{\mathrm{tr}}).
+\end{gathered}
+\end{equation}
+The transfer parameters are defined in \eqref{eq:not-transfer-parameters},
+and Lemma~\ref{lem:bill-transfer} proves \eqref{eq:intro-transfer}.
+A counted prime gives $r=1$.
+Hence $G_b(N)>0$ implies \eqref{eq:intro-target}.
+
+Use Paper~II's normalization in \eqref{eq:not-normalization}
+\cite[(1.2), \S6.1]{PaperII}.
+The convergent product gives $C_2>0$.
+Thus $W(N)>0$.
+
+\subsection{The comparisons}
+
+Use the sums of Paper~II \cite[(1.7)--(1.11)]{PaperII}.
+Put
+\begin{equation}\label{eq:intro-source}
+\begin{aligned}
+ R={}&3S_1-2S_3-S_4-S_5-S_7+S_8+S_9+S_{10}
+              -2S_{11}-S_{12}-S_{13},\\
+ \Sigma_W={}&R+S_2-S_6-S_{\mathrm{sw}},\\
+ B_b(N)={}&\sum_{\substack{r,q\in\mathbb P\\
+              N^b\le r\le\sqrt N\\\varepsilon N<rq<N}}
+                       1_{N-rq\in\mathbb P}.
+\end{aligned}
+\end{equation}
+Here $S_2$ is the complete Paper~II sum.
+All original coprimality conditions remain imposed.
+The last sum counts each eligible ordered prime pair; both orientations are counted only when both satisfy the displayed cutoff, and a square is counted once.
+Here $R=R_{\mathrm{fix}}$ and $\Sigma_W=\mathcal W$
+in Section~\ref{sec:source-decomposition}.
+
+Write $\overline J_6$ for Paper~II's sixth upper endpoint
+\cite[(6.1), (6.3a)]{PaperII}.
+For the optional sharper arithmetic comparison, record
+\begin{equation}\label{eq:intro-exterior-constant}
+ \begin{gathered}
+ I(b)=\log\frac{1-b}{b},\\
+ c=\frac{6834282367132846348358930380956825846442683629}{10^{45}}.
+ \end{gathered}
+\end{equation}
+Both the exterior and switched comparisons use the common coefficient
+\begin{equation}\label{eq:intro-fallback-constant}
+ c_{K2,G0}=\frac{6836825163875517756286846321650754372931094689}{10^{45}}.
+\end{equation}
+Its definition and source comparison are \eqref{eq:k2-certificate}
+and \eqref{eq:k2-final-fixed-sigma}.
+Put
+\begin{equation}\label{eq:intro-components}
+\begin{aligned}
+ D_{\mathrm{II}}&=\frac{45849916338009170593}{25000000000000000000},\\
+ \overline H&=\frac{389253}{5000000},\\
+ M_{5,\mathrm{internal}}&=-K_{\mathrm{hi}}\frac{6073714261}{10^9}-L_{G1},\\
+ g_{\mathrm{RA,lo}}&=\frac{989598353}{10^{10}},\\
+ \Delta D_{L3}&=\left(2-\frac{c_{K2,G0}}4\right)\overline H.
+\end{aligned}
+\end{equation}
+The two mass constants are
+\begin{equation}\label{eq:intro-G1-constants}
+\begin{aligned}
+ K_{\mathrm{hi}}&=
+ \frac{3989480791070578466390443009830933753748442947478110112223}{10^{58}},\\
+ L_{G1}&=-\frac{243950428265194656254206921939947762868871361874409552095097}
+ {100433627766186892221372630771322662657637687111424552206336}.
+\end{aligned}
+\end{equation}
+These are Paper~II, (A.10d) and (4.84), respectively
+\cite[(A.10d), (4.84)]{PaperII}.
+The constant $\overline H$ bounds the switched integral.
+It differs from the packing ceiling $153/256$.
+The exact rational $c_{\mathrm{O1}}$ is
+\eqref{eq:l3-exact-certificate-constant},
+with Table~\ref{tab:l3-certificate-integers}.
+It and $c$ belong to the optional certificate comparison only;
+neither is used to price the main count.
+The sixth-sum comparison uses the certified floor $g_{\mathrm{RA,lo}}$.
+The integral gain is denoted $\mathfrak g_{\mathrm{RA}}$, with certified
+enclosure $[0.0989598353353,0.0989598353355]$ in
+Section~\ref{sec:root-a}. Thus $g_{\mathrm{RA,lo}}$ is rational and
+$g_{\mathrm{RA,lo}}\le\mathfrak g_{\mathrm{RA}}$. It is neither the integral nor its central estimate.
+
+The required comparisons are
+\begin{equation}\label{eq:intro-comparisons}
+\begin{aligned}
+ 4G_b(N)&\ge\Sigma_W-4B_b(N)-W(N)E_{\mathrm{exc}}(N),\\
+ \frac{R+S_2}{W(N)}&\ge D_{\mathrm{II}}+\overline J_6
+          +2\overline H+\frac{5719}{10^6}\\
+ &\qquad+M_{5,\mathrm{internal}}-E'(N;\sigma),\\
+ \frac{S_6}{W(N)}&\le\overline J_6-g_{\mathrm{RA,lo}}
+                                  +E_{\mathrm{RA}}(N;\sigma),\\
+ \frac{S_{\mathrm{sw}}}{W(N)}&\le
+           \frac{c_{K2,G0}}4\overline H
+                                  +E_{\mathrm{sw}}(N;\sigma).
+\end{aligned}
+\end{equation}
+These errors are nonnegative by \eqref{eq:retB-goal},
+\eqref{eq:ra-b11-floor} and \eqref{eq:l3-remainder}; the first includes the
+inherited envelope $E_{\mathrm{van}}$.
+Use the following error identifications:
+\begin{equation}\label{eq:intro-error-identifications}
+\begin{aligned}
+ E_{\mathrm{exc}}(N)&=\frac{4E_{\mathrm{pt}}(N)}{W(N)},\\
+ E_{\mathrm{sw}}(N;\sigma)&=C_{\mathrm{sw}}\sigma
+                     +P_{\mathrm{sw}}\sigma^9+V_{\mathrm{sw}}(N;\sigma).
+\end{aligned}
+\end{equation}
+Here $E_{\mathrm{pt}}$ is \eqref{eq:source-pointwise-error}.
+The switched quantities are \eqref{eq:l3-price} and \eqref{eq:l3-remainder}.
+Their estimates form input \textup{(A4)}.
+The retained error includes the conversion errors:
+\begin{equation}\label{eq:intro-retained-error}
+\begin{aligned}
+ E'(N;\sigma)={}&E_{\mathrm{van}}(N;\sigma)
+ +\sum_{j\in\mathcal H}\bigl(|\Lambda^0_{j,N}|+|\Lambda_{j,N}|\bigr)\\
+ &+|\Lambda_{G,N}|.
+\end{aligned}
+\end{equation}
+The row set $\mathcal H$ is defined in \eqref{eq:retB-goal}.
+Its two qualified labels denote $S_5$'s lower part and retained $S_{10}$.
+The inherited error $E_{\mathrm{van}}$ is \eqref{eq:retB-base-errors};
+the saved-array contribution $\Lambda^0_{j,N}$ is included once,
+as in \eqref{eq:retB-goal}.
+The differences $\Delta_j$ are \eqref{eq:retB-H6-gains}.
+The conversion arrays are \eqref{eq:retB-direct-Lambda}
+and \eqref{eq:retB-G-array}; the equivalent notation
+$\Lambda_{j,N}=\Lambda_N(\Delta_j)$ and
+$\Lambda_{G,N}=\Lambda_N(\Delta_{G_1})$ is fixed in
+\eqref{eq:retB-Lambda-alias}.
+The saved-array identifications and conversion bounds are proved in
+Section~\ref{sec:retained-side}, as part of \textup{(A1)}.
+The two finite integral bounds are
+Propositions~\ref{prop:app-h6-four-profiles} and~\ref{prop:app-m5-cap}.
+
+The exterior estimate required is
+\begin{equation}\label{eq:intro-exterior}
+ -\frac{4B_b(N)}{W(N)}\ge-c_{K2,G0}I(b)-E_K(N;b,\sigma),
+ \qquad E_K(N;b,\sigma)\ge0.
+\end{equation}
+Its convolution input is Paper~II,
+\cite[Lemma~5.1, (5.44)--(5.52)]{PaperII}.
+
+Define the constant by
+\begin{equation}\label{eq:intro-DB}
+ \boxed{\begin{aligned}
+ D_B={}&D_{\mathrm{II}}+\frac{5719}{10^6}
+                  +M_{5,\mathrm{internal}}\\
+       &+g_{\mathrm{RA,lo}}-\frac1{10000}+\Delta D_{L3}.
+ \end{aligned}}
+\end{equation}
+Table~\ref{tab:intro-components} records each summand.
+Its decimals are rounded; the defining formulas are exact.
+
+\begin{table}[t]
+\caption{Components of $D_B$}\label{tab:intro-components}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}lll@{}}
+\hline
+Component & Value & Definition\\
+\hline
+$D_{\mathrm{II}}$ & $1.833996653520367$ & \eqref{eq:intro-components}\\
+$5719/10^6$ & $0.005719$ & \eqref{eq:retB-H6-finite}\\
+$M_{5,\mathrm{internal}}$ & $0.005874949945026$ & \eqref{eq:intro-components}, \eqref{eq:intro-G1-constants}\\
+$g_{\mathrm{RA,lo}}$ & $0.0989598353$ & \eqref{eq:intro-components}\\
+$-1/10000$ & $-0.0001$ & \eqref{eq:intro-DB}\\
+$\Delta D_{L3}$ & $0.022638464724298$ & \eqref{eq:intro-components}\\
+\hline
+$D_B$ & $1.967088903489691$ & \eqref{eq:intro-DB}\\
+\multicolumn{3}{c}{$1.967088903489691335582703173494<D_B$}\\
+\multicolumn{3}{c}{$D_B<1.967088903489691335582703173495$}\\
+\hline
+\end{tabular}
+\end{table}
+
+Suppose the optional six-endpoint estimate is available.
+Then Proposition~\ref{prop:retB-comparison} would add\hfill\break
+$g_6=0.0020549454896034927680\ldots$ of \eqref{eq:retB-six-gain} to the
+retained comparison. The assembled retained-count lower bound below would
+then increase by $g_6$.
+Theorem~\ref{thm:main} does not use this.
+Let
+\begin{equation}\label{eq:intro-total-error}
+ \mathcal E_B=E'+E_{\mathrm{RA}}+E_{\mathrm{sw}}+E_K+E_{\mathrm{exc}},
+ \qquad \delta_{\mathrm{err}}=\frac1{10000}.
+\end{equation}
+Adding the established comparisons gives
+\begin{equation}\label{eq:intro-assembled}
+ \frac{4G_b(N)}{W(N)}\ge
+ D_B+\delta_{\mathrm{err}}-c_{K2,G0}I(b)-\mathcal E_B(N;b,\sigma).
+\end{equation}
+By \textup{(A1)}--\textup{(A5)}, Proposition~\ref{prop:bill-budget}
+proves
+\begin{equation}\label{eq:intro-error-bound}
+ \mathcal E_B(N;b,\sigma_*)\le\delta_{\mathrm{err}}
+ \qquad(N\ge N_0^*(\sigma_*),\ N\in2\mathbb Z).
+\end{equation}
+Table~\ref{tab:intro-inputs} lists the five inputs, their exact
+statements and their contributions to the final constant.
+The first-line source count in \eqref{eq:intro-comparisons} is
+\eqref{eq:source-first-lower}, valid for
+$N\ge N_{\mathrm{pt}}=10^{12}+1$. Lemma~\ref{lem:bill-transfer} gives
+$N_{\mathrm{pt}}<N_{\mathrm{tr}}\le N_0^*(\sigma_*)$.
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}p{.09\linewidth}p{.57\linewidth}p{.30\linewidth}@{}}
+\caption{Analytic inputs and their contributions}\label{tab:intro-inputs}\\
+\hline
+Input & Exact statement and use & Contribution and error\\
+\hline
+\endfirsthead
+\hline
+Input & Exact statement and use & Contribution and error\\
+\hline
+\endhead
+A1 & Retained comparison \eqref{eq:retB-goal} with $g_6$ replaced by $0$,
+Proposition~\ref{prop:retB-comparison}, at $\sigma=\sigma_*$; used in line 2
+of \eqref{eq:intro-comparisons}; proved in Section~\ref{sec:retained-side}.
+& $+5719/10^6+M_{5,\mathrm{internal}}$; error $E'$.\\
+A2 & Proposition~\ref{hyp:ra-applications} at $\sigma=\sigma_*$, giving the
+sixth-sum estimate \eqref{eq:ra-b11-floor} of
+Proposition~\ref{prop:ra-b11}; used in line 3 of
+\eqref{eq:intro-comparisons}. &
+$+g_{\mathrm{RA,lo}}$; error $E_{\mathrm{RA}}$.\\
+A3 & Proposition~\ref{prop:k2-applications} at $\sigma=\sigma_*$, giving the
+exterior estimate \eqref{eq:k2-final-fixed-sigma} of
+Proposition~\ref{prop:k2-comparison}; used in \eqref{eq:intro-exterior}. &
+$-c_{K2,G0}I(b)$; error
+$A_KC_{\mathrm{AA}}\sigma+P_K\sigma^9+r_K$.\\
+A4 & The sieve data and the estimates \eqref{eq:l3-source-error},
+\eqref{eq:l3-disp-total} and \eqref{eq:l3-small-estimates} of
+Section~\ref{sec:l3} for the source \eqref{eq:l3-source}, at
+$\sigma=\sigma_*$, giving the switched estimate \eqref{eq:l3-final} and the
+limit \eqref{eq:l3-remainder-limit}; used in line 4 of
+\eqref{eq:intro-comparisons}. This application uses Paper~I,
+Theorem~2.8, at its stated inner spectral stage. &
+$+\Delta D_{L3}$; error
+$C_{\mathrm{sw}}\sigma+P_{\mathrm{sw}}\sigma^9+V_{\mathrm{sw}}$.\\
+A5 & The constants $C_E$ in \eqref{eq:l3-sieve-error} and
+$C_{\mathrm{AA}}$ in \eqref{eq:k2-aa-constant} are finite, positive and
+independent of $\sigma$ and $N$, and $C_E\ge C_E^{\mathrm{II}}$. &
+Fixes the caps in \eqref{eq:bill-sigma}.\\
+\hline
+\end{longtable}
+\endgroup
+
+The constants $C_E$ and $C_{\mathrm{AA}}$ are distinct. Here $C_E$ is the
+common maximum of the switched and Paper~II sieve constants.
+The four-row K2 error constant is $C_{\mathrm{AA}}=4C_{\mathrm{AA37}}$.
+
+The exact constants satisfy
+\begin{equation}\label{eq:intro-price}
+\begin{aligned}
+ 0.000228954311267289051898208151
+   &<D_B-c_{K2,G0}I(b),\\
+ D_B-c_{K2,G0}I(b)
+   &<0.000228954311267289051898208152,\\
+ 1.749974884137892433433207484622
+   &<a_{\mathrm{buf}}^*,\\
+ a_{\mathrm{buf}}^*
+   &<1.749974884137892433433207484623<\frac74.
+\end{aligned}
+\end{equation}
+The last constant is defined in \eqref{eq:bill-critical-exponent}.
+The rational bounds are shown in Section~\ref{sec:final-bill}.
+They need the stated analytic comparisons;
+the arithmetic alone gives no positive-count estimate.
+The value $a^*_{\mathrm{buf}}$ is a scalar diagnostic for this fixed $b$.
+It does not prove the theorem for smaller $a$; that would require
+comparisons at a different cutoff. The optional sharper scalar comparison
+\eqref{eq:bill-active-critical-exponent} uses a separate constant
+$D_{B,c}$; it does not enter the main count.
+
+\subsection{Order of the parameters}
+
+Fix $b$ and all absolute error constants first.
+Choose one sufficiently small rational $\sigma_*$.
+Then put $\tau_*=(\sigma_*)^9$.
+Freeze the finite partitions and all coefficient bounds next.
+Fix every logarithmic precision before the common threshold.
+Thus the order is
+\begin{equation}\label{eq:intro-order}
+\begin{gathered}
+ \text{absolute constants}\ \longrightarrow\
+ \sigma_*\in\mathbb Q\cap(0,10^{-10}]\ \longrightarrow\
+ \tau_*=(\sigma_*)^9,\\
+ \longrightarrow\ \text{partitions, coefficient bounds and precisions}
+ \ \longrightarrow\ N_0^*(\sigma_*)\ \longrightarrow\ N.
+\end{gathered}
+\end{equation}
+The common threshold is defined in \eqref{eq:not-common-threshold}.
+It includes every length, structural and error threshold.
+Every limit is taken at fixed $\sigma_*$.
+These thresholds exist by \textup{(A1)}--\textup{(A5)} and
+Proposition~\ref{prop:bill-budget}.
+The final section combines the comparisons and the error bounds.
+For the main construction, the comparison estimates used are:
+\begin{enumerate}
+\item \textup{(A1)}: the actual retained-source comparison
+in Section~\ref{sec:retained-side}, including all saved-array conversions.
+It supplies $5719/10^6+M_{5,\mathrm{internal}}$ beyond the original
+retained bound.
+\item \textup{(A2)}: the sixth-sum distribution and
+coefficient estimates in Section~\ref{sec:root-a}, supplying
+$g_{\mathrm{RA,lo}}$.
+\item \textup{(A3)}: the actual semiprime-source distribution,
+principal-term and peel estimates in Section~\ref{sec:k2}, giving the
+exterior cost $c_{K2,G0}I(b)$.
+\item \textup{(A4)}: the switched-source comparison,
+packing, distribution and peel estimates in Section~\ref{sec:l3}, giving
+$\Delta D_{L3}=(2-c_{K2,G0}/4)\overline H$.
+\end{enumerate}
+Each requirement includes its exact nonnegative error estimates and the
+fixed-$\sigma_*$ limits allocated in Section~\ref{sec:final-bill}.
+The source-counting identity and pointwise bound are supplied in
+Section~\ref{sec:source-decomposition}. The list only records dependencies.
+The cited sections prove the estimates, with precise scopes and
+error bounds; the scalar arithmetic here combines them.
+
+The use of AI tools is described at the end.

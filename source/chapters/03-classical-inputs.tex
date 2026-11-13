@@ -1,0 +1,879 @@
+\section{Classical inputs}\label{sec:classical-inputs}
+\raggedbottom
+
+We use counting-measure $\ell^2$ norms. Write $n\sim Y$ for $Y<n\le2Y$.
+The symbols $\mu_{\rm Mob},\Lambda,\varphi$ have their usual meanings.
+Write $d(n)$ for the divisor function.
+The parameters in each fact are local.
+Put $P^-(1)=\infty$ and $e(t)=\exp(2\pi it)$.
+Statements (P1.x) and (P2.x) restate results proved in
+Papers~I and~II, respectively, with their original scope.
+The structured sieve result is Paper~I, Theorem~2.6.
+Its classical source is Iwaniec's Theorem~4
+\cite[Theorem~4]{Iwaniec1980Remainder}. The \(S\)-form displayed below
+specializes the \(W_R^\pm\) estimates of Paper~I, Theorem~2.6.
+It follows from them by \(S\le W_R^+\) and \(S\ge W_R^-\).
+Theorem~4 does not state it verbatim.
+Each new application needs its own coefficient, support and
+uniformity checks.
+
+\begin{fact}[(F1) Prime estimates]\label{fact:prime-estimates}
+For every $A>0$, one may take $B_\psi(A)=A+60$ in
+\begin{equation}\label{eq:classical-bv}
+ \begin{gathered}
+ \sum_{q\le Q}\max_{(a,q)=1}
+ \left|\sum_{\substack{n\le y\\n\equiv a\ (q)}}\Lambda(n)
+                -\frac y{\varphi(q)}\right|
+ \ll_A y(\log y)^{-A},\\
+ y\ge3,\quad Q\le y^{1/2}(\log y)^{-B_\psi(A)}.
+ \end{gathered}
+\end{equation}
+For fixed $A,C>0$, uniformly for $q\le(\log y)^C$,
+\begin{equation}\label{eq:classical-sw}
+ \pi(y;q,a)=\frac{\operatorname{Li}(y)}{\varphi(q)}
+       +O_{A,C}(y(\log y)^{-A}),\quad (a,q)=1,\quad y\ge3.
+\end{equation}
+These are Paper~I, (2.20)--(2.21) \cite[(2.20)--(2.21), p.~9]{PaperI}.
+The endpoint $y$ is fixed. The second constant is ineffective.
+\end{fact}
+
+\begin{fact}[(F1$'$) Maximal-endpoint prime estimates]\label{fact:prime-estimates-maximal}
+Use the prime Siegel--Walfisz estimate \eqref{eq:classical-sw}.
+For every fixed $S>0$ and $X\ge3$, put
+$Q_X=X^{1/2}(\log X)^{-(S+60)}$. Then
+\begin{equation}\label{eq:classical-bv-maximal}
+ \begin{aligned}
+ \sum_{q\le Q_X}\max_{(a,q)=1}\sup_{0\le y\le X}
+ \left|\sum_{\substack{n\le y\\n\equiv a\ (q)}}\Lambda(n)
+                -\frac y{\varphi(q)}\right|
+ &\ll_S X(\log X)^{-S},\\
+ \sum_{q\le Q_X}\max_{(a,q)=1}\sup_{0\le y\le X}
+ \left|\pi(y;q,a)-\frac{\operatorname{Li}(y)}{\varphi(q)}\right|
+ &\ll_S X(\log X)^{-S}.
+ \end{aligned}
+\end{equation}
+Here $\operatorname{Li}(y)=0$ for $0\le y<2$.
+The level is imposed at $X$; the endpoints may be chosen separately for
+each modulus. An interval difference costs at most twice the bound.
+This is the classical maximal form of Bombieri--Vinogradov
+\cite[Chapter~28]{Davenport1980}. Removing prime powers and partial
+summation pass from the von Mangoldt form to the prime-counting form.
+The constants may be ineffective through \eqref{eq:classical-sw}.
+\end{fact}
+
+\begin{fact}[(F2) Full-support bilinear distribution]\label{fact:bv-full-support}
+Let $a_m,b_n$ have supports $m\sim M,n\sim Y$.
+Assume $x=MY\ge3$, set $L_x=\log x$, and fix $\epsilon,B>0$.
+Assume $\epsilon\le\log Y/\log x\le1-\epsilon$.
+For every $A_0>0$, assume uniformly in $h,k\ge1$ and integers
+$\ell\ne0$ with $(\ell,k)=1$ that
+\begin{equation}\label{eq:bvfs-sw}
+ \left|\sum_{\substack{n\equiv\ell\ (k)\\(n,h)=1}}b_n
+ -\frac1{\varphi(k)}\sum_{(n,hk)=1}b_n\right|
+ \le C_{A_0}\|b\|_2Y^{1/2}d(h)^B(\log(2Y))^{-A_0}.
+\end{equation}
+Define
+\[
+ \Delta_{\rm fs}(q,a)=\sum_{mn\equiv a\ (q)}a_mb_n
+       -\frac1{\varphi(q)}\sum_{(mn,q)=1}a_mb_n.
+\]
+For every $A>0$, some $B_{\rm BV}=B_{\rm BV}(A,B,\epsilon)>0$ gives
+\begin{equation}\label{eq:bvfs}
+ \sum_{q\le Q}\max_{(a,q)=1}|\Delta_{\rm fs}(q,a)|
+ \ll \|a\|_2\|b\|_2x^{1/2}L_x^{-A},\qquad
+ Q\le x^{1/2}L_x^{-B_{\rm BV}}.
+\end{equation}
+Both sums use the full supports. The constants depend on the family constants
+$C_{A_0}$. This follows from the proof of BFI Theorem~0(b)
+\cite[(A1)--(A2), p.~206; Theorem~0(b), (1.5), p.~212;
+proof, pp.~213--214]{BFI86}.
+\end{fact}
+
+\begin{proof}
+Character orthogonality and primitive induction give
+\[
+\begin{aligned}
+ \text{left side of \eqref{eq:bvfs}}
+ &\le\sum_{e\le Q}\frac1{\varphi(e)}
+       \sum_{2\le f\le Q/e}\frac1{\varphi(f)}\\
+ &\qquad\cdot\sum_{\chi\ (f)}^*|A_e(\chi)B_e(\chi)|,\\
+ A_e(\chi)&=\sum_{(m,e)=1}a_m\chi(m).
+\end{aligned}
+\]
+Define $B_e$ similarly. Split at $F=L_x^K$.
+Since $M\ge x^\epsilon$, large $x$ gives $F^2\le M$.
+This permits the small-conductor estimate. The hypothesis handles $f\le F$.
+The multiplicative large sieve handles $f>F$. Before summing $e$, the bounds are
+\[
+ \ll\|a\|_2\|b\|_2x^{1/2}d(e)^BF^{3/2}L_x^{-A_0},
+ \qquad
+ \ll L_x^2\|a\|_2\|b\|_2
+       (Q+M^{1/2}+Y^{1/2}+x^{1/2}/F).
+\]
+Choose $B_2$ with $\sum_{e\le Q}d(e)^B/\varphi(e)\ll L_x^{B_2}$.
+In the large-conductor bound, summing $1/\varphi(e)$ costs
+one more logarithm, since $\sum_{e\le Q}1/\varphi(e)\ll L_x$.
+Take $K=A+B_2+4$, $A_0=A+B_2+3K/2+1$, and $B_{\rm BV}=K$.
+Since $M,Y\ge x^\epsilon$, these bounds prove \eqref{eq:bvfs}.
+The large sieve is BFI (1.6), p.~207, restated in Paper~I, (2.19)
+\cite[(1.6), p.~207]{BFI86}\cite[(2.19), p.~9]{PaperI}.
+\end{proof}
+
+We do not use BFI86, Theorem~0(a).
+
+Fact (F2) is the standalone full-support bound.
+Section~\ref{sec:l3} checks the coefficients, relative levels and rough
+factors of the first three switched rows on the actual source.
+
+\begin{fact}[(F3) The spectral gap]\label{fact:kim-sarnak}
+For every congruence subgroup $\Gamma\subset\mathrm{SL}_2(\mathbb Z)$,
+\begin{equation}\label{eq:classical-spectral-constant}
+ \lambda_1(\Gamma)\ge\frac{975}{4096},\qquad
+ 0<\lambda=\frac14-t^2<\frac14,\quad t\ge0\Longrightarrow
+ 0\le t\le\frac7{64},\quad \vartheta=2t\le\frac7{32}.
+\end{equation}
+Here $\lambda_1(\Gamma)$ is the smallest nonzero Laplace eigenvalue.
+The implication applies to every eigenvalue $\lambda$ of $\Delta$
+on $L^2(\Gamma\backslash\mathbb H)$ in the indicated range.
+The first bound is Kim--Sarnak \cite[Appendix~2]{KimSarnak2003}.
+The implications are elementary.
+\end{fact}
+
+\begin{fact}[(F4) Deligne's bound]\label{fact:F4-deligne}\label{fact:F5-deligne}
+Let $f=\sum_{n\ge1}\psi_f(n)e(nz)$ be a primitive holomorphic cuspidal newform.
+Assume $\psi_f(1)=1$, integer weight $k\ge2$, level $M$, and character $\chi$,
+with $f((az+b)/(cz+d))=\chi(d)(cz+d)^kf(z)$ on $\Gamma_0(M)$.
+This agrees with Deligne's convention $\chi(a)^{-1}$.
+For $p\nmid M$, Deligne proved
+\begin{equation}\label{eq:deligne-roots}
+ |\psi_f(p)|\le2p^{(k-1)/2}
+\end{equation}
+\cite[Th\'eor\`eme~(8.2), p.~302]{Deligne1974}.
+The same source states that the roots $\alpha_p,\beta_p$ of
+$T^2-\psi_f(p)T+\chi(p)p^{k-1}$ both have modulus $p^{(k-1)/2}$.
+Since $|\alpha_p|^2=|\beta_p|^2=p^{k-1}$, we have
+$\overline{\alpha_p}=p^{k-1}/\alpha_p$ and likewise for $\beta_p$.
+With $\alpha_p\beta_p=\chi(p)p^{k-1}$, this gives
+\begin{equation}\label{eq:deligne-conjugation}
+ \begin{aligned}
+ \chi(p)\overline{\psi_f(p)}
+ &=\frac{\alpha_p\beta_p}{p^{k-1}}
+   \left(\frac{p^{k-1}}{\alpha_p}+\frac{p^{k-1}}{\beta_p}\right)
+ =\psi_f(p).
+ \end{aligned}
+\end{equation}
+Choose $\eta_p^2=\chi(p)$, $|\eta_p|=1$.
+Then $b_p=\eta_p^{-1}p^{-(k-1)/2}\psi_f(p)$ is real and $|b_p|\le2$.
+With $T=p^{(k-1)/2}\eta_p Z$, the polynomial becomes
+\[
+ T^2-\psi_f(p)T+\chi(p)p^{k-1}
+       =p^{k-1}\chi(p)(Z^2-b_pZ+1).
+\]
+Write $b_p=2\cos\omega_p$, $0\le\omega_p\le\pi$.
+The normalized roots are $e^{\pm i\omega_p}$,
+also in the repeated case $b_p=\pm2$.
+An earlier exposition of the modular-form setting is
+\cite{DeligneBourbaki1971}.
+\end{fact}
+
+\begin{fact}[(F5) Averaged Kloosterman sums]\label{fact:F5-di82-thm14}\label{fact:F2-di82-thm14}
+For $C,M,Y\ge1$ and $\epsilon>0$,
+\begin{equation}\label{eq:F2-di82-thm14}
+ \sum_{c\le C}\left|\sum_{m\le M}\sum_{n\le Y}S(m,n;c)\right|
+ \ll_\epsilon(CMY)^\epsilon C(C+MY)
+\end{equation}
+\cite[Theorem~14, equation~(8.13), p.~275]{DI82}.
+The sums run over integers $1\le c\le C$, $1\le m\le M$,
+and $1\le n\le Y$. Here $S(m,n;c)=\sum_{u\ (c)}^*e((mu+n\bar u)/c)$.
+\end{fact}
+
+Use the trivial character on $\Gamma_0(q)\backslash\mathbb H$.
+The sum over $f$ runs through a Petersson-orthonormal basis of
+$S_k(\Gamma_0(q))$. The sum over $j$ runs through an orthonormal basis of
+Maass cusp forms, including exceptional forms. The sum over $\mathfrak a$
+runs through inequivalent cusps with width-one scaling matrices.
+The measure is $dx\,dy/y^2$.
+At infinity, the DI coefficients satisfy
+\begin{equation}\label{eq:di-normalization}
+ \begin{aligned}
+ u_j(z)&=\sum_{n\ne0}\rho_j(n)\sqrt y
+            K_{i\kappa_j}(2\pi|n|y)e(nx),\quad
+ \lambda_j=\tfrac14+\kappa_j^2,\\
+ f(z)&=\sum_{n\ge1}\psi_f(n)e(nz),\\
+ E_{\mathfrak a}(z,s)&=\text{constant terms}
+ +\sqrt y\sum_{n\ne0}\frac{2\pi^s|n|^{s-1/2}}{\Gamma(s)}
+       \varphi_{\mathfrak a\infty n}(s)
+       K_{s-1/2}(2\pi|n|y)e(nx).
+ \end{aligned}
+\end{equation}
+For $0<\lambda_j<1/4$, set
+$\vartheta_j=2|\Im\kappa_j|=2\sqrt{1/4-\lambda_j}$.
+See Paper~I, (2.2)--(2.4) \cite[(2.2)--(2.4), p.~5]{PaperI}.
+
+\begin{fact}[(F6) Spectral large sieves]\label{fact:di-large-sieves}
+For $q,K\ge1$, $Y\ge1/2$, and $a_n$ supported on $n\sim Y$,
+put
+\[
+ \begin{aligned}
+ \Sigma_{\rm hol}(K,a)&=\sum_{\substack{2\le k\le K\\k\ {\rm even}}}
+ \frac{(k-1)!}{(4\pi)^{k-1}}\sum_f
+ \left|\sum_{n\sim Y}a_nn^{-(k-1)/2}\psi_f(n)\right|^2,\\
+ \Sigma_{\rm Maa}(K,a)&=\sum_{|\kappa_j|\le K}\frac1{\cosh(\pi\kappa_j)}
+            \left|\sum_{n\sim Y}a_n\rho_j(n)\right|^2,\\
+ \Sigma_{\rm Eis}(K,a)&=\sum_{\mathfrak a}\int_{-K}^K
+ \left|\sum_{n\sim Y}a_nn^{it}
+       \varphi_{\mathfrak a\infty n}(1/2+it)\right|^2dt.
+ \end{aligned}
+\]
+The large-sieve estimates are
+\begin{equation}\label{eq:di-large-sieves}
+ \begin{gathered}
+ \Sigma_{\rm hol}(K,a),\Sigma_{\rm Maa}(K,a),\Sigma_{\rm Eis}(K,a)
+       \ll_\epsilon(K^2+Y^{1+\epsilon}/q)\|a\|_2^2,\\
+ \sum_{j\ {\rm exceptional}}V^{\vartheta_j}
+       \left|\sum_{n\sim Y}a_n\rho_j(n)\right|^2
+ \ll_\epsilon(1+\sqrt{YV/q})(1+\sqrt{Y^{1+\epsilon}/q})\|a\|_2^2,
+ \quad V\ge1.
+ \end{gathered}
+\end{equation}
+These are the specialized forms in Paper~I, (2.5)--(2.8)
+\cite[Theorem~2, (1.28)--(1.30), p.~230;
+Theorem~5, (1.38), p.~232]{DI82}
+\cite[(2.5)--(2.8), pp.~6--7]{PaperI}.
+\end{fact}
+
+For $\phi\in C_c^\infty((0,\infty))$, define
+\begin{equation}\label{eq:di-transforms}
+ \begin{aligned}
+ \widehat\phi(t)&=\frac\pi{\sinh\pi t}\int_0^\infty
+ \frac{J_{2it}(x)-J_{-2it}(x)}{2i}\phi(x)\frac{dx}x,\\
+ \check\phi(t)&=\frac4\pi\cosh\pi t\int_0^\infty
+ K_{2it}(x)\phi(x)\frac{dx}x,\qquad
+ \widetilde\phi(l)=\int_0^\infty J_l(x)\phi(x)\frac{dx}x.
+ \end{aligned}
+\end{equation}
+The value at $t=0$ is the removable limit.
+
+\begin{fact}[(F7) Corrected same-cusp trace formula]\label{fact:p1-corrected}
+For $q,m,n\ge1$ and the test class above,
+\begin{equation}\label{eq:p1-corrected}
+ \sum_{h\ge1}\frac{S(m,n;qh)}{qh}
+ \phi\left(\frac{4\pi\sqrt{mn}}{qh}\right)
+       =\frac{H_\phi(m,n)}\pi-M_\phi(m,n)-\frac{E_\phi(m,n)}\pi,
+\end{equation}
+where
+\begin{align*}
+ H_\phi(m,n)&=\sum_{\substack{k\ge2\\k\ {\rm even}}}
+ \frac{i^k(k-1)!\widetilde\phi(k-1)}{(4\pi\sqrt{mn})^{k-1}}
+       \sum_f\overline{\psi_f(m)}\psi_f(n),\\
+ M_\phi(m,n)&=\sum_j\frac{\widehat\phi(\kappa_j)}{\cosh\pi\kappa_j}
+                  \overline{\rho_j(m)}\rho_j(n),\\
+ E_\phi(m,n)&=\sum_{\mathfrak a}\int_{\mathbb R}(n/m)^{it}
+ \overline{\varphi_{\mathfrak a\infty m}(1/2+it)}
+ \varphi_{\mathfrak a\infty n}(1/2+it)\widehat\phi(t)\,dt.
+\end{align*}
+No extra diagonal term occurs, also for $m=n$.
+This is the corrected same-cusp specialization proved in Paper~I,
+(2.7.T15)--(2.7.T18) \cite[(2.7.T15)--(2.7.T18)]{PaperI}. Compare
+\cite[Lemma~4.5, (4.8)--(4.17)]{Drappeau2017}, in the DI convention
+\cite[(1.15)--(1.17)]{DI82}.
+\end{fact}
+
+\begin{fact}[(F8) Mixed-cusp formulas]\label{fact:mixed-cusps}
+For $q=rs$, $(r,s)=1$, use the trivial character and
+\[
+ \sigma_{1/s}=\begin{pmatrix}\sqrt r&0\\s\sqrt r&1/\sqrt r\end{pmatrix},
+ \quad\mathcal C(\infty,1/s)=\{cs\sqrt r:c\ge1,\ (c,r)=1\}.
+\]
+DI82 (1.6), p.~224, gives the arithmetic identity
+\cite[(1.6), p.~224]{DI82}
+\[
+ S_{\infty,1/s}(m,n;cs\sqrt r)
+       =e(n\bar s/r)S(m\bar r,n;cs),\qquad m,n\in\mathbb N.
+\]
+Here $s\bar s\equiv1\pmod r$ and $r\bar r\equiv1\pmod{cs}$.
+The accompanying trace formulas, proved in Paper~I, are
+\[
+ \mathcal K_+=H_{\infty,1/s}/\pi-M_{\infty,1/s}-E_{\infty,1/s}/\pi,
+ \qquad
+ \mathcal K_-=(\pi/2)M^-_{\infty,1/s}+(1/2)E^-_{\infty,1/s}.
+\]
+Here $\mathcal K_\pm=\sum_{\gamma\in\mathcal C}\gamma^{-1}
+S_{\infty,1/s}(m,\pm n;\gamma)\phi(4\pi\sqrt{mn}/\gamma)$.
+The plus terms have the definitions in (F7), with their second
+coefficient at $1/s$.
+For $M^-$ and $E^-$, replace $\widehat\phi$ by $\check\phi$ and $n$ by $-n$
+only in the second Fourier coefficient.
+The cusps are singular, and the scaling matrices have width one.
+The classical width of $1/s$ is $r$.
+For $r>1$ they are inequivalent.
+The normalization is that of Paper~I, (2.13)--(2.14). Compare
+\cite[Lemmas~4.3, 4.5, (4.7)--(4.19)]{Drappeau2017}
+\cite[(2.13)--(2.14), p.~8]{PaperI}.
+\end{fact}
+
+\begin{fact}[(F9) Bessel representations]\label{fact:F9-dlmf}\label{fact:F7-dlmf}
+For $x>0$, $n\in\mathbb Z$, and $|\Re\nu|<1$,
+\begin{align*}
+ J_n(x)&=\pi^{-1}\int_0^\pi\cos(x\sin u-nu)\,du\\
+       &\quad=i^{-n}\pi^{-1}\int_0^\pi e^{ix\cos u}\cos(nu)\,du,\\
+ J_\nu(x)&=(2/\pi)\int_0^\infty
+       \sin(x\cosh u-\pi\nu/2)\cosh(\nu u)\,du,\\
+ Y_\nu(x)&=-(2/\pi)\int_0^\infty
+       \cos(x\cosh u-\pi\nu/2)\cosh(\nu u)\,du,\\
+ K_\nu(x)&=\sec(\pi\nu/2)\int_0^\infty
+       \cos(x\sinh u)\cosh(\nu u)\,du.
+\end{align*}
+The infinite integrals are improper.
+These are DLMF (10.9.2), (10.9.8), and (10.32.7)
+\cite[(10.9.2), (10.9.8), (10.32.7)]{DLMF}.
+Paper~I uses them on printed p.~20, (2.7.T31)--(2.7.T32).
+\end{fact}
+
+\begin{fact}[(F10) Kontorovich--Lebedev inversion]\label{fact:kl-inversion}
+For $g$ on $(0,\infty)$, the inversion pair is
+\[
+ f(y)=\frac{2y\sinh\pi y}{\pi^2}\int_0^\infty g(x)K_{iy}(x)\frac{dx}x,
+ \qquad g(x)=\int_0^\infty f(y)K_{iy}(x)\,dy.
+\]
+It holds under either of two conditions.
+(a) $g/x\in C^1$, with $xg$ and $x(g/x)'$ absolutely integrable.
+(b) Local piecewise continuity and bounded variation, with
+\[
+ \int_0^{1/2}\frac{|g(x)|}x\log(1/x)\,dx<\infty,\qquad
+ \int_{1/2}^\infty\frac{|g(x)|}{\sqrt x}\,dx<\infty.
+\]
+Under condition (b), the inverse equality is asserted at continuity points of $g$.
+In our applications, the inverse equality is used only at continuity points
+of $g$.
+See DLMF (10.43.30)--(10.43.32)
+\cite[(10.43.30)--(10.43.32)]{DLMF}.
+These hypotheses hold for $g=\phi/x$, $\phi\in C_c^\infty((0,\infty))$.
+They also hold for $g=xK_{2it}(x)$ when $|\Im t|\le7/64$.
+Near zero, $K_{2it}(x)\ll_t x^{-2|\Im t|}(1+|\log x|)$,
+so the first integral in condition (b) converges absolutely.
+At infinity, $K_{2it}(x)\ll_t x^{-1/2}e^{-x}$, so the second converges too.
+Both functions are smooth on compact subintervals.
+\end{fact}
+
+\begin{fact}[(F11) Hecke operators on the full space]\label{fact:hecke-full-space}
+For trivial character and $(k,q)=1$, Paper~I proves
+\[
+ \|T_k\|_{\mathrm{Maass},q}\le d(k)k^{7/64},\qquad
+ \|T_k\|_{\mathrm{hol},q}\le d(k).
+\]
+Their proof uses the orthogonal cuspidal representation
+decomposition of Jacquet--Langlands, Chapter~III, \S16
+\cite[Chapter~III, \S16]{JacquetLanglands1970}.
+It also uses the holomorphic oldform classes of Atkin--Lehner
+\cite[Lemmas~6, 13--15; Theorems~3(i), 5]{AtkinLehner1970}.
+Atkin--Lehner's weight $k$ means classical weight $2k$.
+For an unramified normalized newform, the algebra needed is
+\[
+ \lambda_f(p^r)=\sum_{j=0}^r\alpha_p^{r-j}\beta_p^j,\qquad
+ \lambda_f(mn)=\lambda_f(m)\lambda_f(n)\quad((m,n)=1).
+\]
+The Maass Satake bound is $|\alpha_p|,|\beta_p|\le p^{7/64}$
+\cite[Appendix~2]{KimSarnak2003}.
+The holomorphic bound is (F4). Full-space diagonalization and unitary
+transport give the displayed norms, as in Paper~I, (2.7.T37)--(2.7.T40)
+\cite[(2.7.T37)--(2.7.T40), pp.~21--22]{PaperI}.
+\end{fact}
+
+\begin{fact}[(F12) Eisenstein inputs]\label{fact:eisenstein-inputs}
+Paper~I uses three classical Eisenstein properties.
+The Eisenstein family has a meromorphic continuation, which allows compact
+Fourier-coefficient extraction. It has an arithmetic Fourier normalization.
+There is a complete irredundant cusp set.
+For the cusp $u/w$, let $d_{\rm den}$ be the lower-row denominator variable
+in $cz+d_{\rm den}$ and write the printed variable as $d=-d_{\rm den}$.
+The printed denominator is therefore $cz-d$, and the Fourier phase changes
+with this sign choice. Thus replacing $d$ by $-d$ changes the congruence and
+the phase together, not one sign in isolation.
+The normalization includes the orbit conditions
+\[
+ (c,d)=1,\quad(c,q)=w,\quad cd\equiv uw\pmod{(w^2,q)}.
+\]
+With $c=w\gamma$, the last condition is
+$\gamma d\equiv u\pmod{(w,q/w)}$. The cusp set has the form
+\[
+ u/w,\quad w\mid q,\quad u\pmod{(w,q/w)},\quad
+ (u,(w,q/w))=1,
+\]
+with admissible lifts chosen coprime to $q$.
+The sources are Iwaniec, Chapter~6 and Theorem~3.4;
+DI82 (1.17), Lemmas~2.3 and~3.6;
+and Kiral--Young, Proposition~3.1 and Corollary~3.2
+\cite[Chapter~6; Theorem~3.4]{IwaniecSpectralMethods2002}
+\cite[(1.17), p.~227; Lemma~2.3, p.~240; Lemma~3.6, p.~247]{DI82}
+\cite[Proposition~3.1, Corollary~3.2]{KiralYoung2017}.
+These are the conventions used in Paper~I, (2.7.T20)--(2.7.T24)
+and (2.7.T41)--(2.7.T43)
+\cite[(2.7.T20)--(2.7.T24), (2.7.T41)--(2.7.T43), pp.~18--19, 22--23]{PaperI}.
+\end{fact}
+
+\begin{fact}[(F13) Further spectral estimates]\label{fact:remaining-spectral-inputs}
+For exceptional eigenfunctions, the first line below follows from (F3), since
+$975/4096>768/4096=3/16$ and $7/32<1/2$.
+Paper~I derives the interval estimate from (F5), (F6), (F7),
+(P1.1) and this first line.
+The last line is its supported imaginary-transform estimate:
+\begin{equation}\label{eq:remaining-spectral-inputs}
+ \begin{gathered}
+ \lambda_j\ge3/16,\qquad 0<\vartheta_j\le1/2,\\
+ \sum_{2\le q\le Q}\sum_{j\ {\rm exceptional}}^{(q)}V^{\vartheta_j}
+       \left|\sum_{n\in I}\rho_j(n)\right|^2
+ \ll_\epsilon(QY)^\epsilon(Q+Y+\sqrt{YV})Y,\\
+ Q,Y,V\ge1,\qquad I\subset(Y,2Y]\cap\mathbb Z\quad\text{an integer interval},\\
+ |\widehat\phi(i\nu)|+|\check\phi(i\nu)|
+ \ll\mathfrak B(1+|\log Z|)(1+Z^{-2\nu})/(1+Z),
+ \quad0<\nu\le1/4.
+ \end{gathered}
+\end{equation}
+The last line uses the supported test class of (P1.1).
+The interval argument uses DI82's proof of Theorem~7, (8.17),
+with the corrected same-cusp normalization (F7)
+\cite[proof of Theorem~7, (8.17)]{DI82}
+\cite[(2.9), (2.7.T32), pp.~6, 20]{PaperI}.
+The weaker gap $3/16$ is also DI82, Theorem~4, p.~232,
+which we do not use separately.
+The reconstruction of the last estimate uses (F9).
+\end{fact}
+
+\begin{fact}[(F14) Transform identities and interchanges]\label{fact:transform-interchanges}
+Paper~I proves the following identities and accompanying
+interchange bounds in (2.7.T26)--(2.7.T32).
+Use the transforms \eqref{eq:di-transforms} without rescaling.
+For $\phi\in C_c^\infty((0,\infty))$, put
+\begin{equation}\label{eq:spectral-transform-applicability}
+ \begin{gathered}
+ \mathcal R_\phi(v)=\int_0^\infty K_{2iv}(x)\phi(x)x^{-2}\,dx,\qquad
+ k_\phi(v)=\frac4{\pi^2}v\sinh(2\pi v)\mathcal R_\phi(v),\\
+ \mathcal H(t,v)=\frac{\cosh\pi t}
+   {\cosh\pi(t-v)\cosh\pi(t+v)},\\
+ \int_{\mathbb R}k_\phi(v)K_{2iv}(x)\,dv=\phi(x)/x,\\
+ \int_{\mathbb R}v\sinh(2\pi v)\mathcal H(t,v)K_{2iv}(x)\,dv
+       =\cosh(\pi t)xK_{2it}(x).
+ \end{gathered}
+\end{equation}
+By (F10), the KL hypotheses hold for both applications,
+to $\phi(x)/x$ and to $xK_{2it}(x)$.
+For the latter, the product-integral condition is
+$|\Re(2it)|+|\Re(2iv)|<1$, with $v\in\mathbb R$.
+The permitted $t$ are real or exceptional, $|\Im t|\le7/64$.
+The differentiations and contour, limit, sum, and integral interchanges
+in (2.7.T26)--(2.7.T32) hold in these ranges.
+This includes absolute summability after the spectral estimates.
+For each fixed smooth test family, the decay bound is
+\[
+ \mathcal R_\phi(v)\ll_{\phi,j}e^{-\pi|v|}(1+|v|)^{1-2j}
+ \qquad(j\ge0).
+\]
+Let $\operatorname{supp}\phi\subset[Z/21,9Z]$.
+The integrations by parts and differentiated estimates retain the
+five-derivative seminorm $\mathfrak B$ of (P1.1), uniformly in every
+auxiliary parameter.
+For the following bounds $U>0$, and the oscillatory kernels are the
+normalized combinations in \eqref{eq:di-transforms}; these estimates are
+not assertions about an unnormalized $J_{2it}$ tail. The hyperbolic factor
+in the raw Bessel representation is cancelled only after this normalization.
+For truncated normalized oscillatory representations, the tails are bounded by
+\[
+ O\!\left(\frac{1+|t|}{x\sinh U}\right)\quad(t\in\mathbb R),\qquad
+ O\!\left(\frac{(1+\nu)e^{2\nu U}}{x\sinh U}\right)
+       \quad(t=i\nu,\ 0<\nu\le1/4).
+\]
+These tails permit the stated limiting interchanges.
+The derivative and decay constants are uniform in the families
+consumed by Theorem~2.8, with the losses prescribed there.
+The first inversion identity follows from (F10).
+The product integral, second kernel identity, and uniform
+differentiation and interchange steps are proved in the same passage
+\cite[(2.7.T26)--(2.7.T32), pp.~19--20]{PaperI}.
+A reconstruction from the individual Bessel representations uses (F9).
+\end{fact}
+
+\begin{fact}[(P1.1) Supported real transforms]\label{fact:real-transforms}
+\leavevmode\par
+For $Z>0$, let $\operatorname{supp}\phi\subset[Z/21,9Z]$ and set
+$\mathfrak B=\max_{0\le j\le5}\sup_{x>0}x^j|\phi^{(j)}(x)|$.
+Then
+\begin{equation}\label{eq:real-transform-bound}
+ \begin{aligned}
+ |\widehat\phi(t)|+|\check\phi(t)|
+ &\ll\frac{\mathfrak B(1+|\log Z|)}{1+Z}
+       \min\{1,((1+Z)/|t|)^3\},\quad t\in\mathbb R,\\
+ |\widetilde\phi(l)|
+ &\ll\frac{\mathfrak B(1+|\log Z|)}{1+Z}
+       \min\{1,((1+Z)/l)^3\},\quad l\in\mathbb N.
+ \end{aligned}
+\end{equation}
+The constants are absolute. The minimum at $t=0$ is $1$.
+This is the real-parameter part of Paper~I, (2.7.T31)
+\cite[(2.12), (2.7.T31), pp.~8, 20]{PaperI}.
+The real-transform bound uses exactly the Bessel representations
+in (F9). It does not cover the imaginary-parameter or interchange steps.
+\end{fact}
+
+Write $\gamma_{\!E}$ for Euler's constant. The continuous linear-sieve
+functions are normalized by
+\begin{equation}\label{eq:classical-delay}
+ \begin{gathered}
+ sF(s)=2e^{\gamma_{\!E}}\quad(0<s\le3),\qquad
+ sf(s)=0\quad(0<s\le2),\\
+ (sF(s))'=f(s-1)\quad(s>3),\qquad
+ (sf(s))'=F(s-1)\quad(s>2).
+ \end{gathered}
+\end{equation}
+Thus $F(1)=2e^{\gamma_{\!E}}$ and $f(s)=0$ for $0<s\le2$.
+This is Paper~I, (2.23), p.~10 \cite[(2.23), p.~10]{PaperI}.
+
+\begin{fact}[(P1.2) Structured linear sieve]\label{fact:structured-sieve}
+Let $\mathcal A$ be a finite integer sequence with nonnegative
+multiplicities, let $\mathcal P$ be a set of primes, and let $\mathcal X>0$.
+For a multiplicative function $\omega$, set
+\begin{equation}\label{eq:classical-sieve-data}
+ \begin{gathered}
+ P(z)=\prod_{\substack{p<z\\p\in\mathcal P}}p,\qquad
+ S(\mathcal A,\mathcal P,z)=\sum_{a\in\mathcal A}1_{(a,P(z))=1},\\
+ |\mathcal A_d|=\frac{\omega(d)}d\mathcal X+r(\mathcal A,d),\qquad
+ V(z)=\prod_{\substack{p<z\\p\in\mathcal P}}
+                       \left(1-\frac{\omega(p)}p\right).
+ \end{gathered}
+\end{equation}
+Assume $0<\omega(p)<p$ on $\mathcal P$, $\omega(p)=0$ off $\mathcal P$,
+and $\omega(p^a)\ge0$. Suppose fixed $K\ge2$ and $L_\omega>1$ satisfy,
+for every $z>w\ge2$,
+\begin{equation}\label{eq:classical-density}
+ \begin{gathered}
+ \prod_{\substack{w\le p<z\\p\in\mathcal P}}
+ \left(1-\frac{\omega(p)}p\right)^{-1}
+ \le\frac{\log z}{\log w}\left(1+\frac K{\log w}\right),\\
+ \sum_{\substack{w\le p<z\\p\in\mathcal P}}
+       \sum_{a\ge2}\frac{\omega(p^a)}{p^a}
+ \le\frac{L_\omega}{\log(3w)}.
+ \end{gathered}
+\end{equation}
+Fix $D\ge2$, $0<\epsilon_s<1/3$ and $\delta_s=\epsilon_s^9$.
+Define
+\begin{equation}\label{eq:classical-grid}
+ \mathcal G(D)=\{D^{\epsilon_s^2(1+\delta_s)^n}:n\ge0\}.
+\end{equation}
+Let $\mathcal H(D)$ consist of the finite tuples
+$\mathbf D=(D_1,\ldots,D_k)$ from this grid such that
+$D_k\le\cdots\le D_1<D^{1/2}$. Set
+\begin{equation}\label{eq:classical-tail-tuples}
+ \begin{aligned}
+ \mathcal D^+(D)&=\{\mathbf D\in\mathcal H(D):
+ D_1\cdots D_{2l}D_{2l+1}^{3}<D\quad
+             (0\le l\le(k-1)/2)\},\\
+ \mathcal D^-(D)&=\{\mathbf D\in\mathcal H(D):
+ D_1\cdots D_{2l-1}D_{2l}^{3}<D\quad
+             (1\le l\le k/2)\}.
+ \end{aligned}
+\end{equation}
+Each of these sets has fewer than $\exp(8\epsilon_s^{-3})$ elements.
+There are coefficients $\phi_d^\nu$ and $\lambda_d^\nu(\mathbf D)$,
+$\nu\in\{+,-\}$, with $|\phi_d^\nu|,|\lambda_d^\nu(\mathbf D)|\le1$, independent of
+$\mathcal A,\mathcal X,\omega$, for which
+\begin{equation}\label{eq:classical-structured-sieve}
+ \begin{aligned}
+ S(\mathcal A,\mathcal P,z)&\le \mathcal X V(z)\{F(s)+E_s\}+R_1^++R^+
+                   &&(2\le z\le D),\\
+ S(\mathcal A,\mathcal P,z)&\ge \mathcal X V(z)\{f(s)-E_s\}-R_1^--R^-
+                   &&(2\le z\le D^{1/2}),\\
+ s&=\frac{\log D}{\log z},\qquad
+ E_s\ll\epsilon_s+\epsilon_s^{-8}e^{K+L_\omega}(\log D)^{-1/3}.
+ \end{aligned}
+\end{equation}
+The implied constant in the last line is absolute. The signed remainders are
+\begin{equation}\label{eq:classical-smooth-remainder}
+ R_1^\nu=\sum_{\substack{d<D^{\epsilon_s}\\
+                        d\mid P(D^{\epsilon_s^2})}}
+                  \phi_d^\nu r(\mathcal A,d)
+\end{equation}
+and
+\begin{equation}\label{eq:classical-tail-remainder}
+ R^\nu=\sum_{\mathbf D\in\mathcal D^\nu(D)}
+ \sum_{\substack{d<D^{\epsilon_s}\\d\mid P(D^{\epsilon_s^2})}}
+ \lambda_d^\nu(\mathbf D)
+ \sum_{\substack{D_i\le p_i<D_i^{1+\delta_s}\\p_i\mid P(z)\\
+                 p_i\ne p_j\ ((i,j)\in I(\mathbf D))}}
+ r(\mathcal A,dp_1\cdots p_k).
+\end{equation}
+Here $I(\mathbf D)$ imposes distinctness between the equal-label
+positions in Iwaniec's construction. Unequal grid intervals are disjoint.
+The coefficients may depend on $\mathcal P,D,z,\epsilon_s,\mathbf D$
+and these distinctness conditions.
+We do not claim that coefficients at different cutoffs agree. See Paper~I, Theorem~2.6,
+(2.22), (2.24), (2.27)--(2.33), pp.~10--12
+\cite[Theorem~2.6, (2.22), (2.24), (2.27)--(2.33), pp.~10--12]{PaperI}.
+Its classical source is Iwaniec, Theorem~4
+\cite[Theorem~4]{Iwaniec1980Remainder}.
+\end{fact}
+
+Below, the prime set is $\mathcal P_N=\{p:p\nmid2N\}$.
+Take the nominal density $\omega(p)=1$ on $\mathcal P_N$,
+$\omega(p)=0$ elsewhere and $\omega(p^a)=0$ for $a\ge2$. Then the
+second sum in \eqref{eq:classical-density} is zero. Mertens' product
+estimate gives one fixed absolute $K_{\mathrm M}\ge2$ with
+\begin{equation}\label{eq:classical-mertens-density}
+ \prod_{w\le p<z}(1-1/p)^{-1}
+ \le\frac{\log z}{\log w}\left(1+\frac{K_{\mathrm M}}{\log w}\right)
+ \qquad(z>w\ge2).
+\end{equation}
+The first product in \eqref{eq:classical-density} is no larger than this
+product. Hence $K=K_{\mathrm M}$, $L_\omega=2$ are valid for
+this nominal density. The factor in
+\eqref{eq:classical-structured-sieve} is then $e^{K_{\mathrm M}+2}$.
+See \cite[pp.~10--11]{PaperI}. Each actual sequence still needs
+its own decomposition \eqref{eq:classical-sieve-data} and error estimate.
+
+For every relative level $L_c\ge2$ we use, exactly as in Paper~I,
+(2.33a)--(2.33b), p.~12 \cite[(2.33a)--(2.33b), p.~12]{PaperI},
+\begin{equation}\label{eq:classical-relative-grid}
+ \begin{gathered}
+ 0<\sigma\le10^{-10},\qquad \tau=\sigma^9,\qquad
+ \epsilon_s=\sigma,\quad\delta_s=\tau,\quad D=L_c,\\
+ \mathcal G(L_c)=\{L_c^{\sigma^2(1+\tau)^n}:n\ge0\},\qquad
+ d<L_c^\sigma,\quad d\mid P(L_c^{\sigma^2}).
+ \end{gathered}
+\end{equation}
+Thus the prime intervals, the smooth-divisor support and the level all
+refer to the same $L_c$. First fix $\sigma>0$. Then let $N$ tend
+to infinity.
+
+
+\begin{fact}[(P1.3) Finite factorization]\label{fact:hb}
+Let $X\ge2$, $K\in\mathbb N$, and $z\ge1$.
+Assume $z^K>X$.
+For every integer $1\le n\le X$,
+\begin{equation}\label{eq:classical-hb}
+ \Lambda(n)=\sum_{j=1}^{K}(-1)^{j-1}\binom Kj
+ \sum_{\substack{m_1\cdots m_jn_1\cdots n_j=n\\m_i\le z}}
+ \mu_{\rm Mob}(m_1)\cdots\mu_{\rm Mob}(m_j)\log n_1.
+\end{equation}
+This is Paper~I, Lemma~2.7, (2.36), p.~13
+\cite[Lemma~2.7, (2.36), p.~13]{PaperI}.
+\end{fact}
+
+\begin{proof}
+For $\Re s>1$, set $M_z(s)=\sum_{m\le z}\mu_{\rm Mob}(m)m^{-s}$
+and $Y_z(s)=\zeta(s)M_z(s)$. The polynomial identity
+$1-(1-Y_z)^K=\sum_{j=1}^K(-1)^{j-1}\binom KjY_z^j$ gives
+\[
+ -\frac{\zeta'}\zeta=
+ \sum_{j=1}^K(-1)^{j-1}\binom Kj(-\zeta')\zeta^{j-1}M_z^j
+ +\left(-\frac{\zeta'}\zeta\right)(1-Y_z)^K.
+\]
+Every nonzero coefficient of $Y_z-1$ has index greater than $z$.
+The last term therefore has no coefficient at $n\le X<z^K$;
+coefficient extraction proves \eqref{eq:classical-hb}.
+\end{proof}
+
+For $n\le2X_m$, choose $K=3$, $z=2X_m^{1/3}$.
+Then $z^3=8X_m>2X_m$.
+Any interval partition is imposed after \eqref{eq:classical-hb}.
+The product condition and all representation multiplicities remain in
+the resulting coefficients. See \cite[(2.36)--(2.37), p.~13]{PaperI}.
+
+For the packing theorem, put $\mu_*=25/128$ and define the packing ceiling by
+\[
+ H_{\rm pk,max}=\frac{153}{256}.
+\]
+Use this constant in the packing hypotheses below. Put
+\begin{equation}\label{eq:classical-packing-functions}
+ \begin{gathered}
+ v_{\rm pk}(x)=\min\left\{\frac{1+x}{2},\frac{32-34x}{39},
+                         \frac{57}{64}-\frac32x\right\}\quad(x\ge0),\\
+ \psi_{\rm pk}(x,y)=x1_{x\ge y}\quad(x\in\mathbb R,\ y\ge0),\\
+ w_{\rm pk}(x_1,x_2,x_3)=\psi_{\rm pk}\left(\min\left\{
+ \frac{132-68x_3}{214},\frac{153-96x_3}{256},1-2x_2\right\},\frac{1+x_1}{2}\right).
+ \end{gathered}
+\end{equation}
+For $x_1\ge x_2\ge x_3\ge0$, define
+\begin{equation}\label{eq:classical-packing-ceiling}
+ \begin{aligned}
+ H(x_1,x_2,x_3)=\max\{&v_{\rm pk}(x_1),v_{\rm pk}(x_2),
+ v_{\rm pk}(x_1+x_2),v_{\rm pk}(x_1+x_2+x_3),\\
+ &w_{\rm pk}(x_1,x_2,x_3),w_{\rm pk}(x_1,x_3,x_2),\\
+ &\psi_{\rm pk}(v_{\rm pk}(x_1+x_3),x_1+2x_2+x_3),\\
+ &\psi_{\rm pk}(v_{\rm pk}(x_2+x_3),2x_1+x_2+x_3)\},\\
+ \widetilde H(x_1,x_2,x_3)&=
+ \begin{cases}H(x_1,x_2,x_3),&x_1\le\mu_*,\\v_{\rm pk}(x_1),&x_1>\mu_*.
+ \end{cases}
+ \end{aligned}
+\end{equation}
+These are the definitions preceding Paper~I, Theorem~4.1, p.~53
+\cite[p.~53]{PaperI}.
+
+\begin{fact}[(P1.4) Three-factor packing]\label{fact:packing}
+Let $0<\delta_{\rm pk}\le3\cdot10^{-9}$,
+$1/2\le h\le H_{\rm pk,max}$, $d_*=h-2\delta_{\rm pk}$, and
+$\delta_{\rm pk}\le g\le1/3-\delta_{\rm pk}/2$.
+Let $e_1\ge\cdots\ge e_m\ge0$ be a finite labelled list.
+Equal values keep distinct labels. The empty list is allowed.
+Extend the list by zeros, writing $\bar e_i=0$ for $i>m$.
+Suppose
+\begin{equation}\label{eq:classical-packing-hypotheses}
+ \sum_{i<j}e_i+2e_j\le h-2\delta_{\rm pk}\quad(1\le j\le m),\qquad
+ h\le\widetilde H(\bar e_1,\bar e_2,\bar e_3).
+\end{equation}
+The rule of Paper~I, Section~4.1, partitions the labels as
+$J_1\sqcup J_2\sqcup J_3$. With
+$\Sigma_s=\sum_{i\in J_s}e_i$ and $\theta_{\rm sp}=7/32$,
+\begin{equation}\label{eq:classical-packing-loads}
+ \begin{aligned}
+ \Sigma_1&\le g,\\
+ 2g+\Sigma_2+2\Sigma_3&\le1-4\delta_{\rm pk},\\
+ \theta_{\rm sp}+g+\Sigma_1+5\Sigma_2+2\Sigma_3&\le2-4\delta_{\rm pk},\\
+ (1+2\theta_{\rm sp})g+\Sigma_1+
+ (5-2\theta_{\rm sp})\Sigma_2+
+ (2+2\theta_{\rm sp})\Sigma_3
+ &\le2-4(1+\theta_{\rm sp})\delta_{\rm pk}.
+ \end{aligned}
+\end{equation}
+The partition depends only on these data.
+This is Paper~I, Theorem~4.1, (4.1)--(4.3), pp.~53--54
+\cite[Theorem~4.1, (4.1)--(4.3), pp.~53--54]{PaperI}.
+\end{fact}
+
+
+\begin{fact}[(P1.5) Continuous Hecke comparison]\label{fact:eisenstein-hecke}
+Assume the three Eisenstein statements in (F12).
+Let $w\mid q$, put $w'=(w,q/w)$, and let $\chi$ be a Dirichlet
+character modulo $w'$.
+Then Paper~I, (2.7.T41)--(2.7.T43), gives
+\begin{equation}\label{eq:eisenstein-arithmetic-coefficient}
+ \begin{aligned}
+ \varphi_{u/w,\infty,n}(z)
+  &=(w'/(wq))^z\sum_{\substack{\gamma\ge1\\(\gamma,q/w)=1}}\gamma^{-2z}
+ \sum_{\substack{d\ (\gamma w)\\(d,\gamma w)=1\\\gamma d\equiv u\ (w')}}
+                      e(-nd/(\gamma w)),\\
+ \mathcal V_\chi(n;z)&=\sum_{u\ (w')}^*\chi(u)
+                         \varphi_{u/w,\infty,n}(z),\\
+ \mathcal V_\chi(kn';z)
+   &=\overline{\chi(k)}\left(\sum_{d\mid k}\chi(d)^2d^{1-2z}\right)
+                           \mathcal V_\chi(n';z),
+       \quad(k,q)=(k,n')=1.
+ \end{aligned}
+\end{equation}
+The first identity initially holds for $\Re z>1$.
+The last extends meromorphically.
+For finitely supported $v_{n'}$ in this coprime range,
+\begin{equation}\label{eq:eisenstein-hecke-loss}
+ \begin{aligned}
+ &\sum_{\mathfrak a}\left|\sum_{n'}v_{n'}|kn'|^{it}
+       \varphi_{\mathfrak a\infty,kn'}(1/2+it)\right|^2\\
+ &\qquad\le d(k)^2\sum_{\mathfrak a}\left|\sum_{n'}v_{n'}|n'|^{it}
+       \varphi_{\mathfrak a\infty,n'}(1/2+it)\right|^2.
+ \end{aligned}
+\end{equation}
+It holds almost everywhere in real $t$, for either index sign
+\cite[(2.7.T41)--(2.7.T43), pp.~22--23]{PaperI}.
+\end{fact}
+
+\begin{proof}
+In \eqref{eq:eisenstein-arithmetic-coefficient}, write the modulus
+$c_1=w\gamma=c_1'c_1''$, where $(c_1',q)=1$ and every prime of
+$c_1''$ divides $q$. CRT factors the inner character sum as
+$\chi(c_1')G_\chi(-n;c_1'')c_{c_1'}(n)$. Here $G_\chi$ is the
+corresponding finite Gauss sum and $c_{c_1'}$ is the Ramanujan sum.
+The outer character supplies another $\chi(c_1')$. The coprime factor is
+\[
+ L^{(q)}(2z,\chi^2)^{-1}
+ \sum_{\substack{d\mid |n|\\(d,q)=1}}\chi^2(d)d^{1-2z},
+\]
+where $L^{(q)}$ omits Euler factors at primes dividing $q$.
+For $(k,q)=(k,n')=1$, its divisor sum factors at $n=kn'$.
+Changing the Gauss-sum variable supplies $\overline{\chi(k)}$.
+Absolute convergence for $\Re z>1$, followed by meromorphic continuation,
+proves the last identity in \eqref{eq:eisenstein-arithmetic-coefficient}.
+At $z=1/2+it$, the character multiplier is
+\[
+ \overline{\chi(k)}\sum_{d\mid k}\chi(d)^2(k/d^2)^{it}.
+\]
+Its modulus is at most $d(k)$.
+Orthogonality over the complete cusp set proves the inequality.
+\end{proof}
+
+\begin{fact}[(P1.6) Exceptional parameters on the full space]\label{fact:full-space-spectral-gap}
+Apply (F3) to $\Gamma_0(q)$.
+Every exceptional eigenfunction in the full $\Gamma_0(q)$ space then has
+\[
+ \vartheta_j=2\sqrt{1/4-\lambda_j}\le7/32.
+\]
+The bound depends only on the eigenvalue, so it covers oldforms.
+These are the parameters in Paper~I, (2.7.T32), (2.7.T52), and (2.7.T56)
+\cite[(2.7.T32), (2.7.T52), (2.7.T56), pp.~20, 24--25]{PaperI}.
+\end{fact}
+
+\begin{fact}[(P1.7) The spectral estimate]\label{fact:spectral-implication}
+Paper~I, Theorem~2.8, proves the estimate below. Its proof uses
+the large sieves (F6) and the trace formulas (F7)--(F8). It also uses the transform
+bounds (P1.1), (F13)--(F14), the full-space Hecke bounds (F11), and
+the continuous and exceptional comparisons (P1.5)--(P1.6).
+The normalized unitary cusp transport, proved in Paper~I,
+(2.7.T33)--(2.7.T40), is as follows. Choose $rw-sy=1$ and use
+\begin{equation}\label{eq:unitary-cusp-transport}
+ \begin{gathered}
+ W_{rs}=r^{-1/2}\begin{pmatrix}r&y\\rs&rw\end{pmatrix},\qquad
+ W_{rs}\Gamma_0(rs)W_{rs}^{-1}=\Gamma_0(rs),\\
+ \rho_{F,1/s}(n)=e(n\bar s/r)\rho_{F\circ W_{rs},\infty}(n),\qquad
+ \psi_{F,1/s}(n)=e(n\bar s/r)\psi_{F|W_{rs},\infty}(n),\\
+ \varphi_{\mathfrak a,1/s,n}(z)
+   =e(n\bar s/r)\varphi_{W_{rs}^{-1}\mathfrak a,\infty,n}(z),\\
+ T_kF(z)=k^{-1/2}\sum_{hd=k}\sum_{j\ (d)}F((hz+j)/d),\qquad
+ c_{T_kF}(n)=\sum_{h\mid(k,n)}c_F(kn/h^2).
+ \end{gathered}
+\end{equation}
+The last line is the Maass normalization, with $(k,rs)=1$.
+For holomorphic forms use the normalized coefficients of (F11).
+These formulas fix the normalization of the following theorem.
+
+Let $C,D,Y,R,S,A_T\ge1$ and $0<\epsilon_0<1/100$.
+Let $a_T\in\mathbb Z$ satisfy $0<|a_T|\le A_T$.
+Let $b_{n,r,s}$ be supported on
+\begin{equation}\label{eq:t28-support}
+ 0<n\le Y,\qquad r\sim R,\qquad s\sim S,\qquad (a_T,rs)=1.
+\end{equation}
+Let $g$ be smooth, supported in
+$(C,2C]\times(D,2D]\times\mathbb R_{>0}^3$, with
+\begin{equation}\label{eq:t28-seminorms}
+ |\partial^\nu g(c,d,n,r,s)|
+ \le G_\nu(c^{-\nu_1}d^{-\nu_2}n^{-\nu_3}r^{-\nu_4}s^{-\nu_5})^{1-\epsilon_0}
+ \quad(\nu\in\mathbb Z_{\ge0}^5).
+\end{equation}
+Set $\mathcal X=2+A_TCDYRS$ and $\theta_{\rm sp}=7/32$.
+For every $\epsilon>0$,
+\begin{equation}\label{eq:t28-conclusion}
+ \left|\sum_{(r,s)=1}\sum_{0<n\le Y}b_{n,r,s}
+ \sum_{\substack{c,d\ge1\\(rd,sc)=1}}
+ g(c,d,n,r,s)e\left(\frac{a_T n\overline{rd}}{sc}\right)\right|
+ \ll_{\epsilon,\epsilon_0,\{G_\nu\}}
+       \mathcal X^{\epsilon+18\epsilon_0}J_*(a_T),
+\end{equation}
+where the inverse is modulo $sc$, and
+\begin{equation}\label{eq:t28-main-bound}
+ \begin{aligned}
+ J_*(a_T)^2={}&\sum_{\substack{n''\mid a_T^\infty\\n''\le2Y}}
+ A_T^{\theta_{\rm sp}}(n'')^{\theta_{\rm sp}}\\
+ &\quad\times\left[CS\left(\frac Y{n''}+RS\right)(C+DR)+|a_T|YRS\right]
+                 \|\widetilde b(n'')\|_2^2\\
+ &+\left[CS(CD\sqrt R)^{2\theta_{\rm sp}}(Y+RS)^{1-\theta_{\rm sp}}\right.\\
+ &\qquad\left.\times(C+DR)^{1-2\theta_{\rm sp}}+D^2YR\right]\|b\|_2^2,\\
+ \|b\|_2^2={}&\sum_{n,r,s}|b_{n,r,s}|^2,\qquad
+ \|\widetilde b(n'')\|_2^2=
+       \sum_{\substack{n',r,s\\(n',a_T)=1}}|b_{n'n'',r,s}|^2.
+ \end{aligned}
+\end{equation}
+Here $n''\mid a_T^\infty$ means that every prime factor of $n''$ divides $a_T$.
+It includes $n''=1$; when $a_T=\pm1$, only $n''=1$ occurs.
+The bound is uniform in $(a_T,A_T,C,D,Y,R,S,b)$.
+These are Paper~I, Theorem~2.8, (2.38)--(2.43)
+\cite[Theorem~2.8, (2.38)--(2.43), pp.~14--15]{PaperI}.
+\end{fact}
+
+Section~\ref{sec:l3} checks the masked coefficients, intervals and support
+of the fourth switched row.
+

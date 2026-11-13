@@ -1,0 +1,1507 @@
+\section{The switched sum}\label{sec:l3}
+
+We estimate the single term $-S_{\mathrm{sw}}/W$.
+The normalization is \eqref{eq:not-normalization}.
+Fix $\sigma$ as in \eqref{eq:not-sigma-choice}.
+Put
+\begin{equation}\label{eq:l3-constants}
+\begin{gathered}
+ \eta_L=10^{-4},\quad\varepsilon=10^{-4},\qquad
+ H_{\max}=\frac{153}{256},\qquad
+ \ell_0=\frac{264897}{2060000},\qquad \ell_1=\frac{109}{1000},\\
+ N_{\mathrm{cut}}=N(1-L^{-333}),\qquad
+ \mathcal P_N=\{p\in\mathbb P:p\nmid2N\}.
+\end{gathered}
+\end{equation}
+All limits in this section fix $\sigma$ first.
+
+\subsection{A common nonnegative source}
+
+We use the prime-coordinate cells of Paper~II
+\cite[(5.29a)--(5.31)]{PaperII}.
+Their rules are
+\begin{equation}\label{eq:l3-descriptors}
+\begin{gathered}
+ I_1=[\alpha,\beta),\quad I_2=[\beta,\lambda),\quad
+ I_3=[\lambda,1/3),\quad I_4=[1/3,1],\\
+ C_{\mathrm{L3}}=\frac{57}{64}-u-\frac{11\alpha}{5}
+       =\frac{6408241}{9192000},\qquad
+ v_\beta=\frac{2(C_{\mathrm{L3}}-\beta)}5,\\
+ k_1+k_2+k_3+k_4=k,\quad 5\le k\le11,\quad
+ k_1\ge m_1\ge\cdots\ge m_{k_2}\ge0,\\
+ v_j\le v_\beta\ \Longrightarrow\ m_j=k_1,\\
+ v_j>v_\beta\ \Longrightarrow\
+ x_{m_j}<C_{\mathrm{L3}}-\frac52v_j\le x_{m_j+1},\\
+ w_C=3+1_{k_1=0}-2k_1-2k_2-k_3+
+            \binom{k_1}{2}+\sum_{j=1}^{k_2}m_j.
+\end{gathered}
+\end{equation}
+The $x_i$ and $v_j$ increase in $I_1$ and $I_2$.
+The outer sentinels are infinite.
+Let $\mathcal C_+$ contain the cells with $w_C>0$.
+For such a cell, put
+\begin{equation}\label{eq:l3-source}
+\begin{aligned}
+ a_C(e)&=1_{\substack{e=p_1\cdots p_k,\ N^\alpha\le p_1<\cdots<p_k\\
+             (\log_Np_1,\ldots,\log_Np_k)\in C}},\\
+ A(e)&=\sum_{C\in\mathcal C_+}w_Ca_C(e)
+                     1_{\varepsilon N<e<N_{\mathrm{cut}}},
+                     &0\le A(e)&\le36,\\
+ X_A&=\sum_eA(e),&Y_A(q)&=\sum_{(e,q)=1}A(e),\\
+ C_A(q;N)&=\sum_eA(e)1_{q\mid N-e}.&&
+\end{aligned}
+\end{equation}
+Since $\sum_jm_j\le k_1k_2$, we have
+\[
+ w_C\le3+1_{k_1=0}-2k_1-2k_2-k_3
+             +\frac{k_1(k_1-1)}2+k_1k_2\le36.
+\]
+For $k_1\ge2$, maximize at $k_3=0$, $k_2=11-k_1$;
+the resulting concave quadratic has maximum $36$ at $k_1=10,11$.
+The cases $k_1=0,1$ give at most $4,1$.
+The strict cells are disjoint, so this proves the bound for $A$.
+Every prime is permitted in $A$.
+In particular, $A$ has no factor $1_{(e,2N)=1}$.
+Keep the selector $1_{\Omega(e)\ge3}$ in the switched source.
+The required pointwise comparison is
+\begin{equation}\label{eq:l3-domination}
+ 1_{\Omega(e)\ge3}(W_{13}(e))_+\le A(e)
+ \quad\left(\begin{gathered}
+ \mu_{\mathrm{Mob}}(e)^2=1,\quad P^-(e)\ge N^\alpha,\\
+ \varepsilon N<e<N_{\mathrm{cut}}
+ \end{gathered}\right).
+\end{equation}
+Here $\mu_{\mathrm{Mob}}$ denotes the M\"obius function.
+Paper~II gives zero positive part when $\Omega(e)=3,4$
+\cite[(1.7), (4.9), (5.29a)--(5.31)]{PaperII}.
+\paragraph{Proof of \eqref{eq:l3-domination}.}
+Let $e$ satisfy the side conditions and write $e=p_1\cdots p_k$,
+$p_1<\cdots<p_k$, $x_i=\log_Np_i$.
+If $(e,N)>1$, every occurrence in \eqref{eq:source-row-occurrences}
+vanishes, because it requires $(d,N)=1$ and $(n/d,Nd)=1$
+\cite[(1.7)]{PaperII}. Then $W_{13}(e)=0$. Assume $(e,N)=1$.
+Since $N^{k\alpha}\le e<N$ and $12\alpha=1200/1149>1$, we have $k\le11$.
+If $k\le2$, the selector vanishes. If $k\in\{3,4\}$, Paper~II, (4.9),
+gives $W_{13}(e)\le0$. Its hypotheses are exactly squarefree $e$,
+$(e,N)=1$, $\varepsilon N<e<N$ and $P^-(e)\ge N^\alpha$
+\cite[(4.9)]{PaperII}.
+Let $5\le k\le11$. The table after Paper~II, (5.29a), shows that the
+three negative pair counts vanish, so
+\[
+ W_{13}(e)=3+1_{k_1=0}-2k_1-2k_2-k_3+\binom{k_1}2+\sum_{j=1}^{k_2}m_B(v_j),
+\]
+where $m_B(v)$ counts first-band coordinates below $B_{\mathrm{O1}}(v)$
+\cite[(5.29a), (5.30)]{PaperII}. The bins determine $k_1,\ldots,k_4$.
+If $v_j\le v_\beta$, then $B_{\mathrm{O1}}(v_j)=\beta$ exceeds every
+first-band coordinate, so $m_B(v_j)=k_1$. If $v_j>v_\beta$, then
+$B_{\mathrm{O1}}(v_j)=C_{\mathrm{L3}}-\frac52v_j$, and $m_B(v_j)$ is the unique $m_j$
+with $x_{m_j}<C_{\mathrm{L3}}-\frac52v_j\le x_{m_j+1}$ (infinite sentinels).
+It is nonincreasing in $j$. Thus $x$ lies in exactly one cell $C$ of
+\eqref{eq:l3-descriptors}, and $W_{13}(e)=w_C$
+\cite[(5.31)]{PaperII}. If $w_C\le0$, the left side of
+\eqref{eq:l3-domination} is zero. Otherwise $C\in\mathcal C_+$ and
+$a_C(e)=1$, so the left side equals $w_C=A(e)$. This proves
+\eqref{eq:l3-domination}. The same argument, without the upper cut, gives
+\begin{equation}\label{eq:l3-domination-nocut}
+ 1_{\Omega(e)\ge3}(W_{13}(e))_+\le A^0(e):=\sum_{C\in\mathcal C_+}w_Ca_C(e)\le36
+\end{equation}
+for squarefree $e$ with $P^-(e)\ge N^\alpha$ and $\varepsilon N<e<N$.
+
+Put
+\begin{equation}\label{eq:l3-sieved-source}
+\begin{gathered}
+ b_A(n)=A(N-n),\qquad
+ P_N(z)=\prod_{\substack{p<z\\p\in\mathcal P_N}}p,\\
+ S_v(z)=\sum_{\substack{n\ge1\\v\mid n}}b_A(n)1_{(n,P_N(z))=1},
+ \qquad S_A=S_1(N^{\mu_*}),\\
+ E_{\mathrm{src}}=(S_{\mathrm{sw}}-S_A)_+,\qquad
+ Z_{\mathrm{src}}=(S_A-S_{\mathrm{sw}})_+.
+\end{gathered}
+\end{equation}
+The definitions give the finite identity
+\begin{equation}\label{eq:l3-source-id}
+ S_{\mathrm{sw}}=S_A+E_{\mathrm{src}}-Z_{\mathrm{src}},
+ \qquad E_{\mathrm{src}},Z_{\mathrm{src}}\ge0.
+\end{equation}
+Under \eqref{eq:l3-domination}, the required bound is
+\begin{equation}\label{eq:l3-source-error}
+ E_{\mathrm{src}}\le910N^{1-\alpha}
+            +36(NL^{-333}+1)+36N^{\mu_*}.
+\end{equation}
+There are at most $2N^{1-\alpha}$ rough squareful integers.
+Each costs at most $455$, by the pointwise weight bound of
+Paper~II, proof of Lemma~1.1, immediately after (1.11)
+\cite[Lemma~1.1, proof after (1.11)]{PaperII}.
+The last two terms cover the top strip and small primes.
+\paragraph{Proof of \eqref{eq:l3-source-error}.}
+Write $e=N-p$ for $p\in\mathbb P$, $p<(1-\varepsilon)N$.
+Every prime $p\ge N^{\mu_*}$ has $(p,P_N(N^{\mu_*}))=1$, and $A\ge0$.
+Hence $S_A\ge\sum_{p\ge N^{\mu_*}}A(N-p)$, and
+\[
+ S_{\mathrm{sw}}-S_A\le\sum_{p\ge N^{\mu_*}}\bigl(s_{\mathrm{sw}}(e)-A(e)\bigr)_+
+                +\sum_{p<N^{\mu_*}}s_{\mathrm{sw}}(e).
+\]
+Here $s_{\mathrm{sw}}(e)=0$ unless $(e,N)=1$ and $P^-(e)\ge N^\alpha$,
+and always $0\le s_{\mathrm{sw}}(e)\le|W_{13}(e)|\le455$
+\cite[Lemma~1.1, proof after (1.11)]{PaperII}.
+Split the summands into three classes; overlaps only enlarge the bound.
+(i) Non-squarefree $e<N$ with $P^-(e)\ge N^\alpha$ number at most
+$\sum_{\ell\ge N^\alpha}N/\ell^2\le2N^{1-\alpha}$; they cost at most
+$455\cdot2N^{1-\alpha}=910N^{1-\alpha}$.
+(ii) Squarefree $e$ with $N_{\mathrm{cut}}\le e<N$ number at most
+$NL^{-333}+1$; by \eqref{eq:l3-domination-nocut} they cost at most
+$36(NL^{-333}+1)$.
+(iii) The primes $p<N^{\mu_*}$ with squarefree $e$ cost at most $36N^{\mu_*}$,
+again by \eqref{eq:l3-domination-nocut}.
+For the remaining squarefree $e$ with $\varepsilon N<e<N_{\mathrm{cut}}$
+and $p\ge N^{\mu_*}$, \eqref{eq:l3-domination} gives a zero summand.
+This proves \eqref{eq:l3-source-error}. Since $W\gg N/L^2$,
+$E_{\mathrm{src}}/W\ll L^{-331}$.
+
+\subsection{Four rows and the lower-sieve cutoff}
+
+Use the clipped intervals
+$[N^t,N^{\rho t})\cap[N^u,N^{\mu_*})$.
+Let $\mathcal A_j$ comprise the ordered prefixes
+\[
+ N^u\le a_j<\cdots<a_1<N^{\mu_*},\qquad a_i\in\mathcal P_N.
+\]
+Write $v=a_1\cdots a_j$.
+The empty prefix has $v=1$.
+Define
+\begin{equation}\label{eq:l3-buchstab}
+\begin{gathered}
+ T_0=S_1(N^u),\quad
+ T_1=\sum_{\mathcal A_1}S_{a_1}(N^u),\quad
+ T_2=\sum_{\mathcal A_2}S_{a_1a_2}(N^u),\\
+ T_3^{\mathrm{dyn}}=\sum_{\mathcal A_3}S_{a_1a_2a_3}(a_3),
+ \qquad S_A=T_0-T_1+T_2-T_3^{\mathrm{dyn}}.
+\end{gathered}
+\end{equation}
+This is Buchstab's finite identity
+\cite[(4.18)]{PaperII}.
+Its coefficient is
+$1-k+\binom{k}{2}-\binom{k-1}{2}=0$ for $k\ge1$.
+At $k=0$ it equals $1$.
+
+At depth three, let $\Theta_c$ be the infimum
+of $\widetilde H$ on the closed clipped parent. The underlying prime
+cells stay half-open. The closure is used only for this infimum.
+Use the whole anatomy function before choosing a branch
+\cite[(2.17d)--(2.17e), (4.19)]{PaperII}.
+Set
+\begin{equation}\label{eq:l3-row3-level}
+ \ell_c=\Theta_c-\eta_L-t_1-t_2-t_3,\quad
+ D_c=N^{\ell_c},\quad z_c=N^{t_3},\quad
+ \chi_c=1_{\ell_c\ge2\rho t_3}.
+\end{equation}
+Retained prefixes have $\chi_c=1$.
+For these prefixes define
+\begin{equation}\label{eq:l3-peel}
+\begin{aligned}
+ B_3&=\sum_{\mathcal A_3:\chi_c=1}S_v(z_c),&
+ D_-&=\sum_{\mathcal A_3:\chi_c=0}S_v(a_3),\\
+ D_+&=\sum_{\mathcal A_3:\chi_c=1}\{S_v(z_c)-S_v(a_3)\},&
+ P_3&=\sum_{\mathcal A_3:\chi_c=1}
+       \sum_{\substack{r\in\mathcal P_N\\z_c\le r<a_3}}S_{vr}(z_c),\\
+ Z_{\mathrm{peel}}&=D_-+P_3-D_+\ge0.&&
+\end{aligned}
+\end{equation}
+The union bound gives $D_+\le P_3$.
+Therefore
+\begin{equation}\label{eq:l3-buchstab-peel}
+ S_A=T_0-T_1+T_2-B_3+P_3-Z_{\mathrm{peel}}.
+\end{equation}
+The favorable term enters exactly once
+\cite[(4.45)]{PaperII}.
+
+\subsection{Capping the first three levels}
+
+At depths $j=0,1,2$, replace the relative level by
+\begin{equation}\label{eq:l3-cap}
+ T_c=\sum_{i=1}^jt_i,\quad
+ \ell_c=\frac12-\eta_L-\rho T_c,\quad
+ D_c=N^{\ell_c},\quad z_{j,c}=N^u.
+\end{equation}
+Here $T_c=0$ at depth zero.
+Depth three keeps \eqref{eq:l3-row3-level}, with $z_{3,c}=z_c$.
+The elementary bounds are
+\begin{equation}\label{eq:l3-cap-margins}
+\begin{gathered}
+ \ell_c\ge\frac12-\eta_L-j\rho\mu_*\ge\ell_1,
+ \qquad s_c=\ell_c/u\ge54.6375-10^{-87}>30,\\
+ \text{continuum reference values for depths }0,1,2\text{ (the first three rows)}
+ \text{ at }(\eta_L,\rho)=(0,1):
+       250,\ \frac{4875}{32},\ \frac{875}{16},\\
+ q<N^{\rho T_c}D_c^{\rho+\sigma}
+   \le N^{1/2-\eta_L+(\sigma+\tau)/2}
+   <N^{1/2-9\cdot10^{-5}}.
+\end{gathered}
+\end{equation}
+The modulus includes the smooth divisor and every tail prime.
+The exponent $\rho+\sigma$ is kept.
+The cap changes no row-three level.
+
+The lower floor changes the repeated-prime argument.
+Put
+\begin{equation}\label{eq:l3-rough-floor}
+ u_1=N^{\ell_1\sigma^2},\qquad
+ M_\sigma=\left\lceil\frac3{5\ell_0\sigma^2}\right\rceil,
+ \qquad C_{\mathrm{L3},\sigma}=M_\sigma!.
+\end{equation}
+\paragraph{(P2.8b) Rough-coordinate and repeated-prime bounds.}
+Assume the support and rough-coordinate hypotheses stated below.
+These are the capped version of Paper~II's Lemmas B.1--B.4.
+The coefficients and masks are defined in \eqref{eq:l3-masks}.
+Every rough coordinate is at least $u_c=D_c^{\sigma^2}\ge u_1$.
+On an active block, count these coordinates by $m_c$.
+The capped modulus bound gives
+\begin{equation}\label{eq:l3-rough-count}
+ u_1^{m_c}\le q<N^{1/2},\qquad
+ m_c<\frac{500}{109\sigma^2}
+       \le\frac3{5\ell_0\sigma^2},\qquad
+ \frac{m_c!}{M_c}\le C_{\mathrm{L3},\sigma}.
+\end{equation}
+The prefix orbit size is $M_c\in\{1,2,6\}$.
+The small-prime part of $q$ fixes the smooth divisor.
+The rough multiset fills at most $m_c!$ labelled positions.
+Thus
+\begin{equation}\label{eq:l3-cap-coefficient-bound}
+ \frac{|C_{\mathfrak b}(q)|}{M_c}\le C_{\mathrm{L3},\sigma}.
+\end{equation}
+Define $\mathcal H_1=\{q<N^{1/2}:p^2\mid q\text{ for some }p\ge u_1\}$.
+The forbidden and allowed-repeat masks satisfy
+\begin{equation}\label{eq:l3-u1-masks}
+ |\Xi_{U,\mathfrak b}(q)|+|\Xi_{A,\mathfrak b}(q)|
+                \le C_{\mathrm{L3},\sigma}1_{\mathcal H_1}(q).
+\end{equation}
+Writing $q=vp^2$ and overcounting gives
+\begin{equation}\label{eq:l3-u1-sums}
+ \sum_{q\in\mathcal H_1}\frac1q\le\frac{2(1+L)}{u_1},
+ \qquad \#\mathcal H_1\le\frac{2N^{1/2}}{u_1}.
+\end{equation}
+The tested measure has $0\le A\le36$ and support below $N$.
+For $N\ge N_{\mathrm{dom}}$, $q/\varphi(q)\le1+L$ throughout $q<N^{1/2}$.
+Consequently
+\begin{equation}\label{eq:l3-u1-test}
+ |\Delta_P(q)|,\ |d_A(q)|
+ \le36\left(\frac Nq+1+\frac N{\varphi(q)}\right)
+ \le36\left(\frac{N(2+L)}q+1\right).
+\end{equation}
+Per block, these bounds give
+\begin{equation}\label{eq:l3-u1-block}
+ \sum_q\bigl(|\Xi_U(q)\Delta_P(q)|+|\Xi_A(q)d_A(q)|\bigr)
+       \le\frac{216C_{\mathrm{L3},\sigma} N(1+L)^2}{u_1}.
+\end{equation}
+There are finitely many blocks at fixed $\sigma$.
+Division by $W\gg N/L^2$ proves the conditional estimate
+\begin{equation}\label{eq:l3-repeated-cap}
+ |E_{\mathrm{sq}}|/W=O_\sigma(N^{-\ell_1\sigma^2}L^4).
+\end{equation}
+These are Paper~II, Lemmas B.1--B.4 and (B.3)--(B.7),
+with $u_0$ replaced by $u_1$ on rows $0,1,2$
+\cite[Appendix~B.1, Lemmas B.1--B.4, (B.3)--(B.7)]{PaperII}.
+Row three keeps $u_0=N^{\ell_0\sigma^2}$, since its level floor
+in \eqref{eq:l3-row3-global-margins} exceeds $\ell_0$.
+\paragraph{Verification for the capped rows.}
+Fix a block in row $j\le2$. Prefix primes lie in
+$[N^{t_i},N^{\rho t_i})\cap[N^u,N^{\mu_*})$, so their product is below
+$N^{\rho T_c}$. The tail tuple satisfies $\prod_iD_i<D_c$ by its last
+cubic constraint, and the tail primes are below $D_i^\rho$; also
+$d<D_c^\sigma$. Thus
+\[
+ \log_Nq<\rho T_c+(\rho+\sigma)\ell_c
+ =(\rho+\sigma)(\tfrac12-\eta_L)-\rho(\rho+\sigma-1)T_c
+ \le(\rho+\sigma)(\tfrac12-\eta_L)<\tfrac12-9\cdot10^{-5}.
+\]
+Every prime of $q$ lies in $\mathcal P_N$ and $d\mid P_N(u_c)$, so
+$(q,2N)=1$. Tail primes are at least $D_i\ge D_c^{\sigma^2}=u_c$.
+Prefix primes are at least $N^u>u_c$, because $\ell_c\sigma^2<u$.
+Also $u_c=N^{\ell_c\sigma^2}\ge N^{\ell_1\sigma^2}=u_1$.
+For an active block choose a nonzero realization. Then
+$u_1^{m_c}\le q<N^{1/2}$, so $m_c<1/(2\ell_1\sigma^2)=500/(109\sigma^2)$,
+and $1/(2\ell_1)\le3/(5\ell_0)$. This is \eqref{eq:l3-rough-count}.
+The primes of $q$ below $u_c$ determine $d$. The rough multiset fills
+the $m_c$ labelled positions in at most $m_c!$ ways, and $|\lambda_d|\le1$.
+This gives \eqref{eq:l3-cap-coefficient-bound}. It also gives
+\eqref{eq:l3-u1-masks}. A forbidden tuple repeats a prime $\ge u_c$.
+An allowed non-squarefree tuple has $p^2\mid q$ with $p\ge u_c$,
+since $d$ is squarefree and coprime to the rough part. The grid count of
+Paper~II, Lemma~B.1(4), gives finitely many blocks at fixed $\sigma$.
+These are Paper~II, Lemmas~B.1--B.2, with $(u_0,N^{3/5})$ replaced by
+$(u_1,N^{1/2})$ \cite[Appendix~B.1, Lemmas~B.1--B.2]{PaperII}.
+Lemma~B.4 with $u_1$ and $Q=N^{1/2}$ gives \eqref{eq:l3-u1-sums}.
+Lemma~B.3, with $A\le36<A_{\max}$, support in $[1,N)$ and
+$q/\varphi(q)\le1+\log_2q\le1+L$, gives \eqref{eq:l3-u1-test}.
+Then $\sum_{q\in\mathcal H_1}(N(2+L)/q+1)\le6N(1+L)^2/u_1$ gives
+\eqref{eq:l3-u1-block}. Row three is Paper~II, Lemmas~B.1--B.4 as
+printed: its modulus bound $q<N^{e_Q}<N^{3/5}$ and floor
+$\ell_c>\ell_0$ are \eqref{eq:l3-row3-global-margins}. Hence
+\eqref{eq:l3-repeated-cap} holds for all four rows.
+
+\subsection{The signed sieve identity}
+
+Put $\nu_j=(-1)^j$.
+For all four rows, define
+\begin{equation}\label{eq:l3-common-sifting-ratio}
+ s_c=\frac{\ell_c}{\log_N z_{j,c}}
+ =\begin{cases}\ell_c/u,&j=0,1,2,\\ \ell_c/t_3,&j=3.\end{cases}
+\end{equation}
+Let $K_j=F$ for even $j$, and $K_j=f$ for odd $j$.
+For a prefix $v$, set
+\begin{equation}\label{eq:l3-density}
+\begin{gathered}
+ \mathcal X_v=X_A/\varphi(v),\qquad
+ \omega_v(p)=\frac p{p-1}1_{p\in\mathcal P_N},
+ \qquad \omega_v(p^h)=0\quad(h\ge2),\\
+ V_N(z)=\prod_{\substack{p<z\\p\in\mathcal P_N}}
+                     \left(1-\frac1{p-1}\right),\qquad
+ \Delta_0(q)=C_A(q;N)-\frac{X_A}{\varphi(q)}.
+\end{gathered}
+\end{equation}
+All cutoff primes lie below the prefix primes.
+Thus the density product on the sieve support is $V_N$.
+The squarefree remainder is $\Delta_0(vd)$.
+Apply Fact~\ref{fact:structured-sieve} with
+$\epsilon_s=\sigma$, $\delta_s=\tau$, and $L_\omega=2$.
+Choose a common nonnegative majorant
+\begin{equation}\label{eq:l3-sieve-error}
+ E_{s,c}:= C_E\{\sigma+
+     \sigma^{-8}e^{K_{\mathrm M}+2}(\ell_cL)^{-1/3}\}.
+\end{equation}
+The signed sieve error satisfies \(|E_s|\le E_{s,c}\).
+\paragraph{Verification of the sieve data.}
+Fix a row, a cell and a prefix $v$, and sieve the finite multiset
+$\{n:v\mid n\}$ with multiplicity $b_A(n)\ge0$ by $\mathcal P_N$ below
+$z=z_{j,c}$. Every prefix prime is at least $z$: on rows $0,1,2$ it is at
+least $N^u=z$, and on row three $a_3\ge N^{t_3}=z_c$. Hence $(d,v)=1$
+for $d\mid P_N(z)$. In particular $\omega_v(d)=\prod_{p\mid d}p/(p-1)$
+for these $d$; the primes $p\mid v$ are all $\ge z$ and are never sifted.
+For squarefree such $d$,
+\[
+ |\mathcal A_d|=\sum_eA(e)1_{vd\mid N-e}=C_A(vd;N),\qquad
+ \frac{\omega_v(d)}d\mathcal X_v=\frac{X_A}{\varphi(v)\varphi(d)}
+                               =\frac{X_A}{\varphi(vd)},
+\]
+so $r(\mathcal A,d)=\Delta_0(vd)$. Each remainder modulus in
+\eqref{eq:l3-remainders} is squarefree. Here $d$ uses primes below
+$D_c^{\sigma^2}$. Tail primes are at least $D_c^{\sigma^2}$ and distinct
+(equal labels by the mask, unequal grid intervals disjoint). Prefix
+primes are at least $z$. Next, $0<\omega_v(p)=p/(p-1)<p$ for every
+$p\in\mathcal P_N$ (all such $p$ are odd),
+$\omega_v=0$ off $\mathcal P_N$, and $\omega_v(p^h)=0$ for $h\ge2$. Hence the
+second condition in \eqref{eq:classical-density} holds with $L_\omega=2$.
+For the first, $(1-\omega_v(p)/p)^{-1}=(1-1/(p-1))^{-1}$, and Paper~II,
+(5.5), gives
+\[
+ \prod_{\substack{w\le p<z\\p\in\mathcal P_N}}\left(1-\frac1{p-1}\right)^{-1}
+ \le\frac{\log z}{\log w}\left(1+\frac{K}{\log w}\right)\qquad(2\le w<z)
+\]
+with one absolute $K$, uniformly in $N$ \cite[(5.5)]{PaperII}.
+Take $K_{\mathrm M}$ in \eqref{eq:l3-sieve-error} to be the maximum of
+this $K$ and the constant of \eqref{eq:classical-mertens-density}. It
+remains absolute and is fixed before $\sigma$. The product
+$V(z)$ of Fact~\ref{fact:structured-sieve} is then $V_N(z)$.
+The levels satisfy $z\le D_c$ on rows $0,2$ ($s_c>30$) and
+$z\le D_c^{1/2}$ on rows $1,3$ ($s_c>30$, resp.\ $\chi_c=1$, i.e.\
+$\ell_c\ge2\rho t_3$). Fact~\ref{fact:structured-sieve} with
+$\epsilon_s=\sigma$, $\delta_s=\tau$, $D=D_c$ therefore applies to every
+actual sequence, and \eqref{eq:l3-signs} follows with
+$E_s\le E_{s,c}$, $\log D_c=\ell_cL$.
+
+For each cell fix one coefficient construction.
+Use it for every prefix realization in that cell.
+Write its remainders as
+\begin{equation}\label{eq:l3-remainders}
+\begin{aligned}
+ R_{1,v}^{\nu}&=\sum_{\substack{d<D_c^\sigma\\d\mid P_N(D_c^{\sigma^2})}}
+                         \phi_d^\nu\Delta_0(vd),\\
+ R_v^\nu&=\sum_{\mathbf D\in\mathcal D^\nu(D_c)}
+   \sum_{\substack{d<D_c^\sigma\\d\mid P_N(D_c^{\sigma^2})}}
+   \lambda_d^\nu(\mathbf D)
+   \sum_{\substack{D_i\le p_i<\min(D_i^\rho,z_{j,c})\\
+                p_i\in\mathcal P_N,\ \text{equal-label entries distinct}}}
+                         \Delta_0(vd\textstyle\prod_i p_i).
+\end{aligned}
+\end{equation}
+The coefficients satisfy $|\phi_d^\nu|,|\lambda_d^\nu(\mathbf D)|\le1$
+\cite[Theorem~2.6, (2.29)--(2.33b)]{PaperI}.
+Define the finite quantities
+\begin{equation}\label{eq:l3-four-rows}
+\begin{aligned}
+ M_j&=\sum_c\sum_{v\in c}\frac{X_A}{\varphi(v)}
+                   V_N(z_{j,c})K_j(s_c),\\
+ E_j&=\sum_c\sum_{v\in c}\frac{X_A}{\varphi(v)}
+                   V_N(z_{j,c})E_{s,c},\qquad
+ R_j=\sum_c\sum_{v\in c}(R_{1,v}^{\nu_j}+R_v^{\nu_j}),\\
+ Q_j&=M_j+\nu_j E_j+\nu_j R_j,\qquad
+ (S_0,S_1,S_2,S_3)=(T_0,T_1,T_2,B_3),\\
+ Z_{\mathrm{AA}}&=\sum_{j=0}^3\nu_j(Q_j-S_j),\qquad
+ M_{\mathrm{prin}}=\sum_{j=0}^3\nu_jM_j,\\
+ M_{\mathrm{err}}&=\sum_{j=0}^3E_j,\qquad
+ R_{\mathrm{adv}}=\sum_{j=0}^3R_j.
+\end{aligned}
+\end{equation}
+The sums keep strict prefix order.
+Under the stated sieve hypotheses,
+\begin{equation}\label{eq:l3-signs}
+ Q_0\ge S_0,\quad Q_1\le S_1,\quad
+ Q_2\ge S_2,\quad Q_3\le S_3,\quad Z_{\mathrm{AA}}\ge0.
+\end{equation}
+Multiplying the signs gives
+\begin{equation}\label{eq:l3-aa-id}
+ \sum_{j=0}^3\nu_jS_j
+    =M_{\mathrm{prin}}+M_{\mathrm{err}}+R_{\mathrm{adv}}-Z_{\mathrm{AA}}.
+\end{equation}
+Every remainder in $R_{\mathrm{adv}}$ has sign $+1$.
+
+\subsection{The natural coprime comparator}
+
+A block $\mathfrak b=(j,c,f,\mathbf D)$ fixes a row,
+a cell, and either remainder type $f$.
+The tail vector is empty for $R_1$.
+Prefix realizations stay inside the coefficient.
+Let $K_P,K_T$ impose prefix and tail distinctness.
+Let $C_{\mathfrak b}$ be the unrestricted labelled coefficient.
+Define
+\begin{equation}\label{eq:l3-masks}
+\begin{aligned}
+ C_{\mathfrak b}(q)&=\sum_{\mathrm{full\ labelled\ tuples}}
+          \widetilde\lambda_d1_{q=d\prod p_i},\\
+ O_{\mathfrak b}(q)&=\frac1{M_c}
+      \sum_{\mathrm{full\ labelled\ tuples}}
+          \widetilde\lambda_dK_PK_T1_{q=d\prod p_i},\\
+ \Xi_{U,\mathfrak b}(q)&=\frac1{M_c}
+      \sum_{\mathrm{full\ labelled\ tuples}}
+          \widetilde\lambda_d(1-K_PK_T)1_{q=d\prod p_i},\\
+ O_{\mathfrak b}&=C_{\mathfrak b}/M_c-\Xi_{U,\mathfrak b},\qquad
+ \Xi_{A,\mathfrak b}=O_{\mathfrak b}1_{q\ \mathrm{not\ squarefree}}.
+\end{aligned}
+\end{equation}
+The two comparator discrepancies are
+\begin{equation}\label{eq:l3-comparator}
+ \Delta_P(q)=C_A(q;N)-\frac{Y_A(q)}{\varphi(q)},\qquad
+ d_A(q)=\Delta_0(q)-\Delta_P(q)
+             =-\frac{X_A-Y_A(q)}{\varphi(q)}.
+\end{equation}
+For $\langle f,g\rangle=\sum_qf(q)g(q)$, put
+\begin{equation}\label{eq:l3-adv-split}
+\begin{aligned}
+ E_{\mathrm{disp},f}&=\sum_{\mathfrak b:\mathrm{type}=f}
+                \frac{\langle C_{\mathfrak b},\Delta_P\rangle}{M_c}
+                     \quad(f=1,2),\\
+ E_{\mathrm{sq}}&=\sum_{\mathfrak b}
+       \{-\langle\Xi_{U,\mathfrak b},\Delta_P\rangle
+                         +\langle\Xi_{A,\mathfrak b},d_A\rangle\},\\
+ E_{\mathrm{nc}}&=\sum_{\mathfrak b}\sum_{q\ \mathrm{squarefree}}
+                              O_{\mathfrak b}(q)d_A(q),\\
+ R_{\mathrm{adv}}&=E_{\mathrm{disp},1}+E_{\mathrm{disp},2}
+                                      +E_{\mathrm{sq}}+E_{\mathrm{nc}}.
+\end{aligned}
+\end{equation}
+This is a finite coefficient identity
+\cite[(4.22)--(4.26), Appendix~B.1--B.4]{PaperII}.
+All moduli satisfy $(q,2N)=1$.
+That restriction does not puncture $A$.
+
+\subsection{The full-support bilinear application}
+
+Split each prime coordinate into relative-width $L^{-334}$ intervals.
+An interior box has constant order and descriptor predicates.
+For $B=\prod_i[A_i,B_i)$, put
+\begin{equation}\label{eq:l3-direct-prime}
+\begin{gathered}
+ T=\lceil A_1\rceil-1,\quad U_J=\lceil B_1\rceil-1,\quad
+ I_T=(T,U_J],\quad X=\prod_iA_i,\\
+ a_n=1_{\mathbb P}(n)1_{I_T}(n),\qquad
+ b_m=\sum_{\substack{p_2<\cdots<p_k\\p_i\in[A_i,B_i)}}1_{m=p_2\cdots p_k},\\
+ b_m\in\{0,1\},\qquad
+ N^\alpha/2\le T<N^{1/5},\qquad \varepsilon N\le X\le N.
+\end{gathered}
+\end{equation}
+The box contributes exactly $w_Ca_nb_m$.
+For $T>2^{50}$ and $U_J\le2T$,
+\begin{equation}\label{eq:l3-prime-option}
+ a_n=1_{P^-(n)\ge T^{51/100}}1_{I_T}(n).
+\end{equation}
+A composite $n\le2T$ has a smaller prime divisor.
+This is Paper~I, (3.8), option 1
+\cite[(3.8)--(3.9)]{PaperI}.
+Its logarithmic replacement error is zero.
+
+Define the full-support discrepancy
+\begin{equation}\label{eq:l3-box-discrepancy}
+\begin{aligned}
+ \Delta_B(q,N)&=\sum_{nm\equiv N\ (q)}a_nb_m
+           -\frac1{\varphi(q)}\sum_{(nm,q)=1}a_nb_m,\\
+ \mathcal S_B(\mathfrak b)&=\sum_qC_{\mathfrak b}(q)\Delta_B(q,N).
+\end{aligned}
+\end{equation}
+There is no condition $nm\le X$ in these sums.
+The exact interior decomposition is
+\begin{equation}\label{eq:l3-interior-split}
+\begin{aligned}
+ D_{\mathrm{int}}^{(j)}
+ &=\sum_{\mathfrak b:\mathrm{row}=j}\frac1{M_c}
+           \sum_C\sum_{B\subset C\ \mathrm{interior}}w_C\mathcal S_B(\mathfrak b),\\
+ E_{\mathrm{disp},1}+E_{\mathrm{disp},2}
+ &=\sum_{j=0}^3D_{\mathrm{int}}^{(j)}+D_{\mathrm{bdry}}.
+\end{aligned}
+\end{equation}
+
+For rows $0,1,2$, apply Fact~\ref{fact:bv-full-support}.
+Its Siegel--Walfisz sequence must be the selected prime sequence.
+The dictionary with Fact~\ref{fact:bv-full-support} is
+$b_n^{\mathrm{F2}}:=a_n$, $a_m^{\mathrm{F2}}:=b_m$, and $Y:=T$.
+Thus the prime sequence carries the Siegel--Walfisz hypothesis.
+We need Paper~I, (3.25), in the form
+\begin{equation}\label{eq:l3-prime-sw}
+ \sum_{\substack{n\in I\\n\equiv l\ (k)\\(n,d)=1}}1_{\mathbb P}(n)
+ -\frac1{\varphi(k)}\sum_{\substack{n\in I\\(n,dk)=1}}1_{\mathbb P}(n)
+ \ll_{A_{\mathrm{SW}}}T\tau(d)L^{-A_{\mathrm{SW}}},\qquad(l,k)=1,
+ \quad I\subset I_T.
+\end{equation}
+The normalized hypothesis also needs
+\begin{equation}\label{eq:l3-prime-norm}
+ \|a\|_2T^{1/2}\gg T L^{-168}.
+\end{equation}
+Use Fact~\ref{fact:prime-estimates}, specifically \eqref{eq:classical-sw}.
+Its endpoint estimate gives, for every fixed $A>335$,
+\begin{equation}\label{eq:l3-endpoint-prime-count}
+ \pi(U_J)-\pi(T)=\operatorname{Li}(U_J)-\operatorname{Li}(T)
+                         +O_A(TL^{-A}).
+\end{equation}
+Full mesh intervals satisfy $U_J-T\gg TL^{-334}$.
+Thus $\#(I_T\cap\mathbb P)\gg TL^{-335}$ uniformly.
+This implies \eqref{eq:l3-prime-norm}.
+The $k=1$ discrepancy in \eqref{eq:l3-prime-sw} is identically zero.
+The counting input is the endpoint estimate just displayed.
+\paragraph{Proof of \eqref{eq:l3-prime-sw} and \eqref{eq:l3-prime-norm}.}
+Let $N^\alpha/2\le T<N^{1/5}$, $U_J\le2T$, $(l,k)=1$, and let
+$I=(y_1,y_2]\subset I_T$ be an arbitrary subinterval, so
+$T\le y_1\le y_2\le U_J$. (Paper~I, (3.25), is quantified over all
+such $I$ \cite[(3.25)]{PaperI}.)
+The condition $(n,d)=1$ removes at most $\omega(d)$ primes from each sum.
+If $k\le L^{A+2}$, apply \eqref{eq:classical-sw} at $y=y_2$ and $y=y_1$,
+with $C=A+3$. Since $T\le y\le2T$, $\log y\asymp L$ and the error is
+$O_A(TL^{-A})$ at each endpoint. Hence
+$\pi(y_2;k,l)-\pi(y_1;k,l)=(\operatorname{Li}(y_2)-\operatorname{Li}(y_1))/\varphi(k)+O_A(TL^{-A})$.
+The same holds for the unrestricted count divided by $\varphi(k)$,
+up to the $\omega(k)$ primes dividing $k$.
+If $k>L^{A+2}$, since $y_2-y_1\le T$ both terms are at most
+$T/k+1+T/\varphi(k)\ll TL^{-A}$,
+using $\varphi(k)\gg k/\log\log k$. This proves \eqref{eq:l3-prime-sw}
+with $\tau(d)$, ineffectively, uniformly in $I\subset I_T$. For the norm,
+$U_J-T\ge A_1L^{-334}-1\ge TL^{-334}/2$ on a full mesh interval, and
+\eqref{eq:l3-endpoint-prime-count} with $A=336$ gives
+$\#(I_T\cap\mathbb P)\ge TL^{-335}/4$ eventually. Hence
+$\|a\|_2T^{1/2}\ge TL^{-335/2}/2\ge TL^{-168}$. Both bounds are uniform
+over all interior boxes, since only $T$ enters.
+
+Assume \eqref{eq:l3-prime-sw} and \eqref{eq:l3-prime-norm} uniformly.
+Taking $A_{\mathrm{SW}}=A_0+168$ verifies
+\eqref{eq:bvfs-sw} with divisor exponent one.
+Both factor lengths exceed $x_B^{1/12}$ eventually.
+Split each of the $k-1$ complementary prime intervals at any dyadic
+boundary. This gives at most $2^{k-1}$ pieces. Localize each resulting
+product on $m\sim M_B$. Since $(1+L^{-334})^{k-1}<2$ eventually,
+there are at most two product dyadic intervals per piece.
+This bounded splitting changes no logarithmic exponent.
+Set $x_B=TM_B\asymp N$.
+There are at most $T$ selected integers in $(T,2T]$ and at most
+$2M_B$ integers in a product dyadic interval. Unique factorization gives
+$\|a\|_2\|b\|_2\le\sqrt{2x_B}$.
+The required application is
+\begin{equation}\label{eq:l3-bv-application}
+\begin{gathered}
+ \frac{|C_{\mathfrak b}(q)|}{M_c}\le C_{\mathrm{L3},\sigma},\qquad
+ Q<N^{1/2-9\cdot10^{-5}}\le x_B^{1/2}(\log x_B)^{-B_{\mathrm{BV}}},\\
+ \|a\|_2\|b\|_2\le\sqrt{2}\,x_B^{1/2},\qquad
+ |\mathcal S_B(\mathfrak b)|/M_c\ll_\sigma NL^{-3692}.
+\end{gathered}
+\end{equation}
+Use $A=3692$, $B=1$, $\epsilon=1/12$ and
+$B_{\mathrm{BV}}=B_{\mathrm{BV}}(3692,1,1/12)$ in \eqref{eq:bvfs}.
+The source has $O_\sigma(L^{3689})$ weighted boxes.
+There are finitely many blocks at fixed $\sigma$.
+Since $W\gg N/L^2$, summation gives
+\begin{equation}\label{eq:l3-bv-total}
+ \frac{|D_{\mathrm{int}}^{(0)}|+|D_{\mathrm{int}}^{(1)}|
+          +|D_{\mathrm{int}}^{(2)}|}{W}\ll_\sigma L^{-1}.
+\end{equation}
+\paragraph{Verification of \eqref{eq:l3-bv-application}.}
+The coefficient bound is \eqref{eq:l3-cap-coefficient-bound}, proved above,
+and the modulus range is \eqref{eq:l3-cap-margins}. Every supported $q$ is
+prime to $2N$, so $a=N$ is a reduced class and the maximum in
+\eqref{eq:bvfs} covers it. The selected sequence $a_n$ is supported in
+$(T,2T]$, and $b_m$, after at most two dyadic pieces, in $(M_B,2M_B]$.
+For $x_B=TM_B$, $x_B\in[\varepsilon N/8,2N]$ and
+$\log T/\log x_B\in[\alpha-o(1),1/5+o(1)]\subset[1/12,11/12]$, because
+$\alpha-1/12=17/4596>0$. The hypothesis \eqref{eq:bvfs-sw} holds with
+$B=1$ by \eqref{eq:l3-prime-sw}, \eqref{eq:l3-prime-norm} and
+$A_{\mathrm{SW}}=A_0+168$. Interior boxes have constant order predicates,
+so $nm=e$ has one labelled representation and $b_m\in\{0,1\}$. Thus
+$\|a\|_2\|b\|_2\le(2x_B)^{1/2}$. On each interior box,
+$\mathcal S_B(\mathfrak b)=\sum_qC_{\mathfrak b}(q)\Delta_B(q,N)$ with
+$\Delta_B=\sum_{\mathrm{pieces}}\Delta_{\mathrm{fs}}$, and
+Fact~\ref{fact:bv-full-support} gives
+$|\mathcal S_B(\mathfrak b)|/M_c\ll_\sigma NL^{-3692}$.
+Fact~\ref{fact:bv-full-support} is the full-support bilinear estimate
+derived from Bombieri--Friedlander--Iwaniec, Theorem~0(b). We verified its hypotheses
+above for this source.
+
+\subsection{The source-level row-three estimate}\label{subsec:l3-source-row3}
+
+Row three keeps the full anatomy level.
+Its factorization keeps every labelled occurrence.
+The smooth divisor stays in the first factor.
+For $d_*=\rho(\Theta_c-\eta_L)$ and $e_i=\rho t_i$,
+the prefix inequalities are
+\begin{equation}\label{eq:l3-prefix-margins}
+\begin{aligned}
+ d_*-2e_1&\ge\frac{33109}{160000}\rho,\\
+ d_*-e_1-2e_2&\ge\frac{1859}{160000}\rho,\\
+ d_*-e_1-e_2-2e_3&\ge\frac{33109}{480000}\rho
+                                      \quad(\chi_c=1).
+\end{aligned}
+\end{equation}
+The anatomy branch gives $\Theta_c\ge(1+t_1)/2$.
+The condition $\chi_c=1$ gives the last inequality.
+In particular, with $A_3=33109/160000$,
+\begin{equation}\label{eq:l3-row3-global-margins}
+\begin{gathered}
+ \ell_c\ge\max\{A_3-t_3,2\rho t_3\}\ge\frac{33109}{240000},\qquad
+ \ell_c-\ell_0\ge\frac{231463}{24720000}=0.0093633899676\ldots,\\
+ \Theta_c\le H_{\max}=\frac{153}{256},\qquad
+ e_Q=(\rho+\sigma)(153/256-\eta_L)<\frac35,\\
+ \frac35-e_Q\ge\frac{391}{160000}
+       -\frac{95609}{160000}(\sigma+\tau)>0.0024437499.
+\end{gathered}
+\end{equation}
+Here $e_Q$ bounds the full modulus exponent
+$\rho(t_1+t_2+t_3)+(\rho+\sigma)\ell_c$.
+The inherited anatomy and rough-factor estimates are Paper~II,
+(4.20) and Appendix~B, Lemma~B.1(1)--(2)
+\cite[(4.20), Appendix~B, Lemma~B.1(1)--(2)]{PaperII}.
+For the tail exponents $s_i$, the cubic conditions give
+\begin{equation}\label{eq:l3-tail-margins}
+ \sum_{i<l}s_i+2s_l<\ell_c,\qquad
+ h=d_*+60\sigma,\qquad
+ \Theta_c-h\ge\eta_L-\tau H_{\max}-60\sigma>0.
+\end{equation}
+Theorem~4.1 of Paper~I then supplies the load surpluses
+\begin{equation}\label{eq:l3-packing-loads}
+ \left(\frac{7527}{256},\ 60,\ \frac{114421}{1280},\
+                         \frac{26247}{256}\right)\sigma.
+\end{equation}
+The required length data are
+\begin{equation}\label{eq:l3-lengths}
+\begin{gathered}
+ 1\le|mn-N|\le N<X^3,\quad
+ N_I\ge\frac{T}{6L^{334}}\ge(2T)^{1-2^{-126}},\\
+ X^{60\sigma}\le T\le X^{1/3+15\sigma},\quad
+ QX^{\sigma/3}\le N_I,\quad QRS<M_IX^{-89\sigma},\quad M_I\ge X^{1/2}.
+\end{gathered}
+\end{equation}
+Here $N_I$ is the selected integer interval length.
+The complement has length scale $M_I$.
+The letters $Q,R,S$ are the three factor scales.
+Each condition holds only above its fixed-$\sigma$ application threshold.
+The floor $2\lceil e^{2^{150}}/2\rceil$ is imposed separately.
+See Paper~I, (3.6)--(3.9) and (4.9)
+\cite[(3.6)--(3.9), Theorem~4.1, (4.9)]{PaperI}.
+We verify them for this source below.
+
+The remaining analytic estimate is
+\begin{equation}\label{eq:l3-masked-use}
+ |\mathcal S_B(\mathfrak b)|
+ \ll_{\sigma,A_{\mathrm{loc}}}XL^{-A_{\mathrm{loc}}}
+          +X^{1-\ell_0\sigma^2/4}L^{C_{\mathrm{loc}}}
+ \quad(\mathfrak b\text{ in row }3).
+\end{equation}
+It is uniform over the permitted boxes and blocks.
+Here $A_{\mathrm{loc}}>0$ is arbitrary;
+$C_{\mathrm{loc}}$ is fixed by the local theorem.
+Paper~I, Theorem~3.2, (3.13), supplies the local dispersion theorem.
+Its Theorem~2.8 enters only in the inner spectral stage.
+There we use the form (P1.7), Fact~\ref{fact:spectral-implication}, with the full bracket
+\eqref{eq:t28-main-bound}. The inner substitution is
+\begin{equation}\label{eq:l3-spectral-dictionary}
+ r_T=z,\quad s_T=p_0,\quad n_T=p_0m,\quad
+ a_T=\epsilon_yN\quad(\epsilon_y=\pm1),\quad
+ A_T=X^{1+\sigma/20}.
+\end{equation}
+The auxiliary $z$ and $p_0$ are those of Paper~I's dispersion proof.
+Both signs and the mixed cusp pair are kept.
+Let $\chi$ be smooth, zero below zero and one above one.
+For the fixed bump $\psi_0$, define
+\begin{equation}\label{eq:l3-nine-weights}
+\begin{aligned}
+ \psi_{0,1}(v)&=\psi_0(v)\{1-\chi((v-0.8)/0.1)\},\\
+ \psi_{0,2}(v)&=\psi_0(v)\chi((v-0.8)/0.1)
+                                  \{1-\chi((v-1.4)/0.2)\},\\
+ \psi_{0,3}(v)&=\psi_0(v)\chi((v-1.4)/0.2).
+\end{aligned}
+\end{equation}
+They sum to $\psi_0$.
+Their strict dyadic windows are
+$(0.45,0.90]$, $(0.80,1.60]$, and $(1.40,2.80]$.
+The two smooth modulus coordinates use all nine products
+$\psi_{0,i}(b/D)\psi_{0,j}(c/C)$, $1\le i,j\le3$.
+Multiply each by the fixed cutoffs on the supported $n_T,z,p_0$.
+These cutoffs equal one on the actual coefficient support.
+The derivative hypothesis is \eqref{eq:t28-seminorms} with
+$\epsilon_0=\sigma/2000$ and $\epsilon=\sigma/100$.
+
+Write $\theta_{\mathrm{sp}}=7/32$ and
+$V_{\mathrm{sp}}=T^4R^4S^6$.
+The coefficient in (P1.7) is zero outside the actual indices
+$n_T=p_0m$, $r_T=z$, $s_T=p_0$.
+Use its supported norm
+\begin{equation}\label{eq:l3-supported-norm}
+\begin{gathered}
+ \sum_{n''\mid N^\infty}(n'')^{\theta_{\mathrm{sp}}}
+                \|\widetilde b(n'')\|_2^2,\\
+ \|\widetilde b(n'')\|_2^2
+ =\sum_{\substack{n',r,s\\(n',N)=1}}|b_{n'n'',r,s}|^2.
+\end{gathered}
+\end{equation}
+Here $b_{n,r,s}$ is the coefficient of (P1.7).
+It is distinct from the complementary sequence $b_m$.
+The norm includes no coefficients outside that support.
+After substitution, the four bracket contributions divided by
+$V_{\mathrm{sp}}$ are bounded by
+\begin{equation}\label{eq:l3-four-spectral-terms}
+\begin{aligned}
+ K_A&=A_T^{\theta_{\mathrm{sp}}}\frac{TQR^2S^5}{X^2},
+ &K_2&=\frac{A_T}{X}K_A,\\
+ K_R&=\left(\frac{TR}{S}\right)^{2\theta_{\mathrm{sp}}}
+                              \frac{TQR^2S^5}{X^2},
+ &K_4&=\frac{TQR^2S^5}{X^2}\frac{T^2R^2}{X}.
+\end{aligned}
+\end{equation}
+Only uniform $X^{o(1)}$ factors and powers of $p_0$ are suppressed.
+These are precisely Paper~I, (3.81), (3.85), and (3.87)
+\cite[(3.69), (3.81)--(3.87)]{PaperI}.
+Each term carries the actual-use hypotheses.
+\subsection{The row-three local dispersion estimate}\label{subsec:l3-local-row3}
+
+The source-wide estimate also has boundary and comparator contributions.
+The local argument gives only its interior row-three block.
+
+We treat one row-three block with $\chi_c=1$ and one full
+interior prime-coordinate mesh box. We do not assert the source-wide
+boundary, comparator, or row-zero-to-two estimates.
+Fix $\sigma>0$, $\tau=\sigma^9$, $\rho=1+\tau$, and a retained
+closed clipped parent $c$, used only for the displayed infimum and endpoint
+checks. The actual prime cells are half-open. Keep its inherited labels
+$t_1\ge t_2\ge t_3$,
+$\Theta_c=\inf_c\widetilde H$, $\ell_c=\Theta_c-\eta_L-t_1-t_2-t_3$,
+$D_c=N^{\ell_c}$, $z_c=N^{t_3}$ and $u_c=D_c^{\sigma^2}$.
+On the whole block $\chi_c=1$. The inequalities
+\eqref{eq:l3-prefix-margins}--\eqref{eq:l3-row3-global-margins}
+apply with the inherited labels, including clipped endpoints.
+Here an interior source box is a full relative-width
+$x=(\log N)^{-334}$ mesh box whose closure lies on one side of every
+source, order and descriptor face. A clipped terminal mesh fragment
+belongs to the boundary contribution.
+LEN is not applied to it.
+
+The prefix constants can be checked without an unclipped replacement.
+Put $A_3=33109/160000$. Since $t_1,t_2\le25/128$ and
+$\Theta_c\ge(1+t_1)/2$, the first two gaps are at least
+$\rho(1/2-3(25/128)/2-\eta_L)=\rho A_3$ and
+$\rho(1/2-5(25/128)/2-\eta_L)=\rho\,1859/160000$.
+For the third, $\ell_c-t_3\ge A_3-2t_3$ and retention gives
+$\ell_c-t_3\ge(2\rho-1)t_3$; their maximum is at least $A_3/3$.
+Likewise $\ell_c\ge\max\{A_3-t_3,2\rho t_3\}\ge2A_3/3>\ell_0$.
+Thus all three prefix WF inequalities have strict room. The whole
+anatomy infimum is taken before this branch bound is used.
+
+\paragraph{Exact coefficient and labelled factorization (H1--H2).}
+Write $\mathfrak b=(3,c,f,\mathbf D)$. Give the three prefix
+occurrences their independent prime sets
+$[N^{t_i},N^{\rho t_i})\cap[N^u,N^{\mu_*})\cap\mathcal P_N$.
+For $f=2$, append each tail occurrence, independently, with prime set
+$[D_j,\min(D_j^\rho,z_c))\cap\mathcal P_N$.
+For $f=1$ the tail list is empty. In both cases put $J$ equal to this
+complete labelled list, and set $\lambda_d=\lambda_d^-(\mathbf D)$
+or $\phi_d^-$, respectively. Thus, exactly,
+\[
+ C_{\mathfrak b}(q)=\sum_{\substack{d<D_c^\sigma\\d\mid P_N(u_c)}}
+ \lambda_d\sum_{(p_j)_{j\in J}}1_{q=d\prod_{j\in J}p_j},
+ \qquad |\lambda_d|\le1 .
+\]
+Neither distinctness mask is inserted here. The orbit divisor $M_c$,
+the source weight $w_C$, and the two distinctness corrections remain
+outside this coefficient, as in \eqref{eq:l3-masks}--\eqref{eq:l3-adv-split}.
+In particular its supports include repeated-prime moduli, and
+$(q,2N)=1$. The prime sets are the actual clipped sets, not their
+unclipped parents. All labelled primes are at least $u_c\ge u_0$
+with $u_0=N^{\ell_0\sigma^2}$, since $\ell_c>\ell_0$ and
+$\ell_c\sigma^2<u$.
+
+For packing use the actual upper exponents of the clipped prime sets.
+The first three are at most $\rho t_i$; all tail upper exponents are
+at most $t_3$. The prefix masks in \eqref{eq:l3-prefix-margins}
+and the tail masks $\sum_{i<j}s_i+2s_j<\ell_c$ show that their
+merged decreasing list satisfies $\mathrm{WF}(d_*)$, where
+$d_*=\rho(\Theta_c-\eta_L)$. For a tail rank, this follows after
+adding at most $\rho(t_1+t_2+t_3)$ to its tail inequality.
+The top three upper exponents are the prefix endpoints, belonging to
+the closed clipped parent. Hence their anatomy value is at least
+$\Theta_c$. Put $h=d_*+60\sigma$, $\delta=30\sigma$ and
+$g=\log_N T-\delta$.
+Every point $\mathbf x$ of the closed clipped parent satisfies
+$u\le x_1\le\mu_*=25/128$. On this interval the $v_{\rm pk}(x_1)$ branch of
+Paper~I gives $\widetilde H(\mathbf x)\ge v_{\rm pk}(x_1)=(1+x_1)/2$;
+hence $\Theta_c\ge(1+u)/2$. Therefore
+ $h\ge\Theta_c-\eta_L+60\sigma
+ \ge\frac{1+u}{2}-\eta_L>\frac12$; also
+ $h<\Theta_c\le153/256$, since
+$\Theta_c-h\ge\eta_L-\tau H_{\max}-60\sigma>0$.
+Theorem 4.1 of Paper I applies to this same labelled list, with
+$\delta\le g\le1/3-\delta/2$. Let its partition be
+$J=J_1\sqcup J_2\sqcup J_3$, with the smooth divisor attached to
+slot one. Define, using precisely the preceding prime sets,
+\[
+ \gamma_1(v)=\frac1{|J_1|!}\sum_{d,(p_j)_{J_1}}
+             \lambda_d1_{v=d\prod_{J_1}p_j},\qquad
+ \gamma_s(v)=\frac1{|J_s|!}\sum_{(p_j)_{J_s}}
+             1_{v=\prod_{J_s}p_j}\quad(s=2,3).
+\]
+Empty slots two and three mean the atom $1_{v=1}$. Slot one always
+keeps the $d$ sum, even if $J_1$ is empty. The finite tuple map gives
+\[
+ C_{\mathfrak b}=C_{\rm slot}(\gamma_1*\gamma_2*\gamma_3),\qquad
+ C_{\rm slot}=\prod_s|J_s|!,\qquad |\gamma_s|\le1.
+\]
+The primes below $u_c$ determine $d$ uniquely. At most $|J_s|!$
+assignments have a fixed slot product. The count allows repeated primes.
+The rough coordinate count is less than $3/(5\ell_0\sigma^2)$,
+so $C_{\rm slot}=O_\sigma(1)$ and
+$|C_{\mathfrak b}(q)|/M_c\le M_\sigma!$, with
+$M_\sigma=\lceil3/(5\ell_0\sigma^2)\rceil$.
+For the tested boxes below, take $C_{\rm ctr}=2$. Uniformly for
+sufficiently large $N$,
+\[
+ \frac{N_I}{TL^{-334}}\in[1/2,2],\qquad
+ \frac{M_I}{(X/T)L^{-334}}\in[2,20].
+\]
+
+\paragraph{The same tested box (H3--H5).}
+Use exactly \eqref{eq:l3-direct-prime} and
+\eqref{eq:l3-box-discrepancy}: $X=\prod_iA_i$, $T=\lceil A_1\rceil-1$,
+$U_J=\lceil B_1\rceil-1$, and
+$\alpha_n=1_{\mathbb P}(n)1_{T<n\le U_J}$.
+No product truncation is added to $\Delta_B$. Take $C_{\rm box}=334$;
+$\log X=\log N+O(1)$ throughout this family.
+For sufficiently large $N$, $T>2^{50}$ and $U_J\le2T$, so
+\[
+ \alpha_n=1_{P^-(n)\ge T^{51/100}}1_{T<n\le U_J}.
+\]
+Thus (3.8), option $1$, holds with $\zeta=T^{51/100}\ge z_0(X)$.
+The complementary sequence is the actual $b_m\in\{0,1\}$ of
+\eqref{eq:l3-direct-prime}; in particular $|b_m|\le\tau_{23}(m)$.
+There is no Heath--Brown expansion, logarithm freezing, or proper-power
+replacement error for this selected direct-prime representation.
+The selected-factor Siegel--Walfisz bound is Paper I (3.25), uniform
+in this stronger cutoff and every endpoint and auxiliary coprimality.
+Its relative-norm alternative is kept as in (3.48). We assume no lower
+bound on any coprimality-truncated selected norm.
+In the large-norm case of (3.48), use Lemma~\ref{hyp:ra-ms-transfer}(ii).
+Its premises
+(3.1), (3.2), (3.6), (3.8) with LEN, (3.11), (3.25), (3.26) and (3.27)
+are the data verified in this subsection.
+
+Let $M=\prod_{i=2}^kA_i$, $M_+=\prod_{i=2}^kB_i$,
+$M_I=M_+-M$, $m_0=(M+M_+)/2$, and
+$\psi_I(m)=\phi_0((m-m_0)/M_I)$, with the fixed bump of Paper I (3.9).
+Then $\psi_I=1$ on the full complementary product interval. Since
+$5\le k\le11$ and the mesh boxes are full,
+$M_I\asymp ML^{-334}$, $m_0\le2X/T$, and
+$N_I=U_J-T\ge T/(6L^{334})$, where $L=\log N$.
+For fixed $\sigma$ enlarge the threshold so that
+$\sigma L\ge2^{130}(\log L+1)$; then
+\[
+ N_I\ge(2T)^{1-2^{-126}},\quad
+ X^{60\sigma}\le T\le X^{1/3+15\sigma},\quad M_I\ge X^{1/2}.
+\]
+These follow from $N^\alpha/2\le T<N^{1/5}$ and
+$\varepsilon N\le X\le N$. The integer convention is
+$(T,U_J]$; no continuous interval length replaces $N_I$.
+
+The doubled support lies in
+$[M-M_I/2,M_++M_I/2]$. Since $k-1\le10$,
+$(1+x)^{k-1}-1\le11x$ eventually. On this entire support and for
+every selected integer, $mn\le N_{\rm cut}+25xN$. Consequently
+\[
+ 1\le N-mn,\qquad N-mn\ge(L-25)NL^{-334}>0,\qquad
+ |mn-N|\le N<X^3.
+\]
+This verifies nonresonance on the full doubled rectangle, including
+both Cauchy--Schwarz copies. Checking only where $b_m\ne0$
+would not suffice.
+
+After localization, $Q,R,S$ denote the scales of
+$\gamma_1,\gamma_3,\gamma_2$, respectively. Theorem 4.1 gives, before
+fixed dyadic rounding and base conversion, reductions
+\[
+ (7527/256,\ 60,\ 114421/1280,\ 26247/256)\sigma
+\]
+in $Q/T$, $T^2R^2S$, $A_0^{7/32}TQR^2S^5$ and
+$(TR/S)^{7/16}TQR^2S^5$, respectively, relative to their bounds
+$1,N,N^2,N^2$. Here $A_0=X^{1+\sigma/20}$.
+The first slot includes the additional load $\sigma\ell_c\le\sigma H_{\max}$.
+Each listed reduction strictly exceeds the required losses
+$29,8,15,15$. Hence fixed dyadic constants and
+$\log_N(N/X)=O(1/L)$ are absorbed for fixed $\sigma$.
+In particular the exact requirements (3.6)--(3.7) hold:
+\[
+ Q<TX^{-29\sigma},\quad N_I\ge QX^{\sigma/3},\quad
+ QRS<M_IX^{-89\sigma},\quad M_I\ge X^{1/2},
+\]
+\[
+ T^2R^2S<X^{1-8\sigma},\quad
+ A_0^{7/32}TQR^2S^5<X^{2-15\sigma},\quad
+ (TR/S)^{7/16}TQR^2S^5<X^{2-15\sigma}.
+\]
+For $QRS<M_IX^{-89\sigma}$ use the positive fixed gap
+$4/5-153/256$ and $M_I\gg N^{4/5}L^{-334}$.
+The complete modulus, including $d$ and all labelled primes, obeys
+\[
+ q<N^{e_Q},\qquad e_Q=(\rho+\sigma)(153/256-\eta_L)<3/5.
+\]
+Because $X\ge\varepsilon N$, impose
+$(3/5-e_Q)\log N\ge(3/5)\log(1/\varepsilon)$ to obtain
+$q\le X^{3/5}$. Take the moving frequency $a=N$ and
+$K_{\rm scale}=1$: eventually
+$0<N\le X\log N\le A_0$ and every supported modulus is prime to $2a$.
+This proves H1--H5 with the support relaxation of Paper I Theorem 3.2.
+
+\paragraph{Application and restoration.}
+Apply Paper I Theorem 3.2, (3.13), to this full unrestricted coefficient
+and this full-support natural-coprime discrepancy. For every fixed
+$A_{\rm loc}>0$ it gives exactly
+\[
+ |\mathcal S_B(\mathfrak b)|
+ \ll_{\sigma,A_{\rm loc}}X(\log X)^{-A_{\rm loc}}
+       +X^{1-\ell_0\sigma^2/4}(\log X)^{C_{\rm loc}}.
+\]
+Constants are uniform in these boxes and in blocks with $\chi_c=1$ after fixing
+$\sigma$ and source constants. The threshold is ineffective.
+Theorem 3.1's smaller abstract support class is not used.
+The proof includes all local restorations (3.32)--(3.50):
+with $\epsilon=\ell_0\sigma^2/8$ and $A_{\rm work}=A_{\rm loc}+4$,
+\[
+ XL^{-A_{\rm work}}+XL^Cz_0^{-1/2}+XL^C(Q/N_I)^{1/2}
+ +XX^{\epsilon/2}L^C\{u_0^{-1/2}+(Q/N_I)^{1/2}\}.
+\]
+Keep both terms in braces. They come from restoring the five
+cross-copy gcd failures of (3.30), the close-pair set, and the zero-mode
+main-term cancellation. The spectral
+estimate alone does not give them. The $z_0$ term joins the arbitrary logarithmic saving,
+and the remaining terms have savings exceeding $\ell_0\sigma^2/4$.
+
+Theorem 2.8 enters only at Paper I (3.69)--(3.90). In that inner stage,
+with $p_0=\min\{p:p\nmid2N\}$, set
+$r_T=z$, $s_T=p_0$, $n_T=p_0m$, $a_T=\varepsilon_yN$,
+$N_T=8p_0H_*SF$ and $A_T=A_0$. Both signs are kept. The coefficient
+is exactly $\beta_{z,m}^{\chi,\varepsilon_y}$ of (3.68) on these
+indices and zero elsewhere. In particular
+\[
+ \sum_{n''\mid N^\infty}(n'')^{7/32}
+       \|\widetilde b(n'')\|_2^2
+ \ll X^{o(1)}(H_*S)^2F,\quad
+ \|\widetilde b(n'')\|_2^2
+ =\sum_{\substack{n',r,s\\(n',N)=1}}|b_{n'n'',r,s}|^2,
+\]
+with no coefficients added outside that support. The unweighted norm
+has the same bound. These are the endpoint norm bounds (3.70)--(3.81).
+When slot two is a unit, $S=1/2$ and every nonzero-frequency block is
+empty. Otherwise (3.82)--(3.85) identify the exact phase, permit
+$p_0\mid c$, and use all nine dyadic weights from
+\eqref{eq:l3-nine-weights}, with $\epsilon_0=\sigma/2000$ and
+$\epsilon=\sigma/100$. The full bracket of
+\eqref{eq:t28-main-bound}, including its moving-frequency and mixed-cusp
+terms, yields all four quantities in \eqref{eq:l3-four-spectral-terms}.
+No bracket term is discarded. The full bounds (3.87)--(3.90) then
+control the inner spectral term. After that, the restoration terms
+above and $C_{\rm slot}$ are put back.
+
+Finally, this estimate concerns $C_{\mathfrak b}\Delta_B$.
+The outer identity is still
+\[
+ R_{\rm adv}=E_{\rm disp,1}+E_{\rm disp,2}
+             +E_{\rm sq}+E_{\rm nc}.
+\]
+Thus $M_c^{-1}$ and $w_C$ enter once. The forbidden and allowed-repeat
+masks remain in $E_{\rm sq}$. The natural-to-$X_A$ comparator remains
+in $E_{\rm nc}$. The source cutoff, peel, boundary and terminal-mesh
+restorations, capped rows zero to two, and complete-family coefficient
+counts require their own estimates. This local estimate alone
+gives neither the complete L3 bound nor the RSW bound.
+
+The outer application of Theorem~3.2 above supplies \eqref{eq:l3-masked-use}.
+The scoped spectral implications in Section~\ref{sec:classical-inputs}
+do not by themselves give it.
+
+\subsection{The complete box family}
+
+The required complete-family bounds are
+\begin{equation}\label{eq:l3-boundary}
+ \#\mathcal E_{\mathrm{bdry}}\ll NL^{-334},\qquad
+ D_{\mathrm{bdry}}\ll_\sigma NL^{-331/2},\qquad
+ \sum_B|w_B|\ll_\sigma L^{3689}.
+\end{equation}
+There are at most $122$ face families per $k$.
+Their integer normals have maximum coefficient five.
+Their coefficient sums are at most eleven.
+\paragraph{Proof of the complete-family bounds.}
+Use the unclipped geometric mesh $[A^{(j)},A^{(j+1)})$,
+$A^{(j)}=(N^\alpha/2)(1+L^{-334})^j$, $j\ge0$, in every coordinate.
+Boxes with a coordinate $\ge N^{1-4\alpha}$ carry no source mass, since
+$k\ge5$ and every prime is at least $N^\alpha$. So there are no terminal
+fragments, and every interior box is a full mesh box.
+\emph{Box count.} Each coordinate has at most
+$((1-\alpha)L+1)(L^{334}+1)+1\le L^{335}$ mesh intervals for $L\ge24$.
+With $k\le11$, finitely many cells and $w_C\le36$,
+$\sum_B|w_B|\le36|\mathcal C_+|\sum_{k=5}^{11}L^{335k}\ll L^{3685}\le L^{3689}$.
+\emph{Boundary count.} Let $h'=\log(1+L^{-334})/L\le L^{-335}$.
+A source integer $e$ in a boundary box has its vector within $h'$
+in each coordinate of a face. A radial face forces $e$ into
+$[y(1+L^{-334})^{-11},y(1+L^{-334})^{11}]$ with $y\in\{\varepsilon N,N_{\mathrm{cut}}\}$.
+There are at most $2(23NL^{-334}+1)$ such $e$.
+Every other face is $c_ix_i+c_jx_j=\theta$ with integers $|c_i|,|c_j|\le5$,
+$c_i\ne0$ \cite[(5.29a)--(5.31) and the facet discussion after (5.40)]{PaperII}.
+Write $e=p_im'$. For fixed $m'$, $p_i$ lies in an interval of relative
+width at most $21L^{-334}$ below $N/m'$, which contains at most
+$21L^{-334}N/m'+1$ integers. Here $m'$ is a product of at most ten primes
+in $[N^\alpha,N)$, and $m'<N^{1-\alpha}$. By Mertens,
+$\sum_{m'}1/m'\le\exp(\sum_{N^\alpha\le p<N}1/p)\le e/\alpha<32$ eventually.
+Hence one face family contributes at most $700NL^{-334}+N^{1-\alpha}$.
+The number of face families is finite ($\le122$ for each $k$). Thus
+$\#\mathcal E_{\mathrm{bdry}}\le C_{\mathrm{bd}}NL^{-334}$ with an absolute
+$C_{\mathrm{bd}}$. No numerical value is required below.
+\emph{Boundary discrepancy.} Let $A_{\mathrm{bd}}$ be $A$ restricted to
+boundary boxes. Then
+$D_{\mathrm{bdry}}=\sum_{\mathfrak b}M_c^{-1}\langle C_{\mathfrak b},\Delta_{P,\mathrm{bd}}\rangle$.
+By $|C_{\mathfrak b}|/M_c\le C_{\mathrm{L3},\sigma}$,
+$\sum_q1_{q\mid N-e}\le\tau(N-e)$, Cauchy--Schwarz,
+$\tau^2\le\tau_4$, $\sum_{n\le N}\tau_4(n)\le N(1+L)^3$ and
+$\sum_{q\le N}1/\varphi(q)\le2(1+L)$,
+\[
+ |D_{\mathrm{bdry}}|\ll_\sigma36(\#\mathcal E_{\mathrm{bdry}})^{1/2}(N(1+L)^3)^{1/2}
+             +36\,\#\mathcal E_{\mathrm{bdry}}(1+L)\ll_\sigma NL^{-331/2},
+\]
+with finitely many blocks at fixed $\sigma$. This proves
+\eqref{eq:l3-boundary}, with the first bound in the form
+$\#\mathcal E_{\mathrm{bdry}}\ll NL^{-334}$.
+Under \eqref{eq:l3-masked-use}, take $A_{\mathrm{loc}}\ge3692$.
+The $L^{3689}$ box count and $W\gg N/L^2$ then leave $L^{-1}$.
+Equations \eqref{eq:l3-bv-total} and \eqref{eq:l3-boundary} then give
+\begin{equation}\label{eq:l3-disp-total}
+ (R_{\mathrm{adv}})_+/W=o_\sigma(1),
+\end{equation}
+provided \eqref{eq:l3-repeated-cap} and the coprime-comparator bound hold.
+
+\subsection{The principal term and its price}
+
+\paragraph{(P2.8d) The source-independent profile comparison.}
+We use Paper~II, (4.70)--(4.75), in the following form.
+Put
+\begin{equation}\label{eq:l3-profile}
+\begin{aligned}
+ v_1(s)&=\min\left\{\frac{1+s}{2},\frac{32-34s}{39},
+                                      \frac{57}{64}-\frac32s\right\},\\
+ v_*(s)&=v_1(s)-u,\qquad
+ \psi_*(x,y)=\begin{cases}x,&x\ge y,\\-\infty,&x<y,\end{cases}\\
+ \Theta_*(x,y,z)&=\max\{v_*(x),v_*(y),v_*(x+y),v_*(x+y+z),\\
+ &\hspace{14mm}\psi_*(v_*(x+z),x+2y+z),
+                    \psi_*(v_*(y+z),2x+y+z)\}.
+\end{aligned}
+\end{equation}
+The subtraction of $u$ precedes both guards.
+This is the same guard convention as
+\hyperref[eq:app-six-branch]{equation~\ref*{eq:app-six-branch}}.
+It agrees with Paper~II's zero guard because an unguarded branch is
+positive, as explained immediately after that display.
+Define
+\begin{equation}\label{eq:l3-Gstar}
+\begin{gathered}
+ H_{\log}=\log(\mu_*/u),\qquad
+ a_3(\mathbf t)=\frac{\Theta_*(\mathbf t)-t_1-t_2-t_3}{t_3},\\
+ J_*=\int_u^{\mu_*}\frac{dt_1}{t_1}\int_u^{t_1}\frac{dt_2}{t_2}
+                 \int_u^{t_2}\frac{1-f(a_3(\mathbf t))}{t_3^2}\,dt_3,\\
+ R_{\mathrm{up}}=500(F(30)-1)+500H_{\log}(1-f(30))
+                         +250H_{\log}^2(F(30)-1),\\
+ G_*=\frac1{\mu_*}+R_{\mathrm{up}}+J_*.
+\end{gathered}
+\end{equation}
+Extend $f$ by zero below two.
+These are Paper~II, (4.70)--(4.75)
+\cite[(4.70)--(4.75)]{PaperII}.
+Their source-independent comparison uses
+\begin{equation}\label{eq:l3-profile-margin}
+ g=(u-\eta_L)-\frac92\mu_*\tau>0.001899>2\mu_*\tau.
+\end{equation}
+Hence a positive canonical lower term lies in a cell with $\chi_c=1$.
+The capped rows still satisfy $s_c>30$.
+Their residuals are bounded by the same $R_{\mathrm{up}}$.
+Thus the cap changes neither $G_*$ nor its price.
+
+Let $\mathcal P_\Pi$ be the signed prefix profile:
+\begin{equation}\label{eq:l3-principal-profile}
+\begin{aligned}
+ \mathcal P_\Pi={}&\frac1uF(s_0)
+ -\frac1u\sum_{c:j=1}\operatorname{vol}_c f(s_c)
+ +\frac1u\sum_{c:j=2}\operatorname{vol}_c F(s_c)\\
+ &-\sum_{c:j=3,\chi_c=1}\frac{\operatorname{vol}_c}{t_3}f(\ell_c/t_3),
+ \qquad \operatorname{vol}_c=\int_c\prod_i\frac{dt_i}{t_i}.
+\end{aligned}
+\end{equation}
+The required mass and comparison statements are
+\begin{equation}\label{eq:l3-principal-estimates}
+\begin{gathered}
+ X_A\le\frac NL\{(1-\varepsilon)I_{\mathrm{HL}}+O(L^{-1})\},\\
+ M_{\mathrm{prin}}=X_A\frac{2e^{-\gamma}C(N)}L
+                            (\mathcal P_\Pi+o_\sigma(1)),\qquad
+ \mathcal P_\Pi\le G_*+o_\sigma(1).
+\end{gathered}
+\end{equation}
+The first bound is Paper~II, (5.34)--(5.42).
+The last comparison uses (4.72)--(4.75)
+\cite[(4.72)--(4.75), (5.34)--(5.42)]{PaperII}.
+\paragraph{Proof of \eqref{eq:l3-principal-estimates}.}
+\emph{Mass.} The cells $\mathcal C_+$ are Paper~II's cells with $w_C\ge1$,
+and the radial range $\varepsilon N<e<N$ is Paper~II's. The outer-box
+majorant $f^+$ of Paper~II, (5.34), counts labelled factorizations into
+all primes in $[N^\alpha,N)$, and $c(\mathbf j)\ge w_C$ for the box
+$\mathbf j$ containing the ordered factor vector of $e$, which lies in
+$C_N$. Hence $A\le f^+$ pointwise directly (no comparison with the
+intermediate $g$ is used). Paper~II, (5.34)--(5.42), then gives
+$X_A\le X^+=\frac NL\{(1-\varepsilon)I_{\mathrm{HL}}+O(L^{-1})\}$
+\cite[(5.32), (5.34), (5.42)]{PaperII}. In particular $X_A\le N/L$
+eventually, since $I_{\mathrm{HL}}\le\overline H<1$.
+\emph{Principal term.} As in Paper~II, Lemma~B.9,
+$V_N(z)=(1+o(1))2e^{-\gamma}C(N)/\log z$ uniformly for $z\ge N^h$,
+$h=1/1000$ \cite[(B.9) and its proof]{PaperII}. The proof of (B.9) gives
+an exact factorization. Mertens' theorem gives the asymptotic. The
+primes $p\mid N$ with $p\ge z$ change the product by $1+O(\omega(N)/z)$.
+Every actual cutoff is at least $N^{u/\rho^3}>N^h$ \cite[Lemma~B.8]{PaperII}. At fixed $\sigma$ the cells are
+finitely many, with fixed exponent boxes. Mertens gives
+$\sum_{v\in c}1/\varphi(v)=\operatorname{vol}_c+o(1)$, the primes
+dividing $2N$ costing $O(\omega(N)N^{-u})$. Also $K_j(s_c)$ is bounded.
+Summing $\nu_jM_j$ gives
+$M_{\mathrm{prin}}=X_A\frac{2e^{-\gamma}C(N)}L(\mathcal P_\Pi+o_\sigma(1))$,
+with $\log_Nz_{3,c}=t_3$ supplying the factor $1/t_3$.
+\emph{Profile comparison.} Write $F=1+(F-1)$, $f=1-(1-f)$.
+On rows $0,1,2$, $s_c>30$, and $F$ decreases and $f$ increases. With
+$\sum_{j=1}\operatorname{vol}_c=H_{\log}$ and
+$\sum_{j=2}\operatorname{vol}_c=H_{\log}^2/2$, the residuals are at most
+$R_{\mathrm{up}}$ \cite[(4.73)]{PaperII}. For row three, if
+$f(a_3(\mathbf x))>0$ at an actual point $\mathbf x$ of a cell, then
+\eqref{eq:l3-profile-margin} gives $\chi_c=1$ and
+$\ell_c\ge\Theta_*(\mathbf x)-x_1-x_2-x_3$ \cite[(4.72) and the two
+paragraphs after it]{PaperII}. For $x_3\in[t_3,\rho t_3]$, monotonicity of
+$sf(s)$ at fixed numerator $\ell_c$ gives
+$f(\ell_c/t_3)/t_3\ge f(\ell_c/x_3)/x_3\ge f(a_3(\mathbf x))/x_3$.
+Integrating over each retained cell,
+$\sum_{j=3,\chi_c=1}\operatorname{vol}_cf(\ell_c/t_3)/t_3
+ \ge\int\!\!\int\!\!\int f(a_3)\,dt_1dt_2dt_3/(t_1t_2t_3^2)$.
+The constant parts give $1/\mu_*$ by \cite[(4.74)]{PaperII}. Hence
+$\mathcal P_\Pi\le1/\mu_*+R_{\mathrm{up}}+J_*+o_\sigma(1)=G_*+o_\sigma(1)$,
+which is \cite[(4.75)]{PaperII} for this source.
+
+Use the same coefficient bound as the exterior comparison:
+\begin{equation}\label{eq:l3-certificate}
+\begin{gathered}
+ G_*\le G_0=\frac{6088440363}{10^9},\qquad
+ 2e^{-\gamma}G_0\le c_{K2,G0}
+ =\frac{6836825163875517756286846321650754372931094689}{10^{45}},\\
+ I_{\mathrm{HL}}\le\overline H=\frac{389253}{5000000}.
+\end{gathered}
+\end{equation}
+The functional bound \(G_*\le G_0\) is Paper~II,
+\cite[(4.73), (4.75), (4.79), (A.10a)]{PaperII}, for the identical
+canonical functional \eqref{eq:l3-Gstar}. Its scalar rounding is the
+same as \eqref{eq:k2-certificate}. The mass bound is Paper~II, (A.11)
+\cite[(A.11)]{PaperII}.
+The optional unshifted certificate in
+\hyperref[subsec:app-g24]{the unshifted-comparison subsection of
+Appendix~B} is outside this proof.
+
+The constant $c_{\mathrm{O1}}$ is optional, non-certified appendix
+material outside the L3 proof.
+In the optional scalar comparisons below, $c$ denotes the rational
+from \eqref{eq:intro-exterior-constant}.
+No functional comparison with $c_{\mathrm{O1}}$ is needed here.
+Its rational definition is
+\begin{equation}\label{eq:l3-exact-certificate-constant}
+ c_{\mathrm{O1}}=\frac{\sum_{i=0}^7n_iB^i}{\sum_{i=0}^7d_iB^i},
+ \qquad B=10^{25},
+\end{equation}
+with the integers in Table~\ref{tab:l3-certificate-integers}.
+\begin{table}[ht]
+\caption{Exact certificate constant}\label{tab:l3-certificate-integers}
+\small
+\begin{tabular}{@{}rrr@{}}
+\hline
+$i$ & $n_i$ & $d_i$\\
+\hline
+ 0 & 4790995369589327356095267 & 5033118760359274030825472\\
+ 1 & 6963256824825772577191322 & 8266496527677353149933429\\
+ 2 & 8996423827217290029713216 & 9138360880901719297497815\\
+ 3 & 4916164251930472277375479 & 4671424972330288696699300\\
+ 4 & 329572634628519073712385 & 939590108467331323910141\\
+ 5 & 9317769528669888650546075 & 5634060699913223990647374\\
+ 6 & 8280830054071768648850166 & 2330146450712536415611653\\
+ 7 & 389762593301325772 & 57030507720277440\\
+\hline
+\end{tabular}
+\end{table}
+The exact rational comparison of $c$ and $c_{\mathrm{O1}}$ is
+in Section~\ref{sec:final-bill}, \eqref{eq:bill-coefficient-cost}. It uses no exponential
+comparison.
+It is independent of the coarse enclosure for $U_0$.
+The mass-integral bound is Paper~II, (A.11)
+\cite[(A.11)]{PaperII}.
+Put
+\begin{equation}\label{eq:l3-price}
+\begin{gathered}
+ m_{\mathrm{sw}}=\frac{e^{-\gamma}}2I_{\mathrm{HL}}G_*,\qquad
+ \Delta_{\mathrm{cert}}=\frac{c_{K2,G0}}4\overline H-m_{\mathrm{sw}}\ge0,\\
+ C_{\mathrm{sw}}=\frac{650000000}{1111}C_E,\qquad
+ P_{\mathrm{sw}}=\frac{48544888063158}{27775},\\
+ a_{\mathrm{sw}}=C_{\mathrm{sw}}\sigma,\qquad
+ p_{\mathrm{sw}}=P_{\mathrm{sw}}\sigma^9.
+\end{gathered}
+\end{equation}
+The remaining required estimates are
+\begin{equation}\label{eq:l3-small-estimates}
+\begin{gathered}
+ (M_{\mathrm{prin}}/W-m_{\mathrm{sw}})_+=o_\sigma(1),\\
+ M_{\mathrm{err}}/W\le C_{\mathrm{sw}}\sigma+o_\sigma(1),\qquad
+ P_3/W\le P_{\mathrm{sw}}\sigma^9+o_\sigma(1),\\
+ |E_{\mathrm{nc}}|/W=O_\sigma(N^{-\alpha}L^4).
+\end{gathered}
+\end{equation}
+The exact numerical multipliers are
+\begin{equation}\label{eq:l3-multipliers}
+ \frac{4000\cdot585}{4(1-10^{-4})}=\frac{650000000}{1111},\qquad
+ \frac{36\cdot502002(459/100)^3}{1-10^{-4}}
+                       =\frac{48544888063158}{27775}.
+\end{equation}
+\paragraph{(P2.8c) Density product and prefix sums.}
+Put $h=1/1000$ and $H_N=\sum_{N^h\le p\le N}(p-1)^{-1}$.
+The two bounds used in the first multiplier are
+\begin{equation}\label{eq:l3-mass-prefix-sums}
+\begin{gathered}
+ V_N(z)\le\frac{4C(N)}{\log z}\le\frac{4000C(N)}L
+                                  \quad(z\ge N^h),\\
+ \sum_{\text{actual prefixes }v}\frac1{\varphi(v)}
+       \le\sum_{j=0}^3H_N^j\le1+8+64+512=585.
+\end{gathered}
+\end{equation}
+These are Paper~II, Appendix~B, Lemmas B.9 and B.11,
+(B.9) and (B.11) \cite[Appendix~B, Lemmas B.9, B.11, (B.9), (B.11)]{PaperII}.
+Each half-open prefix cell is counted once.
+Using $X_A\le N/L$ from (P2.8d) now gives
+\begin{equation}\label{eq:l3-secondary-mass-step}
+ M_{\mathrm{err}}\le\frac{X_A4000C(N)}L\,585
+               \{C_E\sigma+o_\sigma(1)\}.
+\end{equation}
+Division by $W=4(1-\varepsilon)C(N)N/L^2$ gives $C_{\mathrm{sw}}$.
+
+\paragraph{(P2.8e) The upper mass and the peel.}
+The source mass is \eqref{eq:l3-principal-estimates},
+Paper~II, (5.34)--(5.42).
+The native lower-sieve cutoff uses the finite peel
+\eqref{eq:l3-peel} and the estimate
+\begin{equation}\label{eq:l3-peel-restatement}
+ \frac{P_3}{W}\le
+ \frac{36\cdot502002(459/100)^3}{1-\varepsilon}\tau+o_\sigma(1).
+\end{equation}
+For the uniform two-form calculation, put $m=vr$ and $w=\min(z_c,N^\alpha)$.
+The required ranges are
+\begin{equation}\label{eq:l3-selberg-ranges}
+\begin{gathered}
+ \log_Nm\le153/256+2\tau,\qquad \log_Nw\ge2/1001,\\
+ w^2m\le N^{253/256+(153/64)\tau}<N^{1-0.0116}.
+\end{gathered}
+\end{equation}
+For each sieve prime $p<w$, every prime factor of $m=vr$ is at least
+$z_c\ge w$, so $p\nmid m$. The local two-form root count is then
+$\nu_N(p)=1$ for $p\mid N$, and $\nu_N(p)=2$ otherwise.
+For squarefree $d$, define $g_N(d)$ multiplicatively by
+$g_N(p)=\nu_N(p)/(p-\nu_N(p))$.
+The denominator and one-layer bound are
+\begin{equation}\label{eq:l3-selberg-layer}
+\begin{gathered}
+ \mathcal G_N(w)=\sum_{\substack{d\le w\\d\mid P(w)}}g_N(d)
+             =\frac{\log^2w}{4C(N)}(1+o(1)),\\
+ S^{(1)}_m(w)\le\frac{N/m}{\mathcal G_N(w)}+O(w^2\log^5w)
+       \le502002\,\frac{2C(N)N}{mL^2}.
+\end{gathered}
+\end{equation}
+Here $P(w)$ is the product of all primes below $w$.
+The last step uses
+$2.001/(2/1001)^2=501251.00025<502002$.
+The exponent saving in \eqref{eq:l3-selberg-ranges} absorbs its remainder.
+There are at most $36$ source layers.
+For the parent-bin prime sums $M_h$, the needed estimates are
+\begin{equation}\label{eq:l3-peel-harmonic-sums}
+ M_h=\sum_{p\ \mathrm{in\ bin}\ h}\frac1p\le2\tau,\qquad
+ \sum_hM_h\le\frac{459}{100},\qquad
+ \sum_{a_1,a_2,a_3,r}\frac1{a_1a_2a_3r}
+       \le2\left(\frac{459}{100}\right)^3\tau.
+\end{equation}
+The pair $a_3,r$ belongs to one parent bin.
+Multiplication of \eqref{eq:l3-selberg-layer} by $36$ and this sum,
+then division by $W$, gives \eqref{eq:l3-peel-restatement}.
+These are the exact steps of Paper~II, (4.45)--(4.56),
+with the layer ceiling changed from three to $36$
+\cite[(4.45)--(4.56), (5.34)--(5.42)]{PaperII}.
+The uniform two-form estimates are proved here under the stated ranges.
+\paragraph{Proof of \eqref{eq:l3-small-estimates}.}
+\emph{Principal.} Since $\mathcal P_\Pi\le G_*+o_\sigma(1)$ and $G_*>0$,
+the mass bound gives
+$M_{\mathrm{prin}}/W\le\frac{(1-\varepsilon)I_{\mathrm{HL}}2e^{-\gamma}(G_*+o(1))}{4(1-\varepsilon)}
+=m_{\mathrm{sw}}+o_\sigma(1)$.
+\emph{Secondary sieve.} $E_{s,c}\le C_E\sigma+o_\sigma(1)$ uniformly,
+since $\ell_c\ge\ell_1$. Lemma~B.9, Lemma~B.11 and $X_A\le N/L$ give
+\eqref{eq:l3-secondary-mass-step}. Every prefix lies in one row, so the
+four depths together contribute at most $585$ \cite[(B.9), (B.11)]{PaperII}.
+\emph{Peel.} For $m=vr$ in $P_3$, all primes of $m$ are at least $z_c$,
+$(m,N)=1$ and $z_c\in[N^{u/\rho^3},N^{\rho\mu_*}]$. Since $\chi_c=1$,
+$\log_Nm\le\rho(t_1+t_2+2t_3)\le\rho(153/256-\eta_L)<153/256+2\tau$
+\cite[(4.55)]{PaperII}. Write $A=\sum_{h=1}^{36}1_{\{A\ge h\}}$.
+Each layer consists of $N^\alpha$-rough $e$. With $N-e=mk$, both $k$ and
+$N-mk$ are $w$-rough, $w=\min(z_c,N^\alpha)$. A prime $p<w$ dividing $k$
+and $N$ would divide $e$, and $k$ is odd. The two-form Selberg bound
+\cite[(4.48)--(4.54)]{PaperII} gives \eqref{eq:l3-selberg-layer} for each
+layer, with remainder absorbed by \eqref{eq:l3-selberg-ranges}. The prime
+sums \eqref{eq:l3-peel-harmonic-sums} are \cite[(4.56)]{PaperII}, since
+$r$ and $a_3$ lie in one parent bin. Multiplying by $36$ gives
+\eqref{eq:l3-peel-restatement}.
+\emph{Comparator.} For squarefree $q$,
+$|d_A(q)|=\varphi(q)^{-1}\sum_{(e,q)>1}A(e)$. A common prime $\ell$ of
+$e$ and $q$ is at least $N^\alpha$, so with $q=\ell r$,
+\[
+ \sum_{q\ \mathrm{sf}}|O_{\mathfrak b}(q)d_A(q)|
+ \le C_{\mathrm{L3},\sigma}\sum_{\ell\ge N^\alpha}\frac{36N}{\ell(\ell-1)}
+     \sum_{r\le N}\frac1{\varphi(r)}\ll_\sigma N^{1-\alpha}L.
+\]
+Summing finitely many blocks and dividing by $W$ gives
+$|E_{\mathrm{nc}}|/W=O_\sigma(N^{-\alpha}L^3)$, which implies the stated
+$O_\sigma(N^{-\alpha}L^4)$. This is the coprime-comparator bound used in
+\eqref{eq:l3-disp-total}.
+
+\subsection{The finite signed identity and its consequence}
+
+\paragraph{(P2.8a) Finite signed identities.}
+For the finite source \eqref{eq:l3-source} and stated sieve data,
+combine \eqref{eq:l3-source-id}, \eqref{eq:l3-buchstab-peel}
+and \eqref{eq:l3-aa-id}.
+Their conditional signed identity is
+\begin{equation}\label{eq:l3-rsw-id}
+ S_{\mathrm{sw}}=E_{\mathrm{src}}+P_3+M_{\mathrm{prin}}
+   +M_{\mathrm{err}}+R_{\mathrm{adv}}
+                   -(Z_{\mathrm{src}}+Z_{\mathrm{AA}}+Z_{\mathrm{peel}}).
+\end{equation}
+Define
+\begin{equation}\label{eq:l3-remainder}
+\begin{aligned}
+ \delta_P&=P_3/W-p_{\mathrm{sw}},\qquad
+ \delta_A=M_{\mathrm{err}}/W-a_{\mathrm{sw}},\qquad
+ \delta_M=M_{\mathrm{prin}}/W-m_{\mathrm{sw}},\\
+ R_{\mathrm{sw}}&=E_{\mathrm{src}}/W+\delta_P+\delta_A+\delta_M
+                                                +R_{\mathrm{adv}}/W,\\
+ V_{\mathrm{sw}}&=(R_{\mathrm{sw}})_+\le E_{\mathrm{src}}/W
+     +(\delta_P)_++(\delta_A)_++(\delta_M)_++(R_{\mathrm{adv}})_+/W.
+\end{aligned}
+\end{equation}
+Under the stated sieve hypotheses, all three $Z$ terms are nonnegative.
+Consequently
+\begin{equation}\label{eq:l3-final}
+\begin{aligned}
+ -\frac{S_{\mathrm{sw}}}{W}
+ &=-m_{\mathrm{sw}}-a_{\mathrm{sw}}-p_{\mathrm{sw}}-R_{\mathrm{sw}}
+       +\frac{Z_{\mathrm{src}}+Z_{\mathrm{AA}}+Z_{\mathrm{peel}}}{W}\\
+ &\ge-\frac{c_{K2,G0}}4\overline H
+          -C_{\mathrm{sw}}\sigma-P_{\mathrm{sw}}\sigma^9-V_{\mathrm{sw}}.
+\end{aligned}
+\end{equation}
+The favorable $Z_{\mathrm{peel}}$ is used once.
+Every adverse remainder remains in \eqref{eq:l3-remainder}.
+
+Assume all estimates stated above for the same $A$.
+Then \eqref{eq:l3-source-error}, \eqref{eq:l3-disp-total}
+and \eqref{eq:l3-small-estimates} imply
+\begin{equation}\label{eq:l3-remainder-limit}
+ V_{\mathrm{sw}}=o_\sigma(1).
+\end{equation}
+\paragraph{Proof of \eqref{eq:l3-remainder-limit}.}
+All estimates above are proved for the same $A$, the same cells and the
+same blocks. By \eqref{eq:l3-source-error}, $E_{\mathrm{src}}/W\ll L^{-331}$.
+By \eqref{eq:l3-small-estimates}, $(\delta_M)_+,(\delta_A)_+,(\delta_P)_+$
+are $o_\sigma(1)$. For $R_{\mathrm{adv}}$, \eqref{eq:l3-adv-split} and
+\eqref{eq:l3-interior-split} give
+\[
+ \frac{|R_{\mathrm{adv}}|}W\le
+ \frac{|D^{(0)}_{\mathrm{int}}|+|D^{(1)}_{\mathrm{int}}|+|D^{(2)}_{\mathrm{int}}|
+      +|D^{(3)}_{\mathrm{int}}|+|D_{\mathrm{bdry}}|+|E_{\mathrm{sq}}|+|E_{\mathrm{nc}}|}W .
+\]
+The terms are $O_\sigma(L^{-1})$ by \eqref{eq:l3-bv-total};
+$O_\sigma(L^{-1})$ by \eqref{eq:l3-masked-use} with $A_{\mathrm{loc}}=3692$,
+$|w_C|/M_c\le36$ and $\sum_B|w_B|\le L^{3689}$;
+$O_\sigma(L^{-327/2})$ by \eqref{eq:l3-boundary};
+and $O_\sigma(N^{-\ell_1\sigma^2}L^4)$, $O_\sigma(N^{-\alpha}L^4)$.
+Hence $V_{\mathrm{sw}}=o_\sigma(1)$.
+After fixing $\sigma_*$, choose the eventual threshold so that
+\begin{equation}\label{eq:l3-remainder-share}
+ V_{\mathrm{sw}}\le\frac1{200000}.
+\end{equation}
+That threshold may be ineffective.
+It also covers
+\begin{equation}\label{eq:l3-structural-thresholds}
+\begin{gathered}
+ N_{\mathrm{dom}}=2\left\lceil\frac12
+  \exp\!\left(\max\{10^4,2\log2/(\ell_1\sigma_*^2)\}\right)\right\rceil,\\
+ N_{z,0}=2\left\lceil\frac12
+       \exp\!\left(2\exp((\ell_1\sigma_*^2)^{-1/3})\right)\right\rceil,
+ \qquad N_{\mathrm{LEN,app}}(\sigma_*).
+\end{gathered}
+\end{equation}
+These structural thresholds alone do not imply \eqref{eq:l3-remainder-share}.
+
+Relative to the comparison $-S_{\mathrm{sw}}/W\ge-2\overline H$,
+the constant difference is
+\begin{equation}\label{eq:l3-gain}
+\begin{aligned}
+ \Delta D_{L3}&=\left(2-\frac{c_{K2,G0}}4\right)\overline H\\
+ &=0.022638464724298154340603\ldots.
+\end{aligned}
+\end{equation}
+The exact cost of using the common coefficient instead of the optional
+coefficient is
+\[
+ \frac{\overline H}{4}(c_{K2,G0}-c)
+ =0.000049489563023753677508253183146688036059673516909.
+\]
+This is scalar arithmetic. Its use in the final count requires \eqref{eq:l3-final}
+and the common error bounds.
+The capped-row application is \eqref{eq:l3-bv-application}--\eqref{eq:l3-bv-total}.
+The row-three estimate is \eqref{eq:l3-masked-use}, proved in the
+row-three subsection. All errors use the common source
+\eqref{eq:l3-source}. The inputs are Paper~I, Theorem~2.8;
+Fact~\ref{fact:bv-full-support}; Lemma~\ref{hyp:ra-ms-transfer}(ii) for
+(3.48); and the prime estimates of Fact~\ref{fact:prime-estimates}.
+Hence \eqref{eq:l3-final} holds at the
+threshold of \eqref{eq:l3-remainder-share}. The constant \eqref{eq:l3-gain} is
+a gross coefficient difference. It enters the final count only together
+with the switched error $C_{\mathrm{sw}}\sigma_*+P_{\mathrm{sw}}\sigma_*^9
++V_{\mathrm{sw}}$ of \eqref{eq:l3-final}. In the final count
+this error is bounded by the caps \eqref{eq:bill-sigma}
+($C_{\mathrm{sw}}\sigma_*\le10^{-5}$, $P_{\mathrm{sw}}\sigma_*^9\le10^{-5}$)
+and by \eqref{eq:l3-remainder-share}, in total at most $1/40000$.

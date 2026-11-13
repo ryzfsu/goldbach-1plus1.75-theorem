@@ -1,0 +1,1453 @@
+\section{The balanced semiprime term}\label{sec:k2}
+
+We bound the complete occurrence sum \(B_b(N)\).
+The two prime orientations keep their multiplicities.
+In this section, fix
+\begin{equation}\label{eq:k2-parameters}
+\begin{gathered}
+ \frac13<b<\frac12,\qquad \varepsilon=\eta_L=10^{-4},\qquad
+ u=\frac1{500},\qquad \mu_* =\frac{25}{128},\qquad L=\log N,\\
+ 0<\sigma\le10^{-10},\qquad \tau=\sigma^9,\qquad \rho=1+\tau,\\
+ N'=N(1-L^{-333}),\\
+ \mathcal N_K=(1-\varepsilon)U_C=\frac{W(N)}4,\\
+ I(b)=\int_b^{1/2}\frac{dt}{t(1-t)}\\
+ =\log\frac{1-b}{b}.
+\end{gathered}
+\end{equation}
+The final argument uses \eqref{eq:intro-exponents}.
+Every limit below fixes \(b\) and \(\sigma\) first.
+For row three, write
+\(\ell_0=53/412-\eta_L/2=264897/2060000>0\). This is the fixed floor of
+Paper~I, \S3.1.
+
+\subsection{The convolution source}
+
+Define
+\begin{equation}\label{eq:k2-source}
+\begin{aligned}
+ A_b(e)&=\#\{(m,p')\in\mathbb P^2:
+ N^b\le m\le\sqrt N,\quad \varepsilon N<mp'=e\le N'\},\\
+ X_b&=\sum_e A_b(e),\qquad
+ B_b' =\sum_e A_b(e)1_{N-e\in\mathbb P},\\
+ E_{\mathrm{top}}&=B_b-B_b',\qquad
+ 0\le A_b(e)\le2,\qquad
+ 0\le E_{\mathrm{top}}\le2(NL^{-333}+1).
+\end{aligned}
+\end{equation}
+The last bound counts integers in the removed interval.
+A prime square contributes one occurrence.
+No new ordering or coprimality restriction is imposed.
+
+For a finite sequence \(F\), put
+\begin{equation}\label{eq:k2-natural-kernel}
+ \Delta_F(q,a)=\sum_eF(e)
+ \left(1_{e\equiv a\ (q)}-\frac{1_{(e,q)=1}}{\varphi(q)}\right),
+ \qquad (a,q)=1.
+\end{equation}
+Both terms use the full support.
+For this source, PNT and partial summation give
+\begin{equation}\label{eq:k2-source-mass}
+ X_b=\frac{(1-\varepsilon)N}{L}I(b)+o_b(N/L).
+\end{equation}
+This is the calculation of Paper~II,
+\cite[(5.44)--(5.51)]{PaperII}.
+The moving top removes at most \(2(NL^{-333}+1)\) mass.
+
+The required convolution estimate is
+\begin{equation}\label{eq:k2-bv-source}
+ \sum_{q\le Q}\max_{(a,q)=1}|\Delta_{A_b}(q,a)|
+ \ll_{A,b}NL^{-A},\qquad
+ Q\le N^{1/2}L^{-B_{\mathrm{BV}}(A,b)},
+\end{equation}
+for every fixed \(A>0\).
+Its proof keeps the complete occurrence source and the moving top.
+Fix a top \(T\in\{N,N'\}\). Before the discrepancy estimate, compare the
+exact cell sources \eqref{eq:k2-cell-source} with their upper and lower
+convolutions. Each signed child keeps the natural
+coprimality comparator \(1_{(e,q)=1}/\varphi(q)\). It is not replaced
+after summing the blocks. The step from
+\(T=N\) to \(T=N'\) costs the endpoint bands
+\eqref{eq:k2-boundary-cost}. It also costs the removed top mass in
+\eqref{eq:k2-source}. The actual moving-top application is proved below.
+
+We use the following convolution input.
+Let \(a_m,b_n\) have supports \(m\sim M,n\sim Y\).
+Put \(x=MY\ge3\), and fix \(\eta,B_{\mathrm{div}}>0\).
+Assume
+\begin{equation}\label{eq:k2-convolution-sw}
+\begin{gathered}
+ x^\eta\le M,Y\le x^{1-\eta},\\
+ \left|\sum_{\substack{n\equiv l\ (k)\\(n,h)=1}}b_n
+ -\frac1{\varphi(k)}\sum_{(n,hk)=1}b_n\right|
+ \ll_{A_2}\|b\|_2Y^{1/2}d(h)^{B_{\mathrm{div}}}
+                       (\log(2Y))^{-A_2}
+\end{gathered}
+\end{equation}
+uniformly for every fixed \(A_2>0\), \(h,k\ge1\),
+and \((l,k)=1\).
+Here \(d(n)\) is the divisor function.
+Then Fact~\ref{fact:bv-full-support} gives
+\begin{equation}\label{eq:k2-convolution}
+ \sum_{q\le Q}\max_{(a,q)=1}|\Delta_{a*b}(q,a)|
+ \ll_A\|a\|_2\|b\|_2x^{1/2}(\log x)^{-A},
+ \qquad Q\le x^{1/2}(\log x)^{-B_{\mathrm{BV}}}.
+\end{equation}
+The constants depend on all family constants in
+\eqref{eq:k2-convolution-sw}.
+This specializes Fact~\ref{fact:bv-full-support}. It is
+Paper~II, Lemma~5.1 \cite[(5.23)--(5.28)]{PaperII}.
+It applies to complete rectangular supports.
+
+We make the interval reduction explicit.
+Fix a target \(A>2\), and put \(H_g=A+4\).
+Choose
+\begin{equation}\label{eq:k2-interval-grid}
+\begin{gathered}
+ R_g=\left\lceil
+ \frac{(1/2-b)L}{\log(1+L^{-H_g})}\right\rceil,\qquad
+ \xi=N^{(1/2-b)/R_g},\qquad y_j=N^b\xi^j,\\
+ J_j=[y_{j-1},y_j),\qquad Y_j=y_j.
+\end{gathered}
+\end{equation}
+Close the final upper endpoint.
+For the fixed top \(T\in\{N,N'\}\), put
+\begin{equation}\label{eq:k2-convolution-envelopes}
+\begin{aligned}
+ b_j(m)&=1_{m\in\mathbb P\cap J_j},\\
+ a_{j,T}^+(p')&=1_{p'\in\mathbb P}
+       1_{\varepsilon N/Y_j\le p'\le T\xi/Y_j},\\
+ a_{j,T}^-(p')&=1_{p'\in\mathbb P}
+       1_{\varepsilon N\xi/Y_j<p'<T/Y_j}.
+\end{aligned}
+\end{equation}
+For \(F,G\) on the positive integers write
+\((F*G)(e)=\sum_{mn=e}F(m)G(n)\), and put
+\(A_{j,T}^{\pm}=a_{j,T}^{\pm}*b_j\). The exact cell source is
+\begin{equation}\label{eq:k2-cell-source}
+ A_{j,T}(e)=1_{\varepsilon N<e\le T}
+       \sum_{\substack{m\in\mathbb P\cap J_j,\ p'\in\mathbb P\\mp'=e}}1.
+\end{equation}
+The definitions give the pointwise envelopes
+\(A_{j,T}^-\le A_{j,T}\le A_{j,T}^+\).
+Their difference is supported in multiplicative boundary bands at
+\(\varepsilon N\) and \(T\). Put
+\(\mathcal E_Q(F)=\sum_{q\le Q}\max_{(a,q)=1}|\Delta_F(q,a)|\).
+Let
+\(B_T(e)=\sum_j(A_{j,T}^+(e)-A_{j,T}^-(e))\). Then \(B_T\ge0\), with
+support in
+\([\varepsilon N/\xi,\varepsilon N\xi]\cup[T/\xi,T\xi]\). Each integer
+has at most two ordered factorizations into primes. Since
+\(1<\xi\le1+L^{-H_g}\) and \(T\in\{N,N'\}\) satisfies \(T\le N\),
+\[
+ \sum_e B_T(e)\le
+ 2\{\varepsilon N(\xi-\xi^{-1})+T(\xi-\xi^{-1})+4\}
+ \ll NL^{-H_g}+1.
+\]
+Since \(\xi-\xi^{-1}\le2(\xi-1)\le2L^{-H_g}\), counting integers in the
+two complete boundary bands gives the displayed mass bound.
+Paper~II, (5.47), gives the aggregate boundary discrepancy
+\begin{equation}\label{eq:k2-boundary-cost}
+ \mathcal E_Q\!\left(\sum_j(A_{j,T}^+-A_{j,T}^-)\right)
+       \ll NL^{-H_g+1}+Q.
+\end{equation}
+The \(Q\) term includes the bounded-multiplicity changes at exact
+endpoints. Split the second factor into dyadic blocks \((M,2M]\):
+\[
+ a_{j,T,M}^{\pm}(p')=a_{j,T}^{\pm}(p')1_{M<p'\le2M}.
+\]
+For each block meeting the support,
+\(\varepsilon N/(2Y_j)<M\le T\xi/Y_j\), so
+\(M\asymp_{\varepsilon}N/Y_j\), with only
+\(O_{\varepsilon}(1)\) blocks. Here \(n\sim Z\) means
+\(Z<n\le2Z\), as in Section~\ref{sec:classical-inputs}. For the short
+factor, the theorem-scale parent is $Y=Y_j/2$; since $\xi<2$ eventually,
+$J_j\subset(Y_j/2,Y_j]$ lies in that parent. The norms are
+\begin{equation}\label{eq:k2-interval-norms}
+ \|a_{j,T,M}^+\|_2\ll\sqrt M,\qquad
+ \|a_{j,T,M}^-\|_2\le\|a_{j,T,M}^+\|_2,\qquad
+ \|b_j\|_2\ll\sqrt{Y_j}L^{-(H_g+1)/2}.
+\end{equation}
+The prime number theorem on these intervals also gives a matching
+lower bound. It is \(\|b_j\|_2\gg\sqrt{Y_j}L^{-(H_g+1)/2}\) for all sufficiently
+large \(N\). This lower bound normalizes the conversion of the absolute
+prime Siegel--Walfisz error to
+\eqref{eq:k2-convolution-sw}.
+The prime-interval form of \eqref{eq:k2-convolution-sw} holds uniformly
+in \(j,T,M\). For a fixed target \(A>2\), write
+\(K_{\mathrm{SW}}(A)\) for the
+chosen logarithmic level. For auxiliary moduli \(k\le L^{K_{\mathrm{SW}}(A)}\), this is prime
+Siegel--Walfisz at arbitrarily high fixed logarithmic precision.
+The divisor loss from excluding primes dividing the auxiliary integers is
+absorbed into \(d(h)^{B_{\mathrm{div}}}\). For \(k>L^{K_{\mathrm{SW}}(A)}\), use
+\[
+ |\Delta|\le |J|/k+1+\pi(J)/\varphi(k)
+\]
+and \(\sup_{k>L^{K_{\mathrm{SW}}(A)}}\varphi(k)^{-1}
+\ll L^{-K_{\mathrm{SW}}(A)}\log\log(3L^{K_{\mathrm{SW}}(A)})\), taking
+\(K_{\mathrm{SW}}(A)\) larger than the
+requested saving. For every fixed target \(A>2\), choose
+\(H_g=A+4\). The grid has \(O_b(L^{H_g+1})\) intervals. The prime
+number theorem gives the norm bounds \eqref{eq:k2-interval-norms}.
+With \(A_{\mathrm{block}}=A+H_g/2+2\), Fact~\ref{fact:bv-full-support}
+and Paper~II, (5.23)--(5.28), bound the rectangular blocks by
+\(O_{A,b}(NL^{-A-3/2})\). The boundary term in
+\eqref{eq:k2-boundary-cost} is \(O(NL^{-A-3}+Q)\). Increasing the
+single fixed logarithmic level buffer absorbs the \(x\asymp_b N\)
+constants. Thus the complete moving-top source, including the
+actual top \(T=N'\), satisfies \eqref{eq:k2-bv-source}. No fixed-width
+truncation estimate is substituted.
+
+
+\subsection{Four directed sieve rows}
+
+Let \(\mathcal P_N=\{p\in\mathbb P:p\nmid2N\}\).
+Put
+\begin{equation}\label{eq:k2-sifted-source}
+ S_b(d;z)=\sum_{d\mid N-e}A_b(e)\,1_{((N-e)/d,\,P_N(z))=1},\qquad
+ P_N(z)=\prod_{p<z,\ p\in\mathcal P_N}p .
+\end{equation}
+There is no prefix--cofactor coprimality condition.
+Both source primes exceed \(N^{\mu_*}\) eventually.
+Thus, for every supported modulus \(d\),
+\begin{equation}\label{eq:k2-local-density}
+ \sum_{d\mid N-e}A_b(e)
+ =\frac{X_b}{\varphi(d)}+\Delta_{A_b}(d,N),\qquad
+ (d,2N)=1,\quad P^+(d)<N^{\mu_*}.
+\end{equation}
+Here \(P^+(d)\) is the largest prime factor, with \(P^+(1)=1\).
+For the squarefree sieve divisors, use the multiplicative density
+\begin{equation}\label{eq:k2-squarefree-density}
+ g(p)=\frac1{p-1}\quad(p\in\mathcal P_N),\qquad
+ g(p^j)=0\quad(j\ge2),\qquad
+ g(p)=0\quad(p\notin\mathcal P_N).
+\end{equation}
+This is the squarefree-divisor density of the linear-sieve application.
+That input requires its zero prime-power tail. The
+full arithmetic density is \(g(p^j)=1/\varphi(p^j)\) for
+\(p\in\mathcal P_N\) and \(j\ge1\). No estimate uses its prime-power
+tail. The two densities agree at active primes. These are the only local
+factors used by the main-mass calculation.
+In Paper~I, Theorem~2.6 notation, this density is
+\[
+ \omega(p)=\frac p{p-1}\quad(p\in\mathcal P_N),\qquad
+ \omega(p)=0\quad(p\notin\mathcal P_N),\qquad
+ \omega(p^a)=0\quad(a\ge2).
+\]
+Thus \(\omega(p)/p=g(p)\), and condition (2) has zero left side. For
+\(p\ge3\),
+\[
+ \left(1-\frac1{p-1}\right)^{-1}
+ =\left(1-\frac1p\right)^{-1}
+   \left(1+\frac1{p(p-2)}\right).
+\]
+The product of the second factors over \(p\ge w\) is
+\(1+O(1/w)=1+O(1/\log w)\). Hence Mertens' product estimate gives
+condition (1) with exponent one and one fixed \(K_{\mathrm{dim}}\ge2\).
+We may take \(L_{\omega}=2\). These are the dimension and prime-power
+inputs of Iwaniec's linear sieve \cite{Iwaniec1980Remainder}.
+
+If \(N-e\) is prime, it is at least \(NL^{-333}\).
+It therefore exceeds \(N^{\mu_*}\) eventually.
+Hence
+\begin{equation}\label{eq:k2-source-comparison}
+ B_b'\le S_b(1;N^{\mu_*}).
+\end{equation}
+
+Use the ordered primes
+\(N^u\le a_j<\cdots<a_1<N^{\mu_*}\)
+in \(\mathcal P_N\).
+The exact decomposition of
+\eqref{eq:source-buchstab}--\eqref{eq:source-upper-slack} gives
+\begin{equation}\label{eq:k2-buchstab-upper}
+ B_b\le E_{\mathrm{top}}+T_0-T_1+T_2-R_3+P_3.
+\end{equation}
+Here
+\begin{equation}\label{eq:k2-four-rows}
+\begin{aligned}
+ T_0&=S_b(1;N^u),\\
+ T_j&=\sum_{N^u\le a_j<\cdots<a_1<N^{\mu_*}}
+                 S_b(a_1\cdots a_j;N^u)\quad(j=1,2),\\
+ R_3&=\sum_{\mathrm{ret}}S_b(a_1a_2a_3;N^{t_3}),\\
+ P_3&=\sum_{\mathrm{ret}}\sum_{\substack{N^{t_3}\le r<a_3\\r\in\mathcal P_N}}
+                       S_b(a_1a_2a_3r;N^{t_3}).
+\end{aligned}
+\end{equation}
+Every prime in these sums belongs to \(\mathcal P_N\).
+The last sum keeps the half-open cells it inherits.
+The symbol \(\sum_{\mathrm{ret}}\) restricts by
+\begin{equation}\label{eq:k2-retention}
+ \Theta_{\mathfrak c}=\inf_{\overline{\mathfrak c}}H,\qquad
+ \ell_{\mathfrak c}=\Theta_{\mathfrak c}-\eta_L-t_1-t_2-t_3,
+ \qquad \ell_{\mathfrak c}\ge2\rho t_3.
+\end{equation}
+Here \(H\) is the full eight-branch packing function,
+\eqref{eq:classical-packing-ceiling}.
+The infimum uses the complete closed ordered cell.
+It does not use a quadrature node.
+
+The four directed applications are
+\begin{equation}\label{eq:k2-aa-directions}
+\begin{array}{c|c|c|c}
+ \text{term}&\text{row sign}&\text{sieve direction}&\text{level exponent}\\ \hline
+ T_0&+&\text{upper }F&1/2-\eta_L\\
+ T_1&-&\text{lower }f&1/2-\eta_L-\rho t_1\\
+ T_2&+&\text{upper }F&1/2-\eta_L-\rho(t_1+t_2)\\
+ R_3&-&\text{lower }f&\ell_{\mathfrak c}
+\end{array}
+\end{equation}
+The first three cutoffs are \(N^u\).
+The fourth cutoff is \(N^{t_3}\).
+The canonical functions are Iwaniec's linear-sieve functions
+\cite{Iwaniec1980Remainder}.
+Extend \(f\) by zero for \(s\le2\).
+No shifted beta-sieve profile is substituted.
+
+For each prefix product \(h\), let \(\mathcal A_h\) be the cofactor
+sequence indexed by \(n=(N-e)/h\), with multiplicity \(A_b(e)\) when
+\(h\mid N-e\). Put \(X_h=X_b/\varphi(h)\). Write \(z_h\) for the
+row cutoff, \(D_h\) for its level, and \(s_h=\log D_h/\log z_h\).
+Every prefix prime is at least \(z_h\), and each squarefree sieve
+modulus \(t\mid P_N(z_h)\) has prime factors below \(z_h\). Thus
+\((h,t)=1\), and the local identity \eqref{eq:k2-local-density} gives
+the exact remainder identity
+\begin{equation}\label{eq:k2-aa-prefix-remainder}
+ r(\mathcal A_h,t)=\Delta_{A_b}(ht,N).
+\end{equation}
+Since \(\omega(t)/t=1/\varphi(t)\) and \((h,t)=1\), the local main
+term is \(X_h\omega(t)/t=X_b/\varphi(ht)\), as required by
+Theorem~2.6. For rows \(j=0,1,2\), put
+\(S=t_1+\cdots+t_j\), with \(S=0\) for row zero, and
+\(\theta=1/2-\eta_L\). The clipped exponent cells give
+\[
+ h\le N^{\rho S},\qquad D_h=N^{\theta-\rho S},\qquad
+ S\le2\mu_*.
+\]
+Hence \(\log D_h/\log N\ge\theta-2\rho\mu_*>0.1092>2u\).
+The upper rows satisfy \(N^u\le D_h\). The lower row satisfies
+\(N^u\le D_h^{1/2}\). For sufficiently large
+\(N\), with \(\sigma\) fixed, \(D_h\ge2\).
+Apply Paper~I, Theorem~2.6, (2.30), with density
+\(g(p)=1/(p-1)\) on \(\mathcal P_N\), \(g(p^a)=0\) for \(a\ge2\),
+and sieve parameter \(\epsilon_s=\sigma\). With
+\(\overline E=2C_{\mathrm{AA37}}\sigma\), the resulting directed
+inequalities are
+\begin{equation}\label{eq:k2-aa-directed-estimates}
+\begin{aligned}
+ S(\mathcal A_h,z_h)
+ &\le X_hV_N(z_h)\{F(s_h)+E^+_{s_h}\}+R_1^+(h)+R^+(h),\\
+ S(\mathcal A_h,z_h)
+ &\ge X_hV_N(z_h)\{f(s_h)-E^-_{s_h}\}-R_1^-(h)-R^-(h),\\
+ |E^{\pm}_{s_h}|&\le\overline E.
+\end{aligned}
+\end{equation}
+Only the upper bound \(|E^{\pm}_{s_h}|\le\overline E\) is used. No sign of
+\(E^{\pm}_{s_h}\) is assumed. Since \(X_hV_N(z_h)\ge0\), replacing
+\(E^{\pm}_{s_h}\) by \(\overline E\) weakens each inequality.
+The actual dimension and prime-power constants, the level lower bound,
+and the fixed-\(\sigma\) threshold are in
+\eqref{eq:k2-aa-decay}.
+
+The superscript \(\mathrm{AA}\) below marks errors from this
+linear-sieve theorem. It does not denote a separate family of profiles.
+For row \(j\), sum over its actual prefix set \(\mathcal H_j\). Let
+\(\mathcal F_j\) be \(F\) on the upper rows and \(f\) on the lower
+rows. The definitions used in the signed equalities are
+\begin{equation}\label{eq:k2-aa-row-definitions}
+\begin{aligned}
+ m_j&=\sum_{h\in\mathcal H_j}X_hV_N(z_h)\mathcal F_j(s_h),\\
+ \mathfrak M_j&=\sum_{h\in\mathcal H_j}X_hV_N(z_h),\\
+ \mathcal A_j^{\mathrm{AA}}&=\overline E\,\mathfrak M_j,\\
+ r_j&=\sum_{h\in\mathcal H_j}\{R_1^{\nu_j}(h)+R^{\nu_j}(h)\},
+ \qquad \nu_j=+\text{ on upper rows},\quad \nu_j=-\text{ on lower rows},\\
+ z_j&=m_j+\mathcal A_j^{\mathrm{AA}}+r_j-T_j
+       \quad\text{on upper rows},\\
+ z_j&=T_j-m_j+\mathcal A_j^{\mathrm{AA}}+r_j
+       \quad\text{on lower row }j=1,\\
+ z_3&=R_3-m_3+\mathcal A_3^{\mathrm{AA}}+r_3.
+\end{aligned}
+\end{equation}
+Summing \eqref{eq:k2-aa-directed-estimates} over prefixes proves
+\(z_j\ge0\). Also \(\mathfrak M_j\ge0\), so
+\(\mathcal A_j^{\mathrm{AA}}\ge0\). These nonnegativity
+statements are proved at source level for the exact signed remainders in
+\eqref{eq:k2-aa-prefix-remainder}. No sign of these remainders is assumed.
+Write the directed equalities as
+\begin{equation}\label{eq:k2-aa-equalities}
+\begin{aligned}
+ T_0&=m_0+\mathcal A_0^{\mathrm{AA}}+r_0-z_0,&
+ T_1&=m_1-\mathcal A_1^{\mathrm{AA}}-r_1+z_1,\\
+ T_2&=m_2+\mathcal A_2^{\mathrm{AA}}+r_2-z_2,&
+ R_3&=m_3-\mathcal A_3^{\mathrm{AA}}-r_3+z_3,
+ \qquad \mathcal A_j^{\mathrm{AA}},z_j\ge0.
+\end{aligned}
+\end{equation}
+\begin{lemma}[Signed row identity]\label{lem:k2-row-identity}
+With \(M_K=m_0-m_1+m_2-m_3\),
+\[
+ \Delta_{\mathrm{arith}}:=T_0-T_1+T_2-R_3-M_K
+ =\sum_{j=0}^3\mathcal A_j^{\mathrm{AA}}+\sum_{j=0}^3r_j-\sum_{j=0}^3z_j,
+\]
+and every \(\mathcal A_j^{\mathrm{AA}}\) occurs with coefficient \(+1\).
+\end{lemma}
+\begin{proof}
+Substitute \eqref{eq:k2-aa-equalities}. The lower rows carry the row
+sign \(-\), which turns \(-\mathcal A_j^{\mathrm{AA}}-r_j+z_j\) into
+\(+\mathcal A_j^{\mathrm{AA}}+r_j-z_j\).
+\end{proof}
+For rows \(j=0,1,2\), the total moduli in these remainders fit the
+level of \eqref{eq:k2-bv-source}. A tail tuple satisfies
+\(\prod_iD_i<D_h\). In the parity ending in a defining cubic condition,
+remove two copies of the last label. In the other parity, use the
+preceding cubic condition and the ordering of the last two labels. The
+empty and one-label cases follow from the tuple definitions.
+Each \(p_i\) lies in the interval
+\(D_i\le p_i<\min(D_i^\rho,z_h)\), and
+\(d<D_h^\sigma\). Thus, with the same \(S,\theta\) as above,
+\[
+ q=h d\prod_i p_i\le hD_h^{\sigma+\rho}
+ \le N^{\rho S+(\sigma+\rho)(\theta-\rho S)}
+ =N^{\theta+(\sigma+\tau)(\theta-\rho S)}
+ \le N^{\theta+(\sigma+\tau)\theta}
+ <N^{1/2-\eta_L/2}.
+\]
+This power buffer is below \(N^{1/2}L^{-B}\) for every fixed \(B\),
+once \(N\) is large enough.
+
+The factors of such a modulus that are at least \(z_h\) are exactly the
+ordered prefix primes. They determine \(h\) and its clipped cell.
+Factoring the remaining part at \(D_h^{\sigma^2}\) determines the
+squarefree smooth divisor and the tail-prime multiset. The number of
+tail labels is at most \(J_\sigma=\lceil\sigma^{-2}\rceil\).
+Equal-label permutations contribute at most \(J_\sigma!\). Each
+AA coefficient has modulus at most one. The number of label vectors
+is less than \(\exp(8\sigma^{-3})\). Hence the total coefficient at each
+modulus is at most
+\(C_{\mathrm{K2},\sigma}=1+\exp(8\sigma^{-3})J_\sigma!\), independent of \(N\).
+Apply \eqref{eq:k2-bv-source} with target \(A=4\). Divide by
+\(\mathcal N_K=(1-\varepsilon)C(N)N/L^2\); here \(C(N)\ge C_2>0\)
+by Paper~II, (1.2). This proves
+\begin{equation}\label{eq:k2-low-row-remainders}
+ \frac{|r_0|+|r_1|+|r_2|}{\mathcal N_K}\ll_{b,\sigma}L^{-2}.
+\end{equation}
+The low-row bound uses Fact~\ref{fact:bv-full-support}, the
+prime Siegel--Walfisz theorem, the prime number theorem and the Paper~II
+convolution inputs. It gives no estimate for the principal
+masses or row three.
+
+The \(m_j\) are the directed main terms.
+The \(r_j\) are signed arithmetic remainders.
+Thus, with \(M_K=m_0-m_1+m_2-m_3\),
+\begin{equation}\label{eq:k2-signed-join}
+\begin{aligned}
+ B_b\le{}&E_{\mathrm{top}}+P_3+M_K
+       +\sum_{j=0}^3\mathcal A_j^{\mathrm{AA}}+\sum_{j=0}^3r_j-\sum_{j=0}^3z_j\\
+ \le{}&E_{\mathrm{top}}+P_3+M_K
+       +\sum_{j=0}^3\mathcal A_j^{\mathrm{AA}}+\sum_{j=0}^3|r_j|.
+\end{aligned}
+\end{equation}
+This step is finite algebra.
+The directed source comparisons are proved separately.
+
+The canonical row masses are explicit.
+For a prefix cell \(\mathfrak c\), put
+\[
+ H_j(\mathfrak c)=
+ \sum_{\substack{a_1>\cdots>a_j\\a_i\text{ in the cell}}}
+       \frac1{\varphi(a_1\cdots a_j)}.
+\]
+Since the prefix primes exceed every sieve prime, the product over sieve
+primes at each row is \(V_N(z_h)\). With the ordered cell sets
+\(D_j\) from
+\eqref{eq:k2-parent-functional},
+\begin{equation}\label{eq:k2-row-main-masses}
+\begin{aligned}
+ m_0&=X_bV_N(N^u)F(s_0),\\
+ m_1&=X_bV_N(N^u)\sum_{\mathfrak c\in D_1}
+                 H_1(\mathfrak c)f(s_1(\mathfrak c)),\\
+ m_2&=X_bV_N(N^u)\sum_{\mathfrak c\in D_2}
+                 H_2(\mathfrak c)F(s_2(\mathfrak c)),\\
+ m_3&=X_b\sum_{\mathfrak c\in D_3}\chi_{\mathfrak c}
+       V_N(N^{t_3})H_3(\mathfrak c)f(\ell_{\mathfrak c}/t_3).
+\end{aligned}
+\end{equation}
+The masses \(\mathfrak M_j\) are these sums with \(F\) and \(f\)
+replaced by \(1\). In particular, the row-three retention indicator
+\(\chi_{\mathfrak c}\) appears in both sums.
+
+
+\subsection{The principal functional}
+
+We display the numerical functional used for \(M_K\).
+Set
+\begin{equation}\label{eq:k2-canonical-profile}
+\begin{aligned}
+ v_1(s)&=\min\left\{\frac{1+s}{2},
+             \frac{32-34s}{39},\frac{57}{64}-\frac32s\right\},\\
+ v(s)&=v_1(s)-u,\qquad \psi(x,y)=x1_{x\ge y},\\
+ \Theta_*(x,y,z)&=\max\{v(x),v(y),v(x+y),v(x+y+z),\\
+ &\hspace{28mm}\psi(v(x+z),x+2y+z),
+                   \psi(v(y+z),2x+y+z)\}.
+\end{aligned}
+\end{equation}
+The subtraction of \(u\) precedes both guards.
+This is Paper~II, (4.70)--(4.72)
+\cite[(4.70)--(4.72)]{PaperII}.
+Put
+\begin{equation}\label{eq:k2-g-functional}
+\begin{aligned}
+ H_{\log}&=\log(\mu_*/u),\\
+ R_{\mathrm{up}}&=500(F(30)-1)+500H_{\log}(1-f(30))
+                    +250H_{\log}^2(F(30)-1),\\
+ J_*&=\int_u^{\mu_*}\frac{dx}{x}
+         \int_u^x\frac{dy}{y}
+         \int_u^y\frac{1-f((\Theta_*(x,y,z)-x-y-z)/z)}{z^2}\,dz,\\
+ G_*&=\frac1{\mu_*}+R_{\mathrm{up}}+J_*.
+\end{aligned}
+\end{equation}
+We keep the true delay-function tail.
+Paper~II, (4.73)--(4.75), gives the constant cancellation
+\begin{equation}\label{eq:k2-constant-cancellation}
+ \frac{1-H_{\log}+H_{\log}^2/2}{u}
+ -\int_u^{\mu_*}\frac{dx}{x}\int_u^x\frac{dy}{y}
+                         \int_u^y\frac{dz}{z^2}
+ =\frac1{\mu_*}.
+\end{equation}
+
+The finite-parent comparison also needs its direction.
+Fix a finite clipped partition \(\Pi\) of \([u,\mu_*)\).
+Its cells have endpoint ratios at most \(\rho\).
+Each clipped cell is a product of half-open exponent intervals \([t_i,t_i')\) with \(t_i'\le\rho t_i\). Here \(t_i\) is the lower endpoint, so \(N^{t_i}\le a_i<N^{\rho t_i}\), i.e. \(t_i\le x_i<\rho t_i\). The closure \(\overline{\mathfrak c}\) is used only for infima and lower bounds. The cutoffs \(N^{t_3}\) in \(R_3,P_3\) and the factors \(\rho t_1,\rho(t_1+t_2)\) in \(s_1,s_2\) use this convention.
+For a clipped cell \(\mathfrak c\), let
+\(w_{\mathfrak c}=\int_{\mathfrak c}\prod_i dx_i/x_i\).
+Define
+\begin{equation}\label{eq:k2-parent-functional}
+\begin{aligned}
+ s_0&=(1/2-\eta_L)/u,\\
+ s_1(\mathfrak c)&=(1/2-\eta_L-\rho t_1)/u,\\
+ s_2(\mathfrak c)&=(1/2-\eta_L-\rho(t_1+t_2))/u,\\
+ E_\Pi&=\frac{F(s_0)-1}{u}
+ +\sum_{\mathfrak c\in D_1}\frac{w_{\mathfrak c}}u(1-f(s_1(\mathfrak c)))\\
+ &\qquad+\sum_{\mathfrak c\in D_2}\frac{w_{\mathfrak c}}u(F(s_2(\mathfrak c))-1),\\
+ P_\Pi&=\frac{1-H_{\log}+H_{\log}^2/2}{u}+E_\Pi
+ -\sum_{\mathfrak c\in D_3}
+    w_{\mathfrak c}1_{\ell_{\mathfrak c}\ge2\rho t_3}
+             \frac{f(\ell_{\mathfrak c}/t_3)}{t_3}.
+\end{aligned}
+\end{equation}
+Here \(D_j=\{u\le x_j<\cdots<x_1<\mu_*\}\).
+Each cell is intersected with this ordered domain.
+Its weight includes the actual ordered multiplicity.
+The required comparisons are
+\begin{equation}\label{eq:k2-parent-comparison}
+ 0\le E_\Pi\le R_{\mathrm{up}},\qquad
+ P_\Pi\le\frac1{\mu_*}+E_\Pi+J_*\le G_*.
+\end{equation}
+The last line is an upper comparison.
+It asserts no equality between finite sums and integrals.
+
+Compare the six canonical branches of \(\Theta_*\) with their matching
+branches among the eight parent branches of the packing function \(H\) in
+\eqref{eq:classical-packing-ceiling}. Adding \(u\) to an unguarded canonical
+branch gives the matching parent branch. For an active canonical guarded
+branch, the parent guard is also active, and adding \(u\) again gives the
+matching parent branch. An inactive canonical guarded branch is zero and
+cannot maximize the canonical ceiling, since its first unguarded branch is
+positive on the ordered domain. The two extra parent branches can only
+increase \(H\). Hence
+\(H(x,y,z)\ge\Theta_*(x,y,z)+u\) pointwise on that domain. On a closed
+anchored cell, each coordinate moves by at most \(\mu_*\tau\). Fix a point
+and a maximizing canonical branch there, and use its matching parent branch.
+If it is guarded, its guard has reserve \(u-7\mu_*\tau>0\) throughout the
+cell. This selected branch changes by at most \((9/2)\mu_*\tau\) across the
+cell. Therefore
+\begin{equation}\label{eq:k2-parent-reserve}
+\begin{aligned}
+ \Theta_{\mathfrak c}&\ge\Theta_*(x,y,z)+u-(9/2)\mu_*\tau,\\
+ \ell_{\mathfrak c}&\ge\Theta_*(x,y,z)-x-y-z+g,\\
+ g&=u-\eta_L-(9/2)\mu_*\tau>2\mu_*\tau.
+\end{aligned}
+\end{equation}
+Monotonicity of \(f(s)\), together with this reserve,
+gives the directed kernel comparison
+\begin{equation}\label{eq:k2-parent-kernel}
+ \chi_{\mathfrak c}\frac{f(\ell_{\mathfrak c}/t_3)}{t_3}
+ \ge
+ \frac{f((\Theta_*(x,y,z)-x-y-z)/z)}{z}.
+\end{equation}
+Summing over cells gives the upper comparison in
+\eqref{eq:k2-parent-comparison}. It does not identify a finite sum with
+the integral.
+
+
+Put \([x]_+=\max\{x,0\}\).
+We need the arithmetic-to-integral estimate
+\begin{equation}\label{eq:k2-main-mass}
+ \frac{[M_K-\mathcal N_K\,2e^{-\gamma}I(b)G_*]_+}
+      {\mathcal N_K}=o_{b,\sigma}(1).
+\end{equation}
+The quantity \(M_K\) contains only the canonical values of \(F\) and
+\(f\). The linear-sieve errors \(E^{\pm}_{s_h}\) and the remainders
+\(r_j\) lie outside it. They are paid in
+\eqref{eq:k2-aa-mass} and \eqref{eq:k2-remainder-estimates}. Fix
+\((b,\sigma)\). Three inputs enter. The first is the two-orientation
+arithmetic-mass estimate for the source \eqref{eq:k2-source}. The second
+is its four signed canonical AA
+main masses \eqref{eq:k2-row-main-masses}. The third is the finite functional
+\(P_\Pi\) in \eqref{eq:k2-parent-functional}. For all sufficiently
+large even \(N\) they give
+\[
+ M_K/\mathcal N_K\le2e^{-\gamma}I(b)G_*+o_{b,\sigma}(1).
+\]
+Here the error tends to zero with \(b,\sigma\) and the cell count fixed,
+as \(N\) tends to infinity. This estimate is for the finite functional in
+\eqref{eq:k2-parent-functional}. It gives
+\eqref{eq:k2-main-mass} directly, so
+\(N_{\mathrm{mass}}(b,\sigma)\) can be the threshold of
+this fixed-\((b,\sigma)\) statement. This bound controls only the
+principal-mass term. It does not control the AA remainders, the optional
+numerical certificate, the complete exterior comparison or
+the endpoint terms. No sharper arithmetic-mass estimate is used here.
+
+
+For the exterior comparison we use the common $G_0$ coefficient
+\begin{equation}\label{eq:k2-certificate}
+\begin{gathered}
+ G_0=\frac{6088440363}{10^9},\qquad
+ G_*\le G_0,\\
+ 2e^{-\gamma}G_0\le c_{K2,G0}
+ :=\frac{6836825163875517756286846321650754372931094689}{10^{45}}.
+\end{gathered}
+\end{equation}
+For \(G_*\le G_0\), use the tight endpoint
+\(J_*\le0.967120\) of Paper~II, (A.10a). It holds for the exact profile
+\eqref{eq:k2-g-functional} \cite[(4.73), (4.75), (A.10a)]{PaperII}.
+Its weaker displayed endpoint is not used.
+The Taylor-model delay certificate is used for this coefficient comparison
+and is not an input to the shifted replay itself. It gives the explicit bounds
+\[
+ 0\le F(30)-1<3\cdot10^{-49},\qquad
+ 0\le1-f(30)<3\cdot10^{-49}.
+\]
+Since \(0<H_{\log}=\log(3125/32)<5\),
+\eqref{eq:k2-g-functional} then gives
+\[
+ R_{\mathrm{up}}< (500+500\cdot5+250\cdot25)3\cdot10^{-49}
+ <10^{-44},\qquad
+ G_*<\frac{128}{25}+\frac{967120}{10^6}+10^{-44}
+ <\frac{6088440363}{10^9}=G_0.
+\]
+The finite delay calculation and this rational budget do not replace the
+source-to-profile comparison or its fixed-parameter hypotheses.
+For the scalar inequality, define
+\begin{equation}\label{eq:k2-gamma-enclosure}
+\begin{gathered}
+ \gamma_-:=\frac{57721566490153286060651209008240243104215933593992}{10^{50}},\\
+ \gamma_+:=\frac{57721566490153286060651209008240243104215933593993}{10^{50}},\\
+ \gamma_-<\gamma<\gamma_+,\\
+ c_{K2,G0}-2G_0\sum_{j=0}^{60}\frac{(-\gamma_-)^j}{j!}
+       >\frac{75307}{10^{50}}>0.
+\end{gathered}
+\end{equation}
+The rational enclosure follows from Euler--Maclaurin for \(H_n\) at
+\(n=10^5\), through \(B_{16}\). The next-term remainder is bounded
+by \(|B_{18}|/(18n^{18})\). Both \(\log n\) and \(H_n\) are enclosed
+outwards by the certified exact-input record. For \(0<x<1\), the even Taylor
+partial sum of \(e^{-x}\) is an upper bound. Thus the exact rational
+comparison in \eqref{eq:k2-gamma-enclosure} proves
+\(2e^{-\gamma}G_0<c_{K2,G0}\).
+
+
+The switched comparison uses the same coefficient.
+At \(b=2999993/7000000\), the common final-margin inequality
+\eqref{eq:bill-margin-simple} has slack
+\(0.000228954311267289\ldots>1/5000\) on the stated route \(g_6:=0\).
+Both comparisons use the same $G_0$ bound. Scalar positivity does not
+establish the required source estimates.
+
+\subsection{The complete error bound}
+
+The analytic hypotheses are stated below.
+The sums are over the original applications.
+The four principal linear-sieve errors satisfy
+\begin{equation}\label{eq:k2-aa-mass}
+\begin{gathered}
+ \frac{\sum_{j=0}^3 \mathcal A_j^{\mathrm{AA}}}{\mathcal N_K}
+ \le A_K(b)C_{\mathrm{AA}}\sigma,\\
+ A_K(b)=2e^{-\gamma}I(b)W_{\mathrm{AA}},\qquad
+ W_{\mathrm{AA}}=500\left(1+H_{\log}
+                    +\frac{H_{\log}^2}2+\frac{H_{\log}^3}6\right).
+\end{gathered}
+\end{equation}
+Let \(C_{\mathrm{AA37}}\) be the absolute constant in Paper~I,
+Theorem~2.6, (2.31), and define
+\begin{equation}\label{eq:k2-aa-constant}
+ C_{\mathrm{AA}}=4C_{\mathrm{AA37}}.
+\end{equation}
+The coefficient four is the factor two in
+\eqref{eq:k2-aa-density-mass} times the factor two in the common bound
+\(|E_s^{\pm}|\le 2C_{\mathrm{AA37}}\sigma\). The sum over the four rows is
+already included in \(W_{\mathrm{AA}}\). It is independent of \(\sigma,N\).
+It is unrelated to the global tensor constant in
+\eqref{eq:ra-global-tensor}. All four actual levels satisfy
+\(D\ge N^{1/250}\). We use (2.31) with the actual fixed dimension constant
+\(K_{\mathrm{dim}}\). For the squarefree density in
+\eqref{eq:k2-squarefree-density}, the left side of (2.27) is zero. Hence
+the actual prime-power constant is \(L_{\omega}=2\). This value is used
+in the exponential below.
+\begin{equation}\label{eq:k2-aa-decay}
+ |E_s^{\pm}|\le C_{\mathrm{AA37}}
+ \{\sigma+\sigma^{-8}e^{K_{\mathrm{dim}}+2}(\log D)^{-1/3}\}
+ \le2C_{\mathrm{AA37}}\sigma
+\end{equation}
+once \(L\ge250\exp(3(K_{\mathrm{dim}}+2))\sigma^{-27}\).
+Name the corresponding even threshold
+\[
+ N_{\mathrm{AA,dec}}(\sigma)
+ :=2\left\lceil\frac12
+ \exp\!\left(250\exp(3(K_{\mathrm{dim}}+2))\sigma^{-27}\right)
+ \right\rceil.
+\]
+It is chosen at fixed \(\sigma\). Every
+\(N\ge N_{\mathrm{AA,dec}}(\sigma)\) satisfies the displayed decay bound.
+The four ordered harmonic row masses, before the common Euler and source
+factor, are bounded by
+\begin{equation}\label{eq:k2-aa-row-masses}
+\begin{gathered}
+ \frac1u,\qquad \frac{H_{\log}}u,\qquad
+ \frac{H_{\log}^2}{2u},\\
+ \text{row-3 mass}\le
+ \rho\int_u^{\mu_*}\frac{dx}{x}\int_u^x\frac{dy}{y}
+        \int_u^y\frac{dz}{z^2}
+ \le\frac{\rho H_{\log}^2}{2u}
+ <\frac{H_{\log}^3}{6u}.
+\end{gathered}
+\end{equation}
+For the last inequality use \(3\rho<H_{\log}=\log(3125/32)\).
+The factor \(\rho\) allows the anchored-bin endpoint enlargement. The first three
+identities are the volumes of ordered logarithmic simplexes. For the
+fourth, bound \(\int_u^y dz/z^2\le1/u\) and integrate over the ordered
+\((x,y)\) simplex. The sum of the four displayed upper envelopes is \(W_{\mathrm{AA}}\),
+the four-row envelope used here. It is distinct from Paper~II's
+coarser global sieve-error bound.
+Let \(H=H_{\log}=\log(3125/32)\). PNT and Mertens' theorems, uniformly
+over the finitely many fixed-\(\sigma\) cells, give
+\[
+ V_N(N^a)=\frac{2e^{-\gamma}C(N)}{aL}(1+o(1)),\qquad
+ H_j(\mathfrak c)=w_{\mathfrak c}+o(1).
+\]
+For the retained row, \(1/t_3\le\rho/x_3\) on each cell. Dropping
+the retention restriction only increases its mass. Consequently
+\begin{equation}\label{eq:k2-aa-density-derived}
+\begin{aligned}
+ \frac{\sum_{j=0}^3\mathfrak M_j}{\mathcal N_K}
+ &\le2e^{-\gamma}I(b)
+ \left\{\frac1u+\frac{H}{u}+\frac{H^2}{2u}+\rho J_4\right\}+o(1),\\
+ J_4&=\frac{H^2/2-H+1}{u}-\frac1{\mu_*}
+       \le\frac{H^2}{2u}.
+\end{aligned}
+\end{equation}
+The bracket is smaller than
+\(W_{\mathrm{AA}}=u^{-1}(1+H+H^2/2+H^3/6)\), with relative gap greater
+than \(0.2842\) for \(0<\sigma\le10^{-10}\). The coarser bound
+\(\rho J_4\le\rho H^2/(2u)\) still leaves relative gap greater than \(0.1723\).
+Consequently, for each fixed \(b,\sigma\), there is a threshold
+\(N_{\mathrm{AA,dens}}(b,\sigma)\) such that, for every even
+\(N\ge N_{\mathrm{AA,dens}}(b,\sigma)\),
+\(\sum_j\mathfrak M_j\le\mathcal N_K\,2e^{-\gamma}I(b)W_{\mathrm{AA}}\).
+Define
+\[
+ N_{\mathrm{AA}}(b,\sigma)
+ :=\max\{N_{\mathrm{AA,dens}}(b,\sigma),N_{\mathrm{AA,dec}}(\sigma)\}.
+\]
+Thus both the density estimate and \eqref{eq:k2-aa-decay} hold above
+\(N_{\mathrm{AA}}(b,\sigma)\), as required for \eqref{eq:k2-aa-mass}.
+The maxima defining \(T_K\) and \(T_r\) below include this combined threshold.
+The displayed source-density bound below is weaker by a factor of two.
+Let \(\mathfrak M_j\) be the nonnegative principal mass multiplying the
+relative sieve error in row \(j\). The resulting bound is
+\begin{equation}\label{eq:k2-aa-density-mass}
+ \sum_{j=0}^3\mathfrak M_j\le
+ 2\mathcal N_K\,2e^{-\gamma}I(b)W_{\mathrm{AA}}.
+\end{equation}
+Multiplying it by
+\(2C_{\mathrm{AA37}}\sigma\) gives \eqref{eq:k2-aa-mass} with
+\eqref{eq:k2-aa-constant}. The Euler factors and the actual-source mass
+identification are included above. The secondary decay is paid once.
+
+
+The positive peel is bounded by the two-form argument of Paper~II,
+\cite[(4.46)--(4.56)]{PaperII}, applied to the original source.
+Put \(\mathcal B_m=\{e:\ m\mid N-e\}\) with multiplicity \(A_b(e)\).
+For \(m=a_1a_2a_3r\) in \(P_3\), put \(E=N^{t_3}\) and \(w=N^u\le E\).
+Write \(A_b=\sum_{h=1}^21_{\{A_b\ge h\}}\).
+Every \(e\) in the support is a product of two primes at least \(N^b\).
+Hence \(e\) is odd and \(w\)-rough. Write \(N-e=mk\). Then \(k\) is odd. A
+prime \(p<w\) dividing \(k\) and \(N\) would divide \(e\), which is impossible.
+Hence both forms \(k\) and \(N-mk\) are free of all primes below \(w\).
+Therefore \(S_b(m;E)\) is at most the two-form Selberg majorant of
+\cite[(4.48)--(4.53)]{PaperII} on \(1\le k\le N/m\), once for each layer.
+All prime factors of \(m\) are at least \(E\ge w\) and lie in
+\(\mathcal P_N\). Hence \((m,N)=1\), and \(\nu_N(p)\) is as in
+\cite[(4.48)]{PaperII}. Retention gives, as in \cite[(4.55)]{PaperII},
+\begin{equation}\label{eq:k2-peel-ranges}
+ \log_Nm\le\rho(t_1+t_2+2t_3)\le\rho(\Theta_{\mathfrak c}-\eta_L)
+ <\tfrac{153}{256}+2\tau,\qquad
+ \log_N(w^2m)<1-0.0116,\qquad \log_Nw=u\ge\tfrac2{1001}.
+\end{equation}
+Consequently \cite[(4.47), (4.53), (4.54)]{PaperII} give, eventually and
+uniformly in \(m\),
+\begin{equation}\label{eq:k2-peel-inputs}
+ S_b(m;E)\le2\cdot\frac{4.002}{u^2}\cdot\frac{U_C}{m}
+ \le\frac{2008008\,U_C}{m},\qquad
+ \max_hM_h\le2\tau,\qquad \sum_hM_h\le\frac{459}{100},
+\end{equation}
+since one layer is at most \((N/m)/\mathcal G_N(w)+O(w^2\log^5w)\) with
+\(\mathcal G_N(w)=(1+o(1))u^2L^2/(4C(N))\), and
+\(4.002/u^2=1000500<1004004=2\cdot502002\). The bin sums are
+\cite[(4.56)]{PaperII}: \(\log(\mu_*/u)=\log(3125/32)<4.59\), and
+\(a_3,r\) lie in one parent bin. Therefore
+\begin{equation}\label{eq:k2-peel}
+ \frac{P_3}{U_C}\le2008008\cdot2\left(\frac{459}{100}\right)^3\tau
+ =\frac{24272444031579}{62500}\tau<388400000\,\sigma^9,
+\end{equation}
+and \(P_3/\mathcal N_K\le P_K\sigma^9\) with
+\(P_K=388400000/(1-\varepsilon)=3884000000000/9999\), for
+\(N\ge N_{\rm peel}(\sigma)\). The coefficient \(2008008\) includes the two
+layers. No orientation factor is added.
+
+The remaining estimates are
+\begin{equation}\label{eq:k2-remainder-estimates}
+\begin{aligned}
+ \frac{|r_0|+|r_1|+|r_2|}{\mathcal N_K}&\ll_{b,\sigma}L^{-2},\\
+ \frac{|r_3|}{\mathcal N_K}&\ll_{b,\sigma}
+ N^{-\ell_0\sigma^2}L^3+N^{-b/4}L^7+L^{-260}+L^{-120}
+ +L^{-2}+N^{-c_\sigma}L^{4024+C}
+ =O_{b,\sigma}(L^{-2}).
+\end{aligned}
+\end{equation}
+The first line is \eqref{eq:k2-low-row-remainders}. The second is
+Proposition~\ref{prop:k2-row3} below. Its displayed terms come, in order,
+from the squareful mask, proper powers, logarithm freezing and the
+boundary. The last two are the combined logarithmic Type-II and Type-I-2
+bound and the Type-II power-saving term.
+
+
+\subsection{The row-three remainder}\label{subsec:k2-row3}
+
+We bound the complete third-row remainder of the actual source
+\eqref{eq:k2-source} by Paper~I, Theorem~3.2. Every other contribution is
+bounded separately. Fix \(b,\sigma\). Write \(\Xi^{\sharp}_3\) for the
+retained cells \(\mathfrak c\in D_3\) with \(\chi_{\mathfrak c}=1\). Its
+size is \(O_\sigma(1)\). For \(\mathfrak c\in\Xi^{\sharp}_3\) put
+\(D_{\mathfrak c}=N^{\ell_{\mathfrak c}}\), \(z_{\mathfrak c}=N^{t_3}\) and
+\(u_{\mathfrak c}=D_{\mathfrak c}^{\sigma^2}\). Let \(I_i\) be the actual
+half-open exponent interval of coordinate \(i\) of the clipped cell. Then
+\(\mathfrak c\subset I_1\times I_2\times I_3\). Put
+\(\mathcal P_i=\{a\in\mathcal P_N:\log_Na\in I_i\}\). For every
+\(a_i\in\mathcal P_i\), \(N^{t_i}\le a_i<N^{\rho t_i}\) and \(a_i<N^{\mu_*}\),
+also for a clipped interval. Write \(t_i'\le\min(\rho t_i,\mu_*)\) for the
+upper endpoint of \(I_i\). On \(\overline{\mathfrak c}\) the actual
+coordinates satisfy \(x_1\ge x_2\ge x_3\ge u\). Two of the intervals are
+equal or disjoint.
+
+\paragraph{Exact occurrence map.}
+By \eqref{eq:k2-aa-prefix-remainder} and Paper~I, (2.30), (2.32)--(2.33),
+applied to \(\mathcal A_h\) at level \(D_{\mathfrak c}\), cutoff
+\(z_{\mathfrak c}\le D_{\mathfrak c}^{1/2}\) and \(\epsilon_s=\sigma\),
+\begin{equation}\label{eq:k2-r3-occurrence}
+ r_3=\sum_{\mathfrak c\in\Xi^{\sharp}_3}\ \sum_{k\in\mathcal K_{\mathfrak c}}
+       \sum_qO_{\mathfrak c,k}(q)\,\Delta_{A_b}(q,N),
+ \qquad \mathcal K_{\mathfrak c}=\{\mathrm{R1}\}\cup\mathcal D^-(D_{\mathfrak c}),
+\end{equation}
+\[
+ O_{\mathfrak c,k}(q)=\sum_{\substack{a_1>a_2>a_3\\a_i\in\mathcal P_i}}
+ \sum_{\substack{d<D_{\mathfrak c}^\sigma\\d\mid P_N(u_{\mathfrak c})}}
+ \lambda^{(k)}_d
+ \sum_{\substack{(p_j)_{j\le\rho_k}\\ p_j\in\mathcal Q_{k,j}\\
+ p_i\ne p_j\ ((i,j)\in I(\mathbf D))}}
+ 1_{q=a_1a_2a_3d\,p_1\cdots p_{\rho_k}} .
+\]
+Here \(\lambda^{(\mathrm{R1})}_d=\phi_d^-\) with no tail
+(\(\rho_{\mathrm{R1}}=0\)). For \(k=\mathbf D\),
+\(\lambda^{(k)}_d=\lambda_d^-(\mathbf D)\) and
+\(\mathcal Q_{k,j}=\mathcal P_N\cap[D_j,\min(D_j^{1+\tau},z_{\mathfrak c}))\).
+All coefficients have modulus at most one and depend only on
+\((\mathfrak c,k)\). The identity is exact at every supported modulus.
+Let \(M_{\mathfrak c}\in\{1,2,6\}\) be the number of orderings of the
+equal intervals among \(I_1,I_2,I_3\). Let \(\Gamma_{\mathfrak c,k}\)
+be \(M_{\mathfrak c}^{-1}\) times the same sum, with \(a_i\in\mathcal P_i\)
+independent and no tail distinctness. Then
+\begin{equation}\label{eq:k2-native13-coefficient}
+ O_{\mathfrak c,k}=\Gamma_{\mathfrak c,k}-\Xi_{T,\mathfrak c,k}
+ -\Xi_{P,\mathfrak c,k},
+\end{equation}
+where \(\Xi_T\) collects unrestricted terms with
+\(p_i=p_j\) for some forbidden pair \((i,j)\in I(\mathbf D)\).
+\(\Xi_P\) collects the remaining unrestricted terms with
+\(a_i=a_j\) for an equal-interval pair \(I_i=I_j\). A prefix prime is
+at least \(z_{\mathfrak c}\), and every tail prime is below it. The primes of
+\(d\) are below \(u_{\mathfrak c}\le D_j\). Unequal grid intervals are
+disjoint. Hence every modulus in the support of \(\Xi_T\) or \(\Xi_P\) is
+divisible by \(p^2\) for a prime \(p\ge u_{\mathfrak c}\ge u_0\). Here
+\(u_0=N^{\ell_0\sigma^2}\).
+
+\paragraph{Support, cutoffs and constants.}
+Every supported modulus is coprime to \(2N\). The cells are clipped
+to \([u,\mu_*)\), and \(v_{\rm pk}(x)=(1+x)/2\) on \([0,\mu_*]\). Thus
+\(\Theta_{\mathfrak c}\ge(1+t_1)/2\). The actual coordinate bound
+\(x_1\ge x_3\ge u\) on \(\overline{\mathfrak c}\) also gives
+\(\Theta_{\mathfrak c}\ge(1+u)/2\). Hence
+\begin{equation}\label{eq:k2-r3-ell}
+ \ell_{\mathfrak c}\ge\max\{A_3-t_3,2\rho t_3\}\ge\tfrac23A_3
+ =\tfrac{33109}{240000},\qquad A_3=\tfrac12-\eta_L-\tfrac32\mu_*,
+\end{equation}
+and \(\ell_{\mathfrak c}-\ell_0\ge231463/24720000\). By the cubic tail
+conditions, \(\sum_js_j<\ell_{\mathfrak c}\) for
+\(s_j=\log_ND_j\). Thus every supported modulus satisfies
+\begin{equation}\label{eq:k2-r3-support}
+ q<N^{\rho(t_1+t_2+t_3)+\sigma\ell_{\mathfrak c}+\rho\ell_{\mathfrak c}}
+ \le N^{e_Q},\qquad
+ e_Q=(\rho+\sigma)(H_{\max}-\eta_L)<\tfrac35,\qquad H_{\max}=\tfrac{153}{256}.
+\end{equation}
+Since the cell ceiling gives \(0<\ell_{\mathfrak c}\le
+H_{\max}=153/256<1\) and \(0<\sigma\le10^{-10}\),
+\(\ell_{\mathfrak c}\sigma^2<\sigma^2<u=1/500\). Thus
+\(u_{\mathfrak c}=N^{\ell_{\mathfrak c}\sigma^2}<N^u\). The cutoff
+comparison uses only this exponent inequality.
+
+Every labelled prime is at least \(u_{\mathfrak c}\), so the number of
+labels is below \(3/(5\ell_0\sigma^2)\). With
+\(M_\sigma=\lceil3/(5\ell_0\sigma^2)\rceil\) and the vector count
+\(\exp(8\sigma^{-3})\), one has
+\(|\Gamma_{\mathfrak c,k}|,|\Xi_{T}|,|\Xi_P|\le M_\sigma!\), and
+\(\sum_{\mathfrak c,k}
+ \bigl(|\Gamma_{\mathfrak c,k}|+|\Xi_T|+|\Xi_P|\bigr)
+ \le C'_{\mathrm{K2},\sigma}\).
+
+\paragraph{The squareful terms.}
+Since \(|\Delta_{A_b}(q,N)|\le2(N/q+1)+2N/\varphi(q)\), Paper~I, (B.5),
+with \(Y=u_0\) and \(Q_{\rm supp}=N^{e_Q}\) gives
+\begin{equation}\label{eq:k2-r3-squareful}
+ \sum_{\mathfrak c,k}\sum_q|\Xi_{T,\mathfrak c,k}(q)
+ +\Xi_{P,\mathfrak c,k}(q)|\,|\Delta_{A_b}(q,N)|
+ \ll_\sigma N^{1-\ell_0\sigma^2}L .
+\end{equation}
+
+\paragraph{Prime detection and the two Heath--Brown expansions.}
+Put \(z_1=N^{1/(\log L)^3}\), so \(z_1\ge z_0(X)\) for every occurring
+box scale \(\varepsilon N/2\le X\le N\).
+Both source primes exceed \(z_1\). Apply Paper~I, (B.7), to \(1_{\mathbb P}(m)\)
+and to \(1_{\mathbb P}(p')\). Apply Paper~I, (B.9), with roughness \(z_1\), to
+\(\Lambda_{z_1}(m)\) with cap \(U_1=2N^{1/6}\) and to \(\Lambda_{z_1}(p')\)
+with cap \(U_2=2N^{(1-b)/3}\). The identities apply since
+\(m\le N^{1/2}<U_1^3\) and \(p'\le N^{1-b}<U_2^3\). For patterns
+\(j,j'\in\{1,2,3\}\) the tested index is a labelled tuple
+\(\mathbf v=(\mathbf v^{(1)},\mathbf v^{(2)})\in\mathcal R_{z_1}^{2j+2j'}\),
+at most twelve coordinates, with
+\[
+ m=\textstyle\prod\mathbf v^{(1)},\quad p'=\prod\mathbf v^{(2)},\quad
+ e=mp',\quad N^b\le m\le N^{1/2},\quad \varepsilon N<e\le N',
+\]
+the Möbius coordinates of \(\mathbf v^{(i)}\) at most \(U_i\), and coefficient
+\(c_j(\mathbf v^{(1)})c_{j'}(\mathbf v^{(2)})/(\log m\log p')\).
+Here \(c_j\) is the coefficient after (B.10). For a fixed product \(e\), put
+\begin{equation}\label{eq:k2-pointmass-discrepancy}
+ \mathcal S_e(q;N):=\Delta_{\delta_e}(q,N)
+ =1_{e\equiv N\ (q)}-\frac{1_{(e,q)=1}}{\varphi(q)}.
+\end{equation}
+Thus the Heath--Brown tuple map uses the point-mass discrepancy
+\(\mathcal S_e(q;N)\). The exact weighted point-mass expansion is
+\[
+ \Delta_{A_b}(q,N)=\sum_e A_b(e)\mathcal S_e(q;N).
+\]
+The weight \(A_b(e)\) keeps both eligible ordered orientations, as in
+\eqref{eq:k2-source}. A prime square is counted once. The proper-power remainder
+\(\mathcal E_{\rm pp}\) consists of the pairs in which \(m\) or \(p'\) is a
+proper prime power. For every fixed \((\mathfrak c,k)\),
+\begin{equation}\label{eq:k2-r3-hb-identity}
+ \sum_q\Gamma_{\mathfrak c,k}(q)\Delta_{A_b}(q,N)
+ =\mathcal E_{\rm pp}
+ +\sum_{j,j'}\sum_{\mathbf v}
+   \frac{c_j(\mathbf v^{(1)})c_{j'}(\mathbf v^{(2)})}{\log m\log p'}
+   \sum_q\Gamma_{\mathfrak c,k}(q)\mathcal S_{e}(q;N),
+\end{equation}
+exactly. Each tuple keeps the natural discrepancy of its own product.
+The per-cell coefficient bound is the factorial bound above; the sum over
+cells uses the separate aggregate bound defined there.
+Since \(e<N\), \(|c_jc_{j'}|/(\log m\log p')\le9\) and
+\(\sum_q|\Gamma(q)||\mathcal S_e(q;N)|\le C_{\mathrm{K2},\sigma} F(e)\) with
+\(F(e)=\tau(N-e)+2(1+L)\). The tuple multiplicity is at most
+\(\tau_{12}(e)\). The divisor bounds \(\tau_{12}^2\le\tau_{144}\),
+\(\tau^4\le\tau_{16}\) and Cauchy--Schwarz give
+\begin{equation}\label{eq:k2-r3-moments}
+ \sum_{e<N}\tau_{12}(e)F(e)\ll NL^{73},\qquad
+ \sum_{e<N}\tau_{12}(e)F(e)^2\ll NL^{79}.
+\end{equation}
+There are \(\ll N^{1-b/2}L\) proper-power pairs, and
+\(\sum_{e<N}\tau(e)F(e)^2\ll NL^9\). Therefore
+\begin{equation}\label{eq:k2-r3-pp}
+ |\mathcal E_{\rm pp}|\ll_\sigma(N^{1-b/2}L)^{1/2}(NL^9)^{1/2}
+ =N^{1-b/4}L^5 .
+\end{equation}
+
+\paragraph{Boxes, logarithm freezing and faces (H6).}
+Put \(\delta=L^{-334}\). Use the equal-ratio mesh of Paper~I, (B.12),
+with \(\delta_X\) replaced by \(\delta\), on every ambient coordinate axis.
+Keep \(\{1\}\) as an atom. A box \(\mathcal B\) is a Cartesian product
+of cells. Its lower endpoints are \(V_i\), and \(X=\prod_iV_i\). Let
+\(\lambda_1,\lambda_2\) be the sums of \(\log V_i\) over the two sides.
+Then \(\varepsilon N/2\le X\le N\) on every box meeting the source, so
+\(K_{\rm scale}=1\). Replacing \(1/(\log m\log p')\) by
+\(1/(\lambda_1\lambda_2)\) changes the weight by \(O(L^{-335})\), since
+\(\lambda_1\ge bL/2\). By \eqref{eq:k2-r3-moments},
+\begin{equation}\label{eq:k2-r3-log}
+ |E_{\rm LOG}|\ll_\sigma NL^{72-334}.
+\end{equation}
+The faces are \(m=N^b\), \(m=N^{1/2}\), \(e=\varepsilon N\), \(e=N'\), and
+the cap faces \(v_i=U_1\), \(v_i=U_2\) on Möbius coordinates. All are
+singletons. On each, an active coordinate is at least \(N^{1/20}\).
+Paper~I, Lemma~(B.14), with \(s\le12\), \(K_\gamma=1\) and
+\(\eta_{\rm dist}\le12\delta\), gives at most \(\ll NL^{11-334}\) boundary
+tuples. Cauchy--Schwarz with \eqref{eq:k2-r3-moments} gives
+\begin{equation}\label{eq:k2-r3-bdry}
+ |E_{\rm bdry}|\ll_\sigma NL^{45-334/2}.
+\end{equation}
+Thus (H6) holds with \(c_{\log}=72\), \(c_R=45\). On a nonboundary box every
+source cut and cap is constant. The coefficient is the outer scalar
+\(c_{\mathcal B}=(-1)^{j+j'}\binom3j\binom3{j'}(\log X)^2/(\lambda_1\lambda_2)\),
+times
+\(w(\mathbf v)=\prod_iw_i(v_i)\) with
+\(w_i\in\{\mu_{z_1},1_{\mathcal R_{z_1}},(\log v/\log X)1_{\mathcal R_{z_1}}\}\).
+Each side carries exactly one logarithmic coordinate, and
+\((\log X)^2/(\lambda_1\lambda_2)
+\le 1/(b(1-b))+o(1)\le4.5+o(1)\), hence the scalar norm bound
+\(\lVert c_{\mathcal B}\rVert_\infty\le45\).
+Each coordinate meets at most \(2L^{335}\) cells, so
+\begin{equation}\label{eq:k2-total-coefficient-norm}
+ \sum_{\mathfrak c,k}\sum_{j,j'}\sum_{\mathcal B}|c_{\mathcal B}|
+ \ll_\sigma L^{4020}\le L^{4022},\qquad K_0=4022\le24C_{\rm box}+26=8042.
+\end{equation}
+
+\paragraph{Classification.}
+Let \(e_i=\log_NV_i\), \(\mathcal W=[60\sigma,1/3+14\sigma]\), and
+\(\kappa=(\log2+12\log(1+\delta))/L\le\sigma/202\). A box is Type~II if
+some \(e_i\in\mathcal W\). Select the largest such \(e_i\), breaking ties
+by the fixed coordinate order. Otherwise every Möbius coordinate is small, since
+\(1/6+\kappa\) and \((1-b)/3+\kappa\) are below \(1/3+14\sigma\). On the
+\(m\)-side, \(\sum e_i\ge b-\kappa>360\sigma\). On the \(p'\)-side,
+\(\sum e_i\ge1/2-\kappa-\log(1/\varepsilon)/L>360\sigma\). These are the only side bounds
+needed to rule out an all-small side. Together with the global Heath--Brown
+sum bound \(\sum e_i<1+\kappa\), the threshold \(1/3+14\sigma\) permits
+at most two large variables. Hence each side has exactly one large smooth
+coordinate. Every other box has exactly two large smooth coordinates \(N_1\ge N_2\ge X^{1/3}\). It has at most ten small
+coordinates, of product \(M\), with
+\begin{equation}\label{eq:k2-r3-typeI2}
+ \log_XM\le\frac{(600+1/202)\sigma}{1-\sigma/101}<6.02\cdot10^{-8},
+ \qquad N_1N_2M\le2^{30}X,\qquad q<X^{0.5977}.
+\end{equation}
+There are no Type-I-1 boxes.
+
+\paragraph{Type-II boxes: Paper~I, (H1)--(H5) and LEN.}
+Fix \((\mathfrak c,k)\) and a Type-II box. Let its selected lower endpoint
+be \(T\), put \(\xi=\log_NT\), and let the other lower endpoints have product \(M=X/T\).
+\begin{description}
+\item[H1.] \(C_{\mathcal B}=\Gamma_{\mathfrak c,k}\) has the form (3.4). Here
+\(J\) is the three prefix labels and the tail labels. The prime sets are
+\(\mathcal P_i\) and \(\mathcal Q_{k,j}\), \(u_L=u_{\mathfrak c}\ge u_0\),
+and \(d\mid P_N(u_{\mathfrak c})\) is squarefree. Repeated primes are kept.
+We have \(q\le X^{0.6}\) by \eqref{eq:k2-r3-support} once
+\((3/5-e_Q)L\ge(3/5)\log(2/\varepsilon)\). Also \((q,2N)=1\). The
+selector \(\chi_{\mathfrak c}\) is constant on the block. The removed
+corrections are \(\Xi_T,\Xi_P\) and \(\mathcal E_{\rm pp}\). There is no
+comparator correction, since the comparator is natural on every tuple.
+\item[H2.] Take the upper exponents \(t_1'\ge t_2'\ge t_3'\) and
+\(\min(\rho s_j,t_3)\). For \(d_*=\rho(\Theta_{\mathfrak c}-\eta_L)\), the
+merged list satisfies \(\mathrm{WF}(d_*)\). The reserves are
+\(\rho(1/2-\eta_L-3\mu_*/2)=33109\rho/160000\),
+\(\rho(1/2-\eta_L-5\mu_*/2)=1859\rho/160000\), \(\rho(\ell_{\mathfrak c}-t_3)
+\ge\rho(2\rho-1)t_3\). For a tail rank, the reserve is \(\rho\) times the strict
+inequality \(\sum_{i<j}s_i+2s_j<\ell_{\mathfrak c}\) from the
+\(\mathcal D^-\) conditions. Put \(h=d_*+60\sigma\), \(\delta_{\rm pk}=30\sigma\),
+\(g=\xi-30\sigma\). Then \(h-1/2\ge9\cdot10^{-4}\),
+\(\Theta_{\mathfrak c}-h>0.0000999939\), \(h\le H_{\max}\),
+\[
+30\sigma\le g\le1/3-16\sigma,
+\qquad \delta_{\rm pk}=30\sigma,
+\qquad g\le1/3-\delta_{\rm pk}/2.
+\]
+The upper requirement has reserve at least \(\sigma\), since
+\((1/3-15\sigma)-(1/3-16\sigma)=\sigma\). Also
+\(h\le\Theta_{\mathfrak c}\le\widetilde H(t_1',t_2',t_3')\) because
+\((t_1',t_2',t_3')\in\overline{\mathfrak c}\) and \(t_1'\le\mu_*\).
+Paper~I, Theorem~4.1, gives \(J=J_1\sqcup J_2\sqcup J_3\). Put \(d\) in
+slot one, with \(\gamma_s\) as in Paper~I, (3.5). The tuple map gives
+\(\Gamma_{\mathfrak c,k}=M_{\mathfrak c}^{-1}C_{\rm slot}(\gamma_1*\gamma_2*\gamma_3)\),
+\(C_{\rm slot}\le M_\sigma!\), \(|\gamma_s|\le1\). Slots two and three are
+\(u_0\)-rough, and empty slots carry the atom \(1_{v=1}\). The scalar
+\(M_{\mathfrak c}^{-1}\) is an outer coefficient.
+\item[H3.] Let \(Q,R,S\) be the scales of \(\gamma_1,\gamma_3,\gamma_2\). The
+loads (4.3), the slot-one load \(\sigma\ell_{\mathfrak c}\le\sigma H_{\max}\)
+of \(d\), and \(A_0=X^{1+\sigma/20}\) give reductions
+\((7527/256,\,60,\,114421/1280,\,26247/256)\sigma\). They are, in turn, in
+\(Q/T\), \(T^2R^2S\), \(A_0^{7/32}TQR^2S^5\), \((TR/S)^{7/16}TQR^2S^5\).
+The required reductions are \(29,8,15,15\), with losses at most \(2\omega\),
+\(\omega=\log_N(N/X)\le\sigma/202\). We also have \(\log_N(QRS)\le e_Q\), so
+\(QRS<M_IX^{-89\sigma}\) with reserve \(>0.0691\). Next, \(N_I\ge QX^{\sigma/3}\)
+with reserve \(29.069\sigma\), and \(M_I\ge X^{1/2}\). Thus (3.6)--(3.7)
+hold. The selected coefficient is
+\(\alpha_n=w_{\rm sel}(n)1_{I_T}(n)\in\{\mu(n),1,\log n/\log X\}1_{P^-(n)\ge z_1}1_{I_T}(n)\),
+with \(\zeta=z_1\ge z_0(X)\) and \(I_T=(T,(1+\Delta)T]\). The complementary
+coefficient \(\beta_{m^\sharp}\), the product of the other at most eleven
+weights, satisfies \(|\beta_{m^\sharp}|\le\tau_{11}(m^\sharp)\le\tau_{23}(m^\sharp)\).
+Here \(\tau_{23}=d_{23}\) is the 23-fold divisor function, with
+\(d_{23}(n)=\sum_{n=n_1\cdots n_{23}}1\).
+As in Paper~I, (B.22)--(B.23), with at most eleven complementary cells,
+\(N_I\ge T/(6L^{334})\), \(M_I=M((1+\Delta)^{r}-1)\asymp ML^{-334}\),
+\(m_0=M(1+(1+\Delta)^r)/2\le2X/T\), so \(C_{\rm ctr}=2\). On the doubled
+support, \(mn\le X(1+\Delta)(1+\tfrac32((1+\Delta)^{11}-1))\le N'(1+20\delta)\),
+because \(X\le e\le N'\) for every tested product of the box. Hence
+\(N-mn\ge NL^{-334}(L-20)\ge1\) and \(|mn-N|\le N<X^3\), which is (3.10).
+The integer convention of \(I_T\) is that of Paper~I, Lemma~B.22, since the
+mesh and the roughness are the same. LEN follows from the condition
+\begin{equation}\label{eq:k2-med-length}
+ \sigma L\ge2^{130}(335)(\log L+1).
+\end{equation}
+It gives \(T^{2^{-126}}\ge12L^{334}\) and
+\(N_I\ge(2T)^{1-2^{-126}}\).
+\item[H4.] \(a=N\), \(0<N\le XL\le A_0\), and every supported modulus is
+coprime to \(2N\).
+\item[H5.] \(N^{60\sigma}\le T\le N^{1/3+14\sigma}\), and (3.99) gives
+\(T\le X^{1/3+15\sigma}\) and \(T<X^{1/2}\).
+\end{description}
+The selected-factor Siegel--Walfisz bound is Paper~I, (3.25). It is
+proved for these three coefficient classes with any \(\zeta\ge z_0\). In the
+large-norm case of Paper~I, (3.48), the zero mode uses
+Lemma~\ref{hyp:ra-ms-transfer}(ii) in place of \cite[Theorem~0(a)]{BFI86}.
+Its premises (3.1), (3.2), (3.6), (3.8) with LEN, (3.11) and (3.25)--(3.27)
+are those verified above. Theorem~2.8 of Paper~I enters only inside the
+proof of Theorem~3.2, with the dictionary
+\begin{equation}\label{eq:k2-theorem-28-dictionary}
+ r_T=z,\quad s_T=p_0,\quad n_T=p_0m,\quad a_T=\varepsilon_yN,
+ \quad N_T=8p_0H_*SF,\quad A_T=A_0,
+\end{equation}
+both signs, all nine smooth weights and the full bracket.
+Paper~I, Theorem~3.2, (3.13), gives, uniformly in the box, the block and
+the cell,
+\begin{equation}\label{eq:k2-med-per-box}
+ |S_{\mathcal B}^{\rm PSDT}|
+ \ll_{\sigma,A'}XL^{-A'}+X^{1-c_\sigma}L^C,\qquad
+ S_{\mathcal B}^{\rm PSDT}=\sum_q\Gamma_{\mathfrak c,k}(q)
+ \sum_{\mathbf v\in\mathcal B}w(\mathbf v)\mathcal S_{e}(q;N).
+\end{equation}
+With \(A=4\), \(C_{\rm box}=334\), \(A'=A+24C_{\rm box}+31=8051\) and
+\eqref{eq:k2-total-coefficient-norm}, Paper~I, (3.92), gives
+\begin{equation}\label{eq:k2-med-aggregate}
+ E_{\rm II}=\sum|c_{\mathcal B}|\,|S_{\mathcal B}^{\rm PSDT}|
+ \ll_{b,\sigma}NL^{4022-8051}+N^{1-c_\sigma}L^{4022+C}.
+\end{equation}
+Here \(S_{\mathcal B}^{\rm PSDT}\) already contains
+\(\Gamma_{\mathfrak c,k}\), hence its factor
+\(M_{\mathfrak c}^{-1}\) from \eqref{eq:k2-native13-coefficient}. The
+coefficient norm \eqref{eq:k2-total-coefficient-norm} sums only
+\(|c_{\mathcal B}|\), so the orbit factor is paid exactly once.
+
+\begin{lemma}[Relaxed Type-I-2 estimate]\label{lem:k2-I2-prime}
+The source hypotheses are the Type-I-2
+conditions (SH1)--(SH5) stated in Paper~I:
+\begin{quote}
+For a direct shell \([X,2X)\), assume the following source conditions
+(SH1)--(SH5).
+\begin{itemize}
+\item[(SH1)] The coefficient \(\gamma(q)\) is independent of tested variables,
+\((q,2N)=1\), \(|\gamma(q)|\le C_\sigma\), \(q\le N^{e_Q}\),
+\(e_Q<153/256\), and \((a,q)=1\) on its support.
+\item[(SH2)] The tested geometric source and cap restrictions are constant
+on each nonboundary box; the roughness sieve is separate as in (SH3).
+Smooth factor weights have \(\sup|w|+V(w)\ll1\).
+\item[(SH3)] All HB factors are rough at the threshold \(z^*=z_0(X)\) or
+\(z_0(N)\).
+\item[(SH4)] The discrepancy is exactly (3.3).
+\item[(SH5)] The assignment priority is proper prime powers, boundary boxes,
+Type II, Type I-1, then Type I-2.
+\end{itemize}
+\end{quote}
+Assume (SH1)--(SH5) for a nonboundary K2 box. Let the two large smooth
+variables have nonnegative weights \(w_1,w_2\) and \(N_1,N_2\ge X^{1/3}\).
+Let the remaining small variables, at most ten, have product \(M\). Assume
+\[
+ M\le X^{6.02\cdot10^{-8}},\qquad N_1N_2M\le2^{30}X,
+ \qquad q<X^{0.5977},
+\]
+and \(|\alpha_m|\ll\tau_{10}(m)\le\tau(m)^9\). Then, for every fixed
+\(A>0\), uniformly in the supported unit residues,
+\[
+\sum_{q\asymp Q}|\gamma(q)|\left|\sum_m\alpha_m
+ \sum_{n_i\in I_i,\ P^-(n_i)\ge z^*}
+ w_1(n_1)w_2(n_2)\mathcal S_{mn_1n_2}(q;a)\right|
+\ll_{\sigma,A} XL^{-A}.
+\]
+The same statement holds for a fixed finite sum of signed weights. Split
+each bounded real weight into its two nonnegative parts.
+\end{lemma}
+
+\begin{proof}
+Restrict first to \((m,q)=1\), and write \(\Delta=C-M_q\) for the positive
+congruence and comparator functionals. In the K2 application the inner
+product is \(e=mn_1n_2\), the residue is \(N\), and \((q,N)=1\). If
+\((m,q)>1\), then \((e,q)>1\), so both \(1_{e\equiv N\ (q)}\) and the
+comparator \(1_{(e,q)=1}/\varphi(q)\) vanish. The omitted range contributes
+zero. Apply the Brun--Bonferroni sandwich
+of Paper~I, (3.102)--(3.104), at
+\(D_f=X^{\epsilon_I/2}\), \(\epsilon_I=7.5\sigma\). For a requested
+fixed logarithmic precision \(A_{\rm sv}\), put
+\[
+ s_f=\frac{\log D_f}{\log z^*},\quad
+ E=\sum_{p<z^*}\frac1p,\quad J=2\lfloor s_f/2\rfloor,
+\]
+and increase the common threshold until
+\(J\ge\max\{2,e^2E,A_{\rm sv}\log L\}\). Since
+\(s_f\asymp\sigma(\log\log N)^3\) and \(E=O(\log\log N)\), this is
+eventual at fixed \(\sigma\), and \(E^J/J!\le L^{-A_{\rm sv}}\).
+
+For the two large factors put \(R_i=1_{P^-(n_i)\ge z^*}\) and
+\(G_i=\Psi_i^+-\Psi_i^-\ge0\). Positivity gives
+\[
+ \Psi_1^+\Psi_2^+-G_1\Psi_2^+-\Psi_1^+G_2
+ \le R_1R_2\le\Psi_1^+\Psi_2^+,
+\]
+so the three signed gaps and the two nonnegative comparator gaps
+bound \(|\Delta(R_1R_2)|\), as in Paper~I, (3.113). Expand the
+three gaps over \(d_i\le D_f\). The completed hyperbola estimate (3.109)
+ gives \(O_{\epsilon_X}(D_f^2q^{1/2}X^{\epsilon_X})\). Here we fix
+\(\epsilon_X=10^{-4}\). Squareful moduli are included
+by the full-modulus Weil--Estermann bound.
+
+The two one-dimensional sieve gaps satisfy
+\[
+ \sum_{n\in I_i}G_i(n)w_i(n)\ll_{A_{\rm sv}}N_iL^{-A_{\rm sv}}+D_f,
+ \qquad \sum_{n\in I_i}\Psi_i^+(n)w_i(n)\ll N_i+D_f.
+\]
+Thus the total is bounded by
+\[
+ M D_f^2Q^{3/2}X^{\epsilon_X}L^C+XL^{C-A_{\rm sv}}
+ +M D_f(N_1+N_2)L^C+M D_f^2L^C. \tag{I-2'}
+\]
+The ten-variable check uses the following upper bound. The expression is increasing
+throughout \(0<\sigma\le10^{-10}\), so its maximum is evaluated at
+\(\sigma=10^{-10}\):
+\[
+ \frac{600\sigma+\kappa}{1-\omega}
+ \le\frac{(600+1/202)\sigma}{1-\sigma/101}
+ \le\frac{(600+1/202)10^{-10}}{1-10^{-10}/101}
+ =\frac{121201}{2019999999998}
+ \approx6.0000495049564356926\cdot10^{-8}<6.02\cdot10^{-8},
+\]
+where \(\omega,\kappa\le\sigma/202\) absorb all fixed dyadic factors,
+so \(1-\omega\ge1-\sigma/202\ge1-\sigma/101\), consistently with
+\eqref{eq:k2-r3-typeI2}.
+Eleven small variables would give
+\(\frac{133321}{2019999999998}\approx
+6.600049504957030\cdot10^{-8}\), which exceeds the allowed bound.
+With \(q<X^{0.5977}\), the first exponent in (I-2') is at most
+\[
+ 6.02\cdot10^{-8}+7.5\cdot10^{-10}+1.5(0.5977)+\epsilon_X
+ =0.89665006095<0.897,
+\]
+leaving slack \(0.00034993905\). Also, using
+\(N_1N_2M\le2^{30}X\), \(N_1\ge N_2\ge X^{1/3}\), and
+\(D_f=X^{3.75\sigma}\),
+\[
+ M D_f(N_1+N_2)\le2^{31}D_fX/N_2
+ \ll X^{2/3+3.75\cdot10^{-10}}<X^{0.668},
+ \qquad
+ M D_f^2\le X^{6.02\cdot10^{-8}+7.5\cdot10^{-10}}<X^{0.668}.
+\]
+The coefficient bound uses
+\(\tau_{10}(m)\le\tau(m)^9\), so \(B_0=9\) is fixed. Finally, a family of
+at most \(O_\sigma(L^K)\) boxes is absorbed by requesting
+\(A_{\rm sv}\ge K+A+5\), after all fixed logarithmic losses. This proves
+the lemma.
+\end{proof}
+
+\paragraph{Type-I-2 boxes: the complementary estimate.}
+Lemma~\ref{lem:k2-I2-prime} is a relaxed form of Paper~I,
+(3.111), for this source. Below we check each displayed hypothesis
+against the actual K2 source.
+
+For the present K2 Type-I-2 box, the nontrivial SH2 check is the
+display
+\begin{equation}\label{eq:k2-sh2-check}
+\begin{gathered}
+ 1\le v\le X,
+ \qquad w(v)\in\left\{1,\frac{\log v}{\log X}\right\},
+ \qquad P^-(n_i)\ge z^*\ \text{is a separate tested condition},\\
+ \sup|1|+V(1)=1,\qquad
+ \sup\left|\frac{\log v}{\log X}\right|
+   +V\!\left(\frac{\log v}{\log X}\right)
+ \le 1+\frac{2\log(1+L^{-334})}{\log X}=O(1).
+\end{gathered}
+\end{equation}
+Thus the two tested large factors have the required nonnegative weights and
+bounded supremum plus variation. The roughness condition is not hidden inside
+the weight.
+
+For the Type-I-2 boxes above, (SH1) has
+\(\gamma=\Gamma_{\mathfrak c,k}\). The support and bound are
+\eqref{eq:k2-r3-support} and \eqref{eq:k2-native13-coefficient},
+\(e_Q<153/256\), and the residue is the unit \(a=N\). The partition
+construction proves the geometric constancy in (SH2) on each nonboundary
+box. In this two-large-variable case the two tested large factors are the
+selected smooth factors. The roughness restriction is kept as the separate
+condition \(P^-(n_i)\ge z^*\) in the inner sum. Their smooth weights are then
+individually \(1\) or \(\log v/\log X\), not \(\mu_{z_1}\). Hence they are
+nonnegative with \(\sup|w|+V(w)\ll1\) as required by (SH2). The
+\(\mu_{z_1}\) factor occurs only among the complementary small factors.
+Condition (SH3) is \(z_1\ge z_0(X)\).
+Condition (SH4) is the natural full-product discrepancy fixed above.
+Condition (SH5) is the priority in the preceding boundary and Type-II
+classification.
+
+On a large-coordinate cell \((V,(1+\delta)V]\),
+\(\delta=L^{-334}\), one has \(1\le V\le X\). The smooth weight
+\(w(v)=1\) has supremum plus variation equal to 1. The alternative
+\(w(v)=\log v/\log X\) is nonnegative and increasing, with
+\[
+ \sup |w|+V(w)
+ \le 1+\frac{2\log(1+\delta)}{\log X}=O(1).
+\]
+The roughness restriction remains a separate tested condition under (SH3)
+and inside the sieve, and it is not claimed to be constant on a box.
+
+Thus the relaxed estimate of this chapter applies with
+\(z^*=z_1\), the two large smooth weights nonnegative, and
+\[
+ |\alpha_{m^\sharp}|\le\tau_{10}(m^\sharp)\le\tau(m^\sharp)^9.
+\]
+Each of the at most ten small labels contributes one factor. Normalized
+logarithmic weights \(\log v/\log X\) are at most one on the support.
+Thus the coefficient hypothesis uses the fixed divisor exponent
+\(B_0=9\), independent of \(N\). The first term of (I-2') uses the
+following values. The slack is \(0.00034993905\)
+at exponent \(0.89665006095\). The two final terms have the bound
+\(2/3+3.75\cdot10^{-10}\). The absorption is
+\(\omega,\kappa\le\sigma/202\), and the divisor bound is \(\tau_{10}\)
+with \(B_0=9\). By \eqref{eq:k2-r3-typeI2}, Lemma~\ref{lem:k2-I2-prime}
+applies to every K2 Type-I-2 box. Requesting \(A_I=K+A+5\) for the
+fixed \(O_\sigma(L^K)\) box family (here \(K=4022\)) gives
+\begin{equation}\label{eq:k2-r3-complementary}
+ E_{\rm I2}\ll_{b,\sigma}NL^{-A}=NL^{-4}.
+\end{equation}
+
+\begin{proposition}[Row-three remainder]\label{prop:k2-row3}
+Fix \(b\in(1/3,1/2)\) and \(0<\sigma\le10^{-10}\). Under Paper~I,
+Theorems~2.8 and~3.2, with the relaxed Type-I-2
+Lemma~\ref{lem:k2-I2-prime} and Lemma~\ref{hyp:ra-ms-transfer}(ii) at (3.48),
+\[
+ \frac{|r_3|}{\mathcal N_K}\ll_{b,\sigma}
+ N^{-\ell_0\sigma^2}L^3+N^{-b/4}L^7+L^{-260}+L^{-120}+L^{-2}
+ +N^{-c_\sigma}L^{4024+C}.
+\]
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:k2-r3-occurrence} and \eqref{eq:k2-native13-coefficient},
+\(r_3\) is the \(\Gamma\)-sum minus the squareful sum
+\eqref{eq:k2-r3-squareful}. By \eqref{eq:k2-r3-hb-identity}, the
+\(\Gamma\)-sum is \(\mathcal E_{\rm pp}\) plus the tuple sum. Every tuple
+lies in exactly one box. The boundary tuples give
+\eqref{eq:k2-r3-bdry}. On the other boxes logarithm freezing costs
+\eqref{eq:k2-r3-log}. Each box is of Type~II or Type~I-2. Sum
+\eqref{eq:k2-r3-squareful}, \eqref{eq:k2-r3-pp}, \eqref{eq:k2-r3-log},
+\eqref{eq:k2-r3-bdry}, \eqref{eq:k2-med-aggregate} and
+\eqref{eq:k2-r3-complementary}, with \(O_\sigma(1)\) pairs
+\((\mathfrak c,k)\). Dividing by
+\(\mathcal N_K=(1-\varepsilon)C(N)N/L^2\ge(1-\varepsilon)C_2N/L^2\gg_b N/L^2\) gives the
+claim.
+\end{proof}
+
+\begin{proposition}[Exterior source estimates]\label{prop:k2-applications}
+Fix \(b,\sigma\) before \(N\). For the source \eqref{eq:k2-source}:
+\begin{enumerate}
+ \item \eqref{eq:k2-parent-comparison} and \eqref{eq:k2-main-mass} hold
+ for the two-orientation source and four signed AA main terms in
+ \eqref{eq:k2-row-main-masses} and \eqref{eq:k2-parent-functional};
+ \item \eqref{eq:k2-aa-density-mass} and \eqref{eq:k2-aa-mass} hold for
+ \(N\ge N_{\mathrm{AA}}(b,\sigma)\);
+ \item \eqref{eq:k2-peel} holds for \(N\ge N_{\rm peel}(\sigma)\);
+ \item \eqref{eq:k2-remainder-estimates} holds.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item 1 is \eqref{eq:k2-parent-reserve}--\eqref{eq:k2-parent-kernel} and the
+derivation after \eqref{eq:k2-main-mass}. Item 2 is
+\eqref{eq:k2-aa-decay}--\eqref{eq:k2-aa-density-derived}. Item 3 is
+\eqref{eq:k2-peel-ranges}--\eqref{eq:k2-peel}. Item 4 is
+\eqref{eq:k2-low-row-remainders} and Proposition~\ref{prop:k2-row3}.
+\end{proof}
+
+
+\begin{proposition}[Exterior comparison]\label{prop:k2-comparison}
+For fixed \(b,\sigma\) there is a nonnegative \(r_K(N;b,\sigma)\to0\) such
+that, for \(N\ge T_r(b,\sigma)\) with \(T_r\) as defined below,
+\begin{equation}\label{eq:k2-final-fixed-sigma}
+\begin{aligned}
+ \frac{4B_b(N)}{W(N)}
+ &\le c_{K2,G0}I(b)+A_K(b)C_{\mathrm{AA}}\sigma
+          +P_K\sigma^9+r_K(N;b,\sigma),\\
+ P_K&=\frac{388400000}{1-\varepsilon}
+     =\frac{3884000000000}{9999}.
+\end{aligned}
+\end{equation}
+Here
+\(T_K=\max\{N_{\mathrm{mass}}(b,\sigma),N_{\mathrm{AA}}(b,\sigma),
+N_{\rm peel}(\sigma),T_{\mathrm{len}}\}\). The threshold \(N_{\mathrm{mass}}\) is from
+the fixed-parameter estimate at \eqref{eq:k2-main-mass}.
+\(N_{\mathrm{AA}}\) is from
+item~2 of Proposition~\ref{prop:k2-applications}. Both exist with
+\(b,\sigma\) fixed. Finally, \(T_{\mathrm{len}}\) is the named length and
+application threshold of Section~\ref{sec:notation}. In addition,
+\begin{equation}\label{eq:k2-error-definition}
+ r_K=\frac{E_{\rm top}+[M_K-\mathcal N_K2e^{-\gamma}I(b)G_*]_+
+ +\sum_{j=0}^3|r_j|}{\mathcal N_K}
+ =o_{b,\sigma}(1).
+\end{equation}
+In particular, let \(\widehat T_r\) be the least even threshold above
+which \(r_K\le\delta_{\rm err}/10\), and set
+\(T_r=\max\{N_{\mathrm{mass}}(b,\sigma),N_{\mathrm{AA}}(b,\sigma),
+T_K,\widehat T_r\}\).
+These thresholds exist at fixed \(b,\sigma\).
+\end{proposition}
+
+\begin{remark}[Single payment of each error]
+In \cite[Theorem~2.6, (2.30)]{PaperI} the three summands
+\(XV E_s\), \(R_1^{\nu}\) and \(R^{\nu}\) are distinct. The first is
+paid only by \eqref{eq:k2-aa-mass}, the other two only by
+\eqref{eq:k2-remainder-estimates}. The decaying part of
+\eqref{eq:k2-aa-decay} and the \(o(1)\) in
+\eqref{eq:k2-aa-density-derived} are absorbed by thresholds at fixed
+\(\sigma\). The peel term \(P_3\) contains no linear-sieve
+application. Thus
+\[
+ r_K=\frac{E_{\mathrm{top}}+\sum_j|r_j|
+       +[M_K-\mathcal N_K2e^{-\gamma}I(b)G_*]_+}{\mathcal N_K},
+\]
+and no error is counted twice.
+\end{remark}
+
+\begin{proof}
+Use \eqref{eq:k2-signed-join} and divide by \(\mathcal N_K=W/4\). The
+principal term is bounded by \(\mathcal N_K2e^{-\gamma}I(b)G_*\) plus its
+positive part. Also \(2e^{-\gamma}G_*\le c_{K2,G0}\) by
+\eqref{eq:k2-certificate}--\eqref{eq:k2-gamma-enclosure}.
+Proposition~\ref{prop:k2-applications}(2),(3) pay the sieve and peel terms
+above \(T_r\). By definition, \(T_r\) includes
+\(N_{\mathrm{mass}}(b,\sigma)\), \(N_{\mathrm{AA}}(b,\sigma)\) and
+\(T_K\). The remaining terms form \(r_K\). First,
+\(E_{\rm top}/\mathcal N_K\ll L^{-331}\). The positive part contributes
+\(o_{b,\sigma}(1)\) by \eqref{eq:k2-main-mass}. The row remainders are
+\(O_{b,\sigma}(L^{-2})\) by \eqref{eq:k2-remainder-estimates}. Hence
+\(r_K=o_{b,\sigma}(1)\).
+The convergence is ineffective through Siegel--Walfisz, so \(T_r\)
+exists but is not computed.
+\end{proof}
